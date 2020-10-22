@@ -208,53 +208,8 @@
     <!-- member plugins -->
     <script src="https://www.gstatic.com/firebasejs/ui/live/0.4/firebase-ui-auth.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/live/0.4/firebase-ui-auth.css" />
-
+    <script src="./fb.js"></script>
     <script src="./login.js"></script>
-
-    <script type="text/javascript">
-        var firebaseConfig = {
-            apiKey: "AIzaSyAYBiNWWdDIyiNtEEFbF_jZOa7p4MXR5qU",
-            authDomain: "cdrrmo-cis.firebaseapp.com",
-            databaseURL: "https://cdrrmo-cis.firebaseio.com",
-            projectId: "cdrrmo-cis",
-            storageBucket: "cdrrmo-cis.appspot.com",
-            messagingSenderId: "975570594314",
-            appId: "1:975570594314:web:ff9771d6ea39959cf38df3",
-            measurementId: "G-Q26QCYSEHB"
-        };
-        firebase.initializeApp(firebaseConfig);
-        // const auth = firebase.auth();
-
-        firebase.auth().onAuthStateChanged(function(user) {
-
-            if (user) { // if already logged in
-                if (user.emailVerified) {
-                    window.location.href = './';
-                } else {
-                    alert('Account not yet verify check your email!')
-                }
-            }
-        });
-
-        /*******************\
-         * init Login UI *
-        \*******************/
-
-        // FirebaseUI config.
-        var uiConfig = {
-            'signInSuccessUrl': false,
-            'signInOptions': [
-                firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-            ],
-            // Terms of service url.
-            'tosUrl': false,
-        };
-        // Initialize the FirebaseUI Widget using Firebase.
-        var ui = new firebaseui.auth.AuthUI(firebase.auth());
-        // The start method will wait until the DOM is loaded.
-        ui.start('#firebaseui-auth-container', uiConfig);
-    </script>
-
 
 </body>
 
