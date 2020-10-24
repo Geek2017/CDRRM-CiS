@@ -7,13 +7,13 @@ angular
                 templateUrl: 'views/dashboard.html',
                 controller: "dashboardCtrl"
             })
-            .when('/coalist', {
-                templateUrl: 'views/coalist.html',
-                controller: "coalistCtrl"
+            .when('/rhalist', {
+                templateUrl: 'views/rhalist.html',
+                controller: "rhalistCtrl"
             })
-            .when('/coanew', {
-                templateUrl: 'views/coanew.html',
-                controller: "coanewCtrl"
+            .when('/rhanew', {
+                templateUrl: 'views/rhanew.html',
+                controller: "rhanewCtrl"
             })
             .when('/cflist', {
                 templateUrl: 'views/cflist.html',
