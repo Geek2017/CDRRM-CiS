@@ -64,7 +64,7 @@
             <span id="logo"> <img src="./assets/img/logo.png" alt="smartadmin"> </span>
         </div>
 
-        <span id="extr-page-header-space"> <span class="hidden-mobile hiddex-xs">Need an account?</span> <a href="register.html" class="btn btn-primary">Create account</a> </span>
+        <span id="extr-page-header-space"> <span class="hidden-mobile hiddex-xs">Go back to Login</span> <a href="login.html" class="btn btn-primary">Login</a> </span>
 
     </header>
 
@@ -110,7 +110,7 @@
                     <div class="well no-padding">
                         <form action="" id="login-form" class="smart-form client-form">
                             <header>
-                                Sign In
+                                Agency Registration:
                             </header>
 
                             <fieldset>
@@ -118,42 +118,43 @@
                                 <section>
                                     <label class="label">E-mail</label>
                                     <label class="input"> <i class="icon-append fa fa-user"></i>
-											<input id="email" type="email" name="email" required>
+											<input id="email" type="email" name="email" >
 											<b class="tooltip tooltip-top-right"><i class="fa fa-user txt-color-teal"></i> Please enter email address/username</b></label>
                                 </section>
 
                                 <section>
-                                    <label class="label">Password</label>
+                                    <label class="label">Full Name</label>
                                     <label class="input"> <i class="icon-append fa fa-lock"></i>
-											<input id="password" type="password" name="password" required>
+											<input id="fullname" type="text" name="fullname" readonly>
 											<b class="tooltip tooltip-top-right"><i class="fa fa-lock txt-color-teal"></i> Enter your password</b> </label>
-                                    <div class="note">
-                                        <a href="forgotpassword.html">Forgot password?</a>
-                                    </div>
+
                                 </section>
 
                                 <section>
-                                    <label class="checkbox">
-											<input type="checkbox" name="remember" checked="">
-											<i></i>Stay signed in</label>
+                                    <label class="label">Pick your Agency/Org.</label>
+                                    <label class="select ">
+                                                <select name="agency" id="agency" required>
+                                                    <option value="" selected disabled=" ">Select</option>
+                                                    <option value="1">CHO</option>
+                                                    <option value="2">CSWDO</option>
+                                                    <option value="3">DEPED</option>
+                                                    <option value="4">BRGY.</option>
+                                                    <option value="5">CDRRMO</option>
+                                                </select> <i></i> 
+                                        </label>
+
                                 </section>
                             </fieldset>
                             <footer>
-                                <button type="submit" class="btn btn-primary btn-block">
-										Authenticate
-                                    </button>
-
+                                <button type="submit" class="btn btn-primary">
+										Proceed
+									</button>
                             </footer>
                         </form>
 
                     </div>
 
-                    <h5 class="text-center"> - Or sign in using -</h5>
 
-                    <ul class="list-inline text-center">
-                        <div id="firebaseui-auth-container"></div>
-
-                    </ul>
 
                 </div>
             </div>
@@ -211,7 +212,7 @@
     <script src="https://www.gstatic.com/firebasejs/ui/live/0.4/firebase-ui-auth.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/live/0.4/firebase-ui-auth.css" />
     <script src="./fb.js"></script>
-    <script src="./login.js"></script>
+    <script src="./validation.js"></script>
 
 </body>
 

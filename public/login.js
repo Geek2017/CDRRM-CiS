@@ -15,12 +15,18 @@ $('#login-form').on('submit', function(e) {
                     window.location.replace("./");
                     console.log(authData);
                 } else {
-                    alert('email not verified, please check your email for confirmation');
+                    $("#notif").append('<div class="alert alert-danger fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Error</strong> Email Not Verified !</div>');
+                    setTimeout(function() {
+                        $("#notif").hide()
+                    }, 10000);
                 }
             })
             .catch(function(error) {
                 console.log("Login Failed!", error.message);
-                alert(error.message + ' Check your input');
+                $("#notif").append('<div class="alert alert-danger fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Error</strong> ' + error.message + '</div>');
+                setTimeout(function() {
+                    $("#notif").hide()
+                }, 10000);
 
             });
     }
@@ -28,11 +34,19 @@ $('#login-form').on('submit', function(e) {
 
 firebase.auth().onAuthStateChanged(function(user) {
 
-    if (user) { // if already logged in
+    if (user) {
+        var umail = user.email;
+        var uid = firebase.database().ref().child('users').push().key;
+        var data = {
+            role: "0"
+        }
+        var updates = {};
+        updates['/users/' + umail] = data;
+        firebase.database().ref().update(updates);
+        console.log(updates)
+
         if (user.emailVerified) {
-            window.location.href = './';
-        } else {
-            alert('Account not yet verify check your email!')
+
         }
     }
 });
@@ -43,7 +57,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 
 // FirebaseUI config.
 var uiConfig = {
-    'signInSuccessUrl': false,
+    'signInSuccessUrl': "validation.html",
     'signInOptions': [
         firebase.auth.GoogleAuthProvider.PROVIDER_ID,
     ],

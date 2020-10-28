@@ -21,7 +21,9 @@ $('#register').on('submit', function(e) {
                     if (user) {
                         user.updateProfile({
                             displayName: $('#firstname').val() + ':' + $('#lastname').val(),
-                            photoURL: ""
+                            photoURL: "",
+                            ia: "1",
+                            sa: "8"
                         })
                         setTimeout(function() {
                             window.location.replace("./login.html");
