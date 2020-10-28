@@ -1,33 +1,28 @@
 firebase.auth().onAuthStateChanged(function(user) {
     console.log(user)
+    var ref = firebase.database().ref("users");
+    ref.orderByChild("email").equalTo(user.email).once("child_added", function(snapshot) {
+
+        window.location.href = "./"
+    });
+
+
     if (user) {
         $('#email').val(user.email)
         $('#fullname').val(user.displayName)
             // testsave();
     } else {
-        $("#notif").append('<div class="alert alert-danger fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Error</strong> Firebase Error contact your administrator !</div>');
+        $("#notif").append('<div class="alert alert-danger fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Firebase Error</strong>  contact your administrator !</div>');
         setTimeout(function() {
             $("#notif").hide()
+            window.location.href = "login.html"
         }, 10000);
     }
 
 
 })
 
-function testsave() {
-    var uid = firebase.database().ref().child('users').push().key;
 
-    var data = {
-        email: $('#email').val(),
-        fullname: $('#fullname').val(),
-        role: '1'
-    }
-
-    var updates = {};
-    updates['/users/' + uid] = data;
-    firebase.database().ref().update(updates);
-
-}
 
 
 
@@ -65,7 +60,7 @@ $('#login-form').on('submit', function(e) {
                 role: $('#agency').val()
             }
 
-            var uid = firebase.database().ref().child('chart_of_accounts').push().key;
+            var uid = firebase.database().ref().child('users').push().key;
             var updates = {};
 
             updates['/users/' + uid] = data;

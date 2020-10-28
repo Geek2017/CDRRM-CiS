@@ -30,8 +30,8 @@ $('#register').on('submit', function(e) {
                         }, 2000);
                     }
 
-                    sendEmailVerification(data);
 
+                    saveusers();
 
                     var email = $('#email').val();
 
@@ -45,6 +45,23 @@ $('#register').on('submit', function(e) {
 
                     }
 
+                    function saveusers() {
+
+                        var data = {
+                            email: $('#email').val(),
+                            fullname: $('#firstname').val() + ":" + $('#lastname').val(),
+                            role: $('#agency').val()
+                        }
+
+                        var uid = firebase.database().ref().child('users').push().key;
+                        var updates = {};
+
+                        updates['/users/' + uid] = data;
+                        firebase.database().ref().update(updates);
+                        if (updates) {
+                            sendEmailVerification(data);
+                        }
+                    }
 
 
                 }).catch(function(error) {

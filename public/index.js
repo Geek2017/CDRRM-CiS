@@ -1,9 +1,10 @@
 $(document).ready(function() {
     pageSetUp();
 
-    function testrun() {
-        alert('test')
-    }
+
+
+
+
 
     $('.chonav').hide()
     $('.depednav').hide()
@@ -14,6 +15,15 @@ $(document).ready(function() {
     $("ul.li").find(".chonav").css("background-color", "red");
 
     firebase.auth().onAuthStateChanged(function(user) {
+
+        if (!user) {
+            window.location.href = './login.html';
+        } else {
+            if (!user.emailVerified) {
+                window.location.href = './login.html';
+            }
+        }
+        $('#displayname').text(user.displayName);
 
         var ref = firebase.database().ref("users");
         ref.orderByChild("email").equalTo(user.email).once("child_added", function(snapshot) {
@@ -41,20 +51,5 @@ $(document).ready(function() {
             }
 
         })
-
-
-
-
-        if (!user) {
-            window.location.href = './login.html';
-        } else {
-            if (!user.emailVerified) {
-                window.location.href = './login.html';
-            }
-        }
-        var user = firebase.auth().currentUser;
-        console.log(user)
-
-        $('#displayname').text(user.displayName);
     })
 })

@@ -64,7 +64,7 @@
             <span id="logo"> <img src="./assets/img/logo.png" alt="smartadmin"> </span>
         </div>
 
-        <span id="extr-page-header-space"> <span class="hidden-mobile hiddex-xs">Go back to Login</span> <a href="login.html" class="btn btn-primary">Login</a> </span>
+        <span id="extr-page-header-space" style=" font-size: 2.5em; ">Please select your respected agency!</span>
 
     </header>
 
@@ -110,28 +110,29 @@
                     <div class="well no-padding">
                         <form action="" id="login-form" class="smart-form client-form">
                             <header>
-                                Agency Registration:
+                                Agency Users Registration:
                             </header>
 
                             <fieldset>
 
                                 <section>
                                     <label class="label">E-mail</label>
-                                    <label class="input"> <i class="icon-append fa fa-user"></i>
-											<input id="email" type="email" name="email" >
+                                    <label class="input"> <i class="icon-append fa fa-envelope-o"></i>
+											<input id="email" type="email" name="email" disabled>
 											<b class="tooltip tooltip-top-right"><i class="fa fa-user txt-color-teal"></i> Please enter email address/username</b></label>
                                 </section>
 
                                 <section>
                                     <label class="label">Full Name</label>
-                                    <label class="input"> <i class="icon-append fa fa-lock"></i>
-											<input id="fullname" type="text" name="fullname" readonly>
+                                    <label class="input"> <i class="icon-append fa fa-user"></i>
+											<input id="fullname" type="text" name="fullname" disabled>
 											<b class="tooltip tooltip-top-right"><i class="fa fa-lock txt-color-teal"></i> Enter your password</b> </label>
 
                                 </section>
 
                                 <section>
                                     <label class="label">Pick your Agency/Org.</label>
+
                                     <label class="select ">
                                                 <select name="agency" id="agency" required>
                                                     <option value="" selected disabled=" ">Select</option>
@@ -146,8 +147,8 @@
                                 </section>
                             </fieldset>
                             <footer>
-                                <button type="submit" class="btn btn-primary">
-										Proceed
+                                <button type="submit" class="btn btn-block btn-success">
+										Proceed to Dashboard
 									</button>
                             </footer>
                         </form>
