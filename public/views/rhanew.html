@@ -1,3 +1,59 @@
+<style>
+    #sig-canvas {
+        border: 2px dotted #CCCCCC;
+        border-radius: 15px;
+        cursor: crosshair;
+    }
+    
+    @media screen and (min-width: 1076px) {
+        .modal-dialog {
+            max-width: 350px;
+            /* New width for default modal */
+        }
+    }
+    
+    @media screen and (min-width: 1024px) {
+        .modal-dialog {
+            max-width: 350px;
+            /* New width for default modal */
+        }
+    }
+    
+    @media screen and (min-width: 768px) {
+        .modal-dialog {
+            max-width: 350px;
+            /* New width for default modal */
+        }
+    }
+    
+    @media screen and (min-width: 360px) {
+        .modal-dialog {
+            max-width: 350px;
+            /* New width for default modal */
+        }
+    }
+    
+    @media screen and (min-width: 411px) {
+        .modal-dialog {
+            max-width: 350px;
+            /* New width for default modal */
+        }
+    }
+    
+    @media screen and (min-width: 375px) {
+        .modal-dialog {
+            max-width: 350px;
+            /* New width for default modal */
+        }
+    }
+    
+    @media screen and (min-width: 375px) {
+        .modal-dialog {
+            max-width: 350px;
+            /* New width for default modal */
+        }
+    }
+</style>
 <section id="widget-grid" class="" style="margin: 0.5%;">
     <div class="row">
         <article class="col-sm-12 col-md-12 col-lg-12">
@@ -18,8 +74,9 @@
             
         -->
                 <header>
-                    <span class="widget-icon"> <i class="fa fa-check txt-color-green"></i> </span>
-                    <h2>Success States </h2>
+                    <!-- <span class="widget-icon"> <i class="fa fa-check txt-color-green"></i> </span> -->
+                    <span class="widget-icon"></span>
+                    <!-- <h2>Success States </h2> -->
 
                 </header>
 
@@ -38,120 +95,673 @@
 
                         <!-- Success states for elements -->
                         <form class="smart-form">
-                            <header>Success states for elements</header>
+                            <header>Event Information</header>
 
                             <fieldset>
                                 <section>
-                                    <label class="label">Text input</label>
-                                    <label class="input ">
-                                <input type="text">
-                            </label>
-                                    <div class="note note-success">This is a required field.</div>
-                                </section>
-
-                                <section>
-                                    <label class="label">File input</label>
-                                    <div class="input input-file ">
-                                        <span class="button"><input type="file" id="file" onchange="this.parentNode.nextSibling.value = this.value">Browse</span><input type="text" readonly>
-                                    </div>
-                                    <div class="note note-success">This is a required field.</div>
-                                </section>
-                            </fieldset>
-
-                            <fieldset>
-                                <section>
-                                    <label class="label">Select</label>
-                                    <label class="select ">
-                                <select>
-                                    <option value="0">Choose name</option>
-                                    <option value="1">Alexandra</option>
-                                    <option value="2">Alice</option>
-                                    <option value="3" selected>Anastasia</option>
-                                    <option value="4">Avelina</option>
-                                </select>
-                                <i></i>
-                            </label>
-                                    <div class="note note-success">Thanks for your selection.</div>
-                                </section>
-                            </fieldset>
-
-                            <fieldset>
-                                <section>
-                                    <label class="label">Textarea</label>
-                                    <label class="textarea ">
-                                <textarea rows="3"></textarea>
-                            </label>
-                                    <div class="note note-success">Thanks for your text.</div>
-                                </section>
-                            </fieldset>
-
-                            <fieldset>
-                                <section>
-                                    <label class="label">Radios</label>
                                     <div class="row">
-                                        <div class="col col-4">
-                                            <label class="radio "><input type="radio" name="radio"><i></i>Alexandra</label>
-                                            <label class="radio "><input type="radio" name="radio"><i></i>Alice</label>
-                                        </div>
-                                        <div class="col col-4">
-                                            <label class="radio "><input type="radio" name="radio" checked><i></i>Avelina</label>
-                                            <label class="radio "><input type="radio" name="radio"><i></i>Basilia</label>
-                                        </div>
-                                        <div class="col col-4">
-                                            <label class="radio "><input type="radio" name="radio"><i></i>Cassandra</label>
-                                            <label class="radio "><input type="radio" name="radio"><i></i>Clemencia</label>
-                                        </div>
+                                        <section class="col col-2">
+                                            <label class="label">Date</label>
+                                            <label class="input ">
+												<input type="date" id="curdate">
+											</label>
+                                        </section>
+                                        <section class="col col-1">
+                                            <label class="label">Time</label>
+                                            <label class="input ">
+												<input type="time" id="curtime">
+											</label>
+                                        </section>
+                                        <section class="col col-1">
+                                            <label class="label">Type</label>
+                                            <label class="select ">
+												<select id="municipality">
+													<option value="0" selected>select</option>
+													<option value="1">Geologic</option>
+													<option value="2">Weather</option>
+													<option value="3">Biologic</option>
+													<option value="4">Man Made</option>
+												</select>
+												<i></i>
+											</label>
+                                        </section>
+                                        <section class="col col-2">
+                                            <label class="label">Details</label>
+                                            <label class="select ">
+												<select id="municipality">
+													<option value="0" selected>select</option>
+													<option value="1">Volcanic Eruption</option>
+													<option value="2">Earthquake</option>
+													<option value="3">Tsunamin</option>
+													<option value="4">Landslide</option>
+													<option value="5">Typhoon</option>
+													<option value="6">Storm Surge</option>
+													<option value="7">Drougth</option>
+													<option value="8">Cold Spell</option>
+													<option value="9">FlashFlood</option>
+													<option value="10">Red Tide</option>
+													<option value="11">Fish Kills</option>
+													<option value="12">Locust</option>
+													<option value="13">Infestation</option>
+													<option value="14">Fire</option>
+													<option value="15">Explosion</option>
+													<option value="16">Armed Conflict</option>
+													<option value="17">Terrorism</option>
+													<option value="18">Poisoning</option>
+													<option value="19">Mass Action</option>
+													<option value="20">Accident</option>
+													<option value="21">Other</option>
+												</select><i></i>
+										</section>
+										<section class="col col-2">
+											<label class="label">Region</label>
+                                            <label class="input ">
+												<input type="text" id="accomodated">
+											</label>
+                                        </section>
+                                        <section class="col col-2">
+                                            <label class="label">Province</label>
+                                            <label class="input ">
+												<input type="text" id="accomodated">
+											</label>
+                                        </section>
+                                        <section class="col col-2">
+                                            <label class="label">Municipality/City</label>
+                                            <label class="input ">
+												<input type="text" id="accomodated">
+											</label>
+                                        </section>
+
                                     </div>
-                                    <div class="note note-success">Thanks for your selection.</div>
+
+
+
                                 </section>
                             </fieldset>
+
+                            <header>Magtitude of Event</header>
 
                             <fieldset>
                                 <section>
-                                    <label class="label">Checkboxes</label>
                                     <div class="row">
-                                        <div class="col col-4">
-                                            <label class="checkbox "><input type="checkbox" name="checkbox"><i></i>Alexandra</label>
-                                            <label class="checkbox "><input type="checkbox" name="checkbox" checked><i></i>Alice</label>
-                                        </div>
-                                        <div class="col col-4">
-                                            <label class="checkbox "><input type="checkbox" name="checkbox"><i></i>Avelina</label>
-                                            <label class="checkbox "><input type="checkbox" name="checkbox"><i></i>Basilia</label>
-                                        </div>
-                                        <div class="col col-4">
-                                            <label class="checkbox "><input type="checkbox" name="checkbox" checked><i></i>Cassandra</label>
-                                            <label class="checkbox "><input type="checkbox" name="checkbox"><i></i>Clemencia</label>
-                                        </div>
+                                        <section class="col col-2">
+                                            <label class="label">Province</label>
+                                            <label class="input ">
+												<input type="text" id="curmagprov">
+											</label>
+                                        </section>
+                                        <section class="col col-2">
+                                            <label class="label">Municipality/City</label>
+                                            <label class="input ">
+												<input type="text" id="curmagmc">
+											</label>
+                                        </section>
+                                        <section class="col col-1">
+                                            <label class="label">Families</label>
+                                            <label class="input ">
+												<input type="text" id="curmagmc">
+											</label>
+                                        </section>
+                                        <section class="col col-1">
+                                            <label class="label">Individuals</label>
+                                            <label class="input ">
+												<input type="text" id="curmagmc">
+											</label>
+                                        </section>
+
+
+                                        <section class="col col-2">
+                                            <label class="label">No. Of EC</label>
+                                            <label class="input ">
+												<input type="text" id="accomodated">
+											</label>
+                                        </section>
+                                        <section class="col col-2">
+                                            <label class="label">No. of Fam. EC</label>
+                                            <label class="input ">
+												<input type="text" id="accomodated">
+											</label>
+                                        </section>
+                                        <section class="col col-2">
+                                            <label class="label">No. of Indiv. in EC</label>
+                                            <label class="input ">
+												<input type="text" id="accomodated">
+											</label>
+                                        </section>
+
                                     </div>
-                                    <div class="note note-success">Thanks for your selection.</div>
+
+
+
                                 </section>
                             </fieldset>
 
+                            <header>Health Consecquences</header>
+
                             <fieldset>
-                                <div class="row">
-                                    <section class="col col-5">
-                                        <label class="label">Toggles based on radios</label>
-                                        <label class="toggle "><input type="radio" name="radio-toggle" checked><i data-swchon-text="ON" data-swchoff-text="OFF"></i>Alexandra</label>
-                                        <label class="toggle "><input type="radio" name="radio-toggle"><i data-swchon-text="ON" data-swchoff-text="OFF"></i>Anastasia</label>
-                                        <label class="toggle "><input type="radio" name="radio-toggle"><i data-swchon-text="ON" data-swchoff-text="OFF"></i>Avelina</label>
-                                        <div class="note note-success">Thanks for your selection.</div>
-                                    </section>
+                                <section>
+                                    <div class="row">
+                                        <section class="col col-2">
+                                            <label class="label">Province</label>
+                                            <label class="input ">
+												<input type="text" id="curmagprov">
+											</label>
+                                        </section>
+                                        <section class="col col-2">
+                                            <label class="label">Municipality/City</label>
+                                            <label class="input ">
+												<input type="text" id="curmagmc">
+											</label>
+                                        </section>
+                                        <section class="col col-2">
+                                            <label class="label">Total no. of Deaths</label>
+                                            <label class="input ">
+												<input type="text" id="curmagmc">
+											</label>
+                                        </section>
+                                        <section class="col col-1">
+                                            <label class="label">Admitted</label>
+                                            <label class="input ">
+												<input type="text" id="curmagmc">
+											</label>
+                                        </section>
 
-                                    <div class="col col-2"></div>
 
-                                    <section class="col col-5">
-                                        <label class="label">Toggles based on checkboxes</label>
-                                        <label class="toggle "><input type="checkbox" name="checkbox-toggle" checked><i data-swchon-text="ON" data-swchoff-text="OFF"></i>Cassandra</label>
-                                        <label class="toggle "><input type="checkbox" name="checkbox-toggle"><i data-swchon-text="ON" data-swchoff-text="OFF"></i>Clemencia</label>
-                                        <label class="toggle "><input type="checkbox" name="checkbox-toggle"><i data-swchon-text="ON" data-swchoff-text="OFF"></i>Desiderata</label>
-                                        <div class="note note-success">Thanks for your selection.</div>
-                                    </section>
-                                </div>
+                                        <section class="col col-2">
+                                            <label class="label">Admitted then Discharged</label>
+                                            <label class="input ">
+												<input type="text" id="accomodated">
+											</label>
+                                        </section>
+                                        <section class="col col-1">
+                                            <label class="label">Not Admitted</label>
+                                            <label class="input ">
+												<input type="text" id="accomodated">
+											</label>
+                                        </section>
+                                        <section class="col col-2">
+                                            <label class="label">Total Of Missing</label>
+                                            <label class="input ">
+												<input type="text" id="accomodated">
+											</label>
+                                        </section>
+
+                                    </div>
+
+
+
+                                </section>
+                            </fieldset>
+
+                            <header>Health Facilities in the affected areas</header>
+
+                            <fieldset>
+                                <section>
+                                    <div class="row">
+                                        <section class="col col-2">
+                                            <label class="label">
+												<h1> DOH Hospitals</h1>
+											</label>
+                                        </section>
+                                        <section class="col col-2">
+                                            <label class="label">Status</label>
+                                            <label class="select ">
+												<select id="municipality">
+													<option value="0" selected>select</option>
+													<option value="1">Fully Functional</option>
+													<option value="2">Partly Functional</option>
+													<option value="3">Totally Non-Functional</option>
+												</select><i></i>
+										</section>
+										<section class="col col-8">
+											<label class="label">Remarks</label>
+                                            <label class="textarea ">
+												<textarea rows="3" id="remarks"></textarea>
+											</label>
+                                        </section>
+                                    </div>
+                                </section>
+                                <section>
+                                    <div class="row">
+                                        <section class="col col-2">
+                                            <label class="label">
+												<h1> LGU Hospitals</h1>
+											</label>
+                                        </section>
+                                        <section class="col col-2">
+                                            <label class="label">Status</label>
+                                            <label class="select ">
+												<select id="municipality">
+													<option value="0" selected>select</option>
+													<option value="1">Fully Functional</option>
+													<option value="2">Partly Functional</option>
+													<option value="3">Totally Non-Functional</option>
+												</select><i></i>
+										</section>
+										<section class="col col-8">
+											<label class="label">Remarks</label>
+                                            <label class="textarea ">
+												<textarea rows="3" id="remarks"></textarea>
+											</label>
+                                        </section>
+                                    </div>
+                                </section>
+
+                                <section>
+                                    <div class="row">
+                                        <section class="col col-2">
+                                            <label class="label">
+												<h1> Pvt, Hospitals</h1>
+											</label>
+                                        </section>
+                                        <section class="col col-2">
+                                            <label class="label">Status</label>
+                                            <label class="select ">
+												<select id="municipality">
+													<option value="0" selected>select</option>
+													<option value="1">Fully Functional</option>
+													<option value="2">Partly Functional</option>
+													<option value="3">Totally Non-Functional</option>
+												</select><i></i>
+										</section>
+										<section class="col col-8">
+											<label class="label">Remarks</label>
+                                            <label class="textarea ">
+												<textarea rows="3" id="remarks"></textarea>
+											</label>
+                                        </section>
+                                    </div>
+                                </section>
+
+                                <section>
+                                    <div class="row">
+                                        <section class="col col-2">
+                                            <label class="label">
+												<h1> RHU/Health Ctr: </h1>
+											</label>
+                                        </section>
+                                        <section class="col col-2">
+                                            <label class="label">Status</label>
+                                            <label class="select ">
+												<select id="municipality">
+													<option value="0" selected>select</option>
+													<option value="1">Fully Functional</option>
+													<option value="2">Partly Functional</option>
+													<option value="3">Totally Non-Functional</option>
+												</select><i></i>
+										</section>
+										<section class="col col-8">
+											<label class="label">Remarks</label>
+                                            <label class="textarea ">
+												<textarea rows="3" id="remarks"></textarea>
+											</label>
+                                        </section>
+                                    </div>
+                                </section>
+
+                                <section>
+                                    <div class="row">
+                                        <section class="col col-2">
+                                            <label class="label">
+												<h1> BHS </h1>
+											</label>
+                                        </section>
+                                        <section class="col col-2">
+                                            <label class="label">Status</label>
+                                            <label class="select ">
+												<select id="municipality">
+													<option value="0" selected>select</option>
+													<option value="1">Fully Functional</option>
+													<option value="2">Partly Functional</option>
+													<option value="3">Totally Non-Functional</option>
+												</select><i></i>
+										</section>
+										<section class="col col-8">
+											<label class="label">Remarks</label>
+                                            <label class="textarea ">
+												<textarea rows="3" id="remarks"></textarea>
+											</label>
+                                        </section>
+                                    </div>
+                                </section>
+
+                                <section>
+                                    <div class="row">
+                                        <section class="col col-2">
+                                            <label class="label">
+												<h1> Other: </h1>
+											</label>
+                                        </section>
+                                        <section class="col col-2">
+                                            <label class="label">Status</label>
+                                            <label class="select ">
+												<select id="municipality">
+													<option value="0" selected>select</option>
+													<option value="1">Fully Functional</option>
+													<option value="2">Partly Functional</option>
+													<option value="3">Totally Non-Functional</option>
+												</select><i></i>
+										</section>
+										<section class="col col-8">
+											<label class="label">Remarks</label>
+                                            <label class="textarea ">
+												<textarea rows="3" id="remarks"></textarea>
+											</label>
+                                        </section>
+                                    </div>
+                                </section>
+                            </fieldset>
+
+                            <header>Lifelines in the Affected Areas</header>
+
+                            <fieldset>
+                                <section>
+                                    <div class="row">
+                                        <section class="col col-2">
+                                            <label class="label">
+												<h1> Communication </h1>
+											</label>
+                                        </section>
+                                        <section class="col col-2">
+                                            <label class="label">Status</label>
+                                            <label class="select ">
+												<select id="municipality">
+													<option value="0" selected>select</option>
+													<option value="1">Fully Functional</option>
+													<option value="2">Partly Functional</option>
+													<option value="3">Totally Non-Functional</option>
+												</select><i></i>
+										</section>
+										<section class="col col-8">
+											<label class="label">Remarks</label>
+                                            <label class="textarea ">
+												<textarea rows="3" id="remarks"></textarea>
+											</label>
+                                        </section>
+                                    </div>
+                                </section>
+
+                                <section>
+                                    <div class="row">
+                                        <section class="col col-2">
+                                            <label class="label">
+												<h1>Electric Power</h1>
+											</label>
+                                        </section>
+                                        <section class="col col-2">
+                                            <label class="label">Status</label>
+                                            <label class="select ">
+												<select id="municipality">
+													<option value="0" selected>select</option>
+													<option value="1">Fully Functional</option>
+													<option value="2">Partly Functional</option>
+													<option value="3">Totally Non-Functional</option>
+												</select><i></i>
+										</section>
+										<section class="col col-8">
+											<label class="label">Remarks</label>
+                                            <label class="textarea ">
+												<textarea rows="3" id="remarks"></textarea>
+											</label>
+                                        </section>
+                                    </div>
+                                </section>
+
+                                <section>
+                                    <div class="row">
+                                        <section class="col col-2">
+                                            <label class="label">
+												<h1>Water</h1>
+											</label>
+                                        </section>
+                                        <section class="col col-2">
+                                            <label class="label">Status</label>
+                                            <label class="select ">
+												<select id="municipality">
+													<option value="0" selected>select</option>
+													<option value="1">Fully Functional</option>
+													<option value="2">Partly Functional</option>
+													<option value="3">Totally Non-Functional</option>
+												</select><i></i>
+										</section>
+										<section class="col col-8">
+											<label class="label">Remarks</label>
+                                            <label class="textarea ">
+												<textarea rows="3" id="remarks"></textarea>
+											</label>
+                                        </section>
+                                    </div>
+                                </section>
+
+                                <section>
+                                    <div class="row">
+                                        <section class="col col-2">
+                                            <label class="label">
+												<h1>Roads/Bridges</h1>
+											</label>
+                                        </section>
+                                        <section class="col col-2">
+                                            <label class="label">Status</label>
+                                            <label class="select ">
+												<select id="municipality">
+													<option value="0" selected>select</option>
+													<option value="1">Fully Functional</option>
+													<option value="2">Partly Functional</option>
+													<option value="3">Totally Non-Functional</option>
+												</select><i></i>
+										</section>
+										<section class="col col-8">
+											<label class="label">Remarks</label>
+                                            <label class="textarea ">
+												<textarea rows="3" id="remarks"></textarea>
+											</label>
+                                        </section>
+                                    </div>
+                                </section>
+
+                                <section>
+                                    <div class="row">
+                                        <section class="col col-2">
+                                            <label class="label">
+												<h1> Others </h1>
+											</label>
+                                        </section>
+                                        <section class="col col-2">
+                                            <label class="label">Status</label>
+                                            <label class="select ">
+												<select id="municipality">
+													<option value="0" selected>select</option>
+													<option value="1">Fully Functional</option>
+													<option value="2">Partly Functional</option>
+													<option value="3">Totally Non-Functional</option>
+												</select><i></i>
+										</section>
+										<section class="col col-8">
+											<label class="label">Remarks</label>
+                                            <label class="textarea ">
+												<textarea rows="3" id="remarks"></textarea>
+											</label>
+                                        </section>
+                                    </div>
+                                </section>
+
+                            </fieldset>
+
+                            <header>Status of Essential Drugs and Supplies in the Affected Ares</header>
+
+                            <fieldset>
+                                <section>
+                                    <div class="row">
+                                        <section class="col col-2">
+                                            <label class="label">
+												<h1> No. Of Cases </h1>
+											</label>
+                                            <label class="input ">
+												<input type="text">
+											</label>
+                                        </section>
+                                        <section class="col col-2">
+                                            <label class="label">
+												<h1> No. Of Days </h1>
+											</label>
+                                            <label class="input ">
+												<input type="text">
+											</label>
+                                        </section>
+                                        <section class="col col-8">
+                                            <label class="label">Remarks</label>
+                                            <label class="textarea ">
+												<textarea rows="3" id="remarks"></textarea>
+											</label>
+                                        </section>
+
+                                    </div>
+                                </section>
+
+
+
+
+                            </fieldset>
+
+                            <header>Action Taken</header>
+
+                            <fieldset>
+                                <section>
+                                    <div class="row">
+                                        <section class="col col-2">
+                                            <label class="label"></label>
+                                            <label class="input ">
+												<h5>1</h5>
+											</label>
+                                        </section>
+                                        <section class="col col-10">
+                                            <label class="label">Remarks</label>
+                                            <label class="textarea ">
+												<textarea rows="3" id="remarks"></textarea>
+											</label>
+                                        </section>
+
+
+                                    </div>
+                                </section>
+
+
+
+
+                            </fieldset>
+
+                            <header>Problem Encountered</header>
+
+                            <fieldset>
+                                <section>
+                                    <div class="row">
+                                        <section class="col col-2">
+                                            <label class="label"></label>
+                                            <label class="input ">
+												<h5>1</h5>
+											</label>
+                                        </section>
+                                        <section class="col col-10">
+                                            <label class="label">Remarks</label>
+                                            <label class="textarea ">
+												<textarea rows="3" id="remarks"></textarea>
+											</label>
+                                        </section>
+
+
+                                    </div>
+                                </section>
+
+
+
+
+                            </fieldset>
+
+                            <header>Recommendations</header>
+
+                            <fieldset>
+                                <section>
+                                    <div class="row">
+                                        <section class="col col-2">
+                                            <label class="label"></label>
+                                            <label class="input ">
+												<h5>1</h5>
+											</label>
+                                        </section>
+                                        <section class="col col-10">
+                                            <label class="label">Remarks</label>
+                                            <label class="textarea ">
+												<textarea rows="3" id="remarks"></textarea>
+											</label>
+                                        </section>
+
+
+                                    </div>
+                                </section>
+                            </fieldset>
+
+                            <header>Prepared and Submitted by:</header>
+
+                            <fieldset>
+                                <section>
+                                    <div class="row">
+                                        <section class="col col-4">
+                                            <label class="label">Mobile No.:</label>
+                                            <label class="input ">
+												<input type="number">
+											</label>
+                                        </section>
+                                        <section class="col col-4">
+                                            <label class="label">Landline.:</label>
+                                            <label class="input ">
+												<input type="number">
+											</label>
+                                        </section>
+                                        <section class="col col-4">
+                                            <label class="label">Fax No.:</label>
+                                            <label class="input ">
+												<input type="number">
+											</label>
+                                        </section>
+                                    </div>
+                                </section>
+                                <section>
+
+                                    <div class="row">
+                                        <section class="col col-4">
+                                            <label class="label">Date Prepared:</label>
+                                            <label class="input ">
+												<input type="date">
+											</label>
+                                        </section>
+
+                                        <section class="col col-4">
+                                            <label class="label">Printed Name</label>
+                                            <label class="input ">
+												<input type="text" id="curmagprov">
+											</label>
+                                        </section>
+
+                                        <section class="col col-4 sign">
+                                            <label class="label">Signature</label>
+
+                                            <button type="button" class="btn btn-info  btn-sm  btn-block" data-toggle="modal" data-target="#exampleModal">
+												CLICK TO SIGN
+											  </button>
+
+                                            <!-- Modal -->
+
+                                        </section>
+
+
+                                    </div>
+
+                                </section>
                             </fieldset>
 
                             <footer>
-                                <button type="submit" class="btn btn-primary">Submit</button>
-                                <button type="button" class="btn btn-default" onclick="window.history.back();">Back</button>
+                                <button type="button" id="submit" class="btn btn-primary">Submit</button>
+
                             </footer>
                         </form>
                         <!--/ Success states for elements -->
@@ -167,4 +777,20 @@
 
         </article>
     </div>
+
 </section>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <div class="modal-body sign">
+
+                <canvas id="sig-canvas"> </canvas>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Reset</button>
+                <button type="button" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
