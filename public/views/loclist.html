@@ -1,0 +1,592 @@
+<style>
+    th {
+        background-color: #57889c !important;
+        color: white;
+    }
+    
+    .th {
+        background-color: #383838 !important;
+        color: white;
+    }
+    
+    .accordion {
+        background-color: #eee;
+        color: white;
+        cursor: pointer;
+        padding: 10px;
+        width: 100%;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 15px;
+        transition: 0.4s;
+    }
+    
+    .active,
+    .accordion:hover {
+        background-color: #ccc;
+    }
+    
+    .panel {
+        padding: 0 18px;
+        display: none;
+        background-color: white;
+        overflow: hidden;
+    }
+</style>
+<article class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+
+    <!-- Widget ID (each widget will need unique ID)-->
+    <div class="jarviswidget jarviswidget-color-darken">
+
+        <header>
+            <span class="widget-icon"> <i class="fa fa-table"></i> </span>
+            <h2>Accounts</h2>
+
+        </header>
+
+        <!-- widget div-->
+        <div style="overflow-x:auto;overflow-y:auto;">
+
+
+
+            <label class="input">
+                <input type="text" name="name" ng-model="findcf"> <i class="icon-append fa fa-search"></i>
+            </label>
+
+            <label class="input pull-right">
+                <label class="select ">Page Filter
+                    <select name="options" id="pfilter">
+
+                        <option value="10">10</option>
+                        <option value="30">30</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+
+                    </select> <i></i> </label>
+            </label>
+
+            <table id="data" class="table table-striped table-bordered table-hover" width="100%">
+
+                
+                <thead>
+                    <tr>
+                        <th colspan="14 pull-center" class="text-center th">Tropical Depresssion Usman Situation Report </th>
+                    </tr>
+                    <!-- <tr>
+                        <th colspan="3" class="text-center">Occurrence</th>
+                        <th colspan="2" class="text-center">Event</th>
+                        <th colspan="6" class="text-center">Exact Location</th>
+
+                    </tr> -->
+
+                    <tr>
+                        <th class="text-center th">#</th>
+                        <th class="text-center th">Municipality </th>
+                        <th class="text-center th">#</th>
+                        <th class="text-center th">List of Schools used as Evacuation Centers</th>
+                        <th class="text-center th">#</th>
+                        <th class="text-center th">No. of classrooms used as Evacuation Centers</th>
+                        <th class="text-center th">No. of families </th>
+                        <th class="text-center th">No. of individuals </th>
+                        <th class="text-center th">No. of teaching and non-teaching personnel (resident of the EC)</th>
+                        <th class="text-center th">No. of resident learners/Enrolment of the school used as EC </th>
+                        <th class="text-center th">No. of evacuee-learners </th>
+                        <!-- <th class="text-center th">Resident Learners</th>
+                        <th class="text-center th">Displaced Learners</th>
+                        <th class="text-center th">TOTAL Affected Learners</th> -->
+                        <!-- <th class="text-center th">Remarks</th> -->
+                        <th colspan="3" class="text-center th">Actions</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr class="text-center" ng-repeat="data in data">
+                        <td>{{$index + 1}}</td>
+                        <td>{{data.municipality}}</td>
+                        <td>{{data.municipalityNo}}</td>
+                        <td>{{data.evacCenter}}</td>
+                        <td>{{data.evacCenterNo}}</td>
+                        <td>{{data.classroomNo}}</td>
+                        <td>{{data.familiesNo}}</td>
+                        <td>{{data.individualNo}}</td>
+                        <td>{{data.personnel}}</td>
+                        <td>{{data.residentLearners}}</td>
+                        <td>{{data.evacueeLearners}}</td>
+                        <!-- <td>{{data.residentLearners}}</td>
+                        <td>{{data.displacedLearners}}</td>
+                        <td>{{data.totalLearners}}</td>
+                        <td>{{data.remarks}}</td> -->
+
+                        <td><button type="button" class="btn btn-info btn-block btn-xs " ng-click="selectUser3(data)"><i class="icon-append fa fa-search"></i></button></td>
+                        <td><button type="button" class="btn btn-success btn-block btn-xs " ng-click="selectUser(data)"><i class="icon-append fa fa-pencil" ></i></button></td>
+                        <td><button type="button" class="btn btn-danger btn-block btn-xs " ng-click="selectUser2(data)"><i class="icon-append fa fa-minus-circle" ></i></button></td>
+                    </tr>
+
+                    <!-- <tr class="text-center" ng-repeat="data in camalig">
+                        <td>{{$index + 1}}</td>
+                        <td>Camalig</td>
+                        <td>{{data.accomodated}}</td>
+                        <td>{{data.host}}</td>
+                        <td>{{data.families}}</td>
+                        <td>{{data.individuals}}</td>
+                        <td>{{data.classrooms}}</td>
+                        <td>{{data.dateOfDecampment}}</td>
+                        <td>{{data.dateOfEvacuation}}</td>
+                        <td>{{data.remarks}}</td>
+
+                        <td><button type="button" class="btn btn-info btn-block btn-xs " data-toggle="modal" data-target="#myModal"><i class="icon-append fa fa-search"></i></button></td>
+                        <td><button type="button" class="btn btn-success btn-block btn-xs " data-toggle="modal" data-target="#myModal"><i class="icon-append fa fa-pencil"></i></button></td>
+                        <td><button type="button" class="btn btn-danger btn-block btn-xs " data-toggle="modal" data-target="#myModal"><i class="icon-append fa fa-minus-circle"></i></button></td>
+                    </tr>
+
+                    <tr class="text-center" ng-repeat="data in guinobatan">
+                        <td>{{$index + 1}}</td>
+                        <td>Guinobatan</td>
+                        <td>{{data.accomodated}}</td>
+                        <td>{{data.host}}</td>
+                        <td>{{data.families}}</td>
+                        <td>{{data.individuals}}</td>
+                        <td>{{data.classrooms}}</td>
+                        <td>{{data.dateOfDecampment}}</td>
+                        <td>{{data.dateOfEvacuation}}</td>
+                        <td>{{data.remarks}}</td>
+
+                        <td><button type="button" class="btn btn-info btn-block btn-xs " data-toggle="modal" data-target="#myModal"><i class="icon-append fa fa-search"></i></button></td>
+                        <td><button type="button" class="btn btn-success btn-block btn-xs " data-toggle="modal" data-target="#myModal"><i class="icon-append fa fa-pencil"></i></button></td>
+                        <td><button type="button" class="btn btn-danger btn-block btn-xs " data-toggle="modal" data-target="#myModal"><i class="icon-append fa fa-minus-circle"></i></button></td>
+                    </tr> -->
+
+
+                </tbody>
+
+
+
+            </table>
+
+
+
+
+
+
+
+        </div>
+
+    </div>
+
+    <span id="here"></span>
+
+
+</article>
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog" style="width: 80%;height: 80%; ">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+
+
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Edit Info.</h4>
+            </div>
+
+            <div class="modal-body">
+
+
+                <form class="smart-form">
+                    <header>List of Casualties (Learners)</header>
+
+                    <fieldset>
+                        <section>
+                            <div class="row">
+                                <section class="col col-3">
+                                    <label class="label">Municipality</label>
+                                    <label class="input ">
+                                        <input type="text" id="municipality2" ng-model="clickedUser.municipality">
+                                    </label>
+                                </section>
+                                <section class="col col-3">
+                                    <label class="label">#</label>
+                                    <label class="input ">
+                                        <input type="text" id="municipalityNo2" ng-model="clickedUser.municipalityNo">
+                                    </label>
+                                </section>
+                                <section class="col col-3">
+                                    <label class="label">Evacuation Center (Names of school) </label>
+                                    <label class="input ">
+                                        <input type="text" id="evacCenter2" ng-model="clickedUser.evacCenter">
+                                    </label>
+                                </section>
+                                <section class="col col-3">
+                                    <label class="label">#</label>
+                                    <label class="input ">
+                                        <input type="text" id="evacCenterNo2" ng-model="clickedUser.evacCenterNo">
+                                    </label>
+                                </section>
+
+                            </div>
+
+                            <div class="row">
+                                <section class="col col-3">
+                                    <label class="label">No. of classrooms used as Evacuation Centers</label>
+                                    <label class="input ">
+                                        <input type="text" id="classroomNo2" ng-model="clickedUser.classroomNo">
+                                    </label>
+                                </section>
+                                <section class="col col-3">
+                                    <label class="label">No. of families </label>
+                                    <label class="input ">
+                                        <input type="text" id="familiesNo2" ng-model="clickedUser.familiesNo">
+                                    </label>
+                                </section>
+                                <section class="col col-3">
+                                    <label class="label">No. of individuals </label>
+                                    <label class="input ">
+                                        <input type="text" id="individualNo2" ng-model="clickedUser.individualNo">
+                                    </label>
+                                </section>
+                                <section class="col col-3">
+                                    <label class="label">No. of teaching and non-teaching personnel </label>
+                                    <label class="input ">
+                                        <input type="text" id="personnel2" ng-model="clickedUser.personnel">
+                                    </label>
+                                </section>
+
+                            </div>
+
+                            <div class="row">
+                                <section class="col col-6">
+                                    <label class="label">No. of resident learners/Enrolment of the school used as EC  </label>
+                                    <label class="input ">
+                                        <input type="text" id="residentLearners2" ng-model="clickedUser.residentLearners">
+                                    </label>
+                                </section>
+
+                                <section class="col col-6">
+                                    <label class="label">No. of evacuee-learners </label>
+                                    <label class="input ">
+                                        <input type="text" id="evacueeLearners2" ng-model="clickedUser.evacueeLearners">
+                                    </label>
+                                </section>
+
+                            </div>
+
+                            <div class="row">
+                                <section class="col col-4">
+                                    <label class="label">Affected Schools (Floods and Landslides) (Names of schools)</label>
+                                    <label class="input ">
+                                        <input type="text" id="affectedSchool2" ng-model="clickedUser.affectedSchool">
+                                    </label>
+                                </section>
+                                <section class="col col-4">
+                                    <label class="label">No. of affected learners </label>
+                                    <label class="input ">
+                                        <input type="text" id="affectedLearners2" ng-model="clickedUser.affectedLearners">
+                                    </label>
+                                </section>
+
+                                <section class="col col-4">
+                                    <label class="label">No. of learner casualties </label>
+                                    <label class="input ">
+                                        <input type="text" id="learnerCasualties2" ng-model="clickedUser.learnerCasualties">
+                                    </label>
+                                </section>
+
+
+                            </div>
+
+                            <div class="row">
+                                <section class="col col-4">
+                                    <label class="label">Cause of death </label>
+                                    <label class="input ">
+                                        <input type="text" id="causeOfDeath2" ng-model="clickedUser.causeOfDeath">
+                                    </label>
+                                </section>
+                                <section class="col col-4">
+                                    <label class="label">No. of affected teaching personnel </label>
+                                    <label class="input ">
+                                        <input type="text" id="affectedTPNum2" ng-model="clickedUser.affectedTPNum">
+                                    </label>
+                                </section>
+                                <section class="col col-4">
+                                    <label class="label">No. of affected non-teaching personnel </label>
+                                    <label class="input ">
+                                        <input type="text" id="affectedNTPNum2" ng-model="clickedUser.affectedNTPNum">
+                                    </label>
+                                </section>
+                            </div>
+
+
+                            <!-- <header>Total number of damaged classrooms (indicate the total number of classrooms damaged per school) </header> -->
+                            <!-- <br> -->
+
+                            <div class="row">
+                                <section class="col col-3">
+                                    <label class="label">Totally damaged (1.5 M)</label>
+                                    <label class="input ">
+                                        <input type="text" id="totalDamage2" ng-model="clickedUser.totalDamage">
+                                    </label>
+                                </section>
+                                <section class="col col-3">
+                                    <label class="label">Partially-Major Damaged (500 thou)</label>
+                                    <label class="input ">
+                                        <input type="text" id="partialMajorDamage2" ng-model="clickedUser.partialMajorDamage">
+                                    </label>
+                                </section>
+                                <section class="col col-3">
+                                    <label class="label">Partially Minor Damaged (20 thou) </label>
+                                    <label class="input ">
+                                        <input type="text" id="partialMinorDamage2" ng-model="clickedUser.partialMinorDamage">
+                                    </label>
+                                </section>
+                                <section class="col col-3">
+                                    <label class="label">No. of TLS units needed  (85,300)</label>
+                                    <label class="input ">
+                                        <input type="text" id="TLSNeededNum2" ng-model="clickedUser.TLSNeededNum">
+                                    </label>
+                                </section>
+
+                            </div>
+
+                            <div class="row">
+                                <section class="col col-3">
+                                    <label class="label">No. of Furniture (Armchairs) Damaged *per unit</label>
+                                    <label class="input ">
+                                        <input type="text" id="armchairDamage2" ng-model="clickedUser.armchairDamage">
+                                    </label>
+                                </section>
+                                <section class="col col-3">
+                                    <label class="label" style="font-size:80%">No. of Furniture (Desks/Tables & chairs) Damaged*per unit</label>
+                                    <label class="input ">
+                                        <input type="text" id="tableChairDamage2" ng-model="clickedUser.tableChairDamage">
+                                    </label>
+                                </section>
+                                <section class="col col-3">
+                                    <label class="label">No. of damaged LMs (per unit) </label>
+                                    <label class="input ">
+                                        <input type="text" id="LMDamage2" ng-model="clickedUser.LMDamage">
+                                    </label>
+                                </section>
+                                <section class="col col-3">
+                                    <label class="label">No. of damaged computers</label>
+                                    <label class="input ">
+                                        <input type="text" id="computerDamage2" ng-model="clickedUser.computerDamage">
+                                    </label>
+                                </section>
+
+                            </div>
+                            <div class="row">
+                                <section class="col col-6">
+                                    <label class="label">Need for Clean-Up 20 thou *tick 1 per school</label>
+                                    <label class="input ">
+                                        <input type="text" id="cleanUp2" ng-model="clickedUser.cleanUp">
+                                    </label>
+                                </section>
+
+                                <section class="col col-6">
+                                    <label class="label">Need for Psychological First Aid (PFA) *tick 1 per school  </label>
+                                    <label class="input ">
+                                        <input type="text" id="PFA2" ng-model="clickedUser.PFA">
+                                    </label>
+                                </section>
+
+                            </div>
+                            <i></i>
+                            <!-- <div class="note note-success">Thanks for your selection.</div> -->
+                        </section>
+                    </fieldset>
+
+                    <footer>
+                        <button type="button" id="submit" class="btn btn-success" ng-click="updateUser()">Save</button>
+                        <button type="button" class="btn btn-primary" ng-click="close()">close</button>
+                    </footer>
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<div id="myModal2" class="modal fade" role="dialog">
+    <div class="modal-dialog" style="width: 50%;height: 50%; ">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+
+
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Delete Info.</h4>
+            </div>
+            <div class="modal-body">
+
+
+                <p>You want to delete <strong style="color: red;">{{clickedUser.evacCenter}}'s</strong> Evacuation Center from <strong style="color: red;">{{clickedUser.municipality}}</strong>?</p>
+
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info" ng-click="close()">No</button>
+                <button type="button" class="btn btn-danger" ng-click="deleteUser()">Yes</button>
+            </div>
+
+
+        </div>
+
+    </div>
+</div>
+
+<div id="myModal3" class="modal fade" role="dialog">
+    <div class="modal-dialog" style="width: 98%;height: auto; ">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+
+
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Continuation Info.</h4>
+            </div>
+            <style>
+                th {
+                    background-color: #57889c !important;
+                    color: white;
+                }
+            </style>
+
+            <div class="modal-body">
+
+
+                <!-- Widget ID (each widget will need unique ID)-->
+                <div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-editbutton="true" style="margin-bottom: 5px!important;margin-top: 5px!important;margin-left: -11px!important;margin-right: -11px!important;">
+                    <!-- widget options:
+    usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+
+    data-widget-colorbutton="false"
+    data-widget-editbutton="false"
+    data-widget-togglebutton="false"
+    data-widget-deletebutton="false"
+    data-widget-fullscreenbutton="false"
+    data-widget-custombutton="false" 
+    data-widget-collapsed="true"
+    data-widget-sortable="false"
+
+    -->
+                    <header>
+                        <span class="widget-icon"> <i class="fa fa-table"></i> </span>
+                    </header>
+
+                    <!-- widget div-->
+                    <div style="overflow-x:auto;">
+
+
+
+                        <!-- <label class="input">
+                            <input type="text" name="name" ng-model="findcoa"> <i
+                                class="icon-append fa fa-search"></i>
+                        </label> -->
+                        <!-- <label class="input pull-right">
+                            <label class="select ">Page Filter
+                                <select name="options" id="pfilter">
+
+                                    <option value="10">10</option>
+                                    <option value="30">30</option>
+                                    <option value="50">50</option>
+                                    <option value="100">100</option>
+
+                                </select> <i></i> </label>
+                        </label> -->
+                        <br>
+
+                        <table id="data" class="table table-striped table-bordered table-hover" width="100%">
+                            <thead>
+
+                                <tr>
+                                    <th colspan="16 pull-center" class="text-center th">Tropical Depresssion Usman Situation Report</th>
+                                </tr>
+
+                                <tr>
+                                    <th colspan="6" class="text-center"></th>
+                                    <th colspan="4" class="text-center">Total number of damaged classrooms (indicate the total number of classrooms damaged per school) </th>
+                                    <th colspan="4" class="text-center">Non-Infra Damage </th>
+                                    <th colspan="2" class="text-center"></th>
+            
+                                </tr>
+
+                                <tr>
+                                    <th  class="text-center th">List of Affected Schools (Floods and Landslides)</th>
+                                    <th  class="text-center th">No. of affected learners </th>
+                                    <th  class="text-center th">No. of learner casualties </th>
+                                    <th  class="text-center th">Cause of death </th>
+                                    <th  class="text-center th">No. of affected teaching personnel </th>
+                                    <th  class="text-center th">No. of affected non-teaching personnel </th>
+                                    <th  class="text-center th">Totally damaged (1.5 M)</th>
+                                    <th  class="text-center th">Partially-Major Damaged (500 thou)</th>
+                                    <th  class="text-center th">Partially Minor Damaged (20 thou) </th>
+                                    <th  class="text-center th">No. of TLS units needed  (85,300)</th>
+                                    <th  class="text-center th">No. of Furniture (Armchairs) Damaged *per unit</th>
+                                    <th  class="text-center th">Furniture (Desks/Tables and chairs) Damaged*per unit</th>
+                                    <th  class="text-center th">No. of damaged LMs (per unit)</th>
+                                    <th  class="text-center th">No. of damaged computers </th>
+                                    <th  class="text-center th">Need for Clean-Up 20 thou *tick 1 per school</th>
+                                    <th  class="text-center th">Need for Psychological First Aid (PFA) *tick 1 per school </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr class="text-center">
+                                    <td>{{clickedUser.affectedSchool}}</td>
+                                    <td>{{clickedUser.affectedLearners}}</td>
+                                    <td>{{clickedUser.learnerCasualties}}</td>
+                                    <td>{{clickedUser.causeOfDeath}}</td>
+                                    <td>{{clickedUser.affectedTPNum}}</td>
+                                    <td>{{clickedUser.affectedNTPNum}}</td>
+                                    <td>{{clickedUser.totalDamage}}</td>
+                                    <td>{{clickedUser.partialMajorDamage}}</td>
+                                    <td>{{clickedUser.partialMinorDamage}}</td>
+                                    <td>{{clickedUser.TLSNeededNum}}</td>
+                                    <td>{{clickedUser.armchairDamage}}</td>
+                                    <td>{{clickedUser.tableChairDamage}}</td>
+                                    <td>{{clickedUser.LMDamage}}</td>
+                                    <td>{{clickedUser.computerDamage}}</td>
+                                    <td>{{clickedUser.cleanUp}}</td>
+                                    <td>{{clickedUser.PFA}}</td>
+
+                                </tr>
+
+
+                            </tbody>
+
+
+
+                        </table>
+
+
+
+
+
+
+                    </div>
+
+                </div>
+
+                <span id="here"></span>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" ng-click="close()">Close</button>
+                    <!-- <button type="button" class="btn btn-danger" ng-click="deleteUser()">Yes</button> -->
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+</div>
+<script>
+</script>

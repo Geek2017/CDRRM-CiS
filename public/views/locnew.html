@@ -1,0 +1,263 @@
+<section id="widget-grid" class="" style="margin: 0.5%;">
+    <div class="row">
+        <article class="col-sm-12 col-md-12 col-lg-12">
+
+            <!-- Widget ID (each widget will need unique ID)-->
+            <div class="jarviswidget" id="wid-id-2" data-widget-colorbutton="false" data-widget-editbutton="false">
+                <!-- widget options:
+            usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+            
+            data-widget-colorbutton="false"	
+            data-widget-editbutton="false"
+            data-widget-togglebutton="false"
+            data-widget-deletebutton="false"
+            data-widget-fullscreenbutton="false"
+            data-widget-custombutton="false"
+            data-widget-collapsed="true" 
+            data-widget-sortable="false"
+            
+        -->
+                <header>
+                    <!-- <span class="widget-icon"> <i class="fa fa-check txt-color-green"></i> </span> -->
+                    <span class="widget-icon"></span>
+                    <!-- <h2>Success States </h2> -->
+
+                </header>
+
+                <!-- widget div-->
+                <div>
+
+                    <!-- widget edit box -->
+                    <div class="jarviswidget-editbox">
+                        <!-- This area used as dropdown edit box -->
+
+                    </div>
+                    <!-- end widget edit box -->
+
+                    <!-- widget content -->
+                    <div class="widget-body no-padding">
+
+                        <!-- Success states for elements -->
+                        <form class="smart-form">
+                            <header>List of Casualties (Learners)</header>
+
+                            <fieldset>
+                                <section>
+                                    <div class="row">
+                                        <section class="col col-3">
+                                            <label class="label">Municipality</label>
+                                            <label class="input ">
+                                                <input type="text" id="municipality">
+                                            </label>
+                                        </section>
+                                        <section class="col col-3">
+                                            <label class="label">#</label>
+                                            <label class="input ">
+                                                <input type="text" id="municipalityNo">
+                                            </label>
+                                        </section>
+                                        <section class="col col-3">
+                                            <label class="label">Evacuation Center (Names of school) </label>
+                                            <label class="input ">
+                                                <input type="text" id="evacCenter">
+                                            </label>
+                                        </section>
+                                        <section class="col col-3">
+                                            <label class="label">#</label>
+                                            <label class="input ">
+                                                <input type="text" id="evacCenterNo">
+                                            </label>
+                                        </section>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <section class="col col-3">
+                                            <label class="label">No. of classrooms used as Evacuation Centers</label>
+                                            <label class="input ">
+                                                <input type="number" id="classroomNo">
+                                            </label>
+                                        </section>
+                                        <section class="col col-3">
+                                            <label class="label">No. of families </label>
+                                            <label class="input ">
+                                                <input type="number" id="familiesNo">
+                                            </label>
+                                        </section>
+                                        <section class="col col-3">
+                                            <label class="label">No. of individuals </label>
+                                            <label class="input ">
+                                                <input type="number" id="individualNo">
+                                            </label>
+                                        </section>
+                                        <section class="col col-3">
+                                            <label class="label">No. of teaching and non-teaching personnel </label>
+                                            <label class="input ">
+                                                <input type="number" id="personnel">
+                                            </label>
+                                        </section>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <section class="col col-6">
+                                            <label class="label">No. of resident learners/Enrolment of the school used as EC  </label>
+                                            <label class="input ">
+                                                <input type="number" id="residentLearners">
+                                            </label>
+                                        </section>
+
+                                        <section class="col col-6">
+                                            <label class="label">No. of evacuee-learners </label>
+                                            <label class="input ">
+                                                <input type="number" id="evacueeLearners">
+                                            </label>
+                                        </section>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <section class="col col-4">
+                                            <label class="label">Affected Schools (Floods and Landslides) (Names of schools)</label>
+                                            <label class="input ">
+                                                <input type="text" id="affectedSchool">
+                                            </label>
+                                        </section>
+                                        <section class="col col-4">
+                                            <label class="label">No. of affected learners </label>
+                                            <label class="input ">
+                                                <input type="number" id="affectedLearners">
+                                            </label>
+                                        </section>
+
+                                        <section class="col col-4">
+                                            <label class="label">No. of learner casualties </label>
+                                            <label class="input ">
+                                                <input type="number" id="learnerCasualties">
+                                            </label>
+                                        </section>
+
+
+                                    </div>
+
+                                    <div class="row">
+                                        <section class="col col-4">
+                                            <label class="label">Cause of death </label>
+                                            <label class="input ">
+                                                <input type="number" id="causeOfDeath">
+                                            </label>
+                                        </section>
+                                        <section class="col col-4">
+                                            <label class="label">No. of affected teaching personnel </label>
+                                            <label class="input ">
+                                                <input type="number" id="affectedTPNum">
+                                            </label>
+                                        </section>
+                                        <section class="col col-4">
+                                            <label class="label">No. of affected non-teaching personnel </label>
+                                            <label class="input ">
+                                                <input type="number" id="affectedNTPNum">
+                                            </label>
+                                        </section>
+                                    </div>
+
+
+                                    <!-- <header>Total number of damaged classrooms (indicate the total number of classrooms damaged per school) </header> -->
+                                    <!-- <br> -->
+
+                                    <div class="row">
+                                        <section class="col col-3">
+                                            <label class="label">Totally damaged (1.5 M)</label>
+                                            <label class="input ">
+                                                <input type="number" id="totalDamage">
+                                            </label>
+                                        </section>
+                                        <section class="col col-3">
+                                            <label class="label">Partially-Major Damaged (500 thou)</label>
+                                            <label class="input ">
+                                                <input type="number" id="partialMajorDamage">
+                                            </label>
+                                        </section>
+                                        <section class="col col-3">
+                                            <label class="label">Partially Minor Damaged (20 thou) </label>
+                                            <label class="input ">
+                                                <input type="number" id="partialMinorDamage">
+                                            </label>
+                                        </section>
+                                        <section class="col col-3">
+                                            <label class="label">No. of TLS units needed  (85,300)</label>
+                                            <label class="input ">
+                                                <input type="number" id="TLSNeededNum">
+                                            </label>
+                                        </section>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <section class="col col-3">
+                                            <label class="label">No. of Furniture (Armchairs) Damaged *per unit</label>
+                                            <label class="input ">
+                                                <input type="number" id="armchairDamage">
+                                            </label>
+                                        </section>
+                                        <section class="col col-3">
+                                            <label class="label" style="font-size:80%">No. of Furniture (Desks/Tables & chairs) Damaged*per unit</label>
+                                            <label class="input ">
+                                                <input type="number" id="tableChairDamage">
+                                            </label>
+                                        </section>
+                                        <section class="col col-3">
+                                            <label class="label">No. of damaged LMs (per unit) </label>
+                                            <label class="input ">
+                                                <input type="number" id="LMDamage">
+                                            </label>
+                                        </section>
+                                        <section class="col col-3">
+                                            <label class="label">No. of damaged computers</label>
+                                            <label class="input ">
+                                                <input type="number" id="computerDamage">
+                                            </label>
+                                        </section>
+
+                                    </div>
+                                    <div class="row">
+                                        <section class="col col-6">
+                                            <label class="label">Need for Clean-Up 20 thou *tick 1 per school</label>
+                                            <label class="input ">
+                                                <input type="number" id="cleanUp">
+                                            </label>
+                                        </section>
+
+                                        <section class="col col-6">
+                                            <label class="label">Need for Psychological First Aid (PFA) *tick 1 per school  </label>
+                                            <label class="input ">
+                                                <input type="number" id="PFA">
+                                            </label>
+                                        </section>
+
+                                    </div>
+                                    <i></i>
+                                    <!-- <div class="note note-success">Thanks for your selection.</div> -->
+                                </section>
+                            </fieldset>
+
+                            <footer>
+                                <button type="button" id="submit" class="btn btn-primary">Submit</button>
+                                <button type="button" class="btn btn-default"
+                                    onclick="window.history.back();">Back</button>
+                            </footer>
+                        </form>
+                        <!--/ Success states for elements -->
+
+                    </div>
+                    <!-- end widget content -->
+
+                </div>
+                <!-- end widget div -->
+
+            </div>
+            <!-- end widget -->
+
+        </article>
+    </div>
+</section>

@@ -1,6 +1,6 @@
 // Application Modules and Routing
 angular
-    .module('newApp', ['ngRoute'])
+    .module('newApp', ['ngRoute', 'firebase'])
     .config(function($routeProvider) {
         $routeProvider
             .when('/', {
@@ -35,9 +35,29 @@ angular
                 templateUrl: 'views/cdlist.html',
                 controller: "cdlistCtrl"
             })
-            .when('/cdnew', {
-                templateUrl: 'views/cdnew.html',
-                controller: "cdnewCtrl"
+            .when('/ecdnew', {
+                templateUrl: 'views/ecdnew.html',
+                controller: "ecdnewCtrl"
+            })
+            .when('/ecdlist', {
+                templateUrl: 'views/ecdlist.html',
+                controller: "ecdlistCtrl"
+            })
+            .when('/flasnew', {
+                templateUrl: 'views/flasnew.html',
+                controller: "flasnewCtrl"
+            })
+            .when('/flaslist', {
+                templateUrl: 'views/flaslist.html',
+                controller: "flaslistCtrl"
+            })
+            .when('/locnew', {
+                templateUrl: 'views/locnew.html',
+                controller: "locnewCtrl"
+            })
+            .when('/loclist', {
+                templateUrl: 'views/loclist.html',
+                controller: "loclistCtrl"
             });
 
 
