@@ -1,10 +1,47 @@
 angular.module('newApp').controller('rhanewCtrl', function($scope) {
     pageSetUp();
 
+    var cnt = 0;
+    $("#addme").on("click", function() {
 
+        $("#appendhere").append("<tr ><td><label class='input'><input type='text' name='Province' placeholder='Province Name' required></label></td><td><label class='input'><input type='text' name='Municipality/City' placeholder='Municipality/City Name'></label></td><td><label class='input'><input type='number' name='Families' placeholder='Families Count'></label></td><td><label class='input'><input type='number' name='Individuals' placeholder='Individuals Count'></label></td><td><label class='input'><input type='number' name='No.Of.EC' placeholder='No. Of EC'></label></td><td><label class='input'><input type='number' name='No.of.Fam.EC' placeholder='No. of Fam. EC'></label></td><td class='col-md-2'><label class='input col-md-10'><input type='text' name='No.of.Indiv.in.EC' placeholder='No. of Indiv. in EC' class='number' /></label><label class='input col-md-1'><button class='btn btn-danger btn-sm deleteb'>X</button></label></td></tr>");
+        cnt++;
+        $('table thead th').each(function(i) {
+
+        });
+
+    });
+
+    $("#minme").on("click", function() {
+
+        $('#appendhere tr:last').remove();
+        $('table thead th').each(function(i) {
+
+        });
+        // calculateSum();
+    });
+
+
+
+    var obj;
+    $scope.tojson = function(obj) {
+
+        var table = $('#convert-table').tableToJSON({
+
+            extractor: function(cellIndex, $cell) {
+                return $cell.find('input').val() || $cell.find("#type option:selected").text();
+            }
+
+
+        })
+        return table;
+
+    }
 
     $('#saverha').on('submit', function(e) {
         e.preventDefault();
+
+        console.log($scope.tojson(obj))
 
         var uid = firebase.database().ref().child('cho/rha').push().key;
 
@@ -17,67 +54,68 @@ angular.module('newApp').controller('rhanewCtrl', function($scope) {
             rhaprovince: $('#rhaprovince').val(),
             rhamuci: $('#rhamuci').val(),
 
-            rhaprovinceb: $('#rhaprovinceb').val(),
-            rhamunib: $("#rhamunib").val(),
-            rhafamb: $("#rhafamb").val(),
-            rhaindb: $("#rhaindb").val(),
-            rhaecb: $("#rhaecb").val(),
-            rhafamec: $('#rhafamec').val(),
-            rhaindiecb: $('#rhaindiecb').val(),
+            moe: $scope.tojson(obj)
+                // rhaprovinceb: $('#rhaprovinceb').val(),
+                // rhamunib: $("#rhamunib").val(),
+                // rhafamb: $("#rhafamb").val(),
+                // rhaindb: $("#rhaindb").val(),
+                // rhaecb: $("#rhaecb").val(),
+                // rhafamec: $('#rhafamec').val(),
+                // rhaindiecb: $('#rhaindiecb').val(),
 
-            chprovince: $('#chprovince').val(),
-            hcmc: $("#hcmc").val(),
-            hctnod: $("#hctnod").val(),
-            hca: $("#hca").val(),
-            hcatd: $("#hcatd").val(),
-            hcna: $('#hcna').val(),
-            hctom: $('#hctom').val(),
+            // chprovince: $('#chprovince').val(),
+            // hcmc: $("#hcmc").val(),
+            // hctnod: $("#hctnod").val(),
+            // hca: $("#hca").val(),
+            // hcatd: $("#hcatd").val(),
+            // hcna: $('#hcna').val(),
+            // hctom: $('#hctom').val(),
 
-            chprovince: $('#chprovince').val(),
-            hcmc: $("#hcmc").val(),
-            hctnod: $("#hctnod").val(),
-            hca: $("#hca").val(),
-            hcatd: $("#hcatd").val(),
-            hcna: $('#hcna').val(),
-            hctom: $('#hctom').val(),
+            // chprovince: $('#chprovince').val(),
+            // hcmc: $("#hcmc").val(),
+            // hctnod: $("#hctnod").val(),
+            // hca: $("#hca").val(),
+            // hcatd: $("#hcatd").val(),
+            // hcna: $('#hcna').val(),
+            // hctom: $('#hctom').val(),
 
-            dhs: $("#dhs option:selected").text(),
-            dhr: $('#dhr').val(),
-            lhs: $("#lhs option:selected").text(),
-            lhr: $('#lhr').val(),
-            phs: $("#phs option:selected").text(),
-            phr: $('#phr').val(),
-            lhs: $("#lhs option:selected").text(),
-            lhr: $('#lhr').val(),
-            rhcs: $("#rhcs option:selected").text(),
-            rhcr: $('#rhcr').val(),
-            bhss: $("#bhss option:selected").text(),
-            bhsr: $('#bhsr').val(),
-            others: $("#others option:selected").text(),
-            otherr: $('#otherr').val(),
+            // dhs: $("#dhs option:selected").text(),
+            // dhr: $('#dhr').val(),
+            // lhs: $("#lhs option:selected").text(),
+            // lhr: $('#lhr').val(),
+            // phs: $("#phs option:selected").text(),
+            // phr: $('#phr').val(),
+            // lhs: $("#lhs option:selected").text(),
+            // lhr: $('#lhr').val(),
+            // rhcs: $("#rhcs option:selected").text(),
+            // rhcr: $('#rhcr').val(),
+            // bhss: $("#bhss option:selected").text(),
+            // bhsr: $('#bhsr').val(),
+            // others: $("#others option:selected").text(),
+            // otherr: $('#otherr').val(),
 
-            communications: $("#communications option:selected").text(),
-            communicationr: $('#communicationr').val(),
-            waters: $("#waters option:selected").text(),
-            waterr: $('#waterr').val(),
-            rbs: $("#rbs option:selected").text(),
-            rbr: $('#rbr').val(),
-            others1: $("#others1 option:selected").text(),
-            otherr1: $('#otherr1').val(),
+            // communications: $("#communications option:selected").text(),
+            // communicationr: $('#communicationr').val(),
+            // waters: $("#waters option:selected").text(),
+            // waterr: $('#waterr').val(),
+            // rbs: $("#rbs option:selected").text(),
+            // rbr: $('#rbr').val(),
+            // others1: $("#others1 option:selected").text(),
+            // otherr1: $('#otherr1').val(),
 
-            noc: $('#noc').val(),
-            nod: $('#nod').val(),
-            nocdr: $('#nocdr').val(),
-            actionr: $('#actionr').val(),
-            problemr: $('#problemr').val(),
-            recommendationr: $('#recommendationr').val(),
+            // noc: $('#noc').val(),
+            // nod: $('#nod').val(),
+            // nocdr: $('#nocdr').val(),
+            // actionr: $('#actionr').val(),
+            // problemr: $('#problemr').val(),
+            // recommendationr: $('#recommendationr').val(),
 
-            mobile: $('#mobile').val(),
-            landline: $('#landline').val(),
-            faxno: $('#faxno').val(),
-            datep: $('#datep').val(),
-            printedn: $('#printedn').val(),
-            signature: localStorage.getItem('sign')
+            // mobile: $('#mobile').val(),
+            // landline: $('#landline').val(),
+            // faxno: $('#faxno').val(),
+            // datep: $('#datep').val(),
+            // printedn: $('#printedn').val(),
+            // signature: localStorage.getItem('sign')
 
 
         }
@@ -89,6 +127,9 @@ angular.module('newApp').controller('rhanewCtrl', function($scope) {
 
 
     });
+
+
+
 
 
 
