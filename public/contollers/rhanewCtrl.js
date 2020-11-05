@@ -1,6 +1,97 @@
 angular.module('newApp').controller('rhanewCtrl', function($scope) {
     pageSetUp();
 
+
+
+    $('#saverha').on('submit', function(e) {
+        e.preventDefault();
+
+        var uid = firebase.database().ref().child('cho/rha').push().key;
+
+        var data = {
+            rhadate: $('#rhadate').val(),
+            rhatime: $("#rhatime").val(),
+            rhatype: $("#rhatype option:selected").text(),
+            rhadetails: $("#type option:selected").text(),
+            rharegion: $("#rharegion").val(),
+            rhaprovince: $('#rhaprovince').val(),
+            rhamuci: $('#rhamuci').val(),
+
+            rhaprovinceb: $('#rhaprovinceb').val(),
+            rhamunib: $("#rhamunib").val(),
+            rhafamb: $("#rhafamb").val(),
+            rhaindb: $("#rhaindb").val(),
+            rhaecb: $("#rhaecb").val(),
+            rhafamec: $('#rhafamec').val(),
+            rhaindiecb: $('#rhaindiecb').val(),
+
+            chprovince: $('#chprovince').val(),
+            hcmc: $("#hcmc").val(),
+            hctnod: $("#hctnod").val(),
+            hca: $("#hca").val(),
+            hcatd: $("#hcatd").val(),
+            hcna: $('#hcna').val(),
+            hctom: $('#hctom').val(),
+
+            chprovince: $('#chprovince').val(),
+            hcmc: $("#hcmc").val(),
+            hctnod: $("#hctnod").val(),
+            hca: $("#hca").val(),
+            hcatd: $("#hcatd").val(),
+            hcna: $('#hcna').val(),
+            hctom: $('#hctom').val(),
+
+            dhs: $("#dhs option:selected").text(),
+            dhr: $('#dhr').val(),
+            lhs: $("#lhs option:selected").text(),
+            lhr: $('#lhr').val(),
+            phs: $("#phs option:selected").text(),
+            phr: $('#phr').val(),
+            lhs: $("#lhs option:selected").text(),
+            lhr: $('#lhr').val(),
+            rhcs: $("#rhcs option:selected").text(),
+            rhcr: $('#rhcr').val(),
+            bhss: $("#bhss option:selected").text(),
+            bhsr: $('#bhsr').val(),
+            others: $("#others option:selected").text(),
+            otherr: $('#otherr').val(),
+
+            communications: $("#communications option:selected").text(),
+            communicationr: $('#communicationr').val(),
+            waters: $("#waters option:selected").text(),
+            waterr: $('#waterr').val(),
+            rbs: $("#rbs option:selected").text(),
+            rbr: $('#rbr').val(),
+            others1: $("#others1 option:selected").text(),
+            otherr1: $('#otherr1').val(),
+
+            noc: $('#noc').val(),
+            nod: $('#nod').val(),
+            nocdr: $('#nocdr').val(),
+            actionr: $('#actionr').val(),
+            problemr: $('#problemr').val(),
+            recommendationr: $('#recommendationr').val(),
+
+            mobile: $('#mobile').val(),
+            landline: $('#landline').val(),
+            faxno: $('#faxno').val(),
+            datep: $('#datep').val(),
+            printedn: $('#printedn').val(),
+            signature: localStorage.getItem('sign')
+
+
+        }
+
+        var updates = {};
+        updates['/cho/rha/' + uid] = data;
+        firebase.database().ref().update(updates);
+        console.log(updates)
+
+
+    });
+
+
+
     (function() {
         window.requestAnimFrame = (function(callback) {
             return window.requestAnimationFrame ||

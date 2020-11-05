@@ -94,28 +94,28 @@
                     <div class="widget-body no-padding">
 
                         <!-- Success states for elements -->
-                        <form class="smart-form">
+                        <form class="smart-form" id="saverha">
                             <header>Event Information</header>
-
+                            <!--Start of Event Information-->
                             <fieldset>
                                 <section>
                                     <div class="row">
                                         <section class="col col-2">
                                             <label class="label">Date</label>
                                             <label class="input ">
-												<input type="date" id="curdate">
+												<input type="date" id="rhadate" required>
 											</label>
                                         </section>
                                         <section class="col col-1">
                                             <label class="label">Time</label>
                                             <label class="input ">
-												<input type="time" id="curtime">
+												<input type="time" id="rhatime" required>
 											</label>
                                         </section>
                                         <section class="col col-1">
                                             <label class="label">Type</label>
                                             <label class="select ">
-												<select id="municipality">
+												<select id="rhatype" required>
 													<option value="0" selected>select</option>
 													<option value="1">Geologic</option>
 													<option value="2">Weather</option>
@@ -128,7 +128,7 @@
                                         <section class="col col-2">
                                             <label class="label">Details</label>
                                             <label class="select ">
-												<select id="municipality">
+												<select id="rhadetails" required>
 													<option value="0" selected>select</option>
 													<option value="1">Volcanic Eruption</option>
 													<option value="2">Earthquake</option>
@@ -156,19 +156,19 @@
 										<section class="col col-2">
 											<label class="label">Region</label>
                                             <label class="input ">
-												<input type="text" id="accomodated">
+												<input type="text" id="rharegion" required>
 											</label>
                                         </section>
                                         <section class="col col-2">
                                             <label class="label">Province</label>
                                             <label class="input ">
-												<input type="text" id="accomodated">
+												<input type="text" id="rhaprovince" required>
 											</label>
                                         </section>
                                         <section class="col col-2">
                                             <label class="label">Municipality/City</label>
                                             <label class="input ">
-												<input type="text" id="accomodated">
+												<input type="text" id="rhamuci" required>
 											</label>
                                         </section>
 
@@ -178,34 +178,35 @@
 
                                 </section>
                             </fieldset>
+                            <!--End of Event Information-->
 
                             <header>Magtitude of Event</header>
-
+                            <!--Start of Magnitude of event-->
                             <fieldset>
                                 <section>
                                     <div class="row">
                                         <section class="col col-2">
                                             <label class="label">Province</label>
                                             <label class="input ">
-												<input type="text" id="curmagprov">
+												<input type="text" id="rhaprovinceb">
 											</label>
                                         </section>
                                         <section class="col col-2">
                                             <label class="label">Municipality/City</label>
                                             <label class="input ">
-												<input type="text" id="curmagmc">
+												<input type="text" id="rhamunib">
 											</label>
                                         </section>
                                         <section class="col col-1">
                                             <label class="label">Families</label>
                                             <label class="input ">
-												<input type="text" id="curmagmc">
+												<input type="text" id="rhafamb">
 											</label>
                                         </section>
                                         <section class="col col-1">
                                             <label class="label">Individuals</label>
                                             <label class="input ">
-												<input type="text" id="curmagmc">
+												<input type="text" id="rhaindb">
 											</label>
                                         </section>
 
@@ -213,19 +214,19 @@
                                         <section class="col col-2">
                                             <label class="label">No. Of EC</label>
                                             <label class="input ">
-												<input type="text" id="accomodated">
+												<input type="text" id="rhaecb">
 											</label>
                                         </section>
                                         <section class="col col-2">
                                             <label class="label">No. of Fam. EC</label>
                                             <label class="input ">
-												<input type="text" id="accomodated">
+												<input type="text" id="rhafamec">
 											</label>
                                         </section>
                                         <section class="col col-2">
                                             <label class="label">No. of Indiv. in EC</label>
                                             <label class="input ">
-												<input type="text" id="accomodated">
+												<input type="text" id="rhaindiecb">
 											</label>
                                         </section>
 
@@ -235,34 +236,35 @@
 
                                 </section>
                             </fieldset>
+                            <!--End of Magnitude of event-->
 
                             <header>Health Consecquences</header>
-
+                            <!--Start of Health Consecquences-->
                             <fieldset>
                                 <section>
                                     <div class="row">
                                         <section class="col col-2">
                                             <label class="label">Province</label>
                                             <label class="input ">
-												<input type="text" id="curmagprov">
+												<input type="text" id="chprovince">
 											</label>
                                         </section>
                                         <section class="col col-2">
                                             <label class="label">Municipality/City</label>
                                             <label class="input ">
-												<input type="text" id="curmagmc">
+												<input type="text" id="hcmc">
 											</label>
                                         </section>
                                         <section class="col col-2">
                                             <label class="label">Total no. of Deaths</label>
                                             <label class="input ">
-												<input type="text" id="curmagmc">
+												<input type="text" id="hctnod">
 											</label>
                                         </section>
                                         <section class="col col-1">
                                             <label class="label">Admitted</label>
                                             <label class="input ">
-												<input type="text" id="curmagmc">
+												<input type="text" id="hca">
 											</label>
                                         </section>
 
@@ -270,19 +272,19 @@
                                         <section class="col col-2">
                                             <label class="label">Admitted then Discharged</label>
                                             <label class="input ">
-												<input type="text" id="accomodated">
+												<input type="text" id="hcatd">
 											</label>
                                         </section>
                                         <section class="col col-1">
                                             <label class="label">Not Admitted</label>
                                             <label class="input ">
-												<input type="text" id="accomodated">
+												<input type="text" id="hcna">
 											</label>
                                         </section>
                                         <section class="col col-2">
                                             <label class="label">Total Of Missing</label>
                                             <label class="input ">
-												<input type="text" id="accomodated">
+												<input type="text" id="hctom">
 											</label>
                                         </section>
 
@@ -292,9 +294,12 @@
 
                                 </section>
                             </fieldset>
+                            <!--Start of Health Consecquences-->
+
+
 
                             <header>Health Facilities in the affected areas</header>
-
+                            <!--Start of Health Facilities in the affected areas-->
                             <fieldset>
                                 <section>
                                     <div class="row">
@@ -306,7 +311,7 @@
                                         <section class="col col-2">
                                             <label class="label">Status</label>
                                             <label class="select ">
-												<select id="municipality">
+												<select id="dhs">
 													<option value="0" selected>select</option>
 													<option value="1">Fully Functional</option>
 													<option value="2">Partly Functional</option>
@@ -316,7 +321,7 @@
 										<section class="col col-8">
 											<label class="label">Remarks</label>
                                             <label class="textarea ">
-												<textarea rows="3" id="remarks"></textarea>
+												<textarea rows="3" id="dhr"></textarea>
 											</label>
                                         </section>
                                     </div>
@@ -331,7 +336,7 @@
                                         <section class="col col-2">
                                             <label class="label">Status</label>
                                             <label class="select ">
-												<select id="municipality">
+												<select id="lhs">
 													<option value="0" selected>select</option>
 													<option value="1">Fully Functional</option>
 													<option value="2">Partly Functional</option>
@@ -341,7 +346,7 @@
 										<section class="col col-8">
 											<label class="label">Remarks</label>
                                             <label class="textarea ">
-												<textarea rows="3" id="remarks"></textarea>
+												<textarea rows="3" id="lhr"></textarea>
 											</label>
                                         </section>
                                     </div>
@@ -357,7 +362,7 @@
                                         <section class="col col-2">
                                             <label class="label">Status</label>
                                             <label class="select ">
-												<select id="municipality">
+												<select id="phs">
 													<option value="0" selected>select</option>
 													<option value="1">Fully Functional</option>
 													<option value="2">Partly Functional</option>
@@ -367,7 +372,7 @@
 										<section class="col col-8">
 											<label class="label">Remarks</label>
                                             <label class="textarea ">
-												<textarea rows="3" id="remarks"></textarea>
+												<textarea rows="3" id="phr"></textarea>
 											</label>
                                         </section>
                                     </div>
@@ -383,7 +388,7 @@
                                         <section class="col col-2">
                                             <label class="label">Status</label>
                                             <label class="select ">
-												<select id="municipality">
+												<select id="rhcs">
 													<option value="0" selected>select</option>
 													<option value="1">Fully Functional</option>
 													<option value="2">Partly Functional</option>
@@ -393,7 +398,7 @@
 										<section class="col col-8">
 											<label class="label">Remarks</label>
                                             <label class="textarea ">
-												<textarea rows="3" id="remarks"></textarea>
+												<textarea rows="3" id="rhcr"></textarea>
 											</label>
                                         </section>
                                     </div>
@@ -409,7 +414,7 @@
                                         <section class="col col-2">
                                             <label class="label">Status</label>
                                             <label class="select ">
-												<select id="municipality">
+												<select id="bhss">
 													<option value="0" selected>select</option>
 													<option value="1">Fully Functional</option>
 													<option value="2">Partly Functional</option>
@@ -419,7 +424,7 @@
 										<section class="col col-8">
 											<label class="label">Remarks</label>
                                             <label class="textarea ">
-												<textarea rows="3" id="remarks"></textarea>
+												<textarea rows="3" id="bhsr"></textarea>
 											</label>
                                         </section>
                                     </div>
@@ -435,7 +440,7 @@
                                         <section class="col col-2">
                                             <label class="label">Status</label>
                                             <label class="select ">
-												<select id="municipality">
+												<select id="others">
 													<option value="0" selected>select</option>
 													<option value="1">Fully Functional</option>
 													<option value="2">Partly Functional</option>
@@ -445,15 +450,16 @@
 										<section class="col col-8">
 											<label class="label">Remarks</label>
                                             <label class="textarea ">
-												<textarea rows="3" id="remarks"></textarea>
+												<textarea rows="3" id="otherr"></textarea>
 											</label>
                                         </section>
                                     </div>
                                 </section>
                             </fieldset>
+                            <!--End of Health Facilities in the affected areas-->
 
                             <header>Lifelines in the Affected Areas</header>
-
+                            <!--Start of Lifelines in the Affected Areas-->
                             <fieldset>
                                 <section>
                                     <div class="row">
@@ -465,7 +471,7 @@
                                         <section class="col col-2">
                                             <label class="label">Status</label>
                                             <label class="select ">
-												<select id="municipality">
+												<select id="communications">
 													<option value="0" selected>select</option>
 													<option value="1">Fully Functional</option>
 													<option value="2">Partly Functional</option>
@@ -475,7 +481,7 @@
 										<section class="col col-8">
 											<label class="label">Remarks</label>
                                             <label class="textarea ">
-												<textarea rows="3" id="remarks"></textarea>
+												<textarea rows="3" id="communicationr"></textarea>
 											</label>
                                         </section>
                                     </div>
@@ -491,7 +497,7 @@
                                         <section class="col col-2">
                                             <label class="label">Status</label>
                                             <label class="select ">
-												<select id="municipality">
+												<select id="eps">
 													<option value="0" selected>select</option>
 													<option value="1">Fully Functional</option>
 													<option value="2">Partly Functional</option>
@@ -501,7 +507,7 @@
 										<section class="col col-8">
 											<label class="label">Remarks</label>
                                             <label class="textarea ">
-												<textarea rows="3" id="remarks"></textarea>
+												<textarea rows="3" id="epr"></textarea>
 											</label>
                                         </section>
                                     </div>
@@ -517,7 +523,7 @@
                                         <section class="col col-2">
                                             <label class="label">Status</label>
                                             <label class="select ">
-												<select id="municipality">
+												<select id="waters">
 													<option value="0" selected>select</option>
 													<option value="1">Fully Functional</option>
 													<option value="2">Partly Functional</option>
@@ -527,7 +533,7 @@
 										<section class="col col-8">
 											<label class="label">Remarks</label>
                                             <label class="textarea ">
-												<textarea rows="3" id="remarks"></textarea>
+												<textarea rows="3" id="waterr"></textarea>
 											</label>
                                         </section>
                                     </div>
@@ -543,7 +549,7 @@
                                         <section class="col col-2">
                                             <label class="label">Status</label>
                                             <label class="select ">
-												<select id="municipality">
+												<select id="rbs">
 													<option value="0" selected>select</option>
 													<option value="1">Fully Functional</option>
 													<option value="2">Partly Functional</option>
@@ -553,7 +559,7 @@
 										<section class="col col-8">
 											<label class="label">Remarks</label>
                                             <label class="textarea ">
-												<textarea rows="3" id="remarks"></textarea>
+												<textarea rows="3" id="rbr"></textarea>
 											</label>
                                         </section>
                                     </div>
@@ -569,7 +575,7 @@
                                         <section class="col col-2">
                                             <label class="label">Status</label>
                                             <label class="select ">
-												<select id="municipality">
+												<select id="others1">
 													<option value="0" selected>select</option>
 													<option value="1">Fully Functional</option>
 													<option value="2">Partly Functional</option>
@@ -579,16 +585,17 @@
 										<section class="col col-8">
 											<label class="label">Remarks</label>
                                             <label class="textarea ">
-												<textarea rows="3" id="remarks"></textarea>
+												<textarea rows="3" id="otherr1"></textarea>
 											</label>
                                         </section>
                                     </div>
                                 </section>
 
                             </fieldset>
+                            <!--Start of Lifelines in the Affected Areas-->
 
                             <header>Status of Essential Drugs and Supplies in the Affected Ares</header>
-
+                            <!--Start of Status of Essential Drugs and Supplies in the Affected Ares-->
                             <fieldset>
                                 <section>
                                     <div class="row">
@@ -597,7 +604,7 @@
 												<h1> No. Of Cases </h1>
 											</label>
                                             <label class="input ">
-												<input type="text">
+												<input type="text" id="noc">
 											</label>
                                         </section>
                                         <section class="col col-2">
@@ -605,13 +612,13 @@
 												<h1> No. Of Days </h1>
 											</label>
                                             <label class="input ">
-												<input type="text">
+												<input type="text" id="nod">
 											</label>
                                         </section>
                                         <section class="col col-8">
                                             <label class="label">Remarks</label>
                                             <label class="textarea ">
-												<textarea rows="3" id="remarks"></textarea>
+												<textarea rows="3" id="nocdr"></textarea>
 											</label>
                                         </section>
 
@@ -622,6 +629,7 @@
 
 
                             </fieldset>
+
 
                             <header>Action Taken</header>
 
@@ -637,7 +645,7 @@
                                         <section class="col col-10">
                                             <label class="label">Remarks</label>
                                             <label class="textarea ">
-												<textarea rows="3" id="remarks"></textarea>
+												<textarea rows="3" id="actionr"></textarea>
 											</label>
                                         </section>
 
@@ -664,7 +672,7 @@
                                         <section class="col col-10">
                                             <label class="label">Remarks</label>
                                             <label class="textarea ">
-												<textarea rows="3" id="remarks"></textarea>
+												<textarea rows="3" id="problemr"></textarea>
 											</label>
                                         </section>
 
@@ -678,6 +686,7 @@
                             </fieldset>
 
                             <header>Recommendations</header>
+                            <!--Start of Status of Essential Drugs and Supplies in the Affected Ares-->
 
                             <fieldset>
                                 <section>
@@ -691,7 +700,7 @@
                                         <section class="col col-10">
                                             <label class="label">Remarks</label>
                                             <label class="textarea ">
-												<textarea rows="3" id="remarks"></textarea>
+												<textarea rows="3" id="recommendationr"></textarea>
 											</label>
                                         </section>
 
@@ -708,37 +717,37 @@
                                         <section class="col col-4">
                                             <label class="label">Mobile No.:</label>
                                             <label class="input ">
-												<input type="number">
+												<input type="number" id="mobile">
 											</label>
                                         </section>
                                         <section class="col col-4">
                                             <label class="label">Landline.:</label>
                                             <label class="input ">
-												<input type="number">
+												<input type="number" id="landline">
 											</label>
                                         </section>
                                         <section class="col col-4">
                                             <label class="label">Fax No.:</label>
                                             <label class="input ">
-												<input type="number">
+												<input type="number" id="faxno">
 											</label>
                                         </section>
                                     </div>
                                 </section>
                                 <section>
-
+                                    sorsogon city
                                     <div class="row">
                                         <section class="col col-4">
                                             <label class="label">Date Prepared:</label>
                                             <label class="input ">
-												<input type="date">
+												<input type="date" id="datep">
 											</label>
                                         </section>
 
                                         <section class="col col-4">
                                             <label class="label">Printed Name</label>
                                             <label class="input ">
-												<input type="text" id="curmagprov">
+												<input type="text" id="printedn">
 											</label>
                                         </section>
 
@@ -760,8 +769,7 @@
                             </fieldset>
 
                             <footer>
-                                <button type="button" id="submit" class="btn btn-primary">Submit</button>
-
+                                <button type="submit" class="btn btn-primary ">Submit</button>
                             </footer>
                         </form>
                         <!--/ Success states for elements -->
