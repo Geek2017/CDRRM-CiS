@@ -1,7 +1,7 @@
 angular.module('newApp').controller('ecdlistCtrl', function($firebaseArray, $scope, $http, $timeout) {
 
-    var ref = firebase.database().ref('/ecd');
-    var ref2 = firebase.database().ref('/ecd');
+    var ref = firebase.database().ref('/deped/ecd');
+    var ref2 = firebase.database().ref('/deped/ecd');
 
     var test = [];
     var test2 = [];
@@ -42,7 +42,7 @@ angular.module('newApp').controller('ecdlistCtrl', function($firebaseArray, $sco
     });
 
     $scope.selectUser = function(users) {
-        console.log(users.$id);
+        // console.log(users);
         
         $scope.clickedUser = users;
         id = users;
@@ -52,14 +52,14 @@ angular.module('newApp').controller('ecdlistCtrl', function($firebaseArray, $sco
     };
 
     $scope.selectUser2 = function(users) {
-        // console.log(users);
+        console.log(users.$id);
         $scope.clickedUser = users;
         id = users;
         $('#myModal2').modal('show');
     };
 
     $scope.updateUser = function() {
-        var ref2 = firebase.database().ref("ecd/" + id.$id);
+        var ref2 = firebase.database().ref("/deped/ecd/" + id.$id);
         ref2.update({
             municipality: $('#editMunicipality').val(),
                 host: $('#editHost').val(),
@@ -71,14 +71,47 @@ angular.module('newApp').controller('ecdlistCtrl', function($firebaseArray, $sco
                 dateOfDecampment: $('#editDateOfDecampment').val(),
                 remarks: $('#editRemarks').val()
         })
+        .catch(function(error) {
+            console.log("Login Failed!", error.message);
+            $("#notif").append('<div class="alert alert-danger fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Error</strong> ' + error.message + '</div>');
+            setTimeout(function() {
+                $("#notif").hide()
+            }, 10000);
+
+        });
+
+        // window.location.href = "#ecdlist";
+
+        $("#notif").append('<div class="alert alert-success fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Success</strong> Evacuation School Site Updated !</div>');
+        setTimeout(function() {
+            $("#notif").hide()
+        }, 10000);
 
         $('#myModal').modal('hide');
 
     };
 
     $scope.deleteUser = function() {
-        var ref = firebase.database().ref("ecd/" + id.$id);
-        ref.remove();
+        var ref = firebase.database().ref("deped/ecd/" + id.$id);
+        ref.remove()
+        .catch(function(error) {
+            console.log("Login Failed!", error.message);
+            $("#notif").append('<div class="alert alert-danger fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Error</strong> ' + error.message + '</div>');
+            setTimeout(function() {
+                $("#notif").hide()
+            }, 10000);
+
+        });;
+
+        // $("#notif").show();
+        // window.location.href = "#ecdlist";
+
+        $("#notif").append('<div class="alert alert-success fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Success</strong> Deleted !</div>');
+        setTimeout(function() {
+            $("#notif").hide()
+        }, 10000);
+
+
         $('#myModal2').modal('hide');
     };
 

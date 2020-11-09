@@ -41,33 +41,79 @@
 
                         <!-- Success states for elements -->
                         <form class="smart-form">
-                            <header>List of Casualties (Learners)</header>
+                            <header>Report on the Number of Evacuation Centers and other Details (Disaster)</header>
 
                             <fieldset>
                                 <section>
+
                                     <div class="row">
+                                        <section class="col col-6">
+                                            <label class="label">School ID </label>
+                                            <label class="input ">
+                                                <input type="text" id="schoolID">
+                                            </label>
+                                        </section>
+
+                                        <section class="col col-6">
+                                            <label class="label">Name of School </label>
+                                            <label class="input ">
+                                                <input type="text" id="school">
+                                            </label>
+                                        </section>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <section class="col col-3">
+                                            <label class="label">Region</label>
+                                            <label class="input ">
+                                                <input type="text" id="region">
+                                            </label>
+                                        </section>
+                                        <section class="col col-3">
+                                            <label class="label">Division</label>
+                                            <label class="input ">
+                                                <input type="text" id="division">
+                                            </label>
+                                        </section>
+                                        <section class="col col-3">
+                                            <label class="label">District </label>
+                                            <label class="input ">
+                                                <input type="text" id="district">
+                                            </label>
+                                        </section>
                                         <section class="col col-3">
                                             <label class="label">Municipality</label>
                                             <label class="input ">
                                                 <input type="text" id="municipality">
                                             </label>
                                         </section>
+
+                                    </div>
+
+                                    <div class="row">
                                         <section class="col col-3">
-                                            <label class="label">#</label>
+                                            <label class="label">Enrollment</label>
                                             <label class="input ">
-                                                <input type="text" id="municipalityNo">
+                                                <input type="number" id="enrollment">
                                             </label>
                                         </section>
                                         <section class="col col-3">
-                                            <label class="label">Evacuation Center (Names of school) </label>
+                                            <label class="label">Total Schools with Report</label>
                                             <label class="input ">
-                                                <input type="text" id="evacCenter">
+                                                <input type="number" id="totalSchool">
                                             </label>
                                         </section>
                                         <section class="col col-3">
-                                            <label class="label">#</label>
+                                            <label class="label">Schools with Reported Infra Damages</label>
                                             <label class="input ">
-                                                <input type="text" id="evacCenterNo">
+                                                <input type="number" id="schoolWithInfraDamage">
+                                            </label>
+                                        </section>
+                                        <section class="col col-3">
+                                            <label class="label">Totally Damaged Classrooms</label>
+                                            <label class="input ">
+                                                <input type="number" id="totalDamageClassroom">
                                             </label>
                                         </section>
 
@@ -75,27 +121,88 @@
 
                                     <div class="row">
                                         <section class="col col-3">
-                                            <label class="label">No. of classrooms used as Evacuation Centers</label>
+                                            <label class="label">Partially Damaged Classrooms (Major)</label>
                                             <label class="input ">
-                                                <input type="number" id="classroomNo">
+                                                <input type="number" id="partialDamageClassMajor">
                                             </label>
                                         </section>
                                         <section class="col col-3">
-                                            <label class="label">No. of families </label>
+                                            <label class="label">Partially Damaged Classrooms (Minor)</label>
                                             <label class="input ">
-                                                <input type="number" id="familiesNo">
+                                                <input type="number" id="partialDamageClassMinor">
                                             </label>
                                         </section>
                                         <section class="col col-3">
-                                            <label class="label">No. of individuals </label>
+                                            <label class="label">Temporary Learning Spaces needed</label>
                                             <label class="input ">
-                                                <input type="number" id="individualNo">
+                                                <input type="number" id="temporaryLearning">
                                             </label>
                                         </section>
                                         <section class="col col-3">
-                                            <label class="label">No. of teaching and non-teaching personnel </label>
+                                            <label class="label">Number of Deceased DepEd Personnel</label>
                                             <label class="input ">
-                                                <input type="number" id="personnel">
+                                                <input type="number" id="deceasedPersonnel">
+                                            </label>
+                                        </section>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <section class="col col-3">
+                                            <label class="label">Number of Injured DepEd Personnel</label>
+                                            <label class="input ">
+                                                <input type="number" id="injuredPersonnel">
+                                            </label>
+                                        </section>
+                                        <section class="col col-3">
+                                            <label class="label">Number of Missing DepEd Personnel</label>
+                                            <label class="input ">
+                                                <input type="number" id="missingPersonnel">
+                                            </label>
+                                        </section>
+                                        <section class="col col-3">
+                                            <label class="label">Number of Displaced DepEd Personnel</label>
+                                            <label class="input ">
+                                                <input type="number" id="displacedPersonnel">
+                                            </label>
+                                        </section>
+                                        <section class="col col-3">
+                                            <label class="label">Total Classrooms used as Evacuation Center</label>
+                                            <label class="input ">
+                                                <input type="number" id="totalEvacSchool">
+                                            </label>
+                                        </section>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <section class="col col-3">
+                                            <label class="label">School as EC lasted for 3 days or more</label>
+                                            <label class="select ">
+                                                <select id="ECLasted">
+                                                    <!-- <option value="0">Choose Municipality</option> -->
+                                                    <option value="Yes" selected>Yes</option>
+                                                    <option value="No">No</option>
+                                                </select>
+                                                <i></i>
+                                            </label>
+                                        </section>
+                                        <section class="col col-3">
+                                            <label class="label">Total Schools with Report</label>
+                                            <label class="input ">
+                                                <input type="number" id="totalSchoolReport">
+                                            </label>
+                                        </section>
+                                        <section class="col col-3">
+                                            <label class="label">Schools with Reported Non-Infra Damages</label>
+                                            <label class="input ">
+                                                <input type="number" id="schoolWithNonInfraDamage">
+                                            </label>
+                                        </section>
+                                        <section class="col col-3">
+                                            <label class="label">Number of damaged school furnitures</label>
+                                            <label class="input ">
+                                                <input type="number" id="damagedSchoolFurnitures">
                                             </label>
                                         </section>
 
@@ -103,137 +210,16 @@
 
                                     <div class="row">
                                         <section class="col col-6">
-                                            <label class="label">No. of resident learners/Enrolment of the school used as EC  </label>
+                                            <label class="label">Number of damaged learning materials </label>
                                             <label class="input ">
-                                                <input type="number" id="residentLearners">
+                                                <input type="number" id="damagedLearningMaterials">
                                             </label>
                                         </section>
 
                                         <section class="col col-6">
-                                            <label class="label">No. of evacuee-learners </label>
+                                            <label class="label">Number of damaged computer equipment </label>
                                             <label class="input ">
-                                                <input type="number" id="evacueeLearners">
-                                            </label>
-                                        </section>
-
-                                    </div>
-
-                                    <div class="row">
-                                        <section class="col col-4">
-                                            <label class="label">Affected Schools (Floods and Landslides) (Names of schools)</label>
-                                            <label class="input ">
-                                                <input type="text" id="affectedSchool">
-                                            </label>
-                                        </section>
-                                        <section class="col col-4">
-                                            <label class="label">No. of affected learners </label>
-                                            <label class="input ">
-                                                <input type="number" id="affectedLearners">
-                                            </label>
-                                        </section>
-
-                                        <section class="col col-4">
-                                            <label class="label">No. of learner casualties </label>
-                                            <label class="input ">
-                                                <input type="number" id="learnerCasualties">
-                                            </label>
-                                        </section>
-
-
-                                    </div>
-
-                                    <div class="row">
-                                        <section class="col col-4">
-                                            <label class="label">Cause of death </label>
-                                            <label class="input ">
-                                                <input type="number" id="causeOfDeath">
-                                            </label>
-                                        </section>
-                                        <section class="col col-4">
-                                            <label class="label">No. of affected teaching personnel </label>
-                                            <label class="input ">
-                                                <input type="number" id="affectedTPNum">
-                                            </label>
-                                        </section>
-                                        <section class="col col-4">
-                                            <label class="label">No. of affected non-teaching personnel </label>
-                                            <label class="input ">
-                                                <input type="number" id="affectedNTPNum">
-                                            </label>
-                                        </section>
-                                    </div>
-
-
-                                    <!-- <header>Total number of damaged classrooms (indicate the total number of classrooms damaged per school) </header> -->
-                                    <!-- <br> -->
-
-                                    <div class="row">
-                                        <section class="col col-3">
-                                            <label class="label">Totally damaged (1.5 M)</label>
-                                            <label class="input ">
-                                                <input type="number" id="totalDamage">
-                                            </label>
-                                        </section>
-                                        <section class="col col-3">
-                                            <label class="label">Partially-Major Damaged (500 thou)</label>
-                                            <label class="input ">
-                                                <input type="number" id="partialMajorDamage">
-                                            </label>
-                                        </section>
-                                        <section class="col col-3">
-                                            <label class="label">Partially Minor Damaged (20 thou) </label>
-                                            <label class="input ">
-                                                <input type="number" id="partialMinorDamage">
-                                            </label>
-                                        </section>
-                                        <section class="col col-3">
-                                            <label class="label">No. of TLS units needed  (85,300)</label>
-                                            <label class="input ">
-                                                <input type="number" id="TLSNeededNum">
-                                            </label>
-                                        </section>
-
-                                    </div>
-
-                                    <div class="row">
-                                        <section class="col col-3">
-                                            <label class="label">No. of Furniture (Armchairs) Damaged *per unit</label>
-                                            <label class="input ">
-                                                <input type="number" id="armchairDamage">
-                                            </label>
-                                        </section>
-                                        <section class="col col-3">
-                                            <label class="label" style="font-size:80%">No. of Furniture (Desks/Tables & chairs) Damaged*per unit</label>
-                                            <label class="input ">
-                                                <input type="number" id="tableChairDamage">
-                                            </label>
-                                        </section>
-                                        <section class="col col-3">
-                                            <label class="label">No. of damaged LMs (per unit) </label>
-                                            <label class="input ">
-                                                <input type="number" id="LMDamage">
-                                            </label>
-                                        </section>
-                                        <section class="col col-3">
-                                            <label class="label">No. of damaged computers</label>
-                                            <label class="input ">
-                                                <input type="number" id="computerDamage">
-                                            </label>
-                                        </section>
-
-                                    </div>
-                                    <div class="row">
-                                        <section class="col col-6">
-                                            <label class="label">Need for Clean-Up 20 thou *tick 1 per school</label>
-                                            <label class="input ">
-                                                <input type="number" id="cleanUp">
-                                            </label>
-                                        </section>
-
-                                        <section class="col col-6">
-                                            <label class="label">Need for Psychological First Aid (PFA) *tick 1 per school  </label>
-                                            <label class="input ">
-                                                <input type="number" id="PFA">
+                                                <input type="number" id="damagedComputerEquipment">
                                             </label>
                                         </section>
 

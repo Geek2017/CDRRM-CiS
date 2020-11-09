@@ -4,7 +4,7 @@ angular.module('newApp').controller('flasnewCtrl', function($scope) {
     // document.getElementById("divison").onchange = function() {myFunction()};
 
 
-    var ref = firebase.database().ref("/flas/");
+    var ref = firebase.database().ref("/deped/flas/");
 
     var municipality = $('#municipality').val();
     var host = $('#host').val();
@@ -60,29 +60,43 @@ angular.module('newApp').controller('flasnewCtrl', function($scope) {
                 //     key: data.key
                 // })
                 console.log("Success");
+                window.location.href = "#flasnew";
 
-                document.getElementById("division").value = "";
-                document.getElementById("municipality").value = "";
-                document.getElementById("municipalityNo").value = "";
-                document.getElementById("schoolNo").value = "";
-                document.getElementById("divisionNo").value = "";
-                document.getElementById("evacCenter").value = "";
-                document.getElementById("affectedSchool").value = "";
-                document.getElementById("families").value = "";
-                document.getElementById("individuals").value = "";
-                document.getElementById("residentLearners").value = "";
-                document.getElementById("displacedLearners").value = "";
-                document.getElementById("totalLearners").value = "";
-                document.getElementById("residentPersonnel").value = "";
-                document.getElementById("displacedPersonnel").value = "";
-                document.getElementById("evacueePersonnel").value = "";
-                document.getElementById("totalPersonnel").value = "";
-                document.getElementById("totalClassrooms").value = "";
-                document.getElementById("numClassroom").value = "";
-                document.getElementById("neededTLS").value = "";
-                document.getElementById("totalTLS").value = "";
-                document.getElementById("additionalTLS").value = "";
+                $("#notif").append('<div class="alert alert-success fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Success</strong> Flood/Landslide Affected Schools Added !</div>');
+                setTimeout(function() {
+                    $("#notif").hide()
+                }, 10000);
+
+                // document.getElementById("division").value = "";
+                // document.getElementById("municipality").value = "";
+                // document.getElementById("municipalityNo").value = "";
+                // document.getElementById("schoolNo").value = "";
+                // document.getElementById("divisionNo").value = "";
+                // document.getElementById("evacCenter").value = "";
+                // document.getElementById("affectedSchool").value = "";
+                // document.getElementById("families").value = "";
+                // document.getElementById("individuals").value = "";
+                // document.getElementById("residentLearners").value = "";
+                // document.getElementById("displacedLearners").value = "";
+                // document.getElementById("totalLearners").value = "";
+                // document.getElementById("residentPersonnel").value = "";
+                // document.getElementById("displacedPersonnel").value = "";
+                // document.getElementById("evacueePersonnel").value = "";
+                // document.getElementById("totalPersonnel").value = "";
+                // document.getElementById("totalClassrooms").value = "";
+                // document.getElementById("numClassroom").value = "";
+                // document.getElementById("neededTLS").value = "";
+                // document.getElementById("totalTLS").value = "";
+                // document.getElementById("additionalTLS").value = "";
                 
+            })
+            .catch(function(error) {
+                console.log("Login Failed!", error.message);
+                $("#notif").append('<div class="alert alert-danger fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Error</strong> ' + error.message + '</div>');
+                setTimeout(function() {
+                    $("#notif").hide()
+                }, 10000);
+
             });
     });
 

@@ -1,7 +1,7 @@
 angular.module('newApp').controller('ecdnewCtrl', function($scope) {
     pageSetUp();
 
-    var ref = firebase.database().ref("/ecd/");
+    var ref = firebase.database().ref("/deped/ecd/");
 
     var municipality = $('#municipality').val();
     var host = $('#host').val();
@@ -41,16 +41,31 @@ angular.module('newApp').controller('ecdnewCtrl', function($scope) {
                 // })
                 console.log("Success");
 
-                document.getElementById("municipality").value = "0";
-                document.getElementById("host").value = "";
-                document.getElementById("accomodated").value = "";
-                document.getElementById("families").value = "";
-                document.getElementById("individuals").value = "";
-                document.getElementById("classrooms").value = "";
-                document.getElementById("dateOfEvacuation").value = "";
-                document.getElementById("dateOfDecampment").value = "";
-                document.getElementById("remarks").value = "";
+                window.location.href = "#ecdnew";
+
+                $("#notif").append('<div class="alert alert-success fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Success</strong> Evacuation School Site Added !</div>');
+                setTimeout(function() {
+                    $("#notif").hide()
+                }, 10000);
+
+                // document.getElementById("municipality").value = "0";
+                // document.getElementById("host").value = "";
+                // document.getElementById("accomodated").value = "";
+                // document.getElementById("families").value = "";
+                // document.getElementById("individuals").value = "";
+                // document.getElementById("classrooms").value = "";
+                // document.getElementById("dateOfEvacuation").value = "";
+                // document.getElementById("dateOfDecampment").value = "";
+                // document.getElementById("remarks").value = "";
                 
+            })
+            .catch(function(error) {
+                console.log("Login Failed!", error.message);
+                $("#notif").append('<div class="alert alert-danger fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Error</strong> ' + error.message + '</div>');
+                setTimeout(function() {
+                    $("#notif").hide()
+                }, 10000);
+
             });
     });
 

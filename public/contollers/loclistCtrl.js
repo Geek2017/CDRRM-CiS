@@ -1,7 +1,7 @@
 angular.module('newApp').controller('loclistCtrl', function($firebaseArray, $scope, $http, $timeout) {
 
-    var ref = firebase.database().ref('/loc');
-    var ref2 = firebase.database().ref('/loc');
+    var ref = firebase.database().ref('/deped/loc');
+    var ref2 = firebase.database().ref('/deped/loc');
 
     var test = [];
     var test2 = [];
@@ -67,7 +67,7 @@ angular.module('newApp').controller('loclistCtrl', function($firebaseArray, $sco
     };
 
     $scope.updateUser = function() {
-        var ref2 = firebase.database().ref("loc/" + id.$id);
+        var ref2 = firebase.database().ref("/deped/loc/" + id.$id);
         ref2.update({
             municipality: $('#municipality2').val(),
             municipalityNo: $('#municipalityNo2').val(),
@@ -97,13 +97,45 @@ angular.module('newApp').controller('loclistCtrl', function($firebaseArray, $sco
             PFA: $('#PFA2').val()
         })
 
+        .catch(function(error) {
+            console.log("Login Failed!", error.message);
+            $("#notif").append('<div class="alert alert-danger fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Error</strong> ' + error.message + '</div>');
+            setTimeout(function() {
+                $("#notif").hide()
+            }, 10000);
+
+        });
+
+        // window.location.href = "#ecdlist";
+
+        $("#notif").append('<div class="alert alert-success fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Success</strong> Updated !</div>');
+        setTimeout(function() {
+            $("#notif").hide()
+        }, 10000);
+
         $('#myModal').modal('hide');
 
     };
 
     $scope.deleteUser = function() {
-        var ref = firebase.database().ref("loc/" + id.$id);
-        ref.remove();
+        var ref = firebase.database().ref("/deped/loc/" + id.$id);
+        ref.remove()
+        .catch(function(error) {
+            console.log("Login Failed!", error.message);
+            $("#notif").append('<div class="alert alert-danger fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Error</strong> ' + error.message + '</div>');
+            setTimeout(function() {
+                $("#notif").hide()
+            }, 10000);
+
+        });;
+
+        // $("#notif").show();
+        // window.location.href = "#ecdlist";
+
+        $("#notif").append('<div class="alert alert-success fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Success</strong> Deleted !</div>');
+        setTimeout(function() {
+            $("#notif").hide()
+        }, 10000);
         $('#myModal2').modal('hide');
     };
 

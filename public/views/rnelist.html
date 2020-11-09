@@ -72,7 +72,7 @@
 
                 <thead>
                     <tr>
-                        <th colspan="14 pull-center" class="text-center th">Tropical Depresssion Usman Situation Report </th>
+                        <th colspan="16 pull-center" class="text-center th">Report on the Number of Evacuation Centers and other Details (Disaster) </th>
                     </tr>
                     <!-- <tr>
                         <th colspan="3" class="text-center">Occurrence</th>
@@ -83,16 +83,16 @@
 
                     <tr>
                         <th class="text-center th">#</th>
+                        <th class="text-center th">School ID </th>
+                        <th class="text-center th">Name of School</th>
+                        <th class="text-center th">Region</th>
+                        <th class="text-center th">Division</th>
+                        <th class="text-center th">District</th>
                         <th class="text-center th">Municipality </th>
-                        <th class="text-center th">#</th>
-                        <th class="text-center th">List of Schools used as Evacuation Centers</th>
-                        <th class="text-center th">#</th>
-                        <th class="text-center th">No. of classrooms used as Evacuation Centers</th>
-                        <th class="text-center th">No. of families </th>
-                        <th class="text-center th">No. of individuals </th>
-                        <th class="text-center th">No. of teaching and non-teaching personnel (resident of the EC)</th>
-                        <th class="text-center th">No. of resident learners/Enrolment of the school used as EC </th>
-                        <th class="text-center th">No. of evacuee-learners </th>
+                        <th class="text-center th">Enrollment</th>
+                        <th class="text-center th">Total Schools with Report</th>
+                        <th class="text-center th">Schools with Reported Infra Damages </th>
+                        <th class="text-center th">Totally Damaged Classrooms </th>
                         <!-- <th class="text-center th">Resident Learners</th>
                         <th class="text-center th">Displaced Learners</th>
                         <th class="text-center th">TOTAL Affected Learners</th> -->
@@ -105,16 +105,16 @@
 
                     <tr class="text-center" ng-repeat="data in data">
                         <td>{{$index + 1}}</td>
-                        <td>{{data.municipality}}</td>
-                        <td>{{data.municipalityNo}}</td>
-                        <td>{{data.evacCenter}}</td>
-                        <td>{{data.evacCenterNo}}</td>
-                        <td>{{data.classroomNo}}</td>
-                        <td>{{data.familiesNo}}</td>
-                        <td>{{data.individualNo}}</td>
-                        <td>{{data.personnel}}</td>
-                        <td>{{data.residentLearners}}</td>
-                        <td>{{data.evacueeLearners}}</td>
+                        <td>{{data.schoolID}}</td>
+                        <td>{{data.school}}</td>
+                        <td>{{data.region}}</td>
+                        <td>{{data.division}}</td>
+                        <td>{{data.district}}</td>
+                        <td>{{data.minicipality}}</td>
+                        <td>{{data.enrollment}}</td>
+                        <td>{{data.totalSchool}}</td>
+                        <td>{{data.schoolWithInfraDamage}}</td>
+                        <td>{{data.totalDamageClassroom}}</td>
                         <!-- <td>{{data.residentLearners}}</td>
                         <td>{{data.displacedLearners}}</td>
                         <td>{{data.totalLearners}}</td>
@@ -197,33 +197,51 @@
 
 
                 <form class="smart-form">
-                    <header>List of Casualties (Learners)</header>
+                    <header>Report on the Number of Evacuation Centers and other Details (Disaster)</header>
 
                     <fieldset>
                         <section>
+
                             <div class="row">
+                                <section class="col col-6">
+                                    <label class="label">School ID </label>
+                                    <label class="input ">
+                                        <input type="text" id="schoolID" ng-model="clickedUser.schoolID">
+                                    </label>
+                                </section>
+
+                                <section class="col col-6">
+                                    <label class="label">Name of School </label>
+                                    <label class="input ">
+                                        <input type="text" id="school" ng-model="clickedUser.school">
+                                    </label>
+                                </section>
+
+                            </div>
+
+                            <div class="row">
+                                <section class="col col-3">
+                                    <label class="label">Region</label>
+                                    <label class="input ">
+                                        <input type="text" id="region" ng-model="clickedUser.region">
+                                    </label>
+                                </section>
+                                <section class="col col-3">
+                                    <label class="label">Division</label>
+                                    <label class="input ">
+                                        <input type="text" id="division" ng-model="clickedUser.division">
+                                    </label>
+                                </section>
+                                <section class="col col-3">
+                                    <label class="label">District </label>
+                                    <label class="input ">
+                                        <input type="text" id="district" ng-model="clickedUser.district">
+                                    </label>
+                                </section>
                                 <section class="col col-3">
                                     <label class="label">Municipality</label>
                                     <label class="input ">
-                                        <input type="text" id="municipality2" ng-model="clickedUser.municipality">
-                                    </label>
-                                </section>
-                                <section class="col col-3">
-                                    <label class="label">#</label>
-                                    <label class="input ">
-                                        <input type="text" id="municipalityNo2" ng-model="clickedUser.municipalityNo">
-                                    </label>
-                                </section>
-                                <section class="col col-3">
-                                    <label class="label">Evacuation Center (Names of school) </label>
-                                    <label class="input ">
-                                        <input type="text" id="evacCenter2" ng-model="clickedUser.evacCenter">
-                                    </label>
-                                </section>
-                                <section class="col col-3">
-                                    <label class="label">#</label>
-                                    <label class="input ">
-                                        <input type="text" id="evacCenterNo2" ng-model="clickedUser.evacCenterNo">
+                                        <input type="text" id="municipality" ng-model="clickedUser.municipality">
                                     </label>
                                 </section>
 
@@ -231,27 +249,116 @@
 
                             <div class="row">
                                 <section class="col col-3">
-                                    <label class="label">No. of classrooms used as Evacuation Centers</label>
+                                    <label class="label">Enrollment</label>
                                     <label class="input ">
-                                        <input type="text" id="classroomNo2" ng-model="clickedUser.classroomNo">
+                                        <input type="text" id="enrollment" ng-model="clickedUser.enrollment">
                                     </label>
                                 </section>
                                 <section class="col col-3">
-                                    <label class="label">No. of families </label>
+                                    <label class="label">Total Schools with Report</label>
                                     <label class="input ">
-                                        <input type="text" id="familiesNo2" ng-model="clickedUser.familiesNo">
+                                        <input type="text" id="totalSchool" ng-model="clickedUser.totalSchool">
                                     </label>
                                 </section>
                                 <section class="col col-3">
-                                    <label class="label">No. of individuals </label>
+                                    <label class="label">Schools with Reported Infra Damages</label>
                                     <label class="input ">
-                                        <input type="text" id="individualNo2" ng-model="clickedUser.individualNo">
+                                        <input type="text" id="schoolWithInfraDamage" ng-model="clickedUser.schoolWithInfraDamage">
                                     </label>
                                 </section>
                                 <section class="col col-3">
-                                    <label class="label">No. of teaching and non-teaching personnel </label>
+                                    <label class="label">Totally Damaged Classrooms</label>
                                     <label class="input ">
-                                        <input type="text" id="personnel2" ng-model="clickedUser.personnel">
+                                        <input type="text" id="totalDamageClassroom" ng-model="clickedUser.totalDamageClassroom">
+                                    </label>
+                                </section>
+
+                            </div>
+
+                            <div class="row">
+                                <section class="col col-3">
+                                    <label class="label">Partially Damaged Classrooms (Major)</label>
+                                    <label class="input ">
+                                        <input type="text" id="partialDamageClassMajor" ng-model="clickedUser.partialDamageClassMajor">
+                                    </label>
+                                </section>
+                                <section class="col col-3">
+                                    <label class="label">Partially Damaged Classrooms (Minor)</label>
+                                    <label class="input ">
+                                        <input type="text" id="partialDamageClassMinor" ng-model="clickedUser.partialDamageClassMinor">
+                                    </label>
+                                </section>
+                                <section class="col col-3">
+                                    <label class="label">Temporary Learning Spaces needed</label>
+                                    <label class="input ">
+                                        <input type="text" id="temporaryLearning" ng-model="clickedUser.temporaryLearning">
+                                    </label>
+                                </section>
+                                <section class="col col-3">
+                                    <label class="label">Number of Deceased DepEd Personnel</label>
+                                    <label class="input ">
+                                        <input type="text" id="deceasedPersonnel" ng-model="clickedUser.deceasedPersonnel">
+                                    </label>
+                                </section>
+
+                            </div>
+
+                            <div class="row">
+                                <section class="col col-3">
+                                    <label class="label">Number of Injured DepEd Personnel</label>
+                                    <label class="input ">
+                                        <input type="text" id="injuredPersonnel" ng-model="clickedUser.injuredPersonnel">
+                                    </label>
+                                </section>
+                                <section class="col col-3">
+                                    <label class="label">Number of Missing DepEd Personnel</label>
+                                    <label class="input ">
+                                        <input type="text" id="missingPersonnel" ng-model="clickedUser.missingPersonnel">
+                                    </label>
+                                </section>
+                                <section class="col col-3">
+                                    <label class="label">Number of Displaced DepEd Personnel</label>
+                                    <label class="input ">
+                                        <input type="text" id="displacedPersonnel" ng-model="clickedUser.displacedPersonnel">
+                                    </label>
+                                </section>
+                                <section class="col col-3">
+                                    <label class="label">Total Classrooms used as Evacuation Center</label>
+                                    <label class="input ">
+                                        <input type="text" id="totalEvacSchool" ng-model="clickedUser.totalEvacSchool">
+                                    </label>
+                                </section>
+
+                            </div>
+
+                            <div class="row">
+                                <section class="col col-3">
+                                    <label class="label">School as EC lasted for 3 days or more</label>
+                                    <label class="select ">
+                                        <select id="ECLasted" ng-model="clickedUser.ECLasted">
+                                            <!-- <option value="0">Choose Municipality</option> -->
+                                            <option value="Yes" selected>Yes</option>
+                                            <option value="No">No</option>
+                                        </select>
+                                        <i></i>
+                                    </label>
+                                </section>
+                                <section class="col col-3">
+                                    <label class="label">Total Schools with Report</label>
+                                    <label class="input ">
+                                        <input type="text" id="totalSchoolReport" ng-model="clickedUser.totalSchoolReport">
+                                    </label>
+                                </section>
+                                <section class="col col-3">
+                                    <label class="label">Schools with Reported Non-Infra Damages</label>
+                                    <label class="input ">
+                                        <input type="text" id="schoolWithNonInfraDamage" ng-model="clickedUser.schoolWithNonInfraDamage">
+                                    </label>
+                                </section>
+                                <section class="col col-3">
+                                    <label class="label">Number of damaged school furnitures</label>
+                                    <label class="input ">
+                                        <input type="text" id="damagedSchoolFurnitures" ng-model="clickedUser.damagedSchoolFurnitures">
                                     </label>
                                 </section>
 
@@ -259,137 +366,16 @@
 
                             <div class="row">
                                 <section class="col col-6">
-                                    <label class="label">No. of resident learners/Enrolment of the school used as EC  </label>
+                                    <label class="label">Number of damaged learning materials </label>
                                     <label class="input ">
-                                        <input type="text" id="residentLearners2" ng-model="clickedUser.residentLearners">
+                                        <input type="text" id="damagedLearningMaterials" ng-model="clickedUser.damagedLearningMaterials">
                                     </label>
                                 </section>
 
                                 <section class="col col-6">
-                                    <label class="label">No. of evacuee-learners </label>
+                                    <label class="label">Number of damaged computer equipment </label>
                                     <label class="input ">
-                                        <input type="text" id="evacueeLearners2" ng-model="clickedUser.evacueeLearners">
-                                    </label>
-                                </section>
-
-                            </div>
-
-                            <div class="row">
-                                <section class="col col-4">
-                                    <label class="label">Affected Schools (Floods and Landslides) (Names of schools)</label>
-                                    <label class="input ">
-                                        <input type="text" id="affectedSchool2" ng-model="clickedUser.affectedSchool">
-                                    </label>
-                                </section>
-                                <section class="col col-4">
-                                    <label class="label">No. of affected learners </label>
-                                    <label class="input ">
-                                        <input type="text" id="affectedLearners2" ng-model="clickedUser.affectedLearners">
-                                    </label>
-                                </section>
-
-                                <section class="col col-4">
-                                    <label class="label">No. of learner casualties </label>
-                                    <label class="input ">
-                                        <input type="text" id="learnerCasualties2" ng-model="clickedUser.learnerCasualties">
-                                    </label>
-                                </section>
-
-
-                            </div>
-
-                            <div class="row">
-                                <section class="col col-4">
-                                    <label class="label">Cause of death </label>
-                                    <label class="input ">
-                                        <input type="text" id="causeOfDeath2" ng-model="clickedUser.causeOfDeath">
-                                    </label>
-                                </section>
-                                <section class="col col-4">
-                                    <label class="label">No. of affected teaching personnel </label>
-                                    <label class="input ">
-                                        <input type="text" id="affectedTPNum2" ng-model="clickedUser.affectedTPNum">
-                                    </label>
-                                </section>
-                                <section class="col col-4">
-                                    <label class="label">No. of affected non-teaching personnel </label>
-                                    <label class="input ">
-                                        <input type="text" id="affectedNTPNum2" ng-model="clickedUser.affectedNTPNum">
-                                    </label>
-                                </section>
-                            </div>
-
-
-                            <!-- <header>Total number of damaged classrooms (indicate the total number of classrooms damaged per school) </header> -->
-                            <!-- <br> -->
-
-                            <div class="row">
-                                <section class="col col-3">
-                                    <label class="label">Totally damaged (1.5 M)</label>
-                                    <label class="input ">
-                                        <input type="text" id="totalDamage2" ng-model="clickedUser.totalDamage">
-                                    </label>
-                                </section>
-                                <section class="col col-3">
-                                    <label class="label">Partially-Major Damaged (500 thou)</label>
-                                    <label class="input ">
-                                        <input type="text" id="partialMajorDamage2" ng-model="clickedUser.partialMajorDamage">
-                                    </label>
-                                </section>
-                                <section class="col col-3">
-                                    <label class="label">Partially Minor Damaged (20 thou) </label>
-                                    <label class="input ">
-                                        <input type="text" id="partialMinorDamage2" ng-model="clickedUser.partialMinorDamage">
-                                    </label>
-                                </section>
-                                <section class="col col-3">
-                                    <label class="label">No. of TLS units needed  (85,300)</label>
-                                    <label class="input ">
-                                        <input type="text" id="TLSNeededNum2" ng-model="clickedUser.TLSNeededNum">
-                                    </label>
-                                </section>
-
-                            </div>
-
-                            <div class="row">
-                                <section class="col col-3">
-                                    <label class="label">No. of Furniture (Armchairs) Damaged *per unit</label>
-                                    <label class="input ">
-                                        <input type="text" id="armchairDamage2" ng-model="clickedUser.armchairDamage">
-                                    </label>
-                                </section>
-                                <section class="col col-3">
-                                    <label class="label" style="font-size:80%">No. of Furniture (Desks/Tables & chairs) Damaged*per unit</label>
-                                    <label class="input ">
-                                        <input type="text" id="tableChairDamage2" ng-model="clickedUser.tableChairDamage">
-                                    </label>
-                                </section>
-                                <section class="col col-3">
-                                    <label class="label">No. of damaged LMs (per unit) </label>
-                                    <label class="input ">
-                                        <input type="text" id="LMDamage2" ng-model="clickedUser.LMDamage">
-                                    </label>
-                                </section>
-                                <section class="col col-3">
-                                    <label class="label">No. of damaged computers</label>
-                                    <label class="input ">
-                                        <input type="text" id="computerDamage2" ng-model="clickedUser.computerDamage">
-                                    </label>
-                                </section>
-
-                            </div>
-                            <div class="row">
-                                <section class="col col-6">
-                                    <label class="label">Need for Clean-Up 20 thou *tick 1 per school</label>
-                                    <label class="input ">
-                                        <input type="text" id="cleanUp2" ng-model="clickedUser.cleanUp">
-                                    </label>
-                                </section>
-
-                                <section class="col col-6">
-                                    <label class="label">Need for Psychological First Aid (PFA) *tick 1 per school  </label>
-                                    <label class="input ">
-                                        <input type="text" id="PFA2" ng-model="clickedUser.PFA">
+                                        <input type="text" id="damagedComputerEquipment" ng-model="clickedUser.damagedComputerEquipment">
                                     </label>
                                 </section>
 
@@ -427,7 +413,7 @@
             <div class="modal-body">
 
 
-                <p>You want to delete <strong style="color: red;">{{clickedUser.evacCenter}}'s</strong> Evacuation Center from <strong style="color: red;">{{clickedUser.municipality}}</strong>?</p>
+                <p>You want to delete <strong style="color: red;">{{clickedUser.school}}</strong> from <strong style="color: red;">{{clickedUser.municipality}} {{clickedUser.division}}</strong>?</p>
 
             </div>
 
@@ -509,55 +495,43 @@
                             <thead>
 
                                 <tr>
-                                    <th colspan="16 pull-center" class="text-center th">Tropical Depresssion Usman Situation Report</th>
+                                    <th colspan="16 pull-center" class="text-center th">Report on the Number of Evacuation Centers and other Details (Disaster)</th>
                                 </tr>
 
                                 <tr>
-                                    <th colspan="6" class="text-center"></th>
-                                    <th colspan="4" class="text-center">Total number of damaged classrooms (indicate the total number of classrooms damaged per school) </th>
-                                    <th colspan="4" class="text-center">Non-Infra Damage </th>
-                                    <th colspan="2" class="text-center"></th>
-            
-                                </tr>
-
-                                <tr>
-                                    <th  class="text-center th">List of Affected Schools (Floods and Landslides)</th>
-                                    <th  class="text-center th">No. of affected learners </th>
-                                    <th  class="text-center th">No. of learner casualties </th>
-                                    <th  class="text-center th">Cause of death </th>
-                                    <th  class="text-center th">No. of affected teaching personnel </th>
-                                    <th  class="text-center th">No. of affected non-teaching personnel </th>
-                                    <th  class="text-center th">Totally damaged (1.5 M)</th>
-                                    <th  class="text-center th">Partially-Major Damaged (500 thou)</th>
-                                    <th  class="text-center th">Partially Minor Damaged (20 thou) </th>
-                                    <th  class="text-center th">No. of TLS units needed  (85,300)</th>
-                                    <th  class="text-center th">No. of Furniture (Armchairs) Damaged *per unit</th>
-                                    <th  class="text-center th">Furniture (Desks/Tables and chairs) Damaged*per unit</th>
-                                    <th  class="text-center th">No. of damaged LMs (per unit)</th>
-                                    <th  class="text-center th">No. of damaged computers </th>
-                                    <th  class="text-center th">Need for Clean-Up 20 thou *tick 1 per school</th>
-                                    <th  class="text-center th">Need for Psychological First Aid (PFA) *tick 1 per school </th>
+                                    <th class="text-center th">Partially Damaged Classrooms (Major) </th>
+                                    <th class="text-center th">Partially Damaged Classrooms (Minor) </th>
+                                    <th  class="text-center th">Number of Deceased DepEd Personnel</th>
+                                    <th  class="text-center th">Number of Deceased DepEd Personnel</th>
+                                    <th  class="text-center th">Number of Injured DepEd Personnel</th>
+                                    <th  class="text-center th">Number of Missing DepEd Personnel</th>
+                                    <th  class="text-center th">Number of Displaced DepEd Personnel </th>
+                                    <th  class="text-center th">Total Classrooms used as Evacuation Center </th>
+                                    <th  class="text-center th">School as EC lasted for 3 days or more (YES/NO)</th>
+                                    <th  class="text-center th">Total Schools with Report</th>
+                                    <th  class="text-center th">Schools with Reported Non-Infra Damages </th>
+                                    <th  class="text-center th">Number of damaged school furnitures</th>
+                                    <th  class="text-center th">Number of damaged learning materials</th>
+                                    <th  class="text-center th">Number of damaged computer equipment</th>
                                 </tr>
                             </thead>
                             <tbody>
 
                                 <tr class="text-center">
-                                    <td>{{clickedUser.affectedSchool}}</td>
-                                    <td>{{clickedUser.affectedLearners}}</td>
-                                    <td>{{clickedUser.learnerCasualties}}</td>
-                                    <td>{{clickedUser.causeOfDeath}}</td>
-                                    <td>{{clickedUser.affectedTPNum}}</td>
-                                    <td>{{clickedUser.affectedNTPNum}}</td>
-                                    <td>{{clickedUser.totalDamage}}</td>
-                                    <td>{{clickedUser.partialMajorDamage}}</td>
-                                    <td>{{clickedUser.partialMinorDamage}}</td>
-                                    <td>{{clickedUser.TLSNeededNum}}</td>
-                                    <td>{{clickedUser.armchairDamage}}</td>
-                                    <td>{{clickedUser.tableChairDamage}}</td>
-                                    <td>{{clickedUser.LMDamage}}</td>
-                                    <td>{{clickedUser.computerDamage}}</td>
-                                    <td>{{clickedUser.cleanUp}}</td>
-                                    <td>{{clickedUser.PFA}}</td>
+                                    <td>{{clickedUser.partialDamageClassMajor}}</td>
+                                    <td>{{clickedUser.partialDamageClassMinor}}</td>
+                                    <td>{{clickedUser.temporaryLearning}}</td>
+                                    <td>{{clickedUser.deceasedPersonnel}}</td>
+                                    <td>{{clickedUser.injuredPersonnel}}</td>
+                                    <td>{{clickedUser.missingPersonnel}}</td>
+                                    <td>{{clickedUser.displacedPersonnel}}</td>
+                                    <td>{{clickedUser.totalEvacSchool}}</td>
+                                    <td>{{clickedUser.ECLasted}}</td>
+                                    <td>{{clickedUser.totalSchoolReport}}</td>
+                                    <td>{{clickedUser.schoolWithNonInfraDamage}}</td>
+                                    <td>{{clickedUser.damagedSchoolFurnitures}}</td>
+                                    <td>{{clickedUser.damagedLearningMaterials}}</td>
+                                    <td>{{clickedUser.damagedComputerEquipment}}</td>
 
                                 </tr>
 
