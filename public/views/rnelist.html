@@ -1,0 +1,567 @@
+<style>
+    th {
+        background-color: #57889c !important;
+        color: white;
+    }
+    
+    .th {
+        background-color: #383838 !important;
+        color: white;
+    }
+    
+    .accordion {
+        background-color: #eee;
+        color: white;
+        cursor: pointer;
+        padding: 10px;
+        width: 100%;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 15px;
+        transition: 0.4s;
+    }
+    
+    .active,
+    .accordion:hover {
+        background-color: #ccc;
+    }
+    
+    .panel {
+        padding: 0 18px;
+        display: none;
+        background-color: white;
+        overflow: hidden;
+    }
+</style>
+<article class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+
+    <!-- Widget ID (each widget will need unique ID)-->
+    <div class="jarviswidget jarviswidget-color-darken">
+
+        <header>
+            <span class="widget-icon"> <i class="fa fa-table"></i> </span>
+            <h2>Accounts</h2>
+
+        </header>
+
+        <!-- widget div-->
+        <div style="overflow-x:auto;overflow-y:auto;">
+
+
+
+            <label class="input">
+                <input type="text" name="name" ng-model="findcf"> <i class="icon-append fa fa-search"></i>
+            </label>
+
+            <label class="input pull-right">
+                <label class="select ">Page Filter
+                    <select name="options" id="pfilter">
+
+                        <option value="10">10</option>
+                        <option value="30">30</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+
+                    </select> <i></i> </label>
+            </label>
+
+            <table id="data" class="table table-striped table-bordered table-hover" width="100%">
+
+                <div id="notif"></div>                
+
+                <thead>
+                    <tr>
+                        <th colspan="16 pull-center" class="text-center th">Report on the Number of Evacuation Centers and other Details (Disaster) </th>
+                    </tr>
+                    <!-- <tr>
+                        <th colspan="3" class="text-center">Occurrence</th>
+                        <th colspan="2" class="text-center">Event</th>
+                        <th colspan="6" class="text-center">Exact Location</th>
+
+                    </tr> -->
+
+                    <tr>
+                        <th class="text-center th">#</th>
+                        <th class="text-center th">School ID </th>
+                        <th class="text-center th">Name of School</th>
+                        <th class="text-center th">Region</th>
+                        <th class="text-center th">Division</th>
+                        <th class="text-center th">District</th>
+                        <th class="text-center th">Municipality </th>
+                        <th class="text-center th">Enrollment</th>
+                        <th class="text-center th">Total Schools with Report</th>
+                        <th class="text-center th">Schools with Reported Infra Damages </th>
+                        <th class="text-center th">Totally Damaged Classrooms </th>
+                        <!-- <th class="text-center th">Resident Learners</th>
+                        <th class="text-center th">Displaced Learners</th>
+                        <th class="text-center th">TOTAL Affected Learners</th> -->
+                        <!-- <th class="text-center th">Remarks</th> -->
+                        <th colspan="3" class="text-center th">Actions</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr class="text-center" ng-repeat="data in data">
+                        <td>{{$index + 1}}</td>
+                        <td>{{data.schoolID}}</td>
+                        <td>{{data.school}}</td>
+                        <td>{{data.region}}</td>
+                        <td>{{data.division}}</td>
+                        <td>{{data.district}}</td>
+                        <td>{{data.minicipality}}</td>
+                        <td>{{data.enrollment}}</td>
+                        <td>{{data.totalSchool}}</td>
+                        <td>{{data.schoolWithInfraDamage}}</td>
+                        <td>{{data.totalDamageClassroom}}</td>
+                        <!-- <td>{{data.residentLearners}}</td>
+                        <td>{{data.displacedLearners}}</td>
+                        <td>{{data.totalLearners}}</td>
+                        <td>{{data.remarks}}</td> -->
+
+                        <td><button type="button" class="btn btn-info btn-block btn-xs " ng-click="selectUser3(data)"><i class="icon-append fa fa-search"></i></button></td>
+                        <td><button type="button" class="btn btn-success btn-block btn-xs " ng-click="selectUser(data)"><i class="icon-append fa fa-pencil" ></i></button></td>
+                        <td><button type="button" class="btn btn-danger btn-block btn-xs " ng-click="selectUser2(data)"><i class="icon-append fa fa-minus-circle" ></i></button></td>
+                    </tr>
+
+                    <!-- <tr class="text-center" ng-repeat="data in camalig">
+                        <td>{{$index + 1}}</td>
+                        <td>Camalig</td>
+                        <td>{{data.accomodated}}</td>
+                        <td>{{data.host}}</td>
+                        <td>{{data.families}}</td>
+                        <td>{{data.individuals}}</td>
+                        <td>{{data.classrooms}}</td>
+                        <td>{{data.dateOfDecampment}}</td>
+                        <td>{{data.dateOfEvacuation}}</td>
+                        <td>{{data.remarks}}</td>
+
+                        <td><button type="button" class="btn btn-info btn-block btn-xs " data-toggle="modal" data-target="#myModal"><i class="icon-append fa fa-search"></i></button></td>
+                        <td><button type="button" class="btn btn-success btn-block btn-xs " data-toggle="modal" data-target="#myModal"><i class="icon-append fa fa-pencil"></i></button></td>
+                        <td><button type="button" class="btn btn-danger btn-block btn-xs " data-toggle="modal" data-target="#myModal"><i class="icon-append fa fa-minus-circle"></i></button></td>
+                    </tr>
+
+                    <tr class="text-center" ng-repeat="data in guinobatan">
+                        <td>{{$index + 1}}</td>
+                        <td>Guinobatan</td>
+                        <td>{{data.accomodated}}</td>
+                        <td>{{data.host}}</td>
+                        <td>{{data.families}}</td>
+                        <td>{{data.individuals}}</td>
+                        <td>{{data.classrooms}}</td>
+                        <td>{{data.dateOfDecampment}}</td>
+                        <td>{{data.dateOfEvacuation}}</td>
+                        <td>{{data.remarks}}</td>
+
+                        <td><button type="button" class="btn btn-info btn-block btn-xs " data-toggle="modal" data-target="#myModal"><i class="icon-append fa fa-search"></i></button></td>
+                        <td><button type="button" class="btn btn-success btn-block btn-xs " data-toggle="modal" data-target="#myModal"><i class="icon-append fa fa-pencil"></i></button></td>
+                        <td><button type="button" class="btn btn-danger btn-block btn-xs " data-toggle="modal" data-target="#myModal"><i class="icon-append fa fa-minus-circle"></i></button></td>
+                    </tr> -->
+
+
+                </tbody>
+
+
+
+            </table>
+
+
+
+
+
+
+
+        </div>
+
+    </div>
+
+    <span id="here"></span>
+
+
+</article>
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog" style="width: 80%;height: 80%; ">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+
+
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Edit Info.</h4>
+            </div>
+
+            <div class="modal-body">
+
+
+                <form class="smart-form">
+                    <header>Report on the Number of Evacuation Centers and other Details (Disaster)</header>
+
+                    <fieldset>
+                        <section>
+
+                            <div class="row">
+                                <section class="col col-6">
+                                    <label class="label">School ID </label>
+                                    <label class="input ">
+                                        <input type="text" id="schoolID" ng-model="clickedUser.schoolID">
+                                    </label>
+                                </section>
+
+                                <section class="col col-6">
+                                    <label class="label">Name of School </label>
+                                    <label class="input ">
+                                        <input type="text" id="school" ng-model="clickedUser.school">
+                                    </label>
+                                </section>
+
+                            </div>
+
+                            <div class="row">
+                                <section class="col col-3">
+                                    <label class="label">Region</label>
+                                    <label class="input ">
+                                        <input type="text" id="region" ng-model="clickedUser.region">
+                                    </label>
+                                </section>
+                                <section class="col col-3">
+                                    <label class="label">Division</label>
+                                    <label class="input ">
+                                        <input type="text" id="division" ng-model="clickedUser.division">
+                                    </label>
+                                </section>
+                                <section class="col col-3">
+                                    <label class="label">District </label>
+                                    <label class="input ">
+                                        <input type="text" id="district" ng-model="clickedUser.district">
+                                    </label>
+                                </section>
+                                <section class="col col-3">
+                                    <label class="label">Municipality</label>
+                                    <label class="input ">
+                                        <input type="text" id="municipality" ng-model="clickedUser.municipality">
+                                    </label>
+                                </section>
+
+                            </div>
+
+                            <div class="row">
+                                <section class="col col-3">
+                                    <label class="label">Enrollment</label>
+                                    <label class="input ">
+                                        <input type="text" id="enrollment" ng-model="clickedUser.enrollment">
+                                    </label>
+                                </section>
+                                <section class="col col-3">
+                                    <label class="label">Total Schools with Report</label>
+                                    <label class="input ">
+                                        <input type="text" id="totalSchool" ng-model="clickedUser.totalSchool">
+                                    </label>
+                                </section>
+                                <section class="col col-3">
+                                    <label class="label">Schools with Reported Infra Damages</label>
+                                    <label class="input ">
+                                        <input type="text" id="schoolWithInfraDamage" ng-model="clickedUser.schoolWithInfraDamage">
+                                    </label>
+                                </section>
+                                <section class="col col-3">
+                                    <label class="label">Totally Damaged Classrooms</label>
+                                    <label class="input ">
+                                        <input type="text" id="totalDamageClassroom" ng-model="clickedUser.totalDamageClassroom">
+                                    </label>
+                                </section>
+
+                            </div>
+
+                            <div class="row">
+                                <section class="col col-3">
+                                    <label class="label">Partially Damaged Classrooms (Major)</label>
+                                    <label class="input ">
+                                        <input type="text" id="partialDamageClassMajor" ng-model="clickedUser.partialDamageClassMajor">
+                                    </label>
+                                </section>
+                                <section class="col col-3">
+                                    <label class="label">Partially Damaged Classrooms (Minor)</label>
+                                    <label class="input ">
+                                        <input type="text" id="partialDamageClassMinor" ng-model="clickedUser.partialDamageClassMinor">
+                                    </label>
+                                </section>
+                                <section class="col col-3">
+                                    <label class="label">Temporary Learning Spaces needed</label>
+                                    <label class="input ">
+                                        <input type="text" id="temporaryLearning" ng-model="clickedUser.temporaryLearning">
+                                    </label>
+                                </section>
+                                <section class="col col-3">
+                                    <label class="label">Number of Deceased DepEd Personnel</label>
+                                    <label class="input ">
+                                        <input type="text" id="deceasedPersonnel" ng-model="clickedUser.deceasedPersonnel">
+                                    </label>
+                                </section>
+
+                            </div>
+
+                            <div class="row">
+                                <section class="col col-3">
+                                    <label class="label">Number of Injured DepEd Personnel</label>
+                                    <label class="input ">
+                                        <input type="text" id="injuredPersonnel" ng-model="clickedUser.injuredPersonnel">
+                                    </label>
+                                </section>
+                                <section class="col col-3">
+                                    <label class="label">Number of Missing DepEd Personnel</label>
+                                    <label class="input ">
+                                        <input type="text" id="missingPersonnel" ng-model="clickedUser.missingPersonnel">
+                                    </label>
+                                </section>
+                                <section class="col col-3">
+                                    <label class="label">Number of Displaced DepEd Personnel</label>
+                                    <label class="input ">
+                                        <input type="text" id="displacedPersonnel" ng-model="clickedUser.displacedPersonnel">
+                                    </label>
+                                </section>
+                                <section class="col col-3">
+                                    <label class="label">Total Classrooms used as Evacuation Center</label>
+                                    <label class="input ">
+                                        <input type="text" id="totalEvacSchool" ng-model="clickedUser.totalEvacSchool">
+                                    </label>
+                                </section>
+
+                            </div>
+
+                            <div class="row">
+                                <section class="col col-3">
+                                    <label class="label">School as EC lasted for 3 days or more</label>
+                                    <label class="select ">
+                                        <select id="ECLasted" ng-model="clickedUser.ECLasted">
+                                            <!-- <option value="0">Choose Municipality</option> -->
+                                            <option value="Yes" selected>Yes</option>
+                                            <option value="No">No</option>
+                                        </select>
+                                        <i></i>
+                                    </label>
+                                </section>
+                                <section class="col col-3">
+                                    <label class="label">Total Schools with Report</label>
+                                    <label class="input ">
+                                        <input type="text" id="totalSchoolReport" ng-model="clickedUser.totalSchoolReport">
+                                    </label>
+                                </section>
+                                <section class="col col-3">
+                                    <label class="label">Schools with Reported Non-Infra Damages</label>
+                                    <label class="input ">
+                                        <input type="text" id="schoolWithNonInfraDamage" ng-model="clickedUser.schoolWithNonInfraDamage">
+                                    </label>
+                                </section>
+                                <section class="col col-3">
+                                    <label class="label">Number of damaged school furnitures</label>
+                                    <label class="input ">
+                                        <input type="text" id="damagedSchoolFurnitures" ng-model="clickedUser.damagedSchoolFurnitures">
+                                    </label>
+                                </section>
+
+                            </div>
+
+                            <div class="row">
+                                <section class="col col-6">
+                                    <label class="label">Number of damaged learning materials </label>
+                                    <label class="input ">
+                                        <input type="text" id="damagedLearningMaterials" ng-model="clickedUser.damagedLearningMaterials">
+                                    </label>
+                                </section>
+
+                                <section class="col col-6">
+                                    <label class="label">Number of damaged computer equipment </label>
+                                    <label class="input ">
+                                        <input type="text" id="damagedComputerEquipment" ng-model="clickedUser.damagedComputerEquipment">
+                                    </label>
+                                </section>
+
+                            </div>
+                            <i></i>
+                            <!-- <div class="note note-success">Thanks for your selection.</div> -->
+                        </section>
+                    </fieldset>
+
+                    <footer>
+                        <button type="button" id="submit" class="btn btn-success" ng-click="updateUser()">Save</button>
+                        <button type="button" class="btn btn-primary" ng-click="close()">close</button>
+                    </footer>
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<div id="myModal2" class="modal fade" role="dialog">
+    <div class="modal-dialog" style="width: 50%;height: 50%; ">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+
+
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Delete Info.</h4>
+            </div>
+            <div class="modal-body">
+
+
+                <p>You want to delete <strong style="color: red;">{{clickedUser.school}}</strong> from <strong style="color: red;">{{clickedUser.municipality}} {{clickedUser.division}}</strong>?</p>
+
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info" ng-click="close()">No</button>
+                <button type="button" class="btn btn-danger" ng-click="deleteUser()">Yes</button>
+            </div>
+
+
+        </div>
+
+    </div>
+</div>
+
+<div id="myModal3" class="modal fade" role="dialog">
+    <div class="modal-dialog" style="width: 98%;height: auto; ">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+
+
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Continuation Info.</h4>
+            </div>
+            <style>
+                th {
+                    background-color: #57889c !important;
+                    color: white;
+                }
+            </style>
+
+            <div class="modal-body">
+
+
+                <!-- Widget ID (each widget will need unique ID)-->
+                <div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-editbutton="true" style="margin-bottom: 5px!important;margin-top: 5px!important;margin-left: -11px!important;margin-right: -11px!important;">
+                    <!-- widget options:
+    usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+
+    data-widget-colorbutton="false"
+    data-widget-editbutton="false"
+    data-widget-togglebutton="false"
+    data-widget-deletebutton="false"
+    data-widget-fullscreenbutton="false"
+    data-widget-custombutton="false" 
+    data-widget-collapsed="true"
+    data-widget-sortable="false"
+
+    -->
+                    <header>
+                        <span class="widget-icon"> <i class="fa fa-table"></i> </span>
+                    </header>
+
+                    <!-- widget div-->
+                    <div style="overflow-x:auto;">
+
+
+
+                        <!-- <label class="input">
+                            <input type="text" name="name" ng-model="findcoa"> <i
+                                class="icon-append fa fa-search"></i>
+                        </label> -->
+                        <!-- <label class="input pull-right">
+                            <label class="select ">Page Filter
+                                <select name="options" id="pfilter">
+
+                                    <option value="10">10</option>
+                                    <option value="30">30</option>
+                                    <option value="50">50</option>
+                                    <option value="100">100</option>
+
+                                </select> <i></i> </label>
+                        </label> -->
+                        <br>
+
+                        <table id="data" class="table table-striped table-bordered table-hover" width="100%">
+                            <thead>
+
+                                <tr>
+                                    <th colspan="16 pull-center" class="text-center th">Report on the Number of Evacuation Centers and other Details (Disaster)</th>
+                                </tr>
+
+                                <tr>
+                                    <th class="text-center th">Partially Damaged Classrooms (Major) </th>
+                                    <th class="text-center th">Partially Damaged Classrooms (Minor) </th>
+                                    <th  class="text-center th">Number of Deceased DepEd Personnel</th>
+                                    <th  class="text-center th">Number of Deceased DepEd Personnel</th>
+                                    <th  class="text-center th">Number of Injured DepEd Personnel</th>
+                                    <th  class="text-center th">Number of Missing DepEd Personnel</th>
+                                    <th  class="text-center th">Number of Displaced DepEd Personnel </th>
+                                    <th  class="text-center th">Total Classrooms used as Evacuation Center </th>
+                                    <th  class="text-center th">School as EC lasted for 3 days or more (YES/NO)</th>
+                                    <th  class="text-center th">Total Schools with Report</th>
+                                    <th  class="text-center th">Schools with Reported Non-Infra Damages </th>
+                                    <th  class="text-center th">Number of damaged school furnitures</th>
+                                    <th  class="text-center th">Number of damaged learning materials</th>
+                                    <th  class="text-center th">Number of damaged computer equipment</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr class="text-center">
+                                    <td>{{clickedUser.partialDamageClassMajor}}</td>
+                                    <td>{{clickedUser.partialDamageClassMinor}}</td>
+                                    <td>{{clickedUser.temporaryLearning}}</td>
+                                    <td>{{clickedUser.deceasedPersonnel}}</td>
+                                    <td>{{clickedUser.injuredPersonnel}}</td>
+                                    <td>{{clickedUser.missingPersonnel}}</td>
+                                    <td>{{clickedUser.displacedPersonnel}}</td>
+                                    <td>{{clickedUser.totalEvacSchool}}</td>
+                                    <td>{{clickedUser.ECLasted}}</td>
+                                    <td>{{clickedUser.totalSchoolReport}}</td>
+                                    <td>{{clickedUser.schoolWithNonInfraDamage}}</td>
+                                    <td>{{clickedUser.damagedSchoolFurnitures}}</td>
+                                    <td>{{clickedUser.damagedLearningMaterials}}</td>
+                                    <td>{{clickedUser.damagedComputerEquipment}}</td>
+
+                                </tr>
+
+
+                            </tbody>
+
+
+
+                        </table>
+
+
+
+
+
+
+                    </div>
+
+                </div>
+
+                <span id="here"></span>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" ng-click="close()">Close</button>
+                    <!-- <button type="button" class="btn btn-danger" ng-click="deleteUser()">Yes</button> -->
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+</div>
+<script>
+</script>

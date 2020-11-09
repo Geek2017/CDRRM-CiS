@@ -1,0 +1,251 @@
+<section id="widget-grid" class="" style="margin: 0.5%;">
+    <div class="row">
+        <article class="col-sm-12 col-md-12 col-lg-12">
+
+            <!-- Widget ID (each widget will need unique ID)-->
+            <div class="jarviswidget" id="wid-id-2" data-widget-colorbutton="false" data-widget-editbutton="false">
+                <!-- widget options:
+            usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+            
+            data-widget-colorbutton="false"	
+            data-widget-editbutton="false"
+            data-widget-togglebutton="false"
+            data-widget-deletebutton="false"
+            data-widget-fullscreenbutton="false"
+            data-widget-custombutton="false"
+            data-widget-collapsed="true" 
+            data-widget-sortable="false"
+            
+        -->
+                <header>
+                    <!-- <span class="widget-icon"> <i class="fa fa-check txt-color-green"></i> </span> -->
+                    <span class="widget-icon"></span>
+                    <!-- <h2>Success States </h2> -->
+
+                </header>
+
+                <!-- widget div-->
+                <div>
+
+                    <!-- widget edit box -->
+                    <div class="jarviswidget-editbox">
+                        <!-- This area used as dropdown edit box -->
+
+                    </div>
+                    <!-- end widget edit box -->
+
+                    <!-- widget content -->
+                    <div class="widget-body no-padding">
+
+                        <div id="notif"></div>
+
+                        <!-- Success states for elements -->
+                        <form class="smart-form">
+                            <header>Report on the Number of Evacuation Centers and other Details (Disaster)</header>
+
+                            <fieldset>
+                                <section>
+
+                                    <div class="row">
+                                        <section class="col col-6">
+                                            <label class="label">School ID </label>
+                                            <label class="input ">
+                                                <input type="text" id="schoolID">
+                                            </label>
+                                        </section>
+
+                                        <section class="col col-6">
+                                            <label class="label">Name of School </label>
+                                            <label class="input ">
+                                                <input type="text" id="school">
+                                            </label>
+                                        </section>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <section class="col col-3">
+                                            <label class="label">Region</label>
+                                            <label class="input ">
+                                                <input type="text" id="region">
+                                            </label>
+                                        </section>
+                                        <section class="col col-3">
+                                            <label class="label">Division</label>
+                                            <label class="input ">
+                                                <input type="text" id="division">
+                                            </label>
+                                        </section>
+                                        <section class="col col-3">
+                                            <label class="label">District </label>
+                                            <label class="input ">
+                                                <input type="text" id="district">
+                                            </label>
+                                        </section>
+                                        <section class="col col-3">
+                                            <label class="label">Municipality</label>
+                                            <label class="input ">
+                                                <input type="text" id="municipality">
+                                            </label>
+                                        </section>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <section class="col col-3">
+                                            <label class="label">Enrollment</label>
+                                            <label class="input ">
+                                                <input type="number" id="enrollment">
+                                            </label>
+                                        </section>
+                                        <section class="col col-3">
+                                            <label class="label">Total Schools with Report</label>
+                                            <label class="input ">
+                                                <input type="number" id="totalSchool">
+                                            </label>
+                                        </section>
+                                        <section class="col col-3">
+                                            <label class="label">Schools with Reported Infra Damages</label>
+                                            <label class="input ">
+                                                <input type="number" id="schoolWithInfraDamage">
+                                            </label>
+                                        </section>
+                                        <section class="col col-3">
+                                            <label class="label">Totally Damaged Classrooms</label>
+                                            <label class="input ">
+                                                <input type="number" id="totalDamageClassroom">
+                                            </label>
+                                        </section>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <section class="col col-3">
+                                            <label class="label">Partially Damaged Classrooms (Major)</label>
+                                            <label class="input ">
+                                                <input type="number" id="partialDamageClassMajor">
+                                            </label>
+                                        </section>
+                                        <section class="col col-3">
+                                            <label class="label">Partially Damaged Classrooms (Minor)</label>
+                                            <label class="input ">
+                                                <input type="number" id="partialDamageClassMinor">
+                                            </label>
+                                        </section>
+                                        <section class="col col-3">
+                                            <label class="label">Temporary Learning Spaces needed</label>
+                                            <label class="input ">
+                                                <input type="number" id="temporaryLearning">
+                                            </label>
+                                        </section>
+                                        <section class="col col-3">
+                                            <label class="label">Number of Deceased DepEd Personnel</label>
+                                            <label class="input ">
+                                                <input type="number" id="deceasedPersonnel">
+                                            </label>
+                                        </section>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <section class="col col-3">
+                                            <label class="label">Number of Injured DepEd Personnel</label>
+                                            <label class="input ">
+                                                <input type="number" id="injuredPersonnel">
+                                            </label>
+                                        </section>
+                                        <section class="col col-3">
+                                            <label class="label">Number of Missing DepEd Personnel</label>
+                                            <label class="input ">
+                                                <input type="number" id="missingPersonnel">
+                                            </label>
+                                        </section>
+                                        <section class="col col-3">
+                                            <label class="label">Number of Displaced DepEd Personnel</label>
+                                            <label class="input ">
+                                                <input type="number" id="displacedPersonnel">
+                                            </label>
+                                        </section>
+                                        <section class="col col-3">
+                                            <label class="label">Total Classrooms used as Evacuation Center</label>
+                                            <label class="input ">
+                                                <input type="number" id="totalEvacSchool">
+                                            </label>
+                                        </section>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <section class="col col-3">
+                                            <label class="label">School as EC lasted for 3 days or more</label>
+                                            <label class="select ">
+                                                <select id="ECLasted">
+                                                    <!-- <option value="0">Choose Municipality</option> -->
+                                                    <option value="Yes" selected>Yes</option>
+                                                    <option value="No">No</option>
+                                                </select>
+                                                <i></i>
+                                            </label>
+                                        </section>
+                                        <section class="col col-3">
+                                            <label class="label">Total Schools with Report</label>
+                                            <label class="input ">
+                                                <input type="number" id="totalSchoolReport">
+                                            </label>
+                                        </section>
+                                        <section class="col col-3">
+                                            <label class="label">Schools with Reported Non-Infra Damages</label>
+                                            <label class="input ">
+                                                <input type="number" id="schoolWithNonInfraDamage">
+                                            </label>
+                                        </section>
+                                        <section class="col col-3">
+                                            <label class="label">Number of damaged school furnitures</label>
+                                            <label class="input ">
+                                                <input type="number" id="damagedSchoolFurnitures">
+                                            </label>
+                                        </section>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <section class="col col-6">
+                                            <label class="label">Number of damaged learning materials </label>
+                                            <label class="input ">
+                                                <input type="number" id="damagedLearningMaterials">
+                                            </label>
+                                        </section>
+
+                                        <section class="col col-6">
+                                            <label class="label">Number of damaged computer equipment </label>
+                                            <label class="input ">
+                                                <input type="number" id="damagedComputerEquipment">
+                                            </label>
+                                        </section>
+
+                                    </div>
+                                    <i></i>
+                                    <!-- <div class="note note-success">Thanks for your selection.</div> -->
+                                </section>
+                            </fieldset>
+
+                            <footer>
+                                <button type="button" id="submit" class="btn btn-primary">Submit</button>
+                                <button type="button" class="btn btn-default"
+                                    onclick="window.history.back();">Back</button>
+                            </footer>
+                        </form>
+                        <!--/ Success states for elements -->
+
+                    </div>
+                    <!-- end widget content -->
+
+                </div>
+                <!-- end widget div -->
+
+            </div>
+            <!-- end widget -->
+
+        </article>
+    </div>
+</section>

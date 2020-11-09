@@ -1,7 +1,7 @@
 // Application Modules and Routing
 angular
-    .module('newApp', ['ngRoute'])
-    .config(function($routeProvider) {
+    .module('newApp', ['ngRoute', 'firebase'])
+    .config(function ($routeProvider) {
         $routeProvider
             .when('/', {
                 templateUrl: 'views/dashboard.html',
@@ -10,6 +10,14 @@ angular
             .when('/rhalist', {
                 templateUrl: 'views/rhalist.html',
                 controller: "rhalistCtrl"
+            })
+            .when('/cnsbdchonew', {
+                templateUrl: 'views/cnsbdchonew.html',
+                controller: "cnsbdchonewCtrl"
+            })
+            .when('/cnsbdcholist', {
+                templateUrl: 'views/cnsbdcholist.html',
+                controller: "cnsbdcholistCtrl"
             })
             .when('/rhanew', {
                 templateUrl: 'views/rhanew.html',
@@ -35,9 +43,69 @@ angular
                 templateUrl: 'views/cdlist.html',
                 controller: "cdlistCtrl"
             })
-            .when('/cdnew', {
-                templateUrl: 'views/cdnew.html',
-                controller: "cdnewCtrl"
+            .when('/ecdnew', {
+                templateUrl: 'views/ecdnew.html',
+                controller: "ecdnewCtrl"
+            })
+            .when('/ecdlist', {
+                templateUrl: 'views/ecdlist.html',
+                controller: "ecdlistCtrl"
+            })
+            .when('/flasnew', {
+                templateUrl: 'views/flasnew.html',
+                controller: "flasnewCtrl"
+            })
+            .when('/flaslist', {
+                templateUrl: 'views/flaslist.html',
+                controller: "flaslistCtrl"
+            })
+            .when('/locnew', {
+                templateUrl: 'views/locnew.html',
+                controller: "locnewCtrl"
+            })
+            .when('/loclist', {
+                templateUrl: 'views/loclist.html',
+                controller: "loclistCtrl"
+            })
+            .when('/rnenew', {
+                templateUrl: 'views/rnenew.html',
+                controller: "rnenewCtrl"
+            })
+            .when('/rnelist', {
+                templateUrl: 'views/rnelist.html',
+                controller: "rnelistCtrl"
+            })
+            .when('/cnsbdnew', {
+                templateUrl: 'views/cnsbdnew.html',
+                controller: "cnsbdnewCtrl"
+            })
+            .when('/cnsbdlist', {
+                templateUrl: 'views/cnsbdlist.html',
+                controller: "cnsbdlistCtrl"
+            })
+            .when('/intakesheetnew', {
+                templateUrl: 'views/intakeSheetsNew.html',
+                controller: "intakeSheetNewCtrl"
+            })
+            .when('/intakesheetlist', {
+                templateUrl: 'views/intakesheetlist.html',
+                controller: "intakesheetlistCtrl"
+            })
+            .when('/cnsbdbarangaynew', {
+                templateUrl: 'views/cnsbdbarangaynew.html',
+                controller: "cnsbdbarangaynewCtrl"
+            })
+            .when('/cnsbdbarangaylist', {
+                templateUrl: 'views/cnsbdbarangaylist.html',
+                controller: "cnsbdbarangaylistCtrl"
+            })
+            .when('/cnsbdcswdonew', {
+                templateUrl: 'views/cnsbdcswdonew.html',
+                controller: "cnsbdcswdonewCtrl"
+            })
+            .when('/cnsbdcswdolist', {
+                templateUrl: 'views/cnsbdcswdolist.html',
+                controller: "cnsbdcswdolistCtrl"
             });
 
 

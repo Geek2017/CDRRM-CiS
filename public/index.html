@@ -7,7 +7,7 @@
 <meta charset="utf-8">
 <!--<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">-->
 
-<title> CDRRMO-CiS </title>
+<title>CDRRMO-CiS </title>
 
 
 <meta name="description" content="">
@@ -17,6 +17,8 @@
 
 <script src="./assets/AngularJS/angular.js"></script>
 <script src="./assets/AngularJS/angular-route.js"></script>
+<script src="./assets/firebase/firebase.js"></script>
+<script src="./assets/angularfire/dist/angularfire.js"></script>
 <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
 
 
@@ -342,8 +344,8 @@
                             <li> <a href='#/'><i class='fa fa-list-ul'></i>NEW H.F.R</a></li>
                             <li> <a href='#/'><i class='fa fa-list-ul'></i>DEMOGRAPICS LIST</a> </li>
                             <li> <a href='#/'><i class='fa fa-list-ul'></i>NEW DEMOGRAPICS</a></li>
-                            <li> <a href='#/'><i class='fa fa-list-ul'></i>CNSBD-LGU LIST</a></li>
-                            <li> <a href='#/'><i class='fa fa-list-ul'></i>NEW CNSBD-LGU</a></li>
+                            <li> <a href='#/cnsbdcholist'><i class='fa fa-list-ul'></i>CNSBD-LGU LIST</a></li>
+                            <li> <a href='#/cnsbdchonew'><i class='fa fa-list-ul'></i>NEW CNSBD-LGU</a></li>
                         </ul>
                     </li>
 
@@ -351,34 +353,34 @@
                         <a href="#"><i class="fa  fa-files-o"></i> <span class="menu-item-parent">DEPED</span></a>
                         <ul>
                             <li>
-                                <a href="#/"><i class="fa fa-file-text-o"></i>E.C.D LIST</a>
+                                <a href="#/ecdlist"><i class="fa fa-file-text-o"></i>E.C.D LIST</a>
                             </li>
                             <li>
-                                <a href="#/"><i class="fa  fa-list-ul"></i>NEW E.C.D</a>
+                                <a href="#/ecdnew"><i class="fa  fa-list-ul"></i>NEW E.C.D</a>
                             </li>
                             <li>
-                                <a href="#/"><i class="fa fa-file-text-o"></i>F.L.A.S LIST</a>
+                                <a href="#/flaslist"><i class="fa fa-file-text-o"></i>F.L.A.S LIST</a>
                             </li>
                             <li>
-                                <a href="#/"><i class="fa  fa-list-ul"></i>NEW F.L.A.S</a>
+                                <a href="#/flasnew"><i class="fa  fa-list-ul"></i>NEW F.L.A.S</a>
                             </li>
                             <li>
-                                <a href="#/"><i class="fa fa-file-text-o"></i>L.O.C LIST</a>
+                                <a href="#/loclist"><i class="fa fa-file-text-o"></i>L.O.C LIST</a>
                             </li>
                             <li>
-                                <a href="#/"><i class="fa  fa-list-ul"></i>NEW L.O.C</a>
+                                <a href="#/locnew"><i class="fa  fa-list-ul"></i>NEW L.O.C</a>
                             </li>
                             <li>
-                                <a href="#/"><i class="fa fa-file-text-o"></i>R.N.E LIST</a>
+                                <a href="#/rnelist"><i class="fa fa-file-text-o"></i>R.N.E LIST</a>
                             </li>
                             <li>
-                                <a href="#/"><i class="fa  fa-list-ul"></i>NEW R.N.E</a>
+                                <a href="#/rnenew"><i class="fa  fa-list-ul"></i>NEW R.N.E</a>
                             </li>
                             <li>
-                                <a href="#/"><i class="fa  fa-list-ul"></i>CNSBD-LGU LIST</a>
+                                <a href="#/cnsbdlist"><i class="fa  fa-list-ul"></i>CNSBD-LGU LIST</a>
                             </li>
                             <li>
-                                <a href="#/"><i class="fa  fa-list-ul"></i>NEW CNSBD-LGU</a>
+                                <a href="#/cnsbdnew"><i class="fa  fa-list-ul"></i>NEW CNSBD-LGU</a>
                             </li>
                         </ul>
                     </li>
@@ -386,10 +388,10 @@
                         <a href="#"><i class="fa  fa-exchange"></i> <span class="menu-item-parent">Barangay</span></a>
                         <ul>
                             <li>
-                                <a href="#/"><i class="fa fa-file-text-o"></i>INTAKE SHEETS LIST</a>
+                                <a href="#/intakesheetlist"><i class="fa fa-file-text-o"></i>INTAKE SHEETS LIST</a>
                             </li>
                             <li>
-                                <a href="#/"><i class="fa  fa-list-ul"></i>NEW INTAKE SHEETS</a>
+                                <a href="#/intakesheetnew"><i class="fa  fa-list-ul"></i>NEW INTAKE SHEETS</a>
                             </li>
                             <li>
                                 <a href="#/"><i class="fa fa-file-text-o"></i>M.O.H.R.F LIST</a>
@@ -410,10 +412,10 @@
                                 <a href="#/"><i class="fa  fa-list-ul"></i>NEW ROOM LISTING</a>
                             </li>
                             <li>
-                                <a href="#/"><i class="fa  fa-list-ul"></i>CNSBD-LGU LIST</a>
+                                <a href="#/cnsbdbarangaylist"><i class="fa  fa-list-ul"></i>CNSBD-LGU LIST</a>
                             </li>
                             <li>
-                                <a href="#/"><i class="fa  fa-list-ul"></i>NEW CNSBD-LGU</a>
+                                <a href="#/cnsbdbarangaynew"><i class="fa  fa-list-ul"></i>NEW CNSBD-LGU</a>
                             </li>
                         </ul>
                     </li>
@@ -487,10 +489,10 @@
                                 <a href="#/"><i class="fa  fa-list-ul"></i>NEW M.G.F.D.C</a>
                             </li>
                             <li>
-                                <a href="#/"><i class="fa  fa-list-ul"></i>CNSBD-LGU LIST</a>
+                                <a href="#/cnsbdcswdolist"><i class="fa  fa-list-ul"></i>CNSBD-LGU LIST</a>
                             </li>
                             <li>
-                                <a href="#/"><i class="fa  fa-list-ul"></i>NEW CNSBD-LGU</a>
+                                <a href="#/cnsbdcswdonew"><i class="fa  fa-list-ul"></i>NEW CNSBD-LGU</a>
                             </li>
                         </ul>
                     </li>
@@ -711,6 +713,8 @@
     <script src="./assets/js/plugin/datatables/dataTables.colVis.min.js"></script>
     <script src="./assets/js/plugin/datatables/dataTables.tableTools.min.js"></script>
     <script src="./assets/js/plugin/datatables/dataTables.bootstrap.min.js"></script>
+    <!-- <script src="./assets/jquery.tabletojson.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/table-to-json@1.0.0/lib/jquery.tabletojson.min.js" integrity="sha256-H8xrCe0tZFi/C2CgxkmiGksqVaxhW0PFcUKZJZo1yNU=" crossorigin="anonymous"></script>
     <script src="./assets/js/plugin/datatable-responsive/datatables.responsive.min.js"></script>
 
 
@@ -721,6 +725,24 @@
     <script src="./contollers/dashboardCtrl.js"></script>
     <script src="./contollers/rhalistCtrl.js"></script>
     <script src="./contollers/rhanewCtrl.js"></script>
+    <script src="./contollers/cnsbdchonewCtrl.js"></script>
+    <script src="./contollers/cnsbdcholistCtrl.js"></script>
+    <script src="./contollers/ecdnewCtrl.js"></script>
+    <script src="./contollers/ecdlistCtrl.js"></script>
+    <script src="./contollers/flasnewCtrl.js"></script>
+    <script src="./contollers/flaslistCtrl.js"></script>
+    <script src="./contollers/locnewCtrl.js"></script>
+    <script src="./contollers/loclistCtrl.js"></script>
+    <script src="./contollers/rnenewCtrl.js"></script>
+    <script src="./contollers/rnelistCtrl.js"></script>
+    <script src="./contollers/cnsbdnewCtrl.js"></script>
+    <script src="./contollers/cnsbdlistCtrl.js"></script>
+    <script src="./contollers/intakeSheetNewCtrl.js"></script>
+    <script src="./contollers/intakesheetlistCtrl.js"></script>
+    <script src="./contollers/cnsbdbarangaynewCtrl.js"></script>
+    <script src="./contollers/cnsbdbarangaylistCtrl.js"></script>
+    <script src="./contollers/cnsbdcswdonewCtrl.js"></script>
+    <script src="./contollers/cnsbdcswdolistCtrl.js"></script>
 
 
 
