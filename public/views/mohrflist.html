@@ -1,0 +1,810 @@
+<style>
+    th {
+        background-color: #57889c !important;
+        color: white;
+    }
+</style>
+<article class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+
+    <!-- Widget ID (each widget will need unique ID)-->
+    <div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-editbutton="true"
+        style="margin-bottom: 3px!important;">
+        <!-- widget options:
+        usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+        data-widget-colorbutton="false"
+        data-widget-editbutton="false"
+        data-widget-togglebutton="false"
+        data-widget-deletebutton="false"
+        data-widget-fullscreenbutton="false"
+        data-widget-custombutton="false" 
+        data-widget-collapsed="true"
+        data-widget-sortable="false"
+        -->
+        <header>
+            <span class="widget-icon"> <i class="fa fa-table"></i> </span>
+            <h2>Accounts</h2>
+
+        </header>
+
+        <!-- widget div-->
+        <div>
+
+
+
+            <label class="input">
+                <input type="text" name="name" ng-model="findcf"> <i class="icon-append fa fa-search"></i>
+            </label>
+
+            <label class="input pull-right">
+                <label class="select ">Page Filter
+                    <select name="options" id="pfilter">
+
+                        <option value="10">10</option>
+                        <option value="30">30</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+
+                    </select> <i></i> </label>
+            </label>
+
+            <table id="data" class="table table-striped table-bordered table-hover" width="100%">
+
+                <div id="notif"></div>
+                <thead>
+                    <tr>
+
+                        <th>Date</th>
+                        <th>Number of Barangays Evacuated</th>
+                        <th>Number of Evacuation Center</th>
+                        <th>Evacuation Center</th>
+                        <th>Place of Origin</th>
+                        <th>Number of Family Heads</th>
+                        <!-- <th>Barangay of Origin</th>
+                        <th>Name of Family Head & Spouse</th>
+                        <th>No. of Family Members</th> -->
+                        <!-- <th>Relationship to Family Member</th>
+                        <th>Educational Attainment</th>
+                        <th>Occupation</th>
+                        <th>Income </th>
+                        <th>Disability(Specify)</th> -->
+                        <!-- <th>Pregnant(P) or Lactating(L)</th> -->
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody ng-repeat="cf in cfs  | filter: findcf">
+
+                    <!-- <th colspan="6" class=""></th>
+                    <th colspan="4">Action</th> -->
+                    <th colspan="6"></th>
+                    <th colspan="1">
+                        <div class="btn-group btn-group-sm text-center">
+                            <button type="button" class="btn btn-primary " ng-click="selectUser3(cf)"><i
+                                    class="fa fa-search"></i></button>
+                            <button type="button" class="btn btn-success " ng-click="selectUser(cf)"><i
+                                    class="fa fa-pencil"></i></button>
+
+                            <button type="button" class="btn btn-danger" ng-click="selectUser2(cf)"><i
+                                    class="fa fa-minus-circle"></i></button>
+                        </div>
+                    </th>
+
+                    <tr ng-repeat="ncf in cf.family ">
+                        <td>{{cf.date}}</td>
+                        <td>{{cf.barangayEvacuated}}</td>
+                        <td>{{cf.evacCenterNo}}</td>
+                        <!-- <td>{{cf.Evacuation Center}}</td>
+                        <td>{{cf.Place of Origin}}</td>
+                        <td>{{cf.roomLeader}}</td> -->
+                        <td>{{ncf['Evacuation Center']}}</td>
+                        <td> {{ncf['Place of Origin']}}</td>
+                        <td colspan="2"> {{ncf['Number of Family Heads']}}</td>
+                    </tr>
+                    <!-- <tr style="background-color: #57889c!important;
+                    color: white;">
+                        <td colspan="5"></td>
+
+                        <td><strong>Total:</strong> </td>
+                        <td><strong> {{cf.total | currency : '₱ ' : 2}} </strong></td>
+                        <td></td>
+                        <td><strong> {{cf.total2 | currency : '₱ ' : 2}} </strong></td>
+                        <td></td>
+                        <td><strong> {{cf.total3 | currency : '₱ ' : 2}} </strong></td>
+                        <td></td>
+
+                    </tr> -->
+
+                </tbody>
+                <!-- <tr style="background-color:#57889c!important;
+                color: white;">
+                    <td colspan="7"></td>
+
+                    <td>
+                        <h5 class="text-center">Total Cash & Check Receipts for the Day:</h5>
+                    </td>
+                    <td>
+                        <h6>{{tcol | currency : '₱ ' : 2}} </h6>
+                    </td>
+                </tr> -->
+
+
+            </table>
+
+
+
+
+
+
+        </div>
+
+    </div>
+
+    <span id="here"></span>
+</article>
+
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog" style="width: 80%;height: 80%; ">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+
+
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Edit Info.</h4>
+            </div>
+
+            <div class="modal-body">
+
+                <form class="smart-form " id="newcf">
+                    <header>
+                        Room Listing
+                    </header>
+
+                    <fieldset>
+                        <div class="row">
+                            <section class="col col-6">
+                                <label class="label">Number of Barangays Evacuated</label>
+                                <label class="input ">
+                                    <input type="text" ng-model="clickedUser.barangayEvacuated" id="barangayEvacuated"
+                                        required>
+                                </label>
+                            </section>
+                            <section class="col col-6">
+                                <label class="label">Number of Evacuation Center</label>
+                                <label class="input ">
+                                    <input type="text" ng-model="clickedUser.evacCenterNo" id="evacCenterNo" required>
+                                </label>
+                            </section>
+
+                        </div>
+
+                        <div class="panel-body ">
+
+                            <div class="btn-group btn-group-sm pull-right">
+                                <button type="button" class="btn btn-success " ng-click="addtr()"><i
+                                        class="fa fa-plus-circle"></i></button>
+
+                                <button type="button" class="btn btn-danger" ng-click="removetr()"><i
+                                        class="fa fa-minus-circle"></i></button>
+                            </div>
+                            <br>
+                            <br>
+                            <table id="convert-table" class="table table-striped table-bordered table-hover"
+                                width="100%">
+                                <thead>
+                                    <!-- <tr>
+                                    <th colspan="1"></th>
+                                    <th colspan="2" class="text-center">On the First 30 Days</th>
+                                    <th colspan="2" class="text-center">On the Second 30 Days</th>
+                                    <th colspan="2" class="text-center">On the Third 30 Days</th>
+            
+                                </tr> -->
+                                    <tr>
+                                        <th class="text-center th">Evacuation Center</th>
+                                        <th class="text-center th">Place of Origin</th>
+                                        <th class="text-center th">Number of Family Heads</th>
+                                        <th class="text-center th">Below 1 Yr (M)</th>
+                                        <th class="text-center th">Below 1 Yr (F)</th>
+                                        <th class="text-center th">1-2 (M)</th>
+                                        <th class="text-center th">1-2 (F)</th>
+                                        <th class="text-center th">3-5 (M)</th>
+                                        <th class="text-center th">3-5 (F)</th>
+                                        <th class="text-center th">6-14 (M)</th>
+                                        <th class="text-center th">6-14 (F)</th>
+                                        <th class="text-center th">15-17 (M)</th>
+                                        <th class="text-center th">15-17 (F)</th>
+                                        <th class="text-center th">18-24 (M)</th>
+                                        <th class="text-center th">18-24 (F)</th>
+                                        <!-- <th class="text-center th">Pregnant(P) or Lactating(L)</th> -->
+                                    </tr>
+                                </thead>
+                                <tbody id="appendhere">
+                                    <tr class="row_to_clone" ng-repeat="ncf in usersClicked.family ">
+                                        <td class="col-md-2"> <label class="input">
+                                                <input type="text" name="particulars"
+                                                    ng-model="ncf['Evacuation Center']" placeholder="" required>
+                                            </label></td>
+                                        <td class="col-md-1">
+                                            <label class="input">
+                                                <input type="text" name="particulars" ng-model="ncf['Place of Origin']"
+                                                    placeholder="" required>
+                                            </label>
+                                        </td>
+                                        <td class="col-md-1">
+                                            <label class="input">
+                                                <input type="text" name="particulars"
+                                                    ng-model="ncf['Number of Family Heads']" placeholder="" required>
+                                            </label>
+                                        </td>
+                                        </td>
+                                        <td>
+
+                                            <label class="input">
+                                                <input type="text" ng-model="ncf['Below 1 Yr (M)']" name="amount"
+                                                    value="" class="" autocomplete='off' />
+                                            </label>
+                                        </td>
+
+                                        <td><label class="input">
+                                                <input type="text" ng-model="ncf['Below 1 Yr (F)']" name="remarks"
+                                                    placeholder="">
+                                            </label></td>
+                                        </td>
+                                        <td>
+
+                                            <label class="input">
+                                                <input type="text" ng-model="ncf['1-2 (M)']" name="amount" value=""
+                                                    class="" autocomplete='off' />
+                                            </label>
+                                        </td>
+
+                                        <td><label class="input">
+                                                <input type="text" ng-model="ncf['1-2 (F)']" name="remarks"
+                                                    placeholder="">
+                                            </label></td>
+                                        <td><label class="input">
+                                                <input type="text" ng-model="ncf['3-5 (M)']" name="remarks"
+                                                    placeholder="">
+                                            </label></td>
+                                        <td><label class="input">
+                                                <input type="text" ng-model="ncf['3-5 (F)']" name="remarks"
+                                                    placeholder="">
+                                            </label></td>
+                                        <td><label class="input">
+                                                <input type="text" ng-model="ncf['6-14 (M)']" name="remarks"
+                                                    placeholder="">
+                                            </label></td>
+                                        <td><label class="input">
+                                                <input type="text" ng-model="ncf['6-14 (F)']" name="remarks"
+                                                    placeholder="">
+                                            </label></td>
+                                        <td><label class="input">
+                                                <input type="text" ng-model="ncf['15-17 (M)']" name="remarks"
+                                                    placeholder="">
+                                            </label></td>
+                                        <td><label class="input">
+                                                <input type="text" ng-model="ncf['15-17 (F)']" name="remarks"
+                                                    placeholder="">
+                                            </label></td>
+                                        <td><label class="input">
+                                                <input type="text" ng-model="ncf['18-24 (M)']" name="remarks"
+                                                    placeholder="">
+                                            </label></td>
+                                        <td><label class="input">
+                                                <input type="text" ng-model="ncf['18-24 (F)']" name="remarks"
+                                                    placeholder="">
+                                            </label></td>
+                                        </td>
+                                        <!-- <td class="col-md-1">
+
+                                        <label class="input col-md-10"> 
+                                            <input type="text" ng-model="ncf['18-24 (F)']" name="amount" value="" class="" autocomplete='off' />
+                                       </label>
+
+                                       <label class="input col-md-1"> 
+                                        <button class="btn btn-danger btn-sm deleteb">X</button>
+                                    </label>
+                                    </td> -->
+                                    </tr>
+                                </tbody>
+                                <!-- <tbody>
+                                <tr>
+                                    <td><h4>Total</h4></td>
+                                    <td></td>
+                                    <td>
+                                        <h4><label class="input"> 
+                                            <span id="sum">0.00</span>
+
+                                        </label></h4>
+                                    </td>
+                                    <td></td>
+                                    <td>
+                                        <h4><label class="input"> 
+                                            <span id="sum2">0.00</span>
+
+                                        </label></h4>
+                                    </td>
+                                    <td></td>
+                                    <td>
+                                        <h4><label class="input"> 
+                                            <span id="sum3">0.00</span>
+
+                                        </label></h4>
+                                    </td>
+                                </tr>
+                            </tbody> -->
+                            </table>
+                            <br>
+
+                            <table id="convert-table2" class="table table-striped table-bordered table-hover"
+                                width="100%">
+                                <thead>
+                                    <!-- <tr>
+                                    <th colspan="1"></th>
+                                    <th colspan="2" class="text-center">On the First 30 Days</th>
+                                    <th colspan="2" class="text-center">On the Second 30 Days</th>
+                                    <th colspan="2" class="text-center">On the Third 30 Days</th>
+            
+                                </tr> -->
+                                    <tr>
+
+                                        <th class="text-center th">24-59 (M)</th>
+                                        <th class="text-center th">24-59 (F)</th>
+                                        <th class="text-center th">60 Above (M)</th>
+                                        <th class="text-center th">60 Above (F)</th>
+                                        <th class="text-center th">Total Family Members (M)</th>
+                                        <th class="text-center th">Total Family Members (F)</th>
+                                        <th class="text-center th">Total Family Members (All)</th>
+                                        <th class="text-center th">PWDs (M)</th>
+                                        <th class="text-center th">PWDs (F)</th>
+                                        <th class="text-center th">Pregnant(P) or Lactating(L) (M)</th>
+                                        <th class="text-center th">Pregnant(P) or Lactating(L) (F)</th>
+                                        <th class="text-center th">W (M)</th>
+                                        <th class="text-center th">W (F)</th>
+                                        <th class="text-center th">SP (M)</th>
+                                        <th class="text-center th">SP (F)</th>
+                                        <!-- <th class="text-center th">Pregnant(P) or Lactating(L)</th> -->
+                                    </tr>
+                                </thead>
+                                <tbody id="appendhere2">
+                                    <tr class="row_to_clone" ng-repeat="ncf in usersClicked.family2 ">
+                                        <td> <label class="input">
+                                                <input type="text" name="particulars" ng-model="ncf['24-59 (M)']"
+                                                    placeholder="" required>
+                                            </label></td>
+                                        <td>
+                                            <label class="input">
+                                                <input type="text" name="particulars" ng-model="ncf['24-59 (F)']"
+                                                    placeholder="" required>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="input">
+                                                <input type="text" name="particulars" ng-model="ncf['60 Above (M)']"
+                                                    placeholder="" required>
+                                            </label>
+                                        </td>
+                                        </td>
+                                        <td>
+
+                                            <label class="input">
+                                                <input type="text" ng-model="ncf['60 Above (F)']" name="amount" value=""
+                                                    class="" autocomplete='off' />
+                                            </label>
+                                        </td>
+
+                                        <td><label class="input">
+                                                <input type="text" ng-model="ncf['Total Family Members (M)']" name="remarks"
+                                                    placeholder="">
+                                            </label></td>
+                                        </td>
+                                        <td>
+
+                                            <label class="input">
+                                                <input type="text" ng-model="ncf['Total Family Members (F)']" name="amount" value=""
+                                                    class="" autocomplete='off' />
+                                            </label>
+                                        </td>
+
+                                        <td><label class="input">
+                                                <input type="text" ng-model="ncf['Total Family Members (All)']" name="remarks"
+                                                    placeholder="">
+                                            </label></td>
+                                        <td><label class="input">
+                                                <input type="text" ng-model="ncf['PWDs (M)']" name="remarks"
+                                                    placeholder="">
+                                            </label></td>
+                                        <td><label class="input">
+                                                <input type="text" ng-model="ncf['PWDs (F)']" name="remarks"
+                                                    placeholder="">
+                                            </label></td>
+                                        <td><label class="input">
+                                                <input type="text" ng-model="ncf['Pregnant(P) or Lactating(L) (M)']"
+                                                    name="remarks" placeholder="">
+                                            </label></td>
+                                        <td><label class="input">
+                                                <input type="text" ng-model="ncf['Pregnant(P) or Lactating(L) (F)']"
+                                                    name="remarks" placeholder="">
+                                            </label></td>
+                                        <td><label class="input">
+                                                <input type="text" ng-model="ncf['W (M)']" name="remarks"
+                                                    placeholder="">
+                                            </label></td>
+                                        <td><label class="input">
+                                                <input type="text" ng-model="ncf['W (F)']" name="remarks"
+                                                    placeholder="">
+                                            </label></td>
+                                        <td><label class="input">
+                                                <input type="text" ng-model="ncf['SP (M)']" name="remarks"
+                                                    placeholder="">
+                                            </label></td>
+                                        <td><label class="input">
+                                                <input type="text" ng-model="ncf['SP (F)']" name="remarks"
+                                                    placeholder="">
+                                            </label></td>
+                                        </td>
+                                        <!-- <td class="col-md-1">
+
+                                        <label class="input col-md-10"> 
+                                            <input type="text" ng-model="ncf['18-24 (F)']" name="amount" value="" class="" autocomplete='off' />
+                                       </label>
+
+                                       <label class="input col-md-1"> 
+                                        <button class="btn btn-danger btn-sm deleteb">X</button>
+                                    </label>
+                                    </td> -->
+                                    </tr>
+                                </tbody>
+                                <!-- <tbody>
+                                <tr>
+                                    <td><h4>Total</h4></td>
+                                    <td></td>
+                                    <td>
+                                        <h4><label class="input"> 
+                                            <span id="sum">0.00</span>
+
+                                        </label></h4>
+                                    </td>
+                                    <td></td>
+                                    <td>
+                                        <h4><label class="input"> 
+                                            <span id="sum2">0.00</span>
+
+                                        </label></h4>
+                                    </td>
+                                    <td></td>
+                                    <td>
+                                        <h4><label class="input"> 
+                                            <span id="sum3">0.00</span>
+
+                                        </label></h4>
+                                    </td>
+                                </tr>
+                            </tbody> -->
+                            </table>
+                        </div>
+
+
+                    </fieldset>
+                    <br>
+                    <footer>
+                        <button type="submit " class="btn btn-primary ">Save</button>
+                        <button type="button " class="btn btn-default " data-dismiss="modal">Close</button>
+
+                    </footer>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<div id="myModal2" class="modal fade" role="dialog">
+    <div class="modal-dialog" style="width: 50%;height: 50%; ">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+
+
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Delete Info.</h4>
+            </div>
+            <div class="modal-body">
+
+
+                <p>You want to delete <strong style="color: red;">{{clickedUser.evacCenter}}</strong>'s infomation?
+                    <strong style="color: red;">{{clickedUser.municipality}} {{clickedUser.division}}</strong>?
+                </p>
+
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info" ng-click="close()">No</button>
+                <button type="button" class="btn btn-danger" ng-click="deleteUser()">Yes</button>
+            </div>
+
+
+        </div>
+
+    </div>
+</div>
+
+<div id="myModal3" class="modal fade" role="dialog">
+    <div class="modal-dialog" style="width: 98%;height: auto; ">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+
+
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Continuation Info.</h4>
+            </div>
+            <style>
+                th {
+                    background-color: #57889c !important;
+                    color: white;
+                }
+            </style>
+
+            <div class="modal-body">
+
+
+                <!-- Widget ID (each widget will need unique ID)-->
+                <div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-editbutton="true"
+                    style="margin-bottom: 5px!important;margin-top: 5px!important;margin-left: -11px!important;margin-right: -11px!important;">
+                    <!-- widget options:
+    usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+
+    data-widget-colorbutton="false"
+    data-widget-editbutton="false"
+    data-widget-togglebutton="false"
+    data-widget-deletebutton="false"
+    data-widget-fullscreenbutton="false"
+    data-widget-custombutton="false" 
+    data-widget-collapsed="true"
+    data-widget-sortable="false"
+
+    -->
+                    <header>
+                        <span class="widget-icon"> <i class="fa fa-table"></i> </span>
+                    </header>
+
+                    <!-- widget div-->
+                    <div style="overflow-x:auto;">
+
+
+
+                        <!-- <label class="input">
+                            <input type="text" name="name" ng-model="findcoa"> <i
+                                class="icon-append fa fa-search"></i>
+                        </label> -->
+                        <!-- <label class="input pull-right">
+                            <label class="select ">Page Filter
+                                <select name="options" id="pfilter">
+
+                                    <option value="10">10</option>
+                                    <option value="30">30</option>
+                                    <option value="50">50</option>
+                                    <option value="100">100</option>
+
+                                </select> <i></i> </label>
+                        </label> -->
+                        <br>
+
+                        <table id="data" class="table table-striped table-bordered table-hover" width="100%">
+
+                            <div id="notif"></div>
+                            <thead>
+                                <tr>
+                                    <th colspan="16" class="text-center th">Age Categories</th>
+
+                                </tr>
+                                <tr>
+
+                                    <th>Below 1 Yr (M)</th>
+                                    <th>Below 1 Yr (F)</th>
+                                    <th>1-2 (M)</th>
+                                    <th>1-2 (F)</th>
+                                    <th>3-5 (M)</th>
+                                    <th>3-5 (F)</th>
+                                    <th>6-14 (M)</th>
+                                    <th>6-14 (F)</th>
+                                    <th>15-17 (M)</th>
+                                    <th>15-17 (F)</th>
+                                    <th>18-24 (M)</th>
+                                    <th>18-24 (F)</th>
+                                </tr>
+                            </thead>
+                            <tbody ng-repeat="cf in cfs  | filter: findcf">
+
+                                <!-- <th colspan="6" class=""></th>
+                                <th colspan="4">Action</th> -->
+                                <!-- <th colspan="9"></th> -->
+                                <!-- <th colspan="1">
+                                    <div class="btn-group btn-group-sm text-center">
+                                        <button type="button" class="btn btn-primary " ng-click="selectUser3(cf)"><i
+                                            class="fa fa-search"></i></button>
+                                        <button type="button" class="btn btn-success " ng-click="selectUser(cf)"><i
+                                                class="fa fa-pencil"></i></button>
+            
+                                        <button type="button" class="btn btn-danger" ng-click="selectUser2(cf)"><i
+                                                class="fa fa-minus-circle"></i></button>
+                                    </div>
+                                </th> -->
+
+                                <tr ng-repeat="ncf in cf.family ">
+                                    <!-- <td>{{cf.date}}</td>
+                                    <td>{{cf.evacCenter}}</td>
+                                    <td>{{cf.purok}}</td>
+                                    <td>{{cf.familyHead}}</td>
+                                    <td>{{cf.roomAssignment}}</td>
+                                    <td>{{cf.teacherIncharge}}</td>
+                                    <td>{{ncf['Name of Family Member']}}</td>
+                                    <td> {{ncf['Marital Status']}}</td>
+                                    <td colspan="2"> {{ncf['Age']}}</td> -->
+                                    <td> {{ncf['Below 1 Yr (M)']}}</td>
+                                    <td> {{ncf['Below 1 Yr (F)']}}</td>
+                                    <td> {{ncf['1-2 (M)']}}</td>
+                                    <td> {{ncf['1-2 (F)']}}</td>
+                                    <td> {{ncf['3-5 (M)']}}</td>
+                                    <td> {{ncf['3-5 (F)']}}</td>
+                                    <td> {{ncf['6-14 (M)']}}</td>
+                                    <td> {{ncf['6-14 (F)']}}</td>
+                                    <td> {{ncf['15-17 (M)']}}</td>
+                                    <td> {{ncf['15-17 (F)']}}</td>
+                                    <td> {{ncf['18-24 (M)']}}</td>
+                                    <td> {{ncf['18-24 (F)']}}</td>
+                                    <!-- <td colspan="2" class="text-center"> {{ncf['Pregnant(P) or Lactating(L)']}}</td> -->
+                                    <!-- <td></td> -->
+                                    <!-- <td></td> -->
+                                    <!-- <td><button type="button" class="btn btn-info btn-block btn-xs " ng-click="selectUser3(data)"><i class="icon-append fa fa-search"></i></button></td> -->
+                                    <!-- <td><button type="button" class="btn btn-success btn-block btn-xs " ng-click="selectUser(cf)"><i
+                                                class="icon-append fa fa-pencil"></i></button></td>
+                                    <td><button type="button" class="btn btn-danger btn-block btn-xs " ng-click="selectUser2(cf)"><i
+                                                class="icon-append fa fa-minus-circle"></i></button></td> -->
+                                    <!-- <td>{{ncf.Amount | currency : '₱ ' : 2}}</td> -->
+                                </tr>
+                                <!-- <tr style="background-color: #57889c!important;
+                                color: white;">
+                                    <td colspan="5"></td>
+            
+                                    <td><strong>Total:</strong> </td>
+                                    <td><strong> {{cf.total | currency : '₱ ' : 2}} </strong></td>
+                                    <td></td>
+                                    <td><strong> {{cf.total2 | currency : '₱ ' : 2}} </strong></td>
+                                    <td></td>
+                                    <td><strong> {{cf.total3 | currency : '₱ ' : 2}} </strong></td>
+                                    <td></td>
+            
+                                </tr> -->
+
+                            </tbody>
+
+
+                        </table>
+                        <br>
+                        <table id="data" class="table table-striped table-bordered table-hover" width="100%">
+
+                            <div id="notif"></div>
+                            <thead>
+                                <tr>
+                                    <th colspan="3" class="text-center th">Total</th>
+                                    <th colspan="12" class="text-center th"></th>
+
+                                </tr>
+                                <tr>
+                                    <th>24-59 (M)</th>
+                                    <th>24-59 (F)</th>
+                                    <th>60 Above (M)</th>
+                                    <th>60 Above (F)</th>
+                                    <th>Total Family Members (M)</th>
+                                    <th>Total Family Members (F)</th>
+                                    <th>Total Family Members (All)</th>
+                                    <th>PWDs (M)</th>
+                                    <th>PWDs (F)</th>
+                                    <th>Pregnant(P) or Lactating(L) (M)</th>
+                                    <th>Pregnant(P) or Lactating(L) (F)</th>
+                                    <th>W (M)</th>
+                                    <th>W (F)</th>
+                                    <th>SP (M)</th>
+                                    <th>SP (F)</th>
+                                </tr>
+                            </thead>
+                            <tbody ng-repeat="cf in cfs  | filter: findcf">
+
+                                <!-- <th colspan="6" class=""></th>
+                                <th colspan="4">Action</th> -->
+                                <!-- <th colspan="9"></th> -->
+                                <!-- <th colspan="1">
+                                    <div class="btn-group btn-group-sm text-center">
+                                        <button type="button" class="btn btn-primary " ng-click="selectUser3(cf)"><i
+                                            class="fa fa-search"></i></button>
+                                        <button type="button" class="btn btn-success " ng-click="selectUser(cf)"><i
+                                                class="fa fa-pencil"></i></button>
+            
+                                        <button type="button" class="btn btn-danger" ng-click="selectUser2(cf)"><i
+                                                class="fa fa-minus-circle"></i></button>
+                                    </div>
+                                </th> -->
+
+                                <tr ng-repeat="ncf in cf.family2 ">
+                                    <!-- <td>{{cf.date}}</td>
+                                    <td>{{cf.evacCenter}}</td>
+                                    <td>{{cf.purok}}</td>
+                                    <td>{{cf.familyHead}}</td>
+                                    <td>{{cf.roomAssignment}}</td>
+                                    <td>{{cf.teacherIncharge}}</td>
+                                    <td>{{ncf['Name of Family Member']}}</td>
+                                    <td> {{ncf['Marital Status']}}</td>
+                                    <td colspan="2"> {{ncf['Age']}}</td> -->
+                                    <td> {{ncf['24-59 (M)']}}</td>
+                                    <td> {{ncf['24-59 (F)']}}</td>
+                                    <td> {{ncf['60 Above (M)']}}</td>
+                                    <td> {{ncf['60 Above (F)']}}</td>
+                                    <td> {{ncf['Total Family Members (M)']}}</td>
+                                    <td> {{ncf['Total Family Members (F)']}}</td>
+                                    <td> {{ncf['Total Family Members (All)']}}</td>
+                                    <td> {{ncf['PWDs (M)']}}</td>
+                                    <td> {{ncf['PWDs (F)']}}</td>
+                                    <td> {{ncf['Pregnant(P) or Lactating(L) (M)']}}</td>
+                                    <td> {{ncf['Pregnant(P) or Lactating(L) (F)']}}</td>
+                                    <td> {{ncf['W (M)']}}</td>
+                                    <td> {{ncf['W (F)']}}</td>
+                                    <td> {{ncf['SP (M)']}}</td>
+                                    <td> {{ncf['SP (F)']}}</td>
+                                    <!-- <td colspan="2" class="text-center"> {{ncf['Pregnant(P) or Lactating(L)']}}</td> -->
+                                    <!-- <td></td> -->
+                                    <!-- <td></td> -->
+                                    <!-- <td><button type="button" class="btn btn-info btn-block btn-xs " ng-click="selectUser3(data)"><i class="icon-append fa fa-search"></i></button></td> -->
+                                    <!-- <td><button type="button" class="btn btn-success btn-block btn-xs " ng-click="selectUser(cf)"><i
+                                                class="icon-append fa fa-pencil"></i></button></td>
+                                    <td><button type="button" class="btn btn-danger btn-block btn-xs " ng-click="selectUser2(cf)"><i
+                                                class="icon-append fa fa-minus-circle"></i></button></td> -->
+                                    <!-- <td>{{ncf.Amount | currency : '₱ ' : 2}}</td> -->
+                                </tr>
+                                <!-- <tr style="background-color: #57889c!important;
+                                color: white;">
+                                    <td colspan="5"></td>
+            
+                                    <td><strong>Total:</strong> </td>
+                                    <td><strong> {{cf.total | currency : '₱ ' : 2}} </strong></td>
+                                    <td></td>
+                                    <td><strong> {{cf.total2 | currency : '₱ ' : 2}} </strong></td>
+                                    <td></td>
+                                    <td><strong> {{cf.total3 | currency : '₱ ' : 2}} </strong></td>
+                                    <td></td>
+            
+                                </tr> -->
+
+                            </tbody>
+
+
+                        </table>
+
+
+
+
+
+
+                    </div>
+
+                </div>
+
+                <span id="here"></span>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" ng-click="close()">Close</button>
+                    <!-- <button type="button" class="btn btn-danger" ng-click="deleteUser()">Yes</button> -->
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+</div>

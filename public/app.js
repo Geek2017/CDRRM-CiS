@@ -91,6 +91,22 @@ angular
                 templateUrl: 'views/intakesheetlist.html',
                 controller: "intakesheetlistCtrl"
             })
+            .when('/roomlistingnew', {
+                templateUrl: 'views/roomlistingnew.html',
+                controller: "roomlistingnewCtrl"
+            })
+            .when('/roomlistinglist', {
+                templateUrl: 'views/roomlistinglist.html',
+                controller: "roomlistinglistCtrl"
+            })
+            .when('/mohrfnew', {
+                templateUrl: 'views/mohrfnew.html',
+                controller: "mohrfnewCtrl"
+            })
+            .when('/mohrflist', {
+                templateUrl: 'views/mohrflist.html',
+                controller: "mohrflistCtrl"
+            })
             .when('/cnsbdbarangaynew', {
                 templateUrl: 'views/cnsbdbarangaynew.html',
                 controller: "cnsbdbarangaynewCtrl"
