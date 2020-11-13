@@ -115,6 +115,14 @@ angular
                 templateUrl: 'views/cnsbdbarangaylist.html',
                 controller: "cnsbdbarangaylistCtrl"
             })
+            .when('/intakesheetscswdonew', {
+                templateUrl: 'views/intakesheetscswdonew.html',
+                controller: "intakesheetcswdonewCtrl"
+            })
+            .when('/intakesheetcswdolist', {
+                templateUrl: 'views/intakesheetcswdolist.html',
+                controller: "intakesheetcswdolistCtrl"
+            })
             .when('/cnsbdcswdonew', {
                 templateUrl: 'views/cnsbdcswdonew.html',
                 controller: "cnsbdcswdonewCtrl"
