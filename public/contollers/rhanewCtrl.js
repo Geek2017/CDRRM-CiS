@@ -2,9 +2,9 @@ angular.module('newApp').controller('rhanewCtrl', function($scope) {
     pageSetUp();
 
     var cnt = 0;
-    $("#addme").on("click", function() {
+    $("#addmeb").on("click", function() {
 
-        $("#appendhere").append("<tr ><td><label class='input'><input type='text' name='Province' placeholder='Province Name' required></label></td><td><label class='input'><input type='text' name='Municipality/City' placeholder='Municipality/City Name'></label></td><td><label class='input'><input type='number' name='Families' placeholder='Families Count'></label></td><td><label class='input'><input type='number' name='Individuals' placeholder='Individuals Count'></label></td><td><label class='input'><input type='number' name='No.Of.EC' placeholder='No. Of EC'></label></td><td><label class='input'><input type='number' name='No.of.Fam.EC' placeholder='No. of Fam. EC'></label></td><td class='col-md-2'><label class='input col-md-10'><input type='text' name='No.of.Indiv.in.EC' placeholder='No. of Indiv. in EC' class='number' /></label><label class='input col-md-1'><button class='btn btn-danger btn-sm deleteb'>X</button></label></td></tr>");
+        $("#appendhereb").append("<tr ><td><label class='input'><input type='text' name='Province' placeholder='Province Name' required></label></td><td><label class='input'><input type='text' name='Municipality/City' placeholder='Municipality/City Name'></label></td><td><label class='input'><input type='number' name='Families' placeholder='Families Count'></label></td><td><label class='input'><input type='number' name='Individuals' placeholder='Individuals Count'></label></td><td><label class='input'><input type='number' name='No.Of.EC' placeholder='No. Of EC'></label></td><td><label class='input'><input type='number' name='No.of.Fam.EC' placeholder='No. of Fam. EC'></label></td><td class='col-md-2'><label class='input col-md-10'><input type='text' name='No.of.Indiv.in.EC' placeholder='No. of Indiv. in EC' class='number' /></label><label class='input col-md-1'><button class='btn btn-danger btn-sm deleteb'>X</button></label></td></tr>");
         cnt++;
         $('table thead th').each(function(i) {
 
@@ -12,26 +12,206 @@ angular.module('newApp').controller('rhanewCtrl', function($scope) {
 
     });
 
-    $("#minme").on("click", function() {
+    $("#minmeb").on("click", function() {
 
-        $('#appendhere tr:last').remove();
+        $('#appendhereb tr:last').remove();
         $('table thead th').each(function(i) {
 
         });
-        // calculateSum();
+
+    });
+
+
+    var cntc = 0;
+    $("#addmec").on("click", function() {
+
+        $("#appendherec").append("<tr><td><label class='input'><input type='text' name='Province' placeholder='Province Name' required></label></td><td><label class='input'><input type='text' name='MunicipalityorCity' placeholder='Municipality/City Name'></label></td><td><label class='input'><input type='number' name='Total_Number_of_Deaths' placeholder='Total Number of Deaths Count'></label></td><td><label class='input'><input type='number' name='Admitted' placeholder='Admitted Count'></label></td><td><label class='input'><input type='number' name='Admitted_then_Discharge' placeholder='Admitted then Discharge Count'></label></td><td><label class='input'><input type='number' name='Not_dmitted' placeholder='Not Admitted Count'></label></td><td class='col-md-2'><label class='input col-md-10'><input type='text' name='Total_Number_of_Missing' placeholder='Total Number of Missing Count' class='number' /></label><label class='input col-md-1'><button class='btn btn-danger btn-sm deletec'>X</button></label></td></tr>");
+        cntc++;
+        $('table thead th').each(function(i) {
+
+        });
+
+    });
+
+    $("#minmec").on("click", function() {
+
+        $('#appendherec tr:last').remove();
+        $('table thead th').each(function(i) {
+
+        });
+
+    });
+
+
+    var cntd = 0;
+    $("#addmed").on("click", function() {
+
+        $("#appendhered").append("<tr><td class='col-md-2'><label class='input'><input type='number' name='Number_of_Cases' placeholder='Number of Cases'></label></td><td class='col-md-2'><label class='input'><input type='number' name='Number_of_Days' placeholder='Number of Days'></label></td><td class='col-md-10'><label class='textarea'><textarea rows='2' iname='Remarks' placeholder='Remarks'></textarea></label></td><td class='col-md-1'><button class='btn btn-danger btn-lg deleted'>X</button></td></tr>");
+        cntd++;
+        $('table thead th').each(function(i) {
+
+        });
+
+    });
+
+    $("#minmed").on("click", function() {
+
+        $('#appendhered tr:last').remove();
+        $('table thead th').each(function(i) {
+
+        });
+
+    });
+
+    var cnte = 0;
+    $("#addmee").on("click", function() {
+
+        $("#appendheree").append("<tr><td class='col-md-10'><label class='textarea'><textarea rows='5' ></textarea></label></td></tr>");
+        cnte++;
+        $('table thead th').each(function(i) {
+
+        });
+
+    });
+
+    $("#minmee").on("click", function() {
+
+        $('#appendheree tr:last').remove();
+        $('table thead th').each(function(i) {
+
+        });
+
+    });
+
+    var cntf = 0;
+    $("#addmef").on("click", function() {
+
+        $("#appendheref").append("<tr><td class='col-md-10'><label class='textarea'><textarea rows='5' ></textarea></label></td></tr>");
+        cntf++;
+        $('table thead th').each(function(i) {
+
+        });
+
+    });
+
+    $("#minmef").on("click", function() {
+
+        $('#appendheref tr:last').remove();
+        $('table thead th').each(function(i) {
+
+        });
+
+    });
+
+    var cntg = 0;
+    $("#addmeg").on("click", function() {
+
+        $("#appendhereg").append("<tr><td class='col-md-10'><label class='textarea'><textarea rows='5' ></textarea></label></td></tr>");
+        cntg++;
+        $('table thead th').each(function(i) {
+
+        });
+
+    });
+
+    $("#minmeg").on("click", function() {
+
+        $('#appendhereg tr:last').remove();
+        $('table thead th').each(function(i) {
+
+        });
+
     });
 
 
 
-    var obj;
-    $scope.tojson = function(obj) {
 
-        var table = $('#convert-table').tableToJSON({
+    var objb;
+    $scope.tojsonb = function(objb) {
+
+        var table = $('#table-b').tableToJSON({
 
             extractor: function(cellIndex, $cell) {
                 return $cell.find('input').val() || $cell.find("#type option:selected").text();
             }
 
+        })
+        return table;
+
+    }
+
+    var objc;
+    $scope.tojsonc = function(objc) {
+
+        var table = $('#table-c').tableToJSON({
+
+            extractor: function(cellIndex, $cell) {
+                return $cell.find('input').val() || $cell.find("#type option:selected").text();
+            }
+
+        })
+        return table;
+
+    }
+
+    var objd;
+    $scope.tojsond = function(objd) {
+
+        var table = $('#table-d').tableToJSON({
+
+            extractor: function(cellIndex, $cell) {
+                return $cell.find('input').val() || $cell.find("#type option:selected").text();
+            }
+
+        })
+        return table;
+
+    }
+
+    $('#run').click(function() {
+        var table = $('#table-e').tableToJSON({
+            extractor: function(cellIndex, $cell) {
+                // get text from the span inside table cells;
+                // if empty or non-existant, get the cell text
+                return $cell.find('input').val() || $cell.text() || $cell.find('textarea').val();
+            }
+        });
+        alert(JSON.stringify(table));
+    });
+
+    var obje;
+    $scope.tojsone = function(obje) {
+
+        var table = $('#table-e').tableToJSON({
+            extractor: function(cellIndex, $cell) {
+                return $cell.find('input').val() || $cell.text() || $cell.find('textarea').val();
+            }
+        });
+        return table;
+    }
+
+    var objf;
+    $scope.tojsonf = function(objf) {
+
+        var table = $('#table-f').tableToJSON({
+
+            extractor: function(cellIndex, $cell) {
+                return $cell.find('input').val() || $cell.find("#type option:selected").text();
+            }
+
+        })
+        return table;
+
+    }
+
+    var objg;
+    $scope.tojsong = function(objg) {
+
+        var table = $('#table-g').tableToJSON({
+
+            extractor: function(cellIndex, $cell) {
+                return $cell.find('input').val() || $cell.find("#type option:selected").text();
+            }
 
         })
         return table;
@@ -41,7 +221,12 @@ angular.module('newApp').controller('rhanewCtrl', function($scope) {
     $('#saverha').on('submit', function(e) {
         e.preventDefault();
 
-        console.log($scope.tojson(obj))
+        console.log($scope.tojsonb(objb))
+        console.log($scope.tojsonc(objc))
+        console.log($scope.tojsond(objd))
+        console.log($scope.tojsone(obje))
+        console.log($scope.tojsonf(objf))
+        console.log($scope.tojsong(objg))
 
         var uid = firebase.database().ref().child('cho/rha').push().key;
 
@@ -54,68 +239,42 @@ angular.module('newApp').controller('rhanewCtrl', function($scope) {
             rhaprovince: $('#rhaprovince').val(),
             rhamuci: $('#rhamuci').val(),
 
-            moe: $scope.tojson(obj)
-                // rhaprovinceb: $('#rhaprovinceb').val(),
-                // rhamunib: $("#rhamunib").val(),
-                // rhafamb: $("#rhafamb").val(),
-                // rhaindb: $("#rhaindb").val(),
-                // rhaecb: $("#rhaecb").val(),
-                // rhafamec: $('#rhafamec').val(),
-                // rhaindiecb: $('#rhaindiecb').val(),
+            moe: $scope.tojsonb(objb),
 
-            // chprovince: $('#chprovince').val(),
-            // hcmc: $("#hcmc").val(),
-            // hctnod: $("#hctnod").val(),
-            // hca: $("#hca").val(),
-            // hcatd: $("#hcatd").val(),
-            // hcna: $('#hcna').val(),
-            // hctom: $('#hctom').val(),
+            hos: $scope.tojsonc(objc),
 
-            // chprovince: $('#chprovince').val(),
-            // hcmc: $("#hcmc").val(),
-            // hctnod: $("#hctnod").val(),
-            // hca: $("#hca").val(),
-            // hcatd: $("#hcatd").val(),
-            // hcna: $('#hcna').val(),
-            // hctom: $('#hctom').val(),
+            statuseds: $scope.tojsond(objd),
 
-            // dhs: $("#dhs option:selected").text(),
-            // dhr: $('#dhr').val(),
-            // lhs: $("#lhs option:selected").text(),
-            // lhr: $('#lhr').val(),
-            // phs: $("#phs option:selected").text(),
-            // phr: $('#phr').val(),
-            // lhs: $("#lhs option:selected").text(),
-            // lhr: $('#lhr').val(),
-            // rhcs: $("#rhcs option:selected").text(),
-            // rhcr: $('#rhcr').val(),
-            // bhss: $("#bhss option:selected").text(),
-            // bhsr: $('#bhsr').val(),
-            // others: $("#others option:selected").text(),
-            // otherr: $('#otherr').val(),
+            atn: $scope.tojsone(obje),
 
-            // communications: $("#communications option:selected").text(),
-            // communicationr: $('#communicationr').val(),
-            // waters: $("#waters option:selected").text(),
-            // waterr: $('#waterr').val(),
-            // rbs: $("#rbs option:selected").text(),
-            // rbr: $('#rbr').val(),
-            // others1: $("#others1 option:selected").text(),
-            // otherr1: $('#otherr1').val(),
+            ped: $scope.tojsonf(objf),
 
-            // noc: $('#noc').val(),
-            // nod: $('#nod').val(),
-            // nocdr: $('#nocdr').val(),
-            // actionr: $('#actionr').val(),
-            // problemr: $('#problemr').val(),
-            // recommendationr: $('#recommendationr').val(),
+            recom: $scope.tojsong(objg),
 
-            // mobile: $('#mobile').val(),
-            // landline: $('#landline').val(),
-            // faxno: $('#faxno').val(),
-            // datep: $('#datep').val(),
-            // printedn: $('#printedn').val(),
-            // signature: localStorage.getItem('sign')
+
+            dhs: $("#dhs option:selected").text(),
+            dhr: $('#dhr').val(),
+            lhs: $("#lhs option:selected").text(),
+            lhr: $('#lhr').val(),
+            phs: $("#phs option:selected").text(),
+            phr: $('#phr').val(),
+            lhs: $("#lhs option:selected").text(),
+            lhr: $('#lhr').val(),
+            rhcs: $("#rhcs option:selected").text(),
+            rhcr: $('#rhcr').val(),
+            bhss: $("#bhss option:selected").text(),
+            bhsr: $('#bhsr').val(),
+            others: $("#others option:selected").text(),
+            otherr: $('#otherr').val(),
+
+
+
+            mobile: $('#mobile').val(),
+            landline: $('#landline').val(),
+            faxno: $('#faxno').val(),
+            datep: $('#datep').val(),
+            printedn: $('#printedn').val(),
+            signature: localStorage.getItem('sign')
 
 
         }
@@ -251,18 +410,19 @@ angular.module('newApp').controller('rhanewCtrl', function($scope) {
         }
 
         // Set up the UI
-        var sigText = document.getElementById("sig-dataUrl");
+
         var sigImage = document.getElementById("sig-image");
         var clearBtn = document.getElementById("sig-clearBtn");
         var submitBtn = document.getElementById("sig-submitBtn");
         clearBtn.addEventListener("click", function(e) {
             clearCanvas();
-            sigText.innerHTML = "Data URL for your signature will go here!";
+
             sigImage.setAttribute("src", "");
         }, false);
         submitBtn.addEventListener("click", function(e) {
             var dataUrl = canvas.toDataURL();
-            sigText.innerHTML = dataUrl;
+
+            localStorage.setItem('sign', dataUrl)
             sigImage.setAttribute("src", dataUrl);
         }, false);
 
