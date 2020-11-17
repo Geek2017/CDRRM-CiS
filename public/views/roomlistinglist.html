@@ -630,7 +630,7 @@
                                     <th>18-24 (F)</th>
                                 </tr>
                             </thead>
-                            <tbody ng-repeat="cf in cfs  | filter: findcf">
+                            <tbody >
 
                                 <!-- <th colspan="6" class=""></th>
                                 <th colspan="4">Action</th> -->
@@ -647,7 +647,7 @@
                                     </div>
                                 </th> -->
 
-                                <tr ng-repeat="ncf in cf.family ">
+                                <tr ng-repeat="ncf in clickedUser.family ">
                                     <!-- <td>{{cf.date}}</td>
                                     <td>{{cf.evacCenter}}</td>
                                     <td>{{cf.purok}}</td>
@@ -725,7 +725,7 @@
                                     <th>SP (F)</th>
                                 </tr>
                             </thead>
-                            <tbody ng-repeat="cf in cfs  | filter: findcf">
+                            <tbody >
 
                                 <!-- <th colspan="6" class=""></th>
                                 <th colspan="4">Action</th> -->
@@ -742,7 +742,7 @@
                                     </div>
                                 </th> -->
 
-                                <tr ng-repeat="ncf in cf.family2 ">
+                                <tr ng-repeat="ncf in clickedUser.family2 ">
                                     <!-- <td>{{cf.date}}</td>
                                     <td>{{cf.evacCenter}}</td>
                                     <td>{{cf.purok}}</td>
