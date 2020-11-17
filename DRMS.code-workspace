@@ -2,9 +2,9 @@
 	"folders": [
 		{
 			"path": "."
-		},
-		{
-			"path": "../../Assets/SmartAdmin-master/DEVELOPER/HTML_version"
 		}
-	]
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "CDRRMO-CIS"
+	}
 }

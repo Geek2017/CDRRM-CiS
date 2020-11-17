@@ -1,5 +1,10 @@
-angular.module('newApp').controller('dashboardCtrl', function($scope) {
+angular.module('newApp').controller('dashboardCtrl', function($scope, $http) {
     pageSetUp();
+
+    $http.get("http://api.weatherapi.com/v1/forecast.json?key=ed9905c895ea49fa93c73936201711&q=legaspi albay&days=1")
+        .then(function(response) {
+            console.log(response.data);
+        });
 
     "desktop" === thisDevice ? ($("[rel=tooltip], [data-rel=tooltip]").tooltip(), $("[rel=popover], [data-rel=popover]").popover(), $("[rel=popover-hover], [data-rel=popover-hover]").popover({
         "trigger": "hover"
