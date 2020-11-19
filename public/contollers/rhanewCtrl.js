@@ -294,6 +294,18 @@ angular.module('newApp').controller('rhanewCtrl', function($scope) {
         firebase.database().ref().update(updates);
         console.log(updates)
 
+        if (updates) {
+
+
+            $("#notif").append('<div class="alert alert-success fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Success</strong> Data had been save!.</div>');
+            setTimeout(function() {
+                window.location.href = "#/"
+                window.location.href = "#rhanew"
+            }, 1500);
+        } else {
+            $("#notif").append('<div class="alert alert-danger fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Error</strong> Check your Input !</div>');
+        }
+
 
     });
 

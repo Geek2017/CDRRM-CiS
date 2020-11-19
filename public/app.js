@@ -23,6 +23,14 @@ angular
                 templateUrl: 'views/rhanew.html',
                 controller: "rhanewCtrl"
             })
+            .when('/demographicsnew', {
+                templateUrl: 'views/demographicsnew.html',
+                controller: "demographicsnewCtrl"
+            })
+            .when('/demographicslist', {
+                templateUrl: 'views/demographicslist.html',
+                controller: "demographicslistCtrl"
+            })
             .when('/cflist', {
                 templateUrl: 'views/cflist.html',
                 controller: "cflistCtrl"
