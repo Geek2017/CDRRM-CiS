@@ -1,0 +1,457 @@
+<style>
+    #sig-canvas {
+        border: 2px dotted #CCCCCC;
+        border-radius: 15px;
+        cursor: crosshair;
+    }
+    
+    @media screen and (min-width: 1076px) {
+        .modal-dialog {
+            max-width: 350px;
+            /* New width for default modal */
+        }
+    }
+    
+    @media screen and (min-width: 1024px) {
+        .modal-dialog {
+            max-width: 350px;
+            /* New width for default modal */
+        }
+    }
+    
+    @media screen and (min-width: 768px) {
+        .modal-dialog {
+            max-width: 350px;
+            /* New width for default modal */
+        }
+    }
+    
+    @media screen and (min-width: 360px) {
+        .modal-dialog {
+            max-width: 350px;
+            /* New width for default modal */
+        }
+    }
+    
+    @media screen and (min-width: 411px) {
+        .modal-dialog {
+            max-width: 350px;
+            /* New width for default modal */
+        }
+    }
+    
+    @media screen and (min-width: 375px) {
+        .modal-dialog {
+            max-width: 350px;
+            /* New width for default modal */
+        }
+    }
+    
+    @media screen and (min-width: 375px) {
+        .modal-dialog {
+            max-width: 350px;
+            /* New width for default modal */
+        }
+    }
+</style>
+<section id="widget-grid" class="" style="margin: 0.5%;">
+    <div class="row">
+        <article class="col-sm-12 col-md-12 col-lg-12">
+
+            <!-- Widget ID (each widget will need unique ID)-->
+            <div class="jarviswidget" id="wid-id-2" data-widget-colorbutton="false" data-widget-editbutton="false">
+                <!-- widget options:
+            usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+            
+            data-widget-colorbutton="false"	
+            data-widget-editbutton="false"
+            data-widget-togglebutton="false"
+            data-widget-deletebutton="false"
+            data-widget-fullscreenbutton="false"
+            data-widget-custombutton="false"
+            data-widget-collapsed="true" 
+            data-widget-sortable="false"
+            
+        -->
+                <header>
+                    <!-- <span class="widget-icon"> <i class="fa fa-check txt-color-green"></i> </span> -->
+                    <span class="widget-icon"></span>
+                    <!-- <h2>Success States </h2> -->
+
+                </header>
+
+                <!-- widget div-->
+                <div>
+
+                    <!-- widget edit box -->
+                    <div class="jarviswidget-editbox">
+                        <!-- This area used as dropdown edit box -->
+
+                    </div>
+                    <!-- end widget edit box -->
+
+                    <!-- widget content -->
+                    <div class="widget-body no-padding">
+
+                        <!-- Success states for elements -->
+                        <form class="smart-form" id="saverha">
+                            <header>A) Event Information</header>
+                            <!--Start of Event Information-->
+                            <fieldset>
+                                <section>
+                                    <div class="row">
+                                        <section class="col col-2">
+                                            <label class="label">Date</label>
+                                            <label class="input ">
+												<input type="date" id="rhadate" required>
+											</label>
+                                        </section>
+                                        <section class="col col-1">
+                                            <label class="label">Time</label>
+                                            <label class="input ">
+												<input type="time" id="rhatime" required>
+											</label>
+                                        </section>
+                                        <section class="col col-1">
+                                            <label class="label">Type</label>
+                                            <label class="select ">
+												<select id="rhatype" required>
+													<option value="0" selected>select</option>
+													<option value="1">Geologic</option>
+													<option value="2">Weather</option>
+													<option value="3">Biologic</option>
+													<option value="4">Man Made</option>
+												</select>
+												<i></i>
+											</label>
+                                        </section>
+                                        <section class="col col-2">
+                                            <label class="label">Details</label>
+                                            <label class="select ">
+												<select id="rhadetails" required>
+													<option value="0" selected>select</option>
+													<option value="1">Volcanic Eruption</option>
+													<option value="2">Earthquake</option>
+													<option value="3">Tsunamin</option>
+													<option value="4">Landslide</option>
+													<option value="5">Typhoon</option>
+													<option value="6">Storm Surge</option>
+													<option value="7">Drougth</option>
+													<option value="8">Cold Spell</option>
+													<option value="9">FlashFlood</option>
+													<option value="10">Red Tide</option>
+													<option value="11">Fish Kills</option>
+													<option value="12">Locust</option>
+													<option value="13">Infestation</option>
+													<option value="14">Fire</option>
+													<option value="15">Explosion</option>
+													<option value="16">Armed Conflict</option>
+													<option value="17">Terrorism</option>
+													<option value="18">Poisoning</option>
+													<option value="19">Mass Action</option>
+													<option value="20">Accident</option>
+													<option value="21">Other</option>
+												</select><i></i>
+										</section>
+										<section class="col col-2">
+											<label class="label">Region</label>
+                                            <label class="input ">
+												<input type="text" id="rharegion" required>
+											</label>
+                                        </section>
+                                        <section class="col col-2">
+                                            <label class="label">Province</label>
+                                            <label class="input ">
+												<input type="text" id="rhaprovince" required>
+											</label>
+                                        </section>
+                                        <section class="col col-2">
+                                            <label class="label">Municipality/City</label>
+                                            <label class="input ">
+												<input type="text" id="rhamuci" required>
+											</label>
+                                        </section>
+
+                                    </div>
+
+
+
+                                </section>
+                            </fieldset>
+                            <!--End of Event Information-->
+
+                            <header>B) Consequences </header>
+                            <!--Start of Magnitude of event-->
+                            <fieldset>
+                                <section>
+                                    <div class="row">
+                                        <section class="col col-2">
+                                            <label class="label">No. of Deaths</label>
+                                            <label class="input ">
+												<input type="number" id="rharegion" required>
+											</label>
+                                        </section>
+                                        <section class="col col-2">
+                                            <label class="label">No of Admitted Patients</label>
+                                            <label class="input ">
+												<input type="number" id="rharegion" required>
+											</label>
+                                        </section>
+                                        <section class="col col-2">
+                                            <label class="label">No. of Outpatients</label>
+                                            <label class="input ">
+												<input type="number" id="rharegion" required>
+											</label>
+                                        </section>
+                                        <section class="col col-2">
+                                            <label class="label">No. of Missing</label>
+                                            <label class="input ">
+												<input type="number" id="rhaprovince" required>
+											</label>
+                                        </section>
+                                        <section class="col col-2 select">
+                                            <label class="label">Population Displace</label>
+                                            <label class="select ">
+												<select id="population" required>
+													<option value="0" selected>select</option>
+													<option value="1">YES</option>
+													<option value="2">NO</option>
+												</select><i></i>
+                                        </section>
+                                        <section class="col col-2 select">
+                                            <label class="label">No. of Display Families</label>
+                                            <label class="select ">
+												<select id="population" required>
+													<option value="0" selected>select</option>
+													<option value="1">Estimated</option>
+													<option value="2">Actual</option>
+												</select><i></i>
+                                        </section>
+                                        <section class="col col-2 select">
+                                            <label class="label">No. of Display Families</label>
+                                            <label class="select ">
+												<select id="population" required>
+													<option value="0" selected>select</option>
+													<option value="1">Estimated</option>
+													<option value="2">Actual</option>
+												</select><i></i>
+                                        </section>
+                                        <section class="col col-2">
+                                            <label class="label">Public (No of Avalialble) </label>
+                                            <label class="input ">
+												<input type="number" id="" required>
+                                            </label>
+
+                                        </section>
+                                        <section class="col col-2">
+                                            <label class="label">Hospitals (No of Avalialble)</label>
+                                            <label class="input ">
+												<input type="number" id="" required>
+											</label>
+                                        </section>
+                                        <section class="col col-2">
+                                            <label class="label">RHUs (No of Avalialble)</label>
+                                            <label class="input ">
+												<input type="number" id="" required>
+											</label>
+                                        </section>
+                                        <section class="col col-2">
+                                            <label class="label">Public (No of functioning)</label>
+                                            <label class="input ">
+												<input type="number" id="" required>
+                                            </label>
+
+                                        </section>
+                                        <section class="col col-2">
+                                            <label class="label">Hospitals (No of functioning)</label>
+                                            <label class="input ">
+												<input type="number" id="" required>
+											</label>
+                                        </section>
+                                        <section class="col col-2">
+                                            <label class="label">RHUs (No of functioning)</label>
+                                            <label class="input ">
+												<input type="number" id="" required>
+											</label>
+                                        </section>
+
+                                    </div>
+
+                                </section>
+                            </fieldset>
+                            <!--End of Magnitude of event-->
+
+
+
+                            <header>C) Action Taken</header>
+
+                            <fieldset>
+                                <div class="panel-body ">
+
+                                    <div class="btn-group btn-group-sm pull-right">
+                                        <button type="button" class="btn btn-success " id="addmee"><i class="fa fa-plus-circle"></i></button>
+                                        <button type="button" class="btn btn-danger" id="minmee"><i class="fa fa-minus-circle"></i></button>
+                                    </div>
+                                    <br>
+                                    <br>
+
+                                    <table id="table-e" class="table table-striped table-bordered table-hover" width="100%">
+                                        <thead>
+                                            <tr>
+                                                <th colspan="2">Details:</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody id="appendheree">
+                                            <tr>
+                                                <td class="textarea"><textarea rows="5"></textarea></td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+
+
+                            </fieldset>
+
+                            <header>D) Assistance Needed</header>
+
+                            <fieldset>
+                                <div class="panel-body ">
+
+                                    <div class="btn-group btn-group-sm pull-right">
+                                        <button type="button" class="btn btn-success " id="addmef"><i class="fa fa-plus-circle"></i></button>
+                                        <button type="button" class="btn btn-danger" id="minmef"><i class="fa fa-minus-circle"></i></button>
+                                    </div>
+                                    <br>
+                                    <br>
+                                    <table id="table-f" class="table table-striped table-bordered table-hover" width="100%">
+                                        <thead>
+                                            <tr>
+                                                <th colspan="2">Details:</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="appendheref">
+                                            <tr>
+                                                <td class="textarea"><textarea rows="5"></textarea></td>
+                                            </tr>
+                                        </tbody>
+
+                                    </table>
+                                </div>
+
+
+                            </fieldset>
+
+                            <header>Prepared and Submitted by:</header>
+
+                            <fieldset>
+                                <section>
+                                    <div class="row">
+                                        <section class="col col-6">
+                                            <label class="label">Mobile No.:</label>
+                                            <label class="input ">
+												<input type="number" id="mobile">
+											</label>
+                                        </section>
+                                        <section class="col col-6">
+                                            <label class="label">Landline.:</label>
+                                            <label class="input ">
+												<input type="number" id="landline">
+											</label>
+                                        </section>
+                                        <section class="col col-6">
+                                            <label class="label">Fax No.:</label>
+                                            <label class="input ">
+												<input type="number" id="faxno">
+											</label>
+                                        </section>
+                                        <section class="col col-6">
+                                            <label class="label">Date Prepared:</label>
+                                            <label class="input ">
+												<input type="date" id="datep">
+											</label>
+                                        </section>
+                                    </div>
+                                </section>
+                                <section>
+
+                                    <div class="row">
+
+
+                                        <section class="col col-6">
+                                            <label class="label">Printed Name</label>
+                                            <label class="input ">
+												<input type="text" id="printedn">
+											</label>
+                                        </section>
+
+                                        <section class="col col-6">
+                                            <label class="label">Designation and Office</label>
+                                            <label class="input ">
+												<input type="text" id="designation">
+											</label>
+                                        </section>
+
+                                        <section class="col col-6">
+                                            <label class="label">Printed Name</label>
+                                            <label class="input ">
+												<input type="text" id="printedn">
+											</label>
+                                        </section>
+
+                                        <section class="col col-6 sign">
+                                            <label class="label">Signature</label>
+
+                                            <button type="button" class="btn btn-info  btn-sm  btn-block" data-toggle="modal" data-target="#exampleModal">
+												CLICK TO SIGN
+											  </button>
+
+                                            <!-- Modal -->
+
+                                        </section>
+                                        <section class="col col-12 pull-right">
+                                            <img id="sig-image" src="" alt="Your signature will go here!" />
+                                        </section>
+
+                                    </div>
+
+                                </section>
+                            </fieldset>
+
+                            <footer>
+                                <button type="submit" class="btn btn-primary ">Submit</button>
+                            </footer>
+                        </form>
+                        <!--/ Success states for elements -->
+
+                    </div>
+                    <!-- end widget content -->
+
+                </div>
+                <!-- end widget div -->
+
+            </div>
+            <!-- end widget -->
+
+        </article>
+    </div>
+
+</section>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+    <div class="modal-dialog" role="document">
+
+        <div class="modal-content">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">X</button>
+            <div class="modal-body sign">
+
+                <canvas id="sig-canvas"> </canvas>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="sig-clearBtn">Reset</button>
+                <button type="button" class="btn btn-primary" id="sig-submitBtn">Save</button>
+            </div>
+        </div>
+    </div>
+</div>

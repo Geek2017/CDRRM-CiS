@@ -1,0 +1,491 @@
+<style>
+    th {
+        background-color: #57889c !important;
+        color: white;
+    }
+    
+    .th {
+        background-color: #383838 !important;
+        color: white;
+    }
+    
+    .accordion {
+        background-color: #eee;
+        color: white;
+        cursor: pointer;
+        padding: 10px;
+        width: 100%;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 15px;
+        transition: 0.4s;
+    }
+    
+    .active,
+    .accordion:hover {
+        background-color: #ccc;
+    }
+    
+    .panel {
+        padding: 0 18px;
+        display: none;
+        background-color: white;
+        overflow: hidden;
+    }
+</style>
+<article class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+
+    <!-- Widget ID (each widget will need unique ID)-->
+    <div class="jarviswidget jarviswidget-color-darken">
+
+        <header>
+            <span class="widget-icon"> <i class="fa fa-table"></i> </span>
+            <h2>HEARS FIELD REPORT</h2>
+
+        </header>
+
+        <!-- widget div-->
+        <div style="overflow-x:auto;overflow-y:auto;">
+
+
+
+            <label class="input">
+                <input type="text" name="name" ng-model="findcf"> <i class="icon-append fa fa-search"></i>
+            </label>
+
+            <label class="input pull-right">
+                <label class="select ">Page Filter
+                    <select name="options" id="pfilter">
+
+                        <option value="10">10</option>
+                        <option value="30">30</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+
+                    </select> <i></i> </label>
+            </label>
+
+            <table id="data" class="table table-striped table-bordered table-hover" width="100%">
+                <thead>
+                    <tr>
+                        <th colspan="12 pull-center" class="text-center th">A) Event Information</th>
+                    </tr>
+                    <tr>
+                        <th colspan="3" class="text-center">Occurrence</th>
+                        <th colspan="2" class="text-center">Event</th>
+                        <th colspan="6" class="text-center">Exact Location</th>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center th">#</th>
+                        <th class="text-center th">Date</th>
+                        <th class="text-center th">Time</th>
+                        <th class="text-center th">Type</th>
+                        <th class="text-center th">Detail</th>
+                        <th class="text-center th">Region</th>
+                        <th class="text-center th">Province</th>
+                        <th class="text-center th">Municipality/City</th>
+                        <th colspan="3" class="text-center th">Other Infos</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr class="text-center">
+                        <td>1</td>
+                        <td>1992-01-23</td>
+                        <td>23:00</td>
+                        <td>Weather</td>
+                        <td>Typhoon</td>
+                        <td>V-Bicol</td>
+                        <td>Sorsogon</td>
+                        <td>Bulan</td>
+
+                        <td><button type="button" class="btn btn-info btn-block btn-xs " data-toggle="modal" data-target="#myModal"><i class="icon-append fa fa-search"></i></button></td>
+                        <td><button type="button" class="btn btn-success btn-block btn-xs " data-toggle="modal" data-target="#myModal"><i class="icon-append fa fa-pencil"></i></button></td>
+                        <td><button type="button" class="btn btn-danger btn-block btn-xs " data-toggle="modal" data-target="#myModal"><i class="icon-append fa fa-minus-circle"></i></button></td>
+                    </tr>
+
+
+                </tbody>
+
+
+
+            </table>
+
+
+
+
+
+
+
+        </div>
+
+    </div>
+
+    <span id="here"></span>
+
+
+</article>
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog" style="width: 98%;height: auto; ">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+
+
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Extended Info.</h4>
+            </div>
+            <style>
+                th {
+                    background-color: #57889c !important;
+                    color: white;
+                }
+            </style>
+
+            <button class="accordion" style="background-color: grey;">
+                <h2 class="modal-title">B) Consequences</h2>
+            </button>
+            <div class="panel">
+
+
+                <!-- Widget ID (each widget will need unique ID)-->
+                <div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-editbutton="true" style="margin-bottom: 5px!important;margin-top: 5px!important;margin-left: -11px!important;margin-right: -11px!important;">
+
+                    <header>
+                        <span class="widget-icon"> <i class="fa fa-table"></i> </span>
+                    </header>
+
+                    <!-- widget div-->
+                    <div style="overflow-x:auto;">
+
+
+
+                        <label class="input">
+                            <input type="text" name="name" ng-model="findcoa"> <i
+                                class="icon-append fa fa-search"></i>
+                        </label>
+                        <label class="input pull-right">
+                            <label class="select ">Page Filter
+                                <select name="options" id="pfilter">
+
+                                    <option value="10">10</option>
+                                    <option value="30">30</option>
+                                    <option value="50">50</option>
+                                    <option value="100">100</option>
+
+                                </select> <i></i> </label>
+                        </label>
+
+                        <table id="data" class="table table-striped table-bordered table-hover" width="100%">
+                            <thead>
+                                <tr>
+                                    <th colspan="4" class="text-center pull-center th">HEALTH IMPACT</th>
+                                    <th colspan="3" class="text-center pull-center th">POPULATION</th>
+                                    <th colspan="3" class="text-center pull-center th">HEALTH FACILITIES / SERVICES</th>
+                                </tr>
+
+                                <tr>
+                                    <th class="text-center">No Deaths</th>
+                                    <th class="text-center">No of Admitted Patients</th>
+                                    <th class="text-center">No of Outpatients</th>
+                                    <th class="text-center">No of Missing</th>
+                                    <th class="text-center">No of Population displaced?</th>
+                                    <th class="text-center">No of Disp Famillies</th>
+                                    <th class="text-center">No of Disp Individuals</th>
+                                    <th class="text-center">Public</th>
+                                    <th class="text-center">Hospitals</th>
+                                    <th class="text-center">RHUs</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr class="text-center">
+                                    <td rowspan="1">1</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+
+
+                            </tbody>
+
+
+
+                        </table>
+
+
+
+
+
+
+                    </div>
+
+                </div>
+
+                <span id="here"></span>
+
+
+            </div>
+
+            <button class="accordion" style="background-color: green;">
+                <h2 class="modal-title">C) Action Taken</h2>
+            </button>
+            <div class="panel">
+                <div class="jarviswidget jarviswidget-color-green" id="wid-id-0" data-widget-editbutton="true" style="margin-bottom: 15px!important;margin-top: 5px!important;margin-left: -11px!important;margin-right: -11px!important;">
+                    <!-- widget options:
+                usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+        
+                data-widget-colorbutton="false"
+                data-widget-editbutton="false"
+                data-widget-togglebutton="false"
+                data-widget-deletebutton="false"
+                data-widget-fullscreenbutton="false"
+                data-widget-custombutton="false" 
+                data-widget-collapsed="true"
+                data-widget-sortable="false"
+        
+                -->
+                    <header>
+                        <span class="widget-icon"> <i class="fa fa-table"></i> </span>
+                    </header>
+
+                    <!-- widget div-->
+                    <div style="overflow-x:auto;">
+
+
+
+                        <label class="input">
+                            <input type="text" name="name" ng-model="findcoa"> <i
+                                class="icon-append fa fa-search"></i>
+                        </label>
+                        <label class="input pull-right">
+                            <label class="select ">Page Filter
+                                <select name="options" id="pfilter">
+
+                                    <option value="10">10</option>
+                                    <option value="30">30</option>
+                                    <option value="50">50</option>
+                                    <option value="100">100</option>
+
+                                </select> <i></i> </label>
+                        </label>
+
+                        <table id="data" class="table table-striped table-bordered table-hover" width="100%">
+                            <thead>
+
+                                <tr>
+                                    <th class="text-center th">#</th>
+                                    <th class="text-center th">Details</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr class="text-center">
+                                    <td>1</td>
+                                    <td class="col-sm-11">kasdfklashflkj</td>
+                                </tr>
+
+
+                            </tbody>
+
+
+
+                        </table>
+
+
+
+
+
+
+                    </div>
+
+                </div>
+
+                <span id="here"></span>
+            </div>
+
+            <button class="accordion " style="background-color: pink;">
+                <h2 class="modal-title">D) Assitance Needed</h2>
+            </button>
+            <div class="panel">
+                <!-- Widget ID (each widget will need unique ID)-->
+                <div class="jarviswidget jarviswidget-color-pink" id="wid-id-0" data-widget-editbutton="true" style="margin-bottom: 15px!important;margin-top: 5px!important;margin-left: -11px!important;margin-right: -11px!important;">
+                    <!-- widget options:
+                usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+        
+                data-widget-colorbutton="false"
+                data-widget-editbutton="false"
+                data-widget-togglebutton="false"
+                data-widget-deletebutton="false"
+                data-widget-fullscreenbutton="false"
+                data-widget-custombutton="false" 
+                data-widget-collapsed="true"
+                data-widget-sortable="false"
+        
+                -->
+                    <header>
+                        <span class="widget-icon"> <i class="fa fa-table"></i> </span>
+
+
+                    </header>
+
+                    <!-- widget div-->
+                    <div style="overflow-x:auto;">
+
+
+
+                        <label class="input">
+                            <input type="text" name="name" ng-model="findcoa"> <i
+                                class="icon-append fa fa-search"></i>
+                        </label>
+                        <label class="input pull-right">
+                            <label class="select ">Page Filter
+                                <select name="options" id="pfilter">
+
+                                    <option value="10">10</option>
+                                    <option value="30">30</option>
+                                    <option value="50">50</option>
+                                    <option value="100">100</option>
+
+                                </select> <i></i> </label>
+                        </label>
+
+
+                        <table id="data" class="table table-striped table-bordered table-hover" width="100%">
+                            <thead>
+
+                                <tr>
+                                    <th class="text-center th">#</th>
+                                    <th class="text-center th">Details</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr class="text-center">
+                                    <td>1</td>
+                                    <td class="col-sm-11"> kasdfklashflkj</td>
+                                </tr>
+
+
+                            </tbody>
+
+
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+                <span id="here"></span>
+
+
+
+            </div>
+
+            <button class="accordion" style="background-color: blue;">
+                <h2 class="modal-title">Prepared and Submitted by:
+                </h2>
+            </button>
+            <div class="panel">
+                <div class="jarviswidget jarviswidget-color-blue" id="wid-id-0" data-widget-editbutton="true" style="margin-bottom: 15px!important;margin-top: 5px!important;margin-left: -11px!important;margin-right: -11px!important;">
+                    <!-- widget options:
+                usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+        
+                data-widget-colorbutton="false"
+                data-widget-editbutton="false"
+                data-widget-togglebutton="false"
+                data-widget-deletebutton="false"
+                data-widget-fullscreenbutton="false"
+                data-widget-custombutton="false" 
+                data-widget-collapsed="true"
+                data-widget-sortable="false"
+        
+                -->
+                    <header>
+                        <span class="widget-icon"> <i class="fa fa-table"></i> </span>
+
+
+                    </header>
+
+                    <!-- widget div-->
+                    <div style="overflow-x:auto;">
+
+
+
+                        <label class="input">
+            <input type="text" name="name" ng-model="findcoa"> <i class="icon-append fa fa-search"></i>
+        </label>
+                        <label class="input pull-right">
+            <label class="select ">Page Filter
+                <select name="options" id="pfilter">
+
+                    <option value="10">10</option>
+                    <option value="30">30</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+
+                </select> <i></i> </label>
+                        </label>
+
+                        <table id="data" class="table table-striped table-bordered table-hover" width="100%">
+                            <thead>
+                                <tr>
+                                    <th class="text-center th">#</th>
+                                    <th class="text-center th">Date Prepared</th>
+                                    <th class="text-center th">Printed Name</th>
+                                    <th class="text-center th">Mobile No.</th>
+                                    <th class="text-center th">Land Line</th>
+                                    <th class="text-center th">Fax No.</th>
+                                    <th class="text-center th">Signature</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr class="text-center">
+                                    <td rowspan="1">1</td>
+                                    <td>2012-12-12</td>
+                                    <td>JOHN MARION GREFALDO</td>
+                                    <td>0921-66-86-509</td>
+                                    <td>211-5634</td>
+                                    <td>211-5634</td>
+                                    <td>JMG</td>
+                                </tr>
+
+                            </tbody>
+
+
+
+                        </table>
+
+
+
+
+
+
+                    </div>
+
+                </div>
+
+                <span id="here"></span>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<script>
+</script>
