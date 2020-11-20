@@ -196,7 +196,7 @@ angular.module('newApp').controller('rhanewCtrl', function($scope) {
         var table = $('#table-f').tableToJSON({
 
             extractor: function(cellIndex, $cell) {
-                return $cell.find('input').val() || $cell.find("#type option:selected").text();
+                return $cell.find('input').val() || $cell.find('textarea').val();
             }
 
         })
@@ -210,7 +210,7 @@ angular.module('newApp').controller('rhanewCtrl', function($scope) {
         var table = $('#table-g').tableToJSON({
 
             extractor: function(cellIndex, $cell) {
-                return $cell.find('input').val() || $cell.find("#type option:selected").text();
+                return $cell.find('input').val() || $cell.find('textarea').val();
             }
 
         })
@@ -234,7 +234,7 @@ angular.module('newApp').controller('rhanewCtrl', function($scope) {
             rhadate: $('#rhadate').val(),
             rhatime: $("#rhatime").val(),
             rhatype: $("#rhatype option:selected").text(),
-            rhadetails: $("#type option:selected").text(),
+            rhadetails: $("#rhadetails option:selected").text(),
             rharegion: $("#rharegion").val(),
             rhaprovince: $('#rhaprovince').val(),
             rhamuci: $('#rhamuci').val(),
@@ -258,14 +258,24 @@ angular.module('newApp').controller('rhanewCtrl', function($scope) {
             lhr: $('#lhr').val(),
             phs: $("#phs option:selected").text(),
             phr: $('#phr').val(),
-            lhs: $("#lhs option:selected").text(),
-            lhr: $('#lhr').val(),
             rhcs: $("#rhcs option:selected").text(),
             rhcr: $('#rhcr').val(),
             bhss: $("#bhss option:selected").text(),
             bhsr: $('#bhsr').val(),
             others: $("#others option:selected").text(),
             otherr: $('#otherr').val(),
+
+
+            communications: $("#communications option:selected").text(),
+            communicationr: $('#communicationr').val(),
+            eps: $("#eps option:selected").text(),
+            epr: $('#epr').val(),
+            waters: $("#waters option:selected").text(),
+            waterr: $('#waterr').val(),
+            rbs: $("#rbs option:selected").text(),
+            rbr: $('#rbr').val(),
+            others1: $("#others1 option:selected").text(),
+            otherr1: $('#otherr1').val(),
 
 
 
@@ -283,6 +293,18 @@ angular.module('newApp').controller('rhanewCtrl', function($scope) {
         updates['/cho/rha/' + uid] = data;
         firebase.database().ref().update(updates);
         console.log(updates)
+
+        if (updates) {
+
+
+            $("#notif").append('<div class="alert alert-success fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Success</strong> Data had been save!.</div>');
+            setTimeout(function() {
+                window.location.href = "#/"
+                window.location.href = "#rhanew"
+            }, 1500);
+        } else {
+            $("#notif").append('<div class="alert alert-danger fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Error</strong> Check your Input !</div>');
+        }
 
 
     });

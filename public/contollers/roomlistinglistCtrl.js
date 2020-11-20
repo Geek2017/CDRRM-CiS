@@ -150,7 +150,7 @@ angular.module('newApp').controller('roomlistinglistCtrl', function($firebaseArr
     };
 
     $scope.selectUser3 = function(users) {
-        // console.log(users);
+        console.log(users);
         $scope.clickedUser = users;
         id = users;
         $('#myModal3').modal('show');

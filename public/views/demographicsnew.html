@@ -1,0 +1,632 @@
+<style>
+    #sig-canvas {
+        border: 2px dotted #CCCCCC;
+        border-radius: 15px;
+        cursor: crosshair;
+    }
+
+    @media screen and (min-width: 1076px) {
+        .modal-dialog {
+            max-width: 350px;
+            /* New width for default modal */
+        }
+    }
+
+    @media screen and (min-width: 1024px) {
+        .modal-dialog {
+            max-width: 350px;
+            /* New width for default modal */
+        }
+    }
+
+    @media screen and (min-width: 768px) {
+        .modal-dialog {
+            max-width: 350px;
+            /* New width for default modal */
+        }
+    }
+
+    @media screen and (min-width: 360px) {
+        .modal-dialog {
+            max-width: 350px;
+            /* New width for default modal */
+        }
+    }
+
+    @media screen and (min-width: 411px) {
+        .modal-dialog {
+            max-width: 350px;
+            /* New width for default modal */
+        }
+    }
+
+    @media screen and (min-width: 375px) {
+        .modal-dialog {
+            max-width: 350px;
+            /* New width for default modal */
+        }
+    }
+
+    @media screen and (min-width: 375px) {
+        .modal-dialog {
+            max-width: 350px;
+            /* New width for default modal */
+        }
+    }
+</style>
+<section id="widget-grid" class="" style="margin: 0.5%;">
+    <div class="row">
+        <article class="col-sm-12 col-md-12 col-lg-12">
+
+            <!-- Widget ID (each widget will need unique ID)-->
+            <div class="jarviswidget" id="wid-id-2" data-widget-colorbutton="false" data-widget-editbutton="false">
+                <!-- widget options:
+            usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+            
+            data-widget-colorbutton="false"	
+            data-widget-editbutton="false"
+            data-widget-togglebutton="false"
+            data-widget-deletebutton="false"
+            data-widget-fullscreenbutton="false"
+            data-widget-custombutton="false"
+            data-widget-collapsed="true" 
+            data-widget-sortable="false"
+            
+        -->
+                <header>
+                    <!-- <span class="widget-icon"> <i class="fa fa-check txt-color-green"></i> </span> -->
+                    <span class="widget-icon"></span>
+                    <!-- <h2>Success States </h2> -->
+
+                </header>
+
+                <!-- widget div-->
+                <div>
+
+                    <!-- widget edit box -->
+                    <div class="jarviswidget-editbox">
+                        <!-- This area used as dropdown edit box -->
+
+                    </div>
+                    <!-- end widget edit box -->
+
+                    <!-- widget content -->
+                    <div class="widget-body no-padding">
+
+                        <!-- Success states for elements -->
+                        <form class="smart-form" id="savedemo">
+                            <header>Demographics</header>
+                            <!--Start of Demographics-->
+                            <fieldset>
+                                <section>
+                                    <div class="row">
+                                        <section class="col col-6">
+                                            <label class="label">Families</label>
+                                            <label class="input ">
+                                                <input type="number" id="families">
+                                            </label>
+                                        </section>
+
+                                        <section class="col col-6">
+                                            <label class="label"> Individuals</label>
+                                            <label class="input ">
+                                                <input type="number" id="individuals">
+                                            </label>
+                                        </section>
+                                    </div>
+
+                                    <div class="row">
+                                        <section class="col col-4">
+                                            <label class="label"> Less Than 1 y/o</label>
+                                            <label class="input ">
+                                                <input type="text" id="lessthanone">
+                                            </label>
+                                        </section>
+
+                                        <section class="col col-4">
+                                            <label class="label"> 1-5 y/o</label>
+                                            <label class="input ">
+                                                <input type="text" id="oneTofive">
+                                            </label>
+                                        </section>
+
+                                        <section class="col col-4">
+                                            <label class="label"> Greater than 60</label>
+                                            <label class="input ">
+                                                <input type="text" id="greaterthansixty">
+                                            </label>
+                                        </section>
+                                    </div>
+
+                                    <div class="row">
+                                        <section class="col col-3">
+                                            <label class="label"> PWD</label>
+                                            <label class="input ">
+                                                <input type="text" id="pwd">
+                                            </label>
+                                        </section>
+
+                                        <section class="col col-3">
+                                            <label class="label"> Women</label>
+                                            <label class="input ">
+                                                <input type="text" id="women">
+                                            </label>
+                                        </section>
+
+                                        <section class="col col-3">
+                                            <label class="label"> Pregnant</label>
+                                            <label class="input ">
+                                                <input type="text" id="pregnant">
+                                            </label>
+                                        </section>
+
+                                        <section class="col col-3">
+                                            <label class="label"> Lactating</label>
+                                            <label class="input ">
+                                                <input type="text" id="lactating">
+                                            </label>
+                                        </section>
+                                    </div>
+
+                                    <div class="row">
+                                        <section class="col col-3">
+                                            <label class="label"> Water Source</label>
+                                            <label class="input ">
+                                                <input type="text" id="waterSource">
+                                            </label>
+                                        </section>
+
+                                        <section class="col col-3">
+                                            <label class="label"> Toilet Facility</label>
+                                            <label class="input ">
+                                                <input type="text" id="toiletFacility">
+                                            </label>
+                                        </section>
+
+                                        <section class="col col-3">
+                                            <label class="label"> Bathing Facilty</label>
+                                            <label class="input ">
+                                                <input type="text" id="bathingFacility">
+                                            </label>
+                                        </section>
+
+                                        <section class="col col-3">
+                                            <label class="label"> HW Facility</label>
+                                            <label class="input ">
+                                                <input type="text" id="hwFacility">
+                                            </label>
+                                        </section>
+                                    </div>
+
+                                    <div class="row">
+                                        <section class="col col-3">
+                                            <label class="label">OD Practice</label>
+                                            <label class="select ">
+                                                <select id="odPractice" required>
+                                                    <option value="0" disabled selected>select</option>
+                                                    <option value="Yes">Yes</option>
+                                                    <option value="No">No</option>
+                                                </select>
+                                                <i></i>
+                                            </label>
+                                        </section>
+
+                                        <section class="col col-3">
+                                            <label class="label">Space for OD</label>
+                                            <label class="select ">
+                                                <select id="spaceOD" required>
+                                                    <option value="0" disabled selected>select</option>
+                                                    <option value="Yes">Yes</option>
+                                                    <option value="No">No</option>
+                                                </select>
+                                                <i></i>
+                                            </label>
+                                        </section>
+
+                                        <section class="col col-3">
+                                            <label class="label"> SAM</label>
+                                            <label class="input ">
+                                                <input type="text" id="sam">
+                                            </label>
+                                        </section>
+
+                                        <section class="col col-3">
+                                            <label class="label"> MAM</label>
+                                            <label class="input ">
+                                                <input type="text" id="mam">
+                                            </label>
+                                        </section>
+                                    </div>
+
+
+
+                                </section>
+                            </fieldset>
+                            <!--End of Demographics-->
+
+                            <header>Public Health/Medical </header>
+                            <!--Start of Public Health/Medical-->
+                            <fieldset>
+                                <section>
+                                    <div class="row">
+                                        <section class="col col-3">
+                                            <label class="label">Consulations</label>
+                                            <label class="input ">
+                                                <input type="text" id="consulations">
+                                            </label>
+                                        </section>
+
+                                        <section class="col col-3">
+                                            <label class="label"> Prenatal</label>
+                                            <label class="input ">
+                                                <input type="text" id="prenatal">
+                                            </label>
+                                        </section>
+
+                                        <section class="col col-3">
+                                            <label class="label"> Referrals</label>
+                                            <label class="input ">
+                                                <input type="text" id="referrals">
+                                            </label>
+                                        </section>
+
+                                        <section class="col col-3">
+                                            <label class="label"> Measles</label>
+                                            <label class="input ">
+                                                <input type="text" id="measles">
+                                            </label>
+                                        </section>
+                                    </div>
+
+                                    <div class="row">
+                                        <section class="col col-3">
+                                            <label class="label"> TT/TD</label>
+                                            <label class="input ">
+                                                <input type="text" id="ttORtd">
+                                            </label>
+                                        </section>
+
+                                        <section class="col col-3">
+                                            <label class="label"> OPV</label>
+                                            <label class="input ">
+                                                <input type="text" id="opv">
+                                            </label>
+                                        </section>
+
+                                        <section class="col col-3">
+                                            <label class="label"> Deworming</label>
+                                            <label class="input ">
+                                                <input type="text" id="deworming">
+                                            </label>
+                                        </section>
+
+                                        <section class="col col-3">
+                                            <label class="label"> Dignity Kits</label>
+                                            <label class="input ">
+                                                <input type="text" id="dignityKits">
+                                            </label>
+                                        </section>
+                                    </div>
+
+
+
+                                </section>
+                            </fieldset>
+                            <!--End of Public Health/Medical-->
+
+                            <header> Nutrition in Emergencies</header>
+                            <!--Start of Nutrition in Emergencies-->
+                            <fieldset>
+                                <section>
+                                    <div class="row">
+                                        <section class="col col-3">
+                                            <label class="label">Vitamin A</label>
+                                            <label class="input ">
+                                                <input type="text" id="vitaminA">
+                                            </label>
+                                        </section>
+
+                                        <section class="col col-3">
+                                            <label class="label"> Zinc</label>
+                                            <label class="input ">
+                                                <input type="text" id="zinc">
+                                            </label>
+                                        </section>
+
+                                        <section class="col col-3">
+                                            <label class="label"> Ferrous Sulfate</label>
+                                            <label class="input ">
+                                                <input type="text" id="ferrousSulfate">
+                                            </label>
+                                        </section>
+
+                                        <section class="col col-3">
+                                            <label class="label"> Vit Supplementation</label>
+                                            <label class="input ">
+                                                <input type="text" id="vitSupplementation">
+                                            </label>
+                                        </section>
+                                    </div>
+
+                                    <div class="row">
+                                        <section class="col col-3">
+                                            <label class="label"> MNP</label>
+                                            <label class="input ">
+                                                <input type="text" id="mnp">
+                                            </label>
+                                        </section>
+
+                                        <section class="col col-3">
+                                            <label class="label"> SF</label>
+                                            <label class="input ">
+                                                <input type="text" id="sf">
+                                            </label>
+                                        </section>
+
+                                        <section class="col col-3">
+                                            <label class="label"> Nutrition Counselling</label>
+                                            <label class="input ">
+                                                <input type="text" id="nutritionCounselling">
+                                            </label>
+                                        </section>
+
+                                        <section class="col col-3">
+                                            <label class="label"> Others</label>
+                                            <label class="input ">
+                                                <input type="text" id="others">
+                                            </label>
+                                        </section>
+                                    </div>
+
+
+
+                                </section>
+                            </fieldset>
+                            <!--Start of Nutrition in Emergencies-->
+
+                            <header>Water, Sanitation and Hygiene(Wash) in Emergencies</header>
+                            <!--Start of Water, Sanitation and Hygiene(Wash) in Emergencies-->
+                            <fieldset>
+                                <section>
+                                    <div class="row">
+                                        <section class="col col-3">
+                                            <label class="label">Water Testing</label>
+                                            <label class="input ">
+                                                <input type="text" id="waterTesting">
+                                            </label>
+                                        </section>
+
+                                        <section class="col col-3">
+                                            <label class="label"> Water Treatment</label>
+                                            <label class="input ">
+                                                <input type="text" id="waterTreatment">
+                                            </label>
+                                        </section>
+
+                                        <section class="col col-3">
+                                            <label class="label"> Water Containers</label>
+                                            <label class="input ">
+                                                <input type="text" id="waterContainers">
+                                            </label>
+                                        </section>
+
+                                        <section class="col col-3">
+                                            <label class="label"> Hygiene Kits</label>
+                                            <label class="input ">
+                                                <input type="text" id="hygieneKits">
+                                            </label>
+                                        </section>
+                                    </div>
+
+                                    <div class="row">
+                                        <section class="col col-3">
+                                            <label class="label"> Installation of Wash Facilites</label>
+                                            <label class="input ">
+                                                <input type="text" id="washFacilities">
+                                            </label>
+                                        </section>
+
+                                        <section class="col col-3">
+                                            <label class="label"> Dislodging</label>
+                                            <label class="input ">
+                                                <input type="text" id="dislodging">
+                                            </label>
+                                        </section>
+
+                                        <section class="col col-3">
+                                            <label class="label"> Mosquito Nets</label>
+                                            <label class="input ">
+                                                <input type="text" id="mosquitoNets">
+                                            </label>
+                                        </section>
+
+                                        <section class="col col-3">
+                                            <label class="label"> Disinfectant Spraying</label>
+                                            <label class="input ">
+                                                <input type="text" id="disinfectantSpraying">
+                                            </label>
+                                        </section>
+                                    </div>
+
+
+
+                                </section>
+                            </fieldset>
+                            <!--End of Water, Sanitation and Hygiene(Wash) in Emergencies-->
+
+                            <header>Mental Health And Psychosocial Support Services(MHPSS)</header>
+                            <!--Start of Mental Health And Psychosocial Support Services(MHPSS)-->
+                            <fieldset>
+                                <section>
+                                    <div class="row">
+                                        <section class="col col-3">
+                                            <label class="label">PFA</label>
+                                            <label class="input ">
+                                                <input type="text" id="pfa">
+                                            </label>
+                                        </section>
+
+                                        <section class="col col-3">
+                                            <label class="label"> Psychosocial Processing</label>
+                                            <label class="input ">
+                                                <input type="text" id="psychosocialProcessing">
+                                            </label>
+                                        </section>
+
+                                        <section class="col col-3">
+                                            <label class="label"> Stress Management</label>
+                                            <label class="input ">
+                                                <input type="text" id="stressManagement">
+                                            </label>
+                                        </section>
+
+                                        <section class="col col-3">
+                                            <label class="label"> Referrals</label>
+                                            <label class="input ">
+                                                <input type="text" id="referrals2">
+                                            </label>
+                                        </section>
+                                    </div>
+
+
+
+                                </section>
+                            </fieldset>
+                            <!--Start of Mental Health And Psychosocial Support Services(MHPSS)-->
+
+                            <header>Others</header>
+                            <!--Start of Others-->
+                            <fieldset>
+                                <section>
+                                    <label class="label"> Other Actions</label>
+                                    <label class="textarea ">
+                                        <textarea rows="5" id="others2"></textarea>
+                                    </label>
+                                </section>
+
+                                <section>
+                                    <label class="label"> Identified Needs</label>
+                                    <div class="row">
+                                        <div class="col col-6">
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checkbox1" id="checkbox1">
+                                                <i></i>Water Disinfectant</label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checkbox2" id="checkbox2">
+                                                <i></i>Hygiene Kits</label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checkbox3" id="checkbox3">
+                                                <i></i>Dignity Kits</label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checkbox4" id="checkbox4">
+                                                <i></i>Additonal Wash Facilites</label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checkbox5" id="checkbox5">
+                                                <i></i>Dislodging</label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checkbox6" id="checkbox6">
+                                                <i></i>Mosquito Nets</label>
+                                        </div>
+                                        <div class="col col-6">
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checkbox7" id="checkbox7">
+                                                <i></i>Disinfectant Spray</label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checkbox8" id="checkbox8">
+                                                <i></i>Medicines</label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checkbox9" id="checkbox9">
+                                                <i></i>Vitamin Supplements</label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checkbox10" id="checkbox10">
+                                                <i></i>Nutrition Counselling</label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checkbox11" id="checkbox11">
+                                                <i></i>MHPSS Interventions</label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checkbox12" id="checkbox12">
+                                                <i></i>Others (Please Specify): </label> 
+                                                <input style="display: none;" type="text" id="otherCheckbox">
+                                        </div>
+                                    </div>
+                                </section>
+
+                                <section>
+                                    <label class="label"> Remarks:</label>
+                                    <label class="label"> i.e Top 5 Morbidities (if with consulations), issues and concerns</label>
+                                    <label class="textarea ">
+                                        <textarea rows="10" id="remarks"></textarea>
+                                    </label>
+                                </section>
+
+                            </fieldset>
+
+                            <!--End of Others-->
+
+                            <header>Prepared</header>
+                            <!--Start of Prepared by-->
+
+                            <fieldset>
+                                <section>
+                                    <div class="row">
+                                        <section class="col col-4">
+                                            <label class="label">Reported by:</label>
+                                            <label class="input ">
+                                                <input type="text" id="reported">
+                                            </label>
+                                        </section>
+                                        <section class="col col-4">
+                                            <label class="label">Contact No.:</label>
+                                            <label class="input ">
+                                                <input type="text" id="contact">
+                                            </label>
+                                        </section>
+                                        <section class="col col-4">
+                                            <label class="label">Date</label>
+                                            <label class="input ">
+                                                <input type="date" id="date">
+                                            </label>
+                                        </section>
+                                    </div>
+                                </section>
+                            </fieldset>
+
+                            <!--End of Prepared by-->
+
+                            <footer>
+                                <button type="submit" class="btn btn-primary ">Submit</button>
+                            </footer>
+                        </form>
+                        <!--/ Success states for elements -->
+
+                    </div>
+                    <!-- end widget content -->
+
+                </div>
+                <!-- end widget div -->
+
+            </div>
+            <!-- end widget -->
+
+        </article>
+    </div>
+
+</section>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+
+    <div class="modal-dialog" role="document">
+
+        <div class="modal-content">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">X</button>
+            <div class="modal-body sign">
+
+                <canvas id="sig-canvas"> </canvas>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="sig-clearBtn">Reset</button>
+                <button type="button" class="btn btn-primary" id="sig-submitBtn">Save</button>
+            </div>
+        </div>
+    </div>
+</div>

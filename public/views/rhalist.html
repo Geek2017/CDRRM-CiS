@@ -1,14 +1,21 @@
 <style>
+ #sig-canvas {
+        border: 2px dotted #CCCCCC;
+        border-radius: 15px;
+        cursor: crosshair;
+    }
+    
+
     th {
         background-color: #57889c !important;
         color: white;
     }
-    
+
     .th {
         background-color: #383838 !important;
         color: white;
     }
-    
+
     .accordion {
         background-color: #eee;
         color: white;
@@ -21,18 +28,20 @@
         font-size: 15px;
         transition: 0.4s;
     }
-    
+
     .active,
     .accordion:hover {
         background-color: #ccc;
     }
-    
+
     .panel {
         padding: 0 18px;
         display: none;
         background-color: white;
         overflow: hidden;
     }
+
+    
 </style>
 <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
 
@@ -67,6 +76,7 @@
             </label>
 
             <table id="data" class="table table-striped table-bordered table-hover" width="100%">
+                <div id="notif"></div> 
                 <thead>
                     <tr>
                         <th colspan="12 pull-center" class="text-center th">A) Event Information</th>
@@ -91,21 +101,22 @@
 
                     </tr>
                 </thead>
-                <tbody>
+                <tbody ng-repeat="cf in cfs  | filter: findcf">
 
                     <tr class="text-center">
-                        <td>1</td>
-                        <td>1992-01-23</td>
-                        <td>23:00</td>
-                        <td>Weather</td>
-                        <td>Typhoon</td>
-                        <td>V-Bicol</td>
-                        <td>Sorsogon</td>
-                        <td>Bulan</td>
+                        <td>{{$index + 1}}</td>
+                        <td>{{cf.rhadate}}</td>
+                        <td>{{cf.rhatime}}</td>
+                        <td>{{cf.rhatype}}</td>
+                        <td>{{cf.rhadetails}}</td>
+                        <td>{{cf.rharegion}}</td>
+                        <td>{{cf.rhaprovince}}</td>
+                        <td>{{cf.rhamuci}}</td>
 
-                        <td><button type="button" class="btn btn-info btn-block btn-xs " data-toggle="modal" data-target="#myModal"><i class="icon-append fa fa-search"></i></button></td>
-                        <td><button type="button" class="btn btn-success btn-block btn-xs " data-toggle="modal" data-target="#myModal"><i class="icon-append fa fa-pencil"></i></button></td>
-                        <td><button type="button" class="btn btn-danger btn-block btn-xs " data-toggle="modal" data-target="#myModal"><i class="icon-append fa fa-minus-circle"></i></button></td>
+                        <td><button type="button" class="btn btn-info btn-block btn-xs " ng-click="selectUser3(cf)"><i
+                                    class="icon-append fa fa-search"></i></button></td>
+                        <td><button type="button" class="btn btn-success btn-block btn-xs " ng-click="selectUser(cf)"><i class="icon-append fa fa-pencil"></i></button></td>
+                        <td><button type="button" class="btn btn-danger btn-block btn-xs " ng-click="selectUser2(cf)"><i class="icon-append fa fa-minus-circle"></i></button></td>
                     </tr>
 
 
@@ -155,7 +166,8 @@
 
 
                 <!-- Widget ID (each widget will need unique ID)-->
-                <div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-editbutton="true" style="margin-bottom: 5px!important;margin-top: 5px!important;margin-left: -11px!important;margin-right: -11px!important;">
+                <div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-editbutton="true"
+                    style="margin-bottom: 5px!important;margin-top: 5px!important;margin-left: -11px!important;margin-right: -11px!important;">
                     <!-- widget options:
     usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
 
@@ -175,24 +187,6 @@
 
                     <!-- widget div-->
                     <div style="overflow-x:auto;">
-
-
-
-                        <label class="input">
-                            <input type="text" name="name" ng-model="findcoa"> <i
-                                class="icon-append fa fa-search"></i>
-                        </label>
-                        <label class="input pull-right">
-                            <label class="select ">Page Filter
-                                <select name="options" id="pfilter">
-
-                                    <option value="10">10</option>
-                                    <option value="30">30</option>
-                                    <option value="50">50</option>
-                                    <option value="100">100</option>
-
-                                </select> <i></i> </label>
-                        </label>
 
                         <table id="data" class="table table-striped table-bordered table-hover" width="100%">
                             <thead>
@@ -216,15 +210,15 @@
                             </thead>
                             <tbody>
 
-                                <tr class="text-center">
-                                    <td rowspan="1">1</td>
-                                    <td>Sorsogon</td>
-                                    <td>Bulan</td>
-                                    <td>Weather</td>
-                                    <td>Typhoon</td>
-                                    <td>1992-01-23</td>
-                                    <td>23:00</td>
-                                    <td>23:00</td>
+                                <tr class="text-center" ng-repeat="ncf in clickedUser.moe ">
+                                    <td rowspan="1">{{$index + 1}}</td>
+                                    <td>{{ncf.Province}}</td>
+                                    <td>{{ncf['Municipality or City']}}</td>
+                                    <td>{{ncf.Families}}</td>
+                                    <td>{{ncf.Individuals}}</td>
+                                    <td>{{ncf['Number Of EC']}}</td>
+                                    <td>{{ncf['Number Family EC']}}</td>
+                                    <td>{{ncf['Number Individual in EC']}}</td>
 
                                 </tr>
 
@@ -253,7 +247,8 @@
                 <h2 class="modal-title">C) Health Consequences</h2>
             </button>
             <div class="panel">
-                <div class="jarviswidget jarviswidget-color-green" id="wid-id-0" data-widget-editbutton="true" style="margin-bottom: 15px!important;margin-top: 5px!important;margin-left: -11px!important;margin-right: -11px!important;">
+                <div class="jarviswidget jarviswidget-color-green" id="wid-id-0" data-widget-editbutton="true"
+                    style="margin-bottom: 15px!important;margin-top: 5px!important;margin-left: -11px!important;margin-right: -11px!important;">
                     <!-- widget options:
                 usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
         
@@ -276,23 +271,6 @@
                     <!-- widget div-->
                     <div style="overflow-x:auto;">
 
-
-
-                        <label class="input">
-                            <input type="text" name="name" ng-model="findcoa"> <i
-                                class="icon-append fa fa-search"></i>
-                        </label>
-                        <label class="input pull-right">
-                            <label class="select ">Page Filter
-                                <select name="options" id="pfilter">
-
-                                    <option value="10">10</option>
-                                    <option value="30">30</option>
-                                    <option value="50">50</option>
-                                    <option value="100">100</option>
-
-                                </select> <i></i> </label>
-                        </label>
 
                         <table id="data" class="table table-striped table-bordered table-hover" width="100%">
                             <thead>
@@ -318,15 +296,15 @@
                             </thead>
                             <tbody>
 
-                                <tr class="text-center">
-                                    <td rowspan="1">1</td>
-                                    <td>Sorsogon</td>
-                                    <td>Bulan</td>
-                                    <td>Weather</td>
-                                    <td>Typhoon</td>
-                                    <td>1992-01-23</td>
-                                    <td>23:00</td>
-                                    <td>23:00</td>
+                                <tr class="text-center" ng-repeat="ncf in clickedUser.hos ">
+                                    <td rowspan="1">{{$index + 1}}</td>
+                                    <td>{{ncf.Province}}</td>
+                                    <td>{{ncf['Municipality or City']}}</td>
+                                    <td>{{ncf['Total Number of Deaths']}}</td>
+                                    <td>{{ncf.Admitted}}</td>
+                                    <td>{{ncf['Admitted then Discharge']}}</td>
+                                    <td>{{ncf['Not Admitted']}}</td>
+                                    <td>{{ncf['Total Number of Missing']}}</td>
 
                                 </tr>
 
@@ -354,7 +332,8 @@
             </button>
             <div class="panel">
                 <!-- Widget ID (each widget will need unique ID)-->
-                <div class="jarviswidget jarviswidget-color-pink" id="wid-id-0" data-widget-editbutton="true" style="margin-bottom: 15px!important;margin-top: 5px!important;margin-left: -11px!important;margin-right: -11px!important;">
+                <div class="jarviswidget jarviswidget-color-pink" id="wid-id-0" data-widget-editbutton="true"
+                    style="margin-bottom: 15px!important;margin-top: 5px!important;margin-left: -11px!important;margin-right: -11px!important;">
                     <!-- widget options:
                 usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
         
@@ -378,24 +357,7 @@
                     <div style="overflow-x:auto;">
 
 
-
-                        <label class="input">
-                            <input type="text" name="name" ng-model="findcoa"> <i
-                                class="icon-append fa fa-search"></i>
-                        </label>
-                        <label class="input pull-right">
-                            <label class="select ">Page Filter
-                                <select name="options" id="pfilter">
-
-                                    <option value="10">10</option>
-                                    <option value="30">30</option>
-                                    <option value="50">50</option>
-                                    <option value="100">100</option>
-
-                                </select> <i></i> </label>
-                        </label>
-
-                        <table id="data" class="table table-striped table-bordered table-hover" width="100%">
+                        <table id="data4" class="table table-striped table-bordered table-hover" width="100%">
                             <thead>
                                 <tr>
                                     <th class="text-center th">#</th>
@@ -410,8 +372,44 @@
                                 <tr class="text-center">
                                     <td rowspan="1">1</td>
                                     <td>DOH</td>
-                                    <td>Totally Non-Functional</td>
-                                    <td>No current abandoned</td>
+                                    <td>{{clickedUser.dhs}}</td>
+                                    <td>{{clickedUser.dhr}}</td>
+                                </tr>
+
+                                <tr class="text-center">
+                                    <td rowspan="1">2</td>
+                                    <td>LGU Hospitals</td>
+                                    <td>{{clickedUser.lhs}}</td>
+                                    <td>{{clickedUser.lhr}}</td>
+                                </tr>
+
+
+                                <tr class="text-center">
+                                    <td rowspan="1">3</td>
+                                    <td>Private Hospitals</td>
+                                    <td>{{clickedUser.phs}}</td>
+                                    <td>{{clickedUser.phr}}</td>
+                                </tr>
+
+                                <tr class="text-center">
+                                    <td rowspan="1">4</td>
+                                    <td>RHU/Health Ctr</td>
+                                    <td>{{clickedUser.rhcs}}</td>
+                                    <td>{{clickedUser.rhcr}}</td>
+                                </tr>
+
+                                <tr class="text-center">
+                                    <td rowspan="1">5</td>
+                                    <td>BHS</td>
+                                    <td>{{clickedUser.bhss}}</td>
+                                    <td>{{clickedUser.bhsr}}</td>
+                                </tr>
+
+                                <tr class="text-center" >
+                                    <td rowspan="1">6</td>
+                                    <td>Other</td>
+                                    <td>{{clickedUser.others}}</td>
+                                    <td>{{clickedUser.otherr}}</td>
                                 </tr>
 
 
@@ -440,7 +438,8 @@
                 <h2 class="modal-title">E) Lifelines in the Affected Areas</h2>
             </button>
             <div class="panel">
-                <div class="jarviswidget jarviswidget-color-teal" id="wid-id-0" data-widget-editbutton="true" style="margin-bottom: 15px!important;margin-top: 5px!important;margin-left: -11px!important;margin-right: -11px!important;">
+                <div class="jarviswidget jarviswidget-color-teal" id="wid-id-0" data-widget-editbutton="true"
+                    style="margin-bottom: 15px!important;margin-top: 5px!important;margin-left: -11px!important;margin-right: -11px!important;">
                     <!-- widget options:
             usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
     
@@ -463,24 +462,6 @@
                     <!-- widget div-->
                     <div style="overflow-x:auto;">
 
-
-
-                        <label class="input">
-                            <input type="text" name="name" ng-model="findcoa"> <i
-                                class="icon-append fa fa-search"></i>
-                        </label>
-                        <label class="input pull-right">
-                            <label class="select ">Page Filter
-                                <select name="options" id="pfilter">
-
-                                    <option value="10">10</option>
-                                    <option value="30">30</option>
-                                    <option value="50">50</option>
-                                    <option value="100">100</option>
-
-                                </select> <i></i> </label>
-                        </label>
-
                         <table id="data" class="table table-striped table-bordered table-hover" width="100%">
                             <thead>
                                 <tr>
@@ -496,8 +477,36 @@
                                 <tr class="text-center">
                                     <td rowspan="1">1</td>
                                     <td>Communication</td>
-                                    <td>Partly Functional</td>
-                                    <td>Dead spot in the city</td>
+                                    <td>{{clickedUser.communications}}</td>
+                                    <td>{{clickedUser.communicationr}}</td>
+                                </tr>
+
+                                <tr class="text-center">
+                                    <td rowspan="1">2</td>
+                                    <td>Electric Power</td>
+                                    <td>{{clickedUser.eps}}</td>
+                                    <td>{{clickedUser.epr}}</td>
+                                </tr>
+
+                                <tr class="text-center">
+                                    <td rowspan="1">3</td>
+                                    <td>Water</td>
+                                    <td>{{clickedUser.waters}}</td>
+                                    <td>{{clickedUser.waterr}}</td>
+                                </tr>
+
+                                <tr class="text-center">
+                                    <td rowspan="1">4</td>
+                                    <td>Roads/Bridges</td>
+                                    <td>{{clickedUser.rbs}}</td>
+                                    <td>{{clickedUser.rbr}}</td>
+                                </tr>
+
+                                <tr class="text-center">
+                                    <td rowspan="1">5</td>
+                                    <td>Others</td>
+                                    <td>{{clickedUser.others1}}</td>
+                                    <td>{{clickedUser.otherr1}}</td>
                                 </tr>
 
 
@@ -526,7 +535,8 @@
             </button>
             <div class="panel">
                 <!-- Widget ID (each widget will need unique ID)-->
-                <div class="jarviswidget jarviswidget-color-red" id="wid-id-0" data-widget-editbutton="true" style="margin-bottom: 15px!important;margin-top: 5px!important;margin-left: -11px!important;margin-right: -11px!important;">
+                <div class="jarviswidget jarviswidget-color-red" id="wid-id-0" data-widget-editbutton="true"
+                    style="margin-bottom: 15px!important;margin-top: 5px!important;margin-left: -11px!important;margin-right: -11px!important;">
 
                     <header>
                         <span class="widget-icon"> <i class="fa fa-table"></i> </span>
@@ -535,24 +545,6 @@
 
                     <!-- widget div-->
                     <div style="overflow-x:auto;">
-
-
-
-                        <label class="input">
-                            <input type="text" name="name" ng-model="findcoa"> <i
-                                class="icon-append fa fa-search"></i>
-                        </label>
-                        <label class="input pull-right">
-                            <label class="select ">Page Filter
-                                <select name="options" id="pfilter">
-
-                                    <option value="10">10</option>
-                                    <option value="30">30</option>
-                                    <option value="50">50</option>
-                                    <option value="100">100</option>
-
-                                </select> <i></i> </label>
-                        </label>
 
                         <table id="data" class="table table-striped table-bordered table-hover" width="100%">
                             <thead>
@@ -566,11 +558,11 @@
                             </thead>
                             <tbody>
 
-                                <tr class="text-center">
-                                    <td rowspan="1">1</td>
-                                    <td>21</td>
-                                    <td>4</td>
-                                    <td>parecetamol is at most needed</td>
+                                <tr class="text-center" ng-repeat="ncf in clickedUser.statuseds ">
+                                    <td rowspan="1">{{$index + 1}}</td>
+                                    <td>{{ncf['Number of Cases']}}</td>
+                                    <td>{{ncf['Number of Days']}}</td>
+                                    <td>{{ncf.Remarks}}</td>
                                 </tr>
 
 
@@ -598,7 +590,8 @@
                 </h2>
             </button>
             <div class="panel">
-                <div class="jarviswidget jarviswidget-color-purple" id="wid-id-0" data-widget-editbutton="true" style="margin-bottom: 15px!important;margin-top: 5px!important;margin-left: -11px!important;margin-right: -11px!important;">
+                <div class="jarviswidget jarviswidget-color-purple" id="wid-id-0" data-widget-editbutton="true"
+                    style="margin-bottom: 15px!important;margin-top: 5px!important;margin-left: -11px!important;margin-right: -11px!important;">
 
 
 
@@ -611,23 +604,6 @@
                     <!-- widget div-->
                     <div style="overflow-x:auto;">
 
-
-
-                        <label class="input">
-            <input type="text" name="name" ng-model="findcoa"> <i class="icon-append fa fa-search"></i>
-        </label>
-                        <label class="input pull-right">
-            <label class="select ">Page Filter
-                <select name="options" id="pfilter">
-
-                    <option value="10">10</option>
-                    <option value="30">30</option>
-                    <option value="50">50</option>
-                    <option value="100">100</option>
-
-                </select> <i></i> </label>
-                        </label>
-
                         <table id="data" class="table table-striped table-bordered table-hover" width="100%">
                             <thead>
                                 <tr>
@@ -638,18 +614,18 @@
                             </thead>
                             <tbody>
 
-                                <tr class="text-center">
-                                    <td rowspan="1">1</td>
-                                    <td>Procument of x1000 box of meds </td>
+                                <tr class="text-center" ng-repeat="ncf in clickedUser.atn ">
+                                    <td rowspan="1">{{$index + 1}}</td>
+                                    <td>{{ncf['Action Taken']}}</td>
                                 </tr>
-                                <tr class="text-center">
+                                <!-- <tr class="text-center">
                                     <td rowspan="1">2</td>
                                     <td>Procument of x1000 box of sugar </td>
                                 </tr>
                                 <tr class="text-center">
                                     <td rowspan="1">3</td>
                                     <td>Procument of x1000 box of salt </td>
-                                </tr>
+                                </tr> -->
 
 
 
@@ -678,7 +654,8 @@
             <div class="panel">
 
                 <!-- Widget ID (each widget will need unique ID)-->
-                <div class="jarviswidget jarviswidget-color-yellow" id="wid-id-0" data-widget-editbutton="true" style="margin-bottom: 15px!important;margin-top: 5px!important;margin-left: -11px!important;margin-right: -11px!important;">
+                <div class="jarviswidget jarviswidget-color-yellow" id="wid-id-0" data-widget-editbutton="true"
+                    style="margin-bottom: 15px!important;margin-top: 5px!important;margin-left: -11px!important;margin-right: -11px!important;">
                     <!-- widget options:
                 usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
         
@@ -701,23 +678,6 @@
                     <!-- widget div-->
                     <div style="overflow-x:auto;">
 
-
-
-                        <label class="input">
-            <input type="text" name="name" ng-model="findcoa"> <i class="icon-append fa fa-search"></i>
-        </label>
-                        <label class="input pull-right">
-            <label class="select ">Page Filter
-                <select name="options" id="pfilter">
-
-                    <option value="10">10</option>
-                    <option value="30">30</option>
-                    <option value="50">50</option>
-                    <option value="100">100</option>
-
-                </select> <i></i> </label>
-                        </label>
-
                         <table id="data" class="table table-striped table-bordered table-hover" width="100%">
                             <thead>
                                 <tr>
@@ -728,16 +688,16 @@
                             </thead>
                             <tbody>
 
-                                <tr class="text-center">
-                                    <td>1</td>
-                                    <td>NO Power</td>
+                                <tr class="text-center" ng-repeat="ncf in clickedUser.ped ">
+                                    <td rowspan="1">{{$index + 1}}</td>
+                                    <td>{{ncf.Details}}</td>
 
                                 </tr>
-                                <tr class="text-center">
+                                <!-- <tr class="text-center">
                                     <td>2</td>
                                     <td>NO Signal</td>
 
-                                </tr>
+                                </tr> -->
 
 
 
@@ -764,7 +724,8 @@
                 </h2>
             </button>
             <div class="panel">
-                <div class="jarviswidget jarviswidget-color-orange" id="wid-id-0" data-widget-editbutton="true" style="margin-bottom: 15px!important;margin-top: 5px!important;margin-left: -11px!important;margin-right: -11px!important;">
+                <div class="jarviswidget jarviswidget-color-orange" id="wid-id-0" data-widget-editbutton="true"
+                    style="margin-bottom: 15px!important;margin-top: 5px!important;margin-left: -11px!important;margin-right: -11px!important;">
                     <!-- widget options:
                 usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
         
@@ -787,23 +748,6 @@
                     <!-- widget div-->
                     <div style="overflow-x:auto;">
 
-
-
-                        <label class="input">
-            <input type="text" name="name" ng-model="findcoa"> <i class="icon-append fa fa-search"></i>
-        </label>
-                        <label class="input pull-right">
-            <label class="select ">Page Filter
-                <select name="options" id="pfilter">
-
-                    <option value="10">10</option>
-                    <option value="30">30</option>
-                    <option value="50">50</option>
-                    <option value="100">100</option>
-
-                </select> <i></i> </label>
-                        </label>
-
                         <table id="data" class="table table-striped table-bordered table-hover" width="100%">
                             <thead>
                                 <tr>
@@ -814,14 +758,9 @@
                             </thead>
                             <tbody>
 
-                                <tr class="text-center">
-                                    <td rowspan="1">1</td>
-                                    <td>Procure 10 Hp Genset</td>
-
-                                </tr>
-                                <tr class="text-center">
-                                    <td rowspan="1">2</td>
-                                    <td>Procure Signal boaster</td>
+                                <tr class="text-center" ng-repeat="ncf in clickedUser.recom ">
+                                    <td rowspan="1">{{$index + 1}}</td>
+                                    <td>{{ncf.Details}}</td>
 
                                 </tr>
 
@@ -850,7 +789,8 @@
                 </h2>
             </button>
             <div class="panel">
-                <div class="jarviswidget jarviswidget-color-blue" id="wid-id-0" data-widget-editbutton="true" style="margin-bottom: 15px!important;margin-top: 5px!important;margin-left: -11px!important;margin-right: -11px!important;">
+                <div class="jarviswidget jarviswidget-color-blue" id="wid-id-0" data-widget-editbutton="true"
+                    style="margin-bottom: 15px!important;margin-top: 5px!important;margin-left: -11px!important;margin-right: -11px!important;">
                     <!-- widget options:
                 usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
         
@@ -873,29 +813,12 @@
                     <!-- widget div-->
                     <div style="overflow-x:auto;">
 
-
-
-                        <label class="input">
-            <input type="text" name="name" ng-model="findcoa"> <i class="icon-append fa fa-search"></i>
-        </label>
-                        <label class="input pull-right">
-            <label class="select ">Page Filter
-                <select name="options" id="pfilter">
-
-                    <option value="10">10</option>
-                    <option value="30">30</option>
-                    <option value="50">50</option>
-                    <option value="100">100</option>
-
-                </select> <i></i> </label>
-                        </label>
-
-                        <table id="data" class="table table-striped table-bordered table-hover" width="100%">
+                        <table id="data_prepared" class="table table-striped table-bordered table-hover" width="100%">
                             <thead>
                                 <tr>
                                     <th class="text-center th">#</th>
-                                    <th class="text-center th">Date Prepared</th>
                                     <th class="text-center th">Signature</th>
+                                    <th class="text-center th">Date Prepared</th>
                                     <th class="text-center th">Printed Name</th>
                                     <th class="text-center th">Mobile No.</th>
                                     <th class="text-center th">Land Line</th>
@@ -905,13 +828,13 @@
                             <tbody>
 
                                 <tr class="text-center">
-                                    <td rowspan="1">1</td>
-                                    <td>2012-12-12</td>
-                                    <td>JMG</td>
-                                    <td>JOHN MARION GREFALDO</td>
-                                    <td>0921-66-86-509</td>
-                                    <td>211-5634</td>
-                                    <td>211-5634</td>
+                                    <td rowspan="1">{{$index + 1}}</td>
+                                    <td> <img src="{{clickedUser.signature}}" alt=""></td>
+                                    <td>{{clickedUser.datep}}</td>
+                                    <td>{{clickedUser.printedn}}</td>
+                                    <td>{{clickedUser.mobile}}</td>
+                                    <td>{{clickedUser.landline}}</td>
+                                    <td>{{clickedUser.faxno}}</td>
 
                                 </tr>
 
@@ -935,6 +858,829 @@
 
         </div>
 
+    </div>
+</div>
+
+<div id="myModal2" class="modal fade" role="dialog">
+    <div class="modal-dialog" style="width: 80%;height: 80%; ">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+
+
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Edit Info.</h4>
+            </div>
+
+            <div class="modal-body">
+
+                <form class="smart-form" id="saverha">
+                    <header>A) Event Information</header>
+                    <!--Start of Event Information-->
+                    <fieldset>
+                        <section>
+                            <div class="row">
+                                <section class="col col-2">
+                                    <label class="label">Date</label>
+                                    <label class="input ">
+                                        <input type="date" id="rhadate" required>
+                                    </label>
+                                </section>
+                                <section class="col col-1">
+                                    <label class="label">Time</label>
+                                    <label class="input ">
+                                        <input type="time" id="rhatime" required>
+                                    </label>
+                                </section>
+                                <section class="col col-1">
+                                    <label class="label">Type</label>
+                                    <label class="select ">
+                                        <select  ng-model="clickedUser.rhatype" id="rhatype" required>
+                                            <option value="0" selected>select</option>
+                                            <option value="Geologic">Geologic</option>
+                                            <option value="Weather">Weather</option>
+                                            <option value="Biologic">Biologic</option>
+                                            <option value="Man Made">Man Made</option>
+                                        </select>
+                                        <i></i>
+                                    </label>
+                                </section>
+                                <section class="col col-2">
+                                    <label class="label">Details</label>
+                                    <label class="select ">
+                                        <select ng-model="clickedUser.rhadetails" id="rhadetails" required>
+                                            <option value="0" selected>select</option>
+                                            <option value="Volcanic Eruption">Volcanic Eruption</option>
+                                            <option value="Earthquake">Earthquake</option>
+                                            <option value="Tsunamin">Tsunamin</option>
+                                            <option value="Landslide">Landslide</option>
+                                            <option value="Typhoon">Typhoon</option>
+                                            <option value="Storm Surge">Storm Surge</option>
+                                            <option value="Drougth">Drougth</option>
+                                            <option value="Cold Spell">Cold Spell</option>
+                                            <option value="FlashFlood">FlashFlood</option>
+                                            <option value="Red Tide">Red Tide</option>
+                                            <option value="Fish Kills">Fish Kills</option>
+                                            <option value="Locust">Locust</option>
+                                            <option value="Infestation">Infestation</option>
+                                            <option value="Fire">Fire</option>
+                                            <option value="Explosion">Explosion</option>
+                                            <option value="Armed Conflict">Armed Conflict</option>
+                                            <option value="Terrorism">Terrorism</option>
+                                            <option value="Poisoning">Poisoning</option>
+                                            <option value="Mass Action">Mass Action</option>
+                                            <option value="Accident">Accident</option>
+                                            <option value="Other">Other</option>
+                                        </select><i></i>
+                                </section>
+                                <section class="col col-2">
+                                    <label class="label">Region</label>
+                                    <label class="input ">
+                                        <input type="text" ng-model="clickedUser.rharegion" id="rharegion" required>
+                                    </label>
+                                </section>
+                                <section class="col col-2">
+                                    <label class="label">Province</label>
+                                    <label class="input ">
+                                        <input type="text" ng-model="clickedUser.rhaprovince" id="rhaprovince" required>
+                                    </label>
+                                </section>
+                                <section class="col col-2">
+                                    <label class="label">Municipality/City</label>
+                                    <label class="input ">
+                                        <input type="text" ng-model="clickedUser.rhamuci" id="rhamuci" required>
+                                    </label>
+                                </section>
+
+                            </div>
+
+
+
+                        </section>
+                    </fieldset>
+                    <!--End of Event Information-->
+
+                    <header>B) Magtitude of Event </header>
+                    <!--Start of Magnitude of event-->
+                    <fieldset>
+                        <div class="panel-body ">
+
+                            <div class="btn-group btn-group-sm pull-right">
+                                <button type="button" class="btn btn-success " id="addmeb"><i class="fa fa-plus-circle"></i></button>
+                                <button type="button" class="btn btn-danger" id="minmeb"><i class="fa fa-minus-circle"></i></button>
+                            </div>
+                            <br>
+                            <br>
+                            <table id="table-b" class="table table-striped table-bordered table-hover" width="100%">
+                                <thead>
+                                    <tr>
+                                        <th>Province</th>
+                                        <th>Municipality or City</th>
+                                        <th>Families</th>
+                                        <th>Individuals</th>
+                                        <th>Number Of EC</th>
+                                        <th>Number Family EC</th>
+                                        <th>Number Individual in EC</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="appendhereb">
+                                    <tr class="row_to_clone" ng-repeat="ncf in usersClicked.moe ">
+                                        <td> <label class="input"> 
+                                            <input type="text" name="Province" ng-model="ncf.Province"  placeholder="Province Name" required>
+                                        </label></td>
+
+                                        <td><label class="input"> 
+                                            <input type="text" name="MunicipalityorCity" ng-model="ncf['Municipality or City']" placeholder="Municipality or City Name">
+                                        </label>
+                                        </td>
+                                        <td><label class="input"> 
+                                            <input type="text" name="Families" ng-model="ncf.Families" placeholder="Families Count">
+                                        </label>
+                                        </td>
+                                        <td><label class="input"> 
+                                            <input type="text" name="Individuals" ng-model="ncf.Individuals" placeholder="Individuals Count">
+                                        </label>
+                                        </td>
+                                        <td><label class="input"> 
+                                            <input type="text" name="NumberOfEC" ng-model="ncf['Number Of EC']" placeholder="Number Of EC">
+                                        </label>
+                                        </td>
+                                        <td><label class="input"> 
+                                            <input type="text" name="NumberFamilyEC" ng-model="ncf['Number Family EC']" placeholder="Number Family EC">
+                                        </label>
+                                        </td>
+                                        <td class="col-md-2">
+
+                                            <label class="input col-md-10"> 
+                                                <input type="text" name=">NumberIndividualinEC" ng-model="ncf['Number Individual in EC']" placeholder="Number Individual in EC" class="number"  />
+                                           </label>
+
+                                            <label class="input col-md-1"> 
+                                                <button class="btn btn-danger btn-sm deleteb">X</button>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                <!-- <tbody>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td>
+                                            <h4>Grand Total</h4>
+                                        </td>
+                                        <td>
+                                            <h4><label class="input"> 
+                                                <span id="sum">0.00</span>
+
+                                            </label></h4>
+                                        </td>
+                                    </tr>
+                                </tbody> -->
+                            </table>
+                        </div>
+
+
+                    </fieldset>
+                    <!--End of Magnitude of event-->
+
+                    <header>C) Health Consecquences</header>
+                    <!--Start of Health Consecquences-->
+                    <fieldset>
+                        <div class="panel-body">
+
+                            <div class="btn-group btn-group-sm pull-right">
+                                <button type="button" class="btn btn-success " id="addmec"><i class="fa fa-plus-circle"></i></button>
+                                <button type="button" class="btn btn-danger" id="minmec"><i class="fa fa-minus-circle"></i></button>
+                            </div>
+                            <br>
+                            <br>
+                            <table id="table-c" class="table table-striped table-bordered table-hover" width="100%">
+                                <thead>
+                                    <tr ng-repeat="ncf in usersClicked.hos ">
+                                        <th>Province</th>
+                                        <th>Municipality or City</th>
+                                        <th>Total Number of Deaths</th>
+                                        <th>Admitted</th>
+                                        <th>Admitted then Discharge</th>
+                                        <th>Not Admitted</th>
+                                        <th>Total Number of Missing</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="appendherec">
+                                    <tr ng-repeat="ncf in usersClicked.hos ">
+                                        <td> <label class="input"> 
+                                            <input type="text" name="Province" ng-model="ncf.Province"  placeholder="Province Name" required>
+                                        </label></td>
+
+                                        <td><label class="input"> 
+                                            <input type="text" name="MunicipalityorCity" ng-model="ncf['Municipality or City']" placeholder="Municipality/City Name">
+                                        </label>
+                                        </td>
+                                        <td><label class="input"> 
+                                            <input type="text" name="Total_Number_of_Deaths" ng-model="ncf['Total Number of Deaths']" placeholder="Total Number of Deaths Count">
+                                        </label>
+                                        </td>
+                                        <td><label class="input"> 
+                                            <input type="text" name="Admitted" ng-model="ncf.Admitted" placeholder="Admitted Count">
+                                        </label>
+                                        </td>
+                                        <td><label class="input"> 
+                                            <input type="text" name="Admitted_then_Discharge" ng-model="ncf['Admitted then Discharge']" placeholder="Admitted then Discharge Count">
+                                        </label>
+                                        </td>
+                                        <td><label class="input"> 
+                                            <input type="text" name="Not_dmitted" ng-model="ncf['Not Admitted']" placeholder="Not Admitted Count">
+                                        </label>
+                                        </td>
+                                        <td class="col-md-2">
+
+                                            <label class="input col-md-10"> 
+                                                <input type="text" name="Total_Number_of_Missing" ng-model="ncf['Total Number of Missing']" placeholder="Total Number of Missing Count" class="number"  />
+                                           </label>
+
+                                            <label class="input col-md-1"> 
+                                                <button class="btn btn-danger btn-sm deletec">X</button>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                <!-- <tbody>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td>
+                                            <h4>Grand Total</h4>
+                                        </td>
+                                        <td>
+                                            <h4><label class="input"> 
+                                                <span id="sum">0.00</span>
+
+                                            </label></h4>
+                                        </td>
+                                    </tr>
+                                </tbody> -->
+                            </table>
+                        </div>
+
+
+                    </fieldset>
+                    <!--Start of Health Consecquences-->
+
+                    <header>D) Health Facilities in the affected areas</header>
+                    <!--Start of Health Facilities in the affected areas-->
+                    <fieldset>
+                        <section>
+                            <div class="row">
+                                <section class="col col-2">
+                                    <label class="label">
+                                        <h1> DOH Hospitals</h1>
+                                    </label>
+                                </section>
+                                <section class="col col-2">
+                                    <label class="label">Status</label>
+                                    <label class="select ">
+                                        <select ng-model="clickedUser.dhs" id="dhs">
+                                            <option value="0" selected>select</option>
+                                            <option value="Fully Functional">Fully Functional</option>
+                                            <option value="Partly Functional">Partly Functional</option>
+                                            <option value="Totally Non-Functional">Totally Non-Functional</option>
+                                        </select><i></i>
+                                </section>
+                                <section class="col col-8">
+                                    <label class="label">Remarks</label>
+                                    <label class="textarea ">
+                                        <textarea rows="3" ng-model="clickedUser.dhr" id="dhr"></textarea>
+                                    </label>
+                                </section>
+                            </div>
+                        </section>
+                        <section>
+                            <div class="row">
+                                <section class="col col-2">
+                                    <label class="label">
+                                        <h1> LGU Hospitals</h1>
+                                    </label>
+                                </section>
+                                <section class="col col-2">
+                                    <label class="label">Status</label>
+                                    <label class="select ">
+                                        <select ng-model="clickedUser.lhs" id="lhs">
+                                            <option value="0" selected>select</option>
+                                            <option value="Fully Functional">Fully Functional</option>
+                                            <option value="Partly Functional">Partly Functional</option>
+                                            <option value="Totally Non-Functional">Totally Non-Functional</option>
+                                        </select><i></i>
+                                </section>
+                                <section class="col col-8">
+                                    <label class="label">Remarks</label>
+                                    <label class="textarea ">
+                                        <textarea rows="3" ng-model="clickedUser.lhr" id="lhr"></textarea>
+                                    </label>
+                                </section>
+                            </div>
+                        </section>
+
+                        <section>
+                            <div class="row">
+                                <section class="col col-2">
+                                    <label class="label">
+                                        <h1> Pvt, Hospitals</h1>
+                                    </label>
+                                </section>
+                                <section class="col col-2">
+                                    <label class="label">Status</label>
+                                    <label class="select ">
+                                        <select ng-model="clickedUser.phs" id="phs">
+                                            <option value="0" selected>select</option>
+                                            <option value="Fully Functional">Fully Functional</option>
+                                            <option value="Partly Functional">Partly Functional</option>
+                                            <option value="Totally Non-Functional">Totally Non-Functional</option>
+                                        </select><i></i>
+                                </section>
+                                <section class="col col-8">
+                                    <label class="label">Remarks</label>
+                                    <label class="textarea ">
+                                        <textarea rows="3" ng-model="clickedUser.phr" id="phr"></textarea>
+                                    </label>
+                                </section>
+                            </div>
+                        </section>
+
+                        <section>
+                            <div class="row">
+                                <section class="col col-2">
+                                    <label class="label">
+                                        <h1> RHU/Health Ctr: </h1>
+                                    </label>
+                                </section>
+                                <section class="col col-2">
+                                    <label class="label">Status</label>
+                                    <label class="select ">
+                                        <select ng-model="clickedUser.rhcs" id="rhcs">
+                                            <option value="0" selected>select</option>
+                                            <option value="Fully Functional">Fully Functional</option>
+                                            <option value="Partly Functional">Partly Functional</option>
+                                            <option value="Totally Non-Functional">Totally Non-Functional</option>
+                                        </select><i></i>
+                                </section>
+                                <section class="col col-8">
+                                    <label class="label">Remarks</label>
+                                    <label class="textarea ">
+                                        <textarea rows="3" ng-model="clickedUser.rhcr" id="rhcr"></textarea>
+                                    </label>
+                                </section>
+                            </div>
+                        </section>
+
+                        <section>
+                            <div class="row">
+                                <section class="col col-2">
+                                    <label class="label">
+                                        <h1> BHS </h1>
+                                    </label>
+                                </section>
+                                <section class="col col-2">
+                                    <label class="label">Status</label>
+                                    <label class="select ">
+                                        <select ng-model="clickedUser.bhss" id="bhss">
+                                            <option value="0" selected>select</option>
+                                            <option value="Fully Functional">Fully Functional</option>
+                                            <option value="Partly Functional">Partly Functional</option>
+                                            <option value="Totally Non-Functional">Totally Non-Functional</option>
+                                        </select><i></i>
+                                </section>
+                                <section class="col col-8">
+                                    <label class="label">Remarks</label>
+                                    <label class="textarea ">
+                                        <textarea rows="3" ng-model="clickedUser.bhsr" id="bhsr"></textarea>
+                                    </label>
+                                </section>
+                            </div>
+                        </section>
+
+                        <section>
+                            <div class="row">
+                                <section class="col col-2">
+                                    <label class="label">
+                                        <h1> Other: </h1>
+                                    </label>
+                                </section>
+                                <section class="col col-2">
+                                    <label class="label">Status</label>
+                                    <label class="select ">
+                                        <select ng-model="clickedUser.others"  id="others">
+                                            <option value="0" selected>select</option>
+                                            <option value="Fully Functional">Fully Functional</option>
+                                            <option value="Partly Functional">Partly Functional</option>
+                                            <option value="Totally Non-Functional">Totally Non-Functional</option>
+                                        </select><i></i>
+                                </section>
+                                <section class="col col-8">
+                                    <label class="label">Remarks</label>
+                                    <label class="textarea ">
+                                        <textarea rows="3" ng-model="clickedUser.otherr" id="otherr"></textarea>
+                                    </label>
+                                </section>
+                            </div>
+                        </section>
+                    </fieldset>
+                    <!--End of Health Facilities in the affected areas-->
+
+                    <header>E) Lifelines in the Affected Areas</header>
+                    <!--Start of Lifelines in the Affected Areas-->
+                    <fieldset>
+                        <section>
+                            <div class="row">
+                                <section class="col col-2">
+                                    <label class="label">
+                                        <h1> Communication </h1>
+                                    </label>
+                                </section>
+                                <section class="col col-2">
+                                    <label class="label">Status</label>
+                                    <label class="select ">
+                                        <select ng-model="clickedUser.communications" id="communications">
+                                            <option value="0" selected>select</option>
+                                            <option value="Fully Functional">Fully Functional</option>
+                                            <option value="Partly Functional">Partly Functional</option>
+                                            <option value="Totally Non-Functional">Totally Non-Functional</option>
+                                        </select><i></i>
+                                </section>
+                                <section class="col col-8">
+                                    <label class="label">Remarks</label>
+                                    <label class="textarea ">
+                                        <textarea rows="3" ng-model="clickedUser.communicationr" id="communicationr"></textarea>
+                                    </label>
+                                </section>
+                            </div>
+                        </section>
+
+                        <section>
+                            <div class="row">
+                                <section class="col col-2">
+                                    <label class="label">
+                                        <h1>Electric Power</h1>
+                                    </label>
+                                </section>
+                                <section class="col col-2">
+                                    <label class="label">Status</label>
+                                    <label class="select ">
+                                        <select ng-model="clickedUser.eps" id="eps">
+                                            <option value="0" selected>select</option>
+                                            <option value="Fully Functional">Fully Functional</option>
+                                            <option value="Partly Functional">Partly Functional</option>
+                                            <option value="Totally Non-Functional">Totally Non-Functional</option>
+                                        </select><i></i>
+                                </section>
+                                <section class="col col-8">
+                                    <label class="label">Remarks</label>
+                                    <label class="textarea ">
+                                        <textarea rows="3" ng-model="clickedUser.epr" id="epr"></textarea>
+                                    </label>
+                                </section>
+                            </div>
+                        </section>
+
+                        <section>
+                            <div class="row">
+                                <section class="col col-2">
+                                    <label class="label">
+                                        <h1>Water</h1>
+                                    </label>
+                                </section>
+                                <section class="col col-2">
+                                    <label class="label">Status</label>
+                                    <label class="select ">
+                                        <select ng-model="clickedUser.waters" id="waters">
+                                            <option value="0" selected>select</option>
+                                            <option value="Fully Functional">Fully Functional</option>
+                                            <option value="Partly Functional">Partly Functional</option>
+                                            <option value="Totally Non-Functional">Totally Non-Functional</option>
+                                        </select><i></i>
+                                </section>
+                                <section class="col col-8">
+                                    <label class="label">Remarks</label>
+                                    <label class="textarea ">
+                                        <textarea rows="3" ng-model="clickedUser.waterr" id="waterr"></textarea>
+                                    </label>
+                                </section>
+                            </div>
+                        </section>
+
+                        <section>
+                            <div class="row">
+                                <section class="col col-2">
+                                    <label class="label">
+                                        <h1>Roads/Bridges</h1>
+                                    </label>
+                                </section>
+                                <section class="col col-2">
+                                    <label class="label">Status</label>
+                                    <label class="select ">
+                                        <select ng-model="clickedUser.rbs" id="rbs">
+                                            <option value="0" selected>select</option>
+                                            <option value="Fully Functional">Fully Functional</option>
+                                            <option value="Partly Functional">Partly Functional</option>
+                                            <option value="Totally Non-Functional">Totally Non-Functional</option>
+                                        </select><i></i>
+                                </section>
+                                <section class="col col-8">
+                                    <label class="label">Remarks</label>
+                                    <label class="textarea ">
+                                        <textarea rows="3" ng-model="clickedUser.rbr" id="rbr"></textarea>
+                                    </label>
+                                </section>
+                            </div>
+                        </section>
+
+                        <section>
+                            <div class="row">
+                                <section class="col col-2">
+                                    <label class="label">
+                                        <h1> Others </h1>
+                                    </label>
+                                </section>
+                                <section class="col col-2">
+                                    <label class="label">Status</label>
+                                    <label class="select ">
+                                        <select ng-model="clickedUser.others1" id="others1">
+                                            <option value="0" selected>select</option>
+                                            <option value="Fully Functional">Fully Functional</option>
+                                            <option value="Partly Functional">Partly Functional</option>
+                                            <option value="Totally Non-Functional">Totally Non-Functional</option>
+                                        </select><i></i>
+                                </section>
+                                <section class="col col-8">
+                                    <label class="label">Remarks</label>
+                                    <label class="textarea ">
+                                        <textarea rows="3" ng-model="clickedUser.otherr1" id="otherr1"></textarea>
+                                    </label>
+                                </section>
+                            </div>
+                        </section>
+
+                    </fieldset>
+                    <!--Start of Lifelines in the Affected Areas-->
+
+                    <header>F) Status of Essential Drugs and Supplies in the Affected Ares</header>
+                    <!--Start of Status of Essential Drugs and Supplies in the Affected Ares-->
+                    <fieldset>
+                        <div class="panel-body ">
+
+                            <div class="btn-group btn-group-sm pull-right">
+                                <button type="button" class="btn btn-success " id="addmed"><i class="fa fa-plus-circle"></i></button>
+                                <button type="button" class="btn btn-danger" id="minmed"><i class="fa fa-minus-circle"></i></button>
+                            </div>
+                            <br>
+                            <br>
+                            <table id="table-d" class="table table-striped table-bordered table-hover" width="100%">
+                                <thead>
+                                    <tr>
+                                        <th>Number of Cases</th>
+                                        <th>Number of Days</th>
+                                        <th colspan="2">Remarks</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="appendhered">
+                                    <tr ng-repeat="ncf in usersClicked.statuseds ">
+                                        <td class="col-md-2"><label class="input"> 
+                                            <input type="text" name="Number_of_Cases" ng-model="ncf['Number of Cases']" placeholder="Number of Cases">
+                                        </label>
+                                        </td>
+                                        <td class="col-md-2">
+                                            <label class="input"> 
+                                            <input type="text" name="Number_of_Days" ng-model="ncf['Number of Days']" placeholder="Number of Days">
+                                        </label>
+                                        </td>
+                                        <td class="col-md-10">
+                                            <label class="textarea">
+                                                <textarea rows="2" iname="Remarks" ng-model="ncf.Remarks" placeholder="Remarks"></textarea>                                                      
+                                            </label>
+                                        </td>
+                                        <td class="col-md-1">
+                                            <button class="btn btn-danger btn-lg deleted">X</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+
+                            </table>
+                        </div>
+
+
+                    </fieldset>
+
+
+                    <header>G) Action Taken</header>
+
+                    <fieldset>
+                        <div class="panel-body ">
+
+                            <div class="btn-group btn-group-sm pull-right">
+                                <button type="button" class="btn btn-success " id="addmee"><i class="fa fa-plus-circle"></i></button>
+                                <button type="button" class="btn btn-danger" id="minmee"><i class="fa fa-minus-circle"></i></button>
+                            </div>
+                            <br>
+                            <br>
+
+                            <table id="table-e" class="table table-striped table-bordered table-hover" width="100%">
+                                <thead>
+                                    <tr>
+                                        <th colspan="2">Action Taken</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody id="appendheree">
+                                    <tr ng-repeat="ncf in usersClicked.atn ">
+                                        <td class="textarea"><textarea rows="5" ng-model="ncf['Action Taken']"></textarea></td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+
+
+                    </fieldset>
+
+                    <header>H) Problem Encountered</header>
+
+                    <fieldset>
+                        <div class="panel-body ">
+
+                            <div class="btn-group btn-group-sm pull-right">
+                                <button type="button" class="btn btn-success " id="addmef"><i class="fa fa-plus-circle"></i></button>
+                                <button type="button" class="btn btn-danger" id="minmef"><i class="fa fa-minus-circle"></i></button>
+                            </div>
+                            <br>
+                            <br>
+                            <table id="table-f" class="table table-striped table-bordered table-hover" width="100%">
+                                <thead>
+                                    <tr>
+                                        <th colspan="2">Details</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="appendheref">
+                                    <tr ng-repeat="ncf in usersClicked.ped ">
+                                        <td class="textarea"><textarea rows="5" ng-model="ncf.Details"></textarea></td>
+                                    </tr>
+                                </tbody>
+
+                            </table>
+                        </div>
+
+
+                    </fieldset>
+
+                    <header>Recommendations</header>
+                    <!--Start of Status of Essential Drugs and Supplies in the Affected Ares-->
+
+                    <fieldset>
+                        <div class="panel-body ">
+
+                            <div class="btn-group btn-group-sm pull-right">
+                                <button type="button" class="btn btn-success " id="addmeg"><i class="fa fa-plus-circle"></i></button>
+                                <button type="button" class="btn btn-danger" id="minmeg"><i class="fa fa-minus-circle"></i></button>
+                            </div>
+                            <br>
+                            <br>
+                            <table id="table-g" class="table table-striped table-bordered table-hover" width="100%">
+                                <thead>
+                                    <tr>
+                                        <th colspan="2">Details</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="appendhereg">
+                                    <tr ng-repeat="ncf in usersClicked.recom">
+                                        <td class="textarea"><textarea rows="5" ng-model="ncf.Details"></textarea></td>
+                                    </tr>
+                                </tbody>
+
+                            </table>
+                        </div>
+
+
+                    </fieldset>
+
+                    <header>Prepared and Submitted by:</header>
+
+                    <fieldset>
+                        <section>
+                            <div class="row">
+                                <section class="col col-4">
+                                    <label class="label">Mobile No.:</label>
+                                    <label class="input ">
+                                        <input type="text" ng-model="clickedUser.mobile" id="mobile">
+                                    </label>
+                                </section>
+                                <section class="col col-4">
+                                    <label class="label">Landline.:</label>
+                                    <label class="input ">
+                                        <input type="text" ng-model="clickedUser.landline" id="landline">
+                                    </label>
+                                </section>
+                                <section class="col col-4">
+                                    <label class="label">Fax No.:</label>
+                                    <label class="input ">
+                                        <input type="text" ng-model="clickedUser.faxno" id="faxno">
+                                    </label>
+                                </section>
+                            </div>
+                        </section>
+                        <section>
+
+                            <div class="row">
+                                <section class="col col-4">
+                                    <label class="label">Date Prepared:</label>
+                                    <label class="input ">
+                                        <input type="date" id="datep">
+                                    </label>
+                                </section>
+
+                                <section class="col col-4">
+                                    <label class="label">Printed Name</label>
+                                    <label class="input ">
+                                        <input type="text" ng-model="clickedUser.printedn" id="printedn">
+                                    </label>
+                                </section>
+
+                                <section class="col col-4 sign">
+                                    <label class="label">Signature</label>
+
+                                    <button type="button" class="btn btn-info  btn-sm  btn-block" data-toggle="modal" data-target="#exampleModal">
+                                        CLICK TO SIGN
+                                      </button>
+
+                                    <!-- Modal -->
+
+                                </section>
+                                <section class="col col-12 pull-right">
+                                    <img id="sig-image" src="{{clickedUser.signature}}" alt="Your signature will go here!" />
+                                </section>
+
+                            </div>
+
+                        </section>
+                    </fieldset>
+
+                    <footer>
+                        <button type="submit" class="btn btn-primary ">Submit</button>
+                    </footer>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<div id="myModal3" class="modal fade" role="dialog">
+    <div class="modal-dialog" style="width: 50%;height: 50%; ">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+
+
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Delete Info.</h4>
+            </div>
+            <div class="modal-body">
+
+
+                <p>You want to delete <strong style="color: red;">{{clickedUser.rhadetails}}</strong> in
+                    <strong style="color: red;">{{clickedUser.rhamuci}} {{clickedUser.rhaprovince}}</strong>?
+                </p>
+
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info" ng-click="close()">No</button>
+                <button type="button" class="btn btn-danger" ng-click="deleteUser()">Yes</button>
+            </div>
+
+
+        </div>
+
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+    <div class="modal-dialog" role="document">
+
+        <div class="modal-content">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">X</button>
+            <div class="modal-body sign">
+
+                <canvas id="sig-canvas"> </canvas>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="sig-clearBtn">Reset</button>
+                <button type="button" class="btn btn-primary" id="sig-submitBtn">Save</button>
+            </div>
+        </div>
     </div>
 </div>
 <script>
