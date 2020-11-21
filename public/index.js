@@ -9,7 +9,7 @@ $(document).ready(function($http) {
     //     });
 
 
-    $.get("http://api.weatherapi.com/v1/forecast.json?key=ed9905c895ea49fa93c73936201711&q=legaspi albay&days=1", function(data, status) {
+    $.get("https://api.weatherapi.com/v1/forecast.json?key=ed9905c895ea49fa93c73936201711&q=legaspi albay&days=1", function(data, status) {
         console.log(data);
 
 
