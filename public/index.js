@@ -30,7 +30,7 @@ $(document).ready(function($http) {
         var month = d.getUTCMonth() + 1; // Since getUTCMonth() returns month from 0-11 not 1-12
         var year = d.getUTCFullYear();
 
-        var dateStr = months[d.getMonth()] + " " + month + ", " + year;
+        var dateStr = months[d.getMonth()] + " " + date + ", " + year;
 
         $('.day').text(n)
         $('.date').text(dateStr)
