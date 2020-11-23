@@ -1,47 +1,11 @@
 angular.module('newApp').controller('socnewCtrl', function($scope) {
     pageSetUp();
-    $(document).ready(function() {
 
-        var navListItems = $('ul.setup-panel li a'),
-            allWells = $('.setup-content');
+    var obj0, obj1, obj2;
 
+    $scope.tojson0 = function(obj0) {
 
-
-        navListItems.click(function(e) {
-            e.preventDefault();
-            var $target = $($(this).attr('href')),
-                $item = $(this).closest('li');
-
-            if (!$item.hasClass('disabled')) {
-                navListItems.closest('li').removeClass('active');
-                $item.addClass('active');
-                allWells.hide();
-                $target.show();
-            }
-        });
-
-        $('ul.setup-panel li.active a').trigger('click');
-
-
-        $('#activate-step-2').on('click', function(e) {
-            $('ul.setup-panel li:eq(1)').removeClass('disabled');
-            $('ul.setup-panel li a[href="#step-2"]').trigger('click');
-            $(this).remove();
-        })
-
-        $('#activate-step-3').on('click', function(e) {
-            $('ul.setup-panel li:eq(2)').removeClass('disabled');
-            $('ul.setup-panel li a[href="#step-3"]').trigger('click');
-            $(this).remove();
-        })
-    });
-
-
-    var obj;
-
-    $scope.tojson = function(obj) {
-
-        var table = $('#convert-table').tableToJSON({
+        var table0 = $('#table0').tableToJSON({
 
             extractor: function(cellIndex, $cell) {
                 return $cell.find('input').val() || $cell.find("#type option:selected").text();
@@ -49,9 +13,42 @@ angular.module('newApp').controller('socnewCtrl', function($scope) {
 
 
         })
-        return table;
+        return table0;
 
     }
+
+    $scope.tojson1 = function(obj1) {
+
+        var table1 = $('#table1').tableToJSON({
+
+            extractor: function(cellIndex, $cell) {
+                return $cell.find('input').val() || $cell.find("#type option:selected").text();
+            }
+
+
+        })
+        return table1;
+
+    }
+
+    $scope.tojson2 = function(obj2) {
+
+        var table2 = $('#table2').tableToJSON({
+
+            extractor: function(cellIndex, $cell) {
+                return $cell.find('input').val() || $cell.find("#type option:selected").text();
+            }
+
+
+        })
+        return table2;
+
+    }
+
+    const withoutLast0 = $scope.tojson0(obj0);
+    const withoutLast1 = $scope.tojson1(obj1);
+    const withoutLast2 = $scope.tojson2(obj2);
+
     var dateObj = new Date();
     var month = dateObj.getUTCMonth() + 1; //months from 1-12
     var day = dateObj.getUTCDate();
@@ -60,20 +57,19 @@ angular.module('newApp').controller('socnewCtrl', function($scope) {
     var datetoday = month + ":" + day + ":" + year;
 
     $('#newsoc').on('submit', function(e) {
-        $scope.tojson();
-
 
         e.preventDefault();
 
-        console.log($scope.tojson(obj))
+        $scope.tojson0();
+        $scope.tojson1();
+        $scope.tojson2();
 
-        var newobj = $scope.tojson(obj);
+        console.log($scope.tojson0(obj0))
+        console.log($scope.tojson1(obj1))
+        console.log($scope.tojson2(obj2))
+
 
         var uid = firebase.database().ref().child('cswdo/soec/').push().key;
-
-        const [, ...rest] = newobj.reverse();
-        const withoutLast = rest.reverse();
-        const withoutLast2 = $scope.tojson(obj);
 
         var data = {
             date: datetoday,
@@ -84,7 +80,11 @@ angular.module('newApp').controller('socnewCtrl', function($scope) {
             prefered_by_designation: $scope.prefered_by_designation,
             certified_by: $scope.certified_by,
             certified_by_designation: $scope.certified_by_designation,
-            submmitted_by: $scope.submmitted_by_designation
+            submmitted_by: $scope.submmitted_by_designation,
+            i0: JSON.parse(localStorage.getItem('i0')),
+            i1: JSON.parse(localStorage.getItem('i1')),
+            i2: JSON.parse(localStorage.getItem('i2'))
+
         }
 
         var updates = {};
@@ -105,9 +105,71 @@ angular.module('newApp').controller('socnewCtrl', function($scope) {
         }
 
     });
+
+
+
+    var navListItems = $('ul.setup-panel li a'),
+        allWells = $('.setup-content');
+
+    navListItems.click(function(e) {
+        e.preventDefault();
+        var $target = $($(this).attr('href')),
+            $item = $(this).closest('li');
+
+        if (!$item.hasClass('disabled')) {
+            navListItems.closest('li').removeClass('active');
+            $item.addClass('active');
+            allWells.hide();
+            $target.show();
+        }
+    });
+
+    $('ul.setup-panel li.active a').trigger('click');
+
+
+    $('.step-2').click(function() {
+        $scope.tojson0();
+
+        console.log($scope.tojson0(obj0))
+
+        localStorage.setItem('i0', JSON.stringify($scope.tojson0(obj0)))
+        $('ul.setup-panel li:eq(1)').removeClass('disabled');
+
+        $('ul.setup-panel li a[href="#step-2"]').trigger('click');
+    });
+
+
+    $('.step-3').click(function() {
+        $scope.tojson1();
+
+        console.log($scope.tojson1(obj1))
+
+        localStorage.setItem('i1', JSON.stringify($scope.tojson1(obj1)))
+        $('ul.setup-panel li:eq(2)').removeClass('disabled');
+
+        $('ul.setup-panel li a[href="#step-3"]').trigger('click');
+    });
+
+
+    $('.step-1').click(function() {
+        $scope.tojson2();
+
+        console.log($scope.tojson2(obj2))
+
+        localStorage.setItem('i2', JSON.stringify($scope.tojson2(obj2)))
+        $('ul.setup-panel li:eq(0)').removeClass('disabled');
+
+        $('ul.setup-panel li a[href="#step-1"]').trigger('click');
+    });
+
+
+
+
+
+
     var cnt = 0;
     $scope.addtr = function() {
-        $("#appendhere0").append("<tr> <td> <label class='select '> <select id='rhadetails ' required> <option value='0 ' selected>select</option> <option value='1 '>Volcanic Eruption</option> <option value='2 '>Earthquake</option> <option value='3 '>Tsunamin</option> <option value='4 '>Landslide</option> <option value='5 '>Typhoon</option> <option value='6 '>Storm Surge</option> <option value='7 '>Drougth</option> <option value='8 '>Cold Spell</option> <option value='9 '>FlashFlood</option> <option value='10 '>Red Tide</option> <option value='11 '>Fish Kills</option> <option value='12 '>Locust</option> <option value='13 '>Infestation</option> <option value='14 '>Fire</option> <option value='15 '>Explosion</option> <option value='16 '>Armed Conflict</option> <option value='17 '>Terrorism</option> <option value='18 '>Poisoning</option> <option value='19 '>Mass Action</option> <option value='20 '>Accident</option> <option value='21 '>Other</option> </select><i></i> </td><td> <label class='input '> <input type='text ' name='particulars ' placeholder=' ' required> </label> </td><td> <label class='input '> <input type='date' name='asof' class=' ' autocomplete='off'/> </label> </td><td> <label class='input '> <input type='text ' name=' ' placeholder=' '> </label> </td><td> <label class='input '> <input type='number ' name=' ' value=' ' class=' ' autocomplete='off'/> </label> </td><td> <label class='input '> <input type='number ' name=' ' value=' ' class=' ' autocomplete='off'/> </label> </td><td> <label class='input '> <input type='number ' name=' ' value=' ' class=' ' autocomplete='off'/> </label> </td><td> <label class='input '> <input type='number ' name=' ' value=' ' class=' ' autocomplete='off'/> </label> </td></tr>")
+        $("#appendhere0").append("<tr class='row_to_clone '> <td> <label class='input '> <input type='text' name='' class=' ' autocomplete='off'/> </label> </td><td> <label class='input '> <input type='text ' name=' ' placeholder=' '> </label> </td><td> <label class='input '> <input type='number ' name=' ' value=' ' class=' ' autocomplete='off'/> </label> </td><td> <label class='input '> <input type='number ' name=' ' value=' ' class=' ' autocomplete='off'/> </label> </td><td> <label class='input '> <input type='number ' name=' ' value=' ' class=' ' autocomplete='off'/> </label> </td>")
 
 
         $("#appendhere1").append("<tr class='row_to_clone '> <td> <label class='input '> <input type='text' name='' class=' ' autocomplete='off'/> </label> </td><td> <label class='input '> <input type='text ' name=' ' placeholder=' '> </label> </td><td> <label class='input '> <input type='number ' name=' ' value=' ' class=' ' autocomplete='off'/> </label> </td><td> <label class='input '> <input type='number ' name=' ' value=' ' class=' ' autocomplete='off'/> </label> </td><td> <label class='input '> <input type='number ' name=' ' value=' ' class=' ' autocomplete='off'/> </label> </td><td> <label class='input '> <input type='number ' name=' ' value=' ' class=' ' autocomplete='off'/> </label> </td><td> <label class='input '> <input type='number ' name=' ' value=' ' class=' ' autocomplete='off'/> </label> </td></tr>")
@@ -117,9 +179,7 @@ angular.module('newApp').controller('socnewCtrl', function($scope) {
 
 
         cnt++;
-        $('table thead th').each(function(i) {
 
-        });
 
     }
 
@@ -128,9 +188,6 @@ angular.module('newApp').controller('socnewCtrl', function($scope) {
         $('#appendhere1 tr:last').remove();
         $('#appendhere2 tr:last').remove();
     }
-
-
-
 
 
 
