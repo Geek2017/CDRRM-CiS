@@ -146,6 +146,14 @@ angular
             .when('/hfrnew', {
                 templateUrl: 'views/hfrnew.html',
                 controller: "hfrnewCtrl"
+            })
+            .when('/soclist', {
+                templateUrl: 'views/soclist.html',
+                controller: "soclistCtrl"
+            })
+            .when('/socnew', {
+                templateUrl: 'views/socnew.html',
+                controller: "socnewCtrl"
             });
 
 
