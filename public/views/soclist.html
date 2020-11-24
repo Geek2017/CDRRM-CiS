@@ -64,10 +64,9 @@
                         <th colspan="4" class="text-center th"></th>
                     </tr>
                     <tr>
-
+                        <th>As of </th>
                         <th>Type of Disaster</th>
                         <th>Place Of Occurence</th>
-                        <th>As of </th>
                         <th>Barangay</th>
                         <th>Distance from</th>
 
@@ -91,14 +90,14 @@
                         <th style="width: 10%;">Remarks</th>
                         <th colspan="3">Action</th>
                     </tr>
-                    <tbody ng-repeat="cfs in cfss  | filter: findcf">
+                    <tbody ng-repeat="cfs in cfss  ">
 
-                        <tr ng-repeat="cf in cfs['details']">
+                        <tr ng-repeat="cf in cfs['details'] | filter: findcf">
 
-
+                            <td>{{cfs.asof | date:'EEE, MM:dd:yyyy, h:mm a'}} </td>
                             <td>{{cfs.type_disaster}}</td>
                             <td>{{cfs.place_occurence}}</td>
-                            <td>{{cfs.asof}} </td>
+
 
 
                             <td>{{cf.Barangay}}</td>
@@ -140,49 +139,7 @@
                     </tbody>
 
                 </thead>
-                <!-- <tbody ng-repeat="cf in cfs  | filter: findcf">
 
-                    <td>{{cf.type_disaster}}</td>
-                    <td>{{cf.place_occurence}}</td>
-                    <td>{{cf.asof}} </td>
-
-                    <i ng-repeat="ncf in cf.i0">
-                        <td>{{ncf.Barangay}}</td>
-                        <td>{{ncf['Distance from']}}</td>
-                        <td>{{ncf['Female']}}</td>
-                        <td>{{ncf['Male']}}</td>
-                        <td>{{ncf['Evac Centers']}}</td>
-                    </i>
-
-                    <td>{{cf.type_disaster}}</td>
-                    <td>{{cf.type_disaster}}</td>
-                    <td>{{cf.type_disaster}}</td>
-                    <td>{{cf.type_disaster}}</td>
-                    <td>{{cf.type_disaster}}</td>
-                    <td>{{cf.type_disaster}}</td>
-                    <td>{{cf.type_disaster}}</td>
-                    <td>{{cf.type_disaster}}</td>
-                    <td>{{cf.type_disaster}}</td>
-                    <td>{{cf.type_disaster}}</td>
-                    <td>{{cf.type_disaster}}</td>
-                    <td>{{cf.type_disaster}}</td>
-                    <td>{{cf.type_disaster}}</td>
-                    <td>{{cf.type_disaster}}</td>
-
-
-
-
-                    <td>
-                        <button type="button" class="btn btn-success btn-xs" ng-click="selectUser(cf)"><i
-                                    class="fa fa-pencil"></i></button> </td>
-                    <td>
-                        <button type="button" class="btn btn-danger btn-xs" ng-click="selectUser2(cf)"><i
-                                    class="fa fa-minus-circle"></i></button>
-
-                    </td>
-
-
-                </tbody> -->
 
 
             </table>
