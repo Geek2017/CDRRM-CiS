@@ -73,17 +73,25 @@ angular.module('newApp').controller('socnewCtrl', function($scope) {
 
         var data = {
             date: datetoday,
-            type_disaster: $scope.type_disaster,
-            place_occurence: $scope.place_occurence,
-            asof: $scope.asof,
-            prefered_by: $scope.prefered_by,
-            prefered_by_designation: $scope.prefered_by_designation,
-            certified_by: $scope.certified_by,
-            certified_by_designation: $scope.certified_by_designation,
-            submmitted_by: $scope.submmitted_by_designation,
-            i0: JSON.parse(localStorage.getItem('i0')),
-            i1: JSON.parse(localStorage.getItem('i1')),
-            i2: JSON.parse(localStorage.getItem('i2'))
+
+            "type_disaster": $scope.type_disaster,
+            "place_occurence": $scope.place_occurence,
+            "asof": $scope.asof,
+
+            "prefered_by": $scope.prefered_by,
+            "prefered_by_designation": $scope.prefered_by_designation,
+
+            "certified_by": $scope.certified_by,
+            "certified_by_designation": $scope.certified_by_designation,
+
+            "submmitted_by": $scope.submmitted_by,
+            "submmitted_by": $scope.submmitted_by_designation,
+
+            "details": $.extend(true,
+                JSON.parse(localStorage.getItem('i0')),
+                JSON.parse(localStorage.getItem('i1')),
+                JSON.parse(localStorage.getItem('i2')))
+
 
         }
 

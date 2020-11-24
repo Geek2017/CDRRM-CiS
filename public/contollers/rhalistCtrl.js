@@ -139,15 +139,15 @@ angular.module('newApp').controller('rhalistCtrl', function($scope, $http, $time
         for (let index = 0; index < $scope.cfs.length; index++) {
             // console.log($scope.cfs[index].key)
             // console.log(users.key)
-            if(users.key == $scope.cfs[index].key){
+            if (users.key == $scope.cfs[index].key) {
                 // console.log($scope.cfs[index])
                 $scope.usersClicked = $scope.cfs[index];
                 // console.log($scope.usersClicked.needs)
             }
-            
+
         }
-        
-        
+
+
         $scope.clickedUser = users;
         id = users;
         // console.log(users.rhatype);
@@ -177,14 +177,14 @@ angular.module('newApp').controller('rhalistCtrl', function($scope, $http, $time
     $scope.deleteUser = function() {
         var ref = firebase.database().ref("/cho/rha/" + id.key);
         ref.remove()
-        .catch(function(error) {
-            console.log("Login Failed!", error.message);
-            $("#notif").append('<div class="alert alert-danger fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Error</strong> ' + error.message + '</div>');
-            setTimeout(function() {
-                $("#notif").hide()
-            }, 1500);
+            .catch(function(error) {
+                console.log("Login Failed!", error.message);
+                $("#notif").append('<div class="alert alert-danger fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Error</strong> ' + error.message + '</div>');
+                setTimeout(function() {
+                    $("#notif").hide()
+                }, 1500);
 
-        });;
+            });;
 
         // $("#notif").show();
         // window.location.href = "#ecdlist";
