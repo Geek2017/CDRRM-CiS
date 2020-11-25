@@ -7,7 +7,8 @@
 <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
 
     <!-- Widget ID (each widget will need unique ID)-->
-    <div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-editbutton="true" style="margin-bottom: 3px!important;">
+    <div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-editbutton="true"
+        style="margin-bottom: 3px!important;">
         <!-- widget options:
         usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
         data-widget-colorbutton="false"
@@ -48,19 +49,22 @@
 
             <table id="data" class="table table-striped table-bordered table-hover" width="100%">
 
-                <div id="notif"></div>
+                <div id="notif"></div> 
                 <thead>
                     <tr>
 
+                        <!-- <th>#</th> -->
                         <th>Date</th>
-                        <th>Evacuation Center</th>
-                        <th>Purok</th>
-                        <th>Family Head</th>
-                        <th>Room Assignment</th>
-                        <th>Teacher-in-Charge</th>
-                        <th>Name of Family Member</th>
-                        <th>Marital Status</th>
-                        <th>Age</th>
+                        <th>Name of Donor</th>
+                        <th>Address</th>
+                        <!-- <th>Items</th>
+                        <th>Number of Recipients in Albay Central School Evacuation Center</th>
+                        <th>Number of Recipients in Bagumbayan Central School Evacuation Center</th>
+                        <th>Number of Recipients in Cabagnan Elementary School Evacuation Center</th>
+                        <th>Number of Recipients in Gogon Central School and Gogon High School Evacuation Center</th>
+                        <th>Number of Recipients in Bitano Elementary School and Legazpi City Science High School Evacuation Center</th>
+                        <th>Number of Recipients in Buraguis Evacuation Center</th>
+                        <th>Others (CDRRMO, CHO, Operations Center)</th> -->
                         <!-- <th>Relationship to Family Member</th>
                         <th>Educational Attainment</th>
                         <th>Occupation</th>
@@ -74,7 +78,7 @@
 
                     <!-- <th colspan="6" class=""></th>
                     <th colspan="4">Action</th> -->
-                    <th colspan="9"></th>
+                    <th colspan="3"></th>
                     <th colspan="1">
                         <div class="btn-group btn-group-sm text-center">
                             <button type="button" class="btn btn-primary " ng-click="selectUser3(cf)"><i
@@ -87,16 +91,19 @@
                         </div>
                     </th>
 
-                    <tr ng-repeat="ncf in cf.family ">
+                    <tr ng-repeat="ncf in cf.donations ">
+                        <!-- <td>{{$index + 1}}</td> -->
                         <td>{{cf.date}}</td>
-                        <td>{{cf.evacCenter}}</td>
-                        <td>{{cf.purok}}</td>
-                        <td>{{cf.familyHead}}</td>
-                        <td>{{cf.roomAssignment}}</td>
-                        <td>{{cf.teacherIncharge}}</td>
-                        <td>{{ncf['Name of Family Member']}}</td>
-                        <td> {{ncf['Marital Status']}}</td>
-                        <td colspan="2"> {{ncf['Age']}}</td>
+                        <td>{{cf.name}}</td>
+                        <td colspan="2">{{cf.address}}</td>
+                        <!-- <td> {{ncf['Age']}}</td>
+                        <td> {{ncf['Age']}}</td>
+                        <td> {{ncf['Age']}}</td>
+                        <td> {{ncf['Age']}}</td>
+                        <td> {{ncf['Age']}}</td>
+                        <td> {{ncf['Age']}}</td>
+                        <td> {{ncf['Age']}}</td>
+                        <td colspan="2"> {{ncf['Age']}}</td> -->
                         <!-- <td colspan="2" class="text-center"> {{ncf['Relationship to Family Member']}}</td> -->
                         <!-- <td> {{ncf['Educational Attainment']}}</td>
                         <td> {{ncf['Occupation']}}</td>
@@ -172,48 +179,48 @@
 
                 <form class="smart-form " id="newcf">
                     <header>
-                        Intake Sheet
+                        Donation
                     </header>
 
                     <fieldset>
                         <div class="row">
-                            <section class="col col-4">
-                                <label class="label">Evacuation Center</label>
+                            <section class="col col-6">
+                                <label class="label">Name of Donor</label>
                                 <label class="input ">
-                                    <input type="text" ng-model="clickedUser.evacCenter" id="evacCenter" required>
+                                    <input type="text" ng-model="clickedUser.name" id="name" required>
                                 </label>
                             </section>
-                            <section class="col col-4">
-                                <label class="label">Purok</label>
+                            <section class="col col-6">
+                                <label class="label">Address</label>
                                 <label class="input ">
-                                    <input type="text" ng-model="clickedUser.purok" id="purok" required>
+                                    <input type="text" ng-model="clickedUser.address" id="address" required>
                                 </label>
                             </section>
-                            <section class="col col-4">
+                            <!-- <section class="col col-4">
                                 <label class="label">Family Head </label>
                                 <label class="input ">
-                                    <input type="text" ng-model="clickedUser.familyHead" id="familyHead" required>
+                                    <input type="text" ng-model="familyHead" id="familyHead" required>
                                 </label>
-                            </section>
+                            </section> -->
 
                         </div>
 
-                        <div class="row">
+                        <!-- <div class="row">
                             <section class="col col-6">
                                 <label class="label">Room Assignment</label>
                                 <label class="input ">
-                                    <input type="text" ng-model="clickedUser.roomAssignment" id="roomAssignment" required>
+                                    <input type="text" ng-model="roomAssignment" id="roomAssignment" required>
                                 </label>
                             </section>
 
                             <section class="col col-6">
                                 <label class="label">Teacher-in-Charge </label>
                                 <label class="input ">
-                                    <input type="text" ng-model="clickedUser.teacherIncharge" id="teacherIncharge" required>
+                                    <input type="text" ng-model="teacherIncharge" id="teacherIncharge" required>
                                 </label>
                             </section>
 
-                        </div>
+                        </div> -->
 
                         <div class="panel-body ">
 
@@ -226,7 +233,8 @@
                             </div>
                             <br>
                             <br>
-                            <table id="convert-table" class="table table-striped table-bordered table-hover" width="100%">
+                            <table id="convert-table" class="table table-striped table-bordered table-hover"
+                                width="100%">
                                 <thead>
                                     <!-- <tr>
                                         <th colspan="1"></th>
@@ -236,67 +244,56 @@
                 
                                     </tr> -->
                                     <tr>
-                                        <th class="text-center th">Name of Family Member</th>
-                                        <th class="text-center th">Marital Status</th>
-                                        <th class="text-center th">Age</th>
-                                        <th class="text-center th">Relationship to Family Member</th>
-                                        <th class="text-center th">Educational Attainment</th>
-                                        <th class="text-center th">Occupation</th>
-                                        <th class="text-center th">Income</th>
-                                        <th class="text-center th">Disability (Specify)</th>
-                                        <th class="text-center th">Pregnant(P) or Lactating(L)</th>
+                                        <th class="text-center th">Items</th>
+                                        <th class="text-center th">Number of Recipients in Albay Central School Evacuation Center</th>
+                                        <th class="text-center th">Number of Recipients in Bagumbayan Central School Evacuation Center</th>
+                                        <th class="text-center th">Number of Recipients in Cabagnan Elementary School Evacuation Center</th>
+                                        <th class="text-center th">Number of Recipients in Gogon Central School and Gogon High School Evacuation Center</th>
+                                        <th class="text-center th">Number of Recipients in Bitano Elementary School and Legazpi City Science High School Evacuation Center</th>
+                                        <th class="text-center th">Number of Recipients in Buraguis Evacuation Center</th>
+                                        <th class="text-center th">Others (CDRRMO, CHO, Operations Center)</th>
                                     </tr>
                                 </thead>
                                 <tbody id="appendhere">
-                                    <tr class="row_to_clone" ng-repeat="ncf in usersClicked.family ">
+                                    <tr class="row_to_clone" ng-repeat="ncf in usersClicked.donations ">
                                         <td class="col-md-2"> <label class="input"> 
-                                            <input type="text" name="particulars" ng-model="ncf['Name of Family Member']"  placeholder="" required>
+                                            <input type="text" name="particulars" ng-model="ncf['Items']"  placeholder="" required>
                                         </label></td>
-                                        <td class="col-md-1">
-                                            <select name="interested " ng-model="ncf['Marital Status']" id="marital" required class="form-control btn-block">
-                                                <option value="0 " selected="true" disabled=" ">Select</option>
-                                                <option value="Single" >Single</option>
-                                                <option value="Married">Married</option>
-                                                <option value="Widowed">Widowed</option>
-                                                <option value="Separated">Separated</option>
-                                            </select>
-                                        </td>
-                                        </td>
-                                        <td class="col-md-1">
+                                        <td >
 
                                             <label class="input"> 
-                                                <input type="text" ng-model="ncf['Age']" name="amount" value="" class="" autocomplete='off' />
+                                                <input type="text" name="amount" ng-model="ncf['Number of Recipients in Albay Central School Evacuation Center']" value="" class="" autocomplete="off" />
                                            </label>
                                         </td>
 
-                                        <td class="col-md-2"><label class="input"> 
-                                            <input type="text" ng-model="ncf['Relationship to Family Member']" name="remarks" placeholder="">
+                                        <td ><label class="input"> 
+                                            <input type="text" ng-model="ncf['Number of Recipients in Bagumbayan Central School Evacuation Center']" name="remarks" placeholder="">
                                         </label></td>
                                         </td>
-                                        <td class="col-md-2">
+                                        <td >
 
                                             <label class="input"> 
-                                                <input type="text" ng-model="ncf['Educational Attainment']" name="amount" value="" class="" autocomplete='off' />
+                                                <input type="text" ng-model="ncf['Number of Recipients in Cabagnan Elementary School Evacuation Center']" name="amount" value="" class="" autocomplete="off" />
                                            </label>
                                         </td>
 
-                                        <td class="col-md-1"><label class="input"> 
-                                            <input type="text" ng-model="ncf['Occupation']" name="remarks" placeholder="">
+                                        <td ><label class="input"> 
+                                            <input type="text" name="remarks" ng-model="ncf['Number of Recipients in Gogon Central School and Gogon High School Evacuation Center']" placeholder="">
                                         </label></td>
-                                        <td class="col-md-1"><label class="input"> 
-                                            <input type="text" ng-model="ncf['Income']" name="remarks" placeholder="">
+                                        <td ><label class="input"> 
+                                            <input type="text" name="remarks" ng-model="ncf['Number of Recipients in Bitano Elementary School and Legazpi City Science High School Evacuation Center']" placeholder="">
                                         </label></td>
-                                        <td class="col-md-2"><label class="input"> 
-                                            <input type="text" ng-model="ncf['Disability (Specify)']" name="remarks" placeholder="">
+                                        <td ><label class="input"> 
+                                            <input type="text" name="remarks" ng-model="ncf['Number of Recipients in Buraguis Evacuation Center']" placeholder="">
                                         </label></td>
                                         </td>
-                                        <td class="col-md-1">
+                                        <td >
 
                                             <label class="input col-md-10"> 
-                                                <input type="text" ng-model="ncf['Pregnant(P) or Lactating(L)']" name="amount" value="" class="" autocomplete='off' />
+                                                <input type="text" name="amount" value="" ng-model="ncf['Others (CDRRMO, CHO, Operations Center)']" class="" autocomplete="off" />
                                            </label>
 
-                                            <!-- <label class="input col-md-1"> 
+                                           <!-- <label class="input col-md-1"> 
                                             <button class="btn btn-danger btn-sm deleteb">X</button>
                                         </label> -->
                                         </td>
@@ -348,7 +345,7 @@
 </div>
 
 <div id="myModal2" class="modal fade" role="dialog">
-    <div class="modal-dialog">
+    <div class="modal-dialog" style="width: 50%;height: 50%; ">
 
         <!-- Modal content-->
         <div class="modal-content">
@@ -362,7 +359,7 @@
             <div class="modal-body">
 
 
-                <p>You want to delete <strong style="color: red;">{{clickedUser.evacCenter}}</strong>'s infomation?
+                <p>You want to delete <strong style="color: red;">{{clickedUser.name}}</strong>'s donations?
                     <strong style="color: red;">{{clickedUser.municipality}} {{clickedUser.division}}</strong>?</p>
 
             </div>
@@ -379,7 +376,7 @@
 </div>
 
 <div id="myModal3" class="modal fade" role="dialog">
-    <div class="modal-dialog">
+    <div class="modal-dialog" style="width: 98%;height: auto; ">
 
         <!-- Modal content-->
         <div class="modal-content">
@@ -443,10 +440,10 @@
 
                         <table id="data" class="table table-striped table-bordered table-hover" width="100%">
 
-                            <div id="notif"></div>
+                            <div id="notif"></div> 
                             <thead>
                                 <tr>
-
+            
                                     <!-- <th>Date</th>
                                     <th>Evacuation Center</th>
                                     <th>Purok</th>
@@ -456,12 +453,14 @@
                                     <th>Name of Family Member</th>
                                     <th>Marital Status</th>
                                     <th>Age</th> -->
-                                    <th>Relationship to Family Member</th>
-                                    <th>Educational Attainment</th>
-                                    <th>Occupation</th>
-                                    <th>Income </th>
-                                    <th>Disability(Specify)</th>
-                                    <th>Pregnant(P) or Lactating(L)</th>
+                                    <th class="text-center th">Items</th>
+                                    <th class="text-center th">Number of Recipients in Albay Central School Evacuation Center</th>
+                                    <th class="text-center th">Number of Recipients in Bagumbayan Central School Evacuation Center</th>
+                                    <th class="text-center th">Number of Recipients in Cabagnan Elementary School Evacuation Center</th>
+                                    <th class="text-center th">Number of Recipients in Gogon Central School and Gogon High School Evacuation Center</th>
+                                    <th class="text-center th">Number of Recipients in Bitano Elementary School and Legazpi City Science High School Evacuation Center</th>
+                                    <th class="text-center th">Number of Recipients in Buraguis Evacuation Center</th>
+                                    <th class="text-center th">Others (CDRRMO, CHO, Operations Center)</th>
                                     <!-- <th>Action</th> -->
                                 </tr>
                             </thead>
@@ -481,8 +480,8 @@
                                                 class="fa fa-minus-circle"></i></button>
                                     </div>
                                 </th> -->
-
-                                <tr ng-repeat="ncf in cf.family ">
+            
+                                <tr ng-repeat="ncf in clickedUser.donations ">
                                     <!-- <td>{{cf.date}}</td>
                                     <td>{{cf.evacCenter}}</td>
                                     <td>{{cf.purok}}</td>
@@ -492,12 +491,14 @@
                                     <td>{{ncf['Name of Family Member']}}</td>
                                     <td> {{ncf['Marital Status']}}</td>
                                     <td colspan="2"> {{ncf['Age']}}</td> -->
-                                    <td> {{ncf['Relationship to Family Member']}}</td>
-                                    <td> {{ncf['Educational Attainment']}}</td>
-                                    <td> {{ncf['Occupation']}}</td>
-                                    <td> {{ncf['Income']}}</td>
-                                    <td> {{ncf['Disability (Specify)']}}</td>
-                                    <td colspan="2" class="text-center"> {{ncf['Pregnant(P) or Lactating(L)']}}</td>
+                                    <td> {{ncf['Items']}}</td>
+                                    <td> {{ncf['Number of Recipients in Albay Central School Evacuation Center']}}</td>
+                                    <td> {{ncf['Number of Recipients in Bagumbayan Central School Evacuation Center']}}</td>
+                                    <td> {{ncf['Number of Recipients in Cabagnan Elementary School Evacuation Center']}}</td>
+                                    <td> {{ncf['Number of Recipients in Gogon Central School and Gogon High School Evacuation Center']}}</td>
+                                    <td> {{ncf['Number of Recipients in Bitano Elementary School and Legazpi City Science High School Evacuation Center']}}</td>
+                                    <td> {{ncf['Number of Recipients in Buraguis Evacuation Center']}}</td>
+                                    <td colspan="2"> {{ncf['Others (CDRRMO, CHO, Operations Center)']}}</td>
                                     <!-- <td></td> -->
                                     <!-- <td></td> -->
                                     <!-- <td><button type="button" class="btn btn-info btn-block btn-xs " ng-click="selectUser3(data)"><i class="icon-append fa fa-search"></i></button></td> -->
@@ -520,10 +521,10 @@
                                     <td></td>
             
                                 </tr> -->
-
+            
                             </tbody>
-
-
+            
+            
                         </table>
 
 

@@ -1,0 +1,431 @@
+angular.module('newApp').controller('rocrlistCtrl', function($firebaseArray, $scope, $http, $timeout) {
+
+    pageSetUp();
+
+    var id;
+
+
+    firebase.database().ref('/cswdo/rocr/').orderByChild('uid').on("value", function(snapshot) {
+
+        console.log(snapshot.val())
+        if (!localStorage.getItem('pf')) {
+            if (localStorage.getItem('pf') <= 10) {
+                localStorage.setItem('pf', 10)
+            }
+        }
+
+        var dateObj = new Date();
+        var month = dateObj.getUTCMonth() + 1; //months from 1-12
+        var day = dateObj.getUTCDate();
+        var year = dateObj.getUTCFullYear();
+
+        const datetoday = month + ":" + day + ":" + year;
+        // '10:18:2020';
+        // month + ":" + day + ":" + year;
+
+        $timeout(function() {
+            $scope.$apply(function() {
+
+                var tcol = 0;
+                let returnArr = [];
+                snapshot.forEach(childSnapshot => {
+                    let item = childSnapshot.val();
+                    item.key = childSnapshot.key;
+                    returnArr.push(item);
+                    if (datetoday === item.date) {
+
+                        tcol += 1 * item.total;
+                    }
+                });
+                $scope.cfs = returnArr;
+                $scope.tcol = tcol;
+                console.log(returnArr)
+            });
+            $('#here').after(' <ul style="margin:0!important;margin-top:4px" class="pagination pagination-sm pull-right"  ><li ><a href="#cflist" rel="0" id="backward"> < </a></li> <li id="nav"></li>   <li><a href="#cflist" rel="0" id="forward"> > </a></li></ul>');
+            var rowsShown = localStorage.getItem('pf')
+
+            $("#pfilter").change(function() {
+
+                rowsShown = localStorage.getItem('pf')
+
+
+                localStorage.setItem('pf', $("#pfilter option:selected").text())
+
+                window.location.href = "#"
+                window.location.href = "#rocrlist"
+            });
+
+            var rowsTotal = $('#data tbody tr').length;
+            var numPages = rowsTotal / rowsShown;
+            for (i = 0; i < numPages; i++) {
+                var pageNum = i + 1;
+                $('#nav').append('<a href="#rocrlist" rel="' + i + '">' + pageNum + '</a>');
+            }
+
+            $('#data tbody tr').hide();
+            $('#data tbody tr').slice(0, rowsShown).show();
+            $('#nav a:first').addClass('active');
+            $('#nav a ').bind('click', function() {
+
+                $('#nav a').removeClass('active');
+                $(this).addClass('active');
+                var currPage = $(this).attr('rel');
+                localStorage.setItem('curp', currPage)
+                var startItem = currPage * rowsShown;
+                var endItem = startItem + rowsShown;
+                $('#data tbody tr').css('opacity', '0.0').hide().slice(startItem, endItem).
+                css('display', 'table-row').animate({ opacity: 1 }, 300);
+                console.log($(this).attr('rel'))
+
+
+            });
+
+            $("#backward").click(function() {
+
+                var cp = localStorage.getItem('curp');
+                if (cp >= 1) {
+                    cp = cp - 1;
+                    localStorage.setItem('curp', cp)
+                    var startItem = cp * rowsShown;
+                    var endItem = startItem + rowsShown;
+                    $('#data tbody tr').css('opacity', '0.0').hide().slice(startItem, endItem).
+                    css('display', 'table-row').animate({ opacity: 1 }, 300);
+                }
+            });
+
+            $("#forward").click(function() {
+
+                var tp = $('#data tbody tr').length - 1;
+
+                var cp = localStorage.getItem('curp');
+                if (cp < tp) {
+                    cp = cp * 1 + 1;
+                    localStorage.setItem('curp', cp)
+                    var startItem = cp * rowsShown;
+                    var endItem = startItem + rowsShown;
+                    $('#data tbody tr').css('opacity', '0.0').hide().slice(startItem, endItem).
+                    css('display', 'table-row').animate({ opacity: 1 }, 300);
+                }
+            });
+
+        }, 100);
+
+
+    });
+
+
+    $scope.selectUser = function(users) {
+        // document.getElementById("sum").innerHTML=users.total;
+        // document.getElementById("sum2").innerHTML=users.total2;
+        // document.getElementById("sum3").innerHTML=users.total3;
+        // console.log( users );
+        // console.log( $scope.cfs );
+
+        for (let index = 0; index < $scope.cfs.length; index++) {
+            // console.log($scope.cfs[index].key)
+            // console.log(users.key)
+            if(users.key == $scope.cfs[index].key){
+                // console.log($scope.cfs[index])
+                $scope.usersClicked = $scope.cfs[index];
+                // console.log($scope.usersClicked.needs)
+            }
+            
+        }
+        
+        
+        $scope.clickedUser = users;
+        id = users;
+        // document.getElementById("dateOfDelivery").value = users.dateOfDelivery;
+        document.getElementById("date1").value = users.date1;
+        document.getElementById("date2").value = users.date2;
+        // document.getElementById("editDateOfEvacuation").value = users.dateOfEvacuation;
+        // document.getElementById("editDateOfEvacuation").value = users.dateOfEvacuation;
+        // document.getElementById("editDateOfEvacuation").value = users.dateOfEvacuation;
+
+        $('#myModal').modal('show');
+    };
+
+    $scope.selectUser2 = function(users) {
+        // console.log(users);
+        $scope.clickedUser = users;
+        id = users;
+
+        $('#myModal2').modal('show');
+    };
+
+    $scope.selectUser3 = function(users) {
+        // console.log(users);
+        $scope.clickedUser = users;
+        // document.getElementById("date1").value = users.date1;
+        // document.getElementById("date2").value = users.date2;
+        id = users;
+        $('#myModal3').modal('show');
+    };
+
+    $scope.updateUser = function() {
+        var ref2 = firebase.database().ref("/cswdo/rocr/" + id.$id);
+        ref2.update({
+            schoolID: $('#schoolID').val(),
+                school: $('#school').val(),
+                region: $('#region').val(),
+                division: $('#division').val(),
+                district: $('#district').val(),
+                municipality: $('#municipality').val(),
+                enrollment: $('#enrollment').val(),
+                totalSchool: $('#totalSchool').val(),
+                schoolWithInfraDamage: $('#schoolWithInfraDamage').val(),
+                totalDamageClassroom: $('#totalDamageClassroom').val(),
+                partialDamageClassMajor: $('#partialDamageClassMajor').val(),
+                partialDamageClassMinor: $('#partialDamageClassMinor').val(),
+                temporaryLearning: $('#temporaryLearning').val(),
+                deceasedPersonnel: $('#deceasedPersonnel').val(),
+                injuredPersonnel: $('#injuredPersonnel').val(),
+                missingPersonnel: $('#missingPersonnel').val(),
+                displacedPersonnel: $('#displacedPersonnel').val(),
+                totalEvacSchool: $('#totalEvacSchool').val(),
+                ECLasted: $('#ECLasted').val(),
+                totalSchoolReport: $('#totalSchoolReport').val(),
+                schoolWithNonInfraDamage: $('#schoolWithNonInfraDamage').val(),
+                damagedSchoolFurnitures: $('#damagedSchoolFurnitures').val(),
+                damagedLearningMaterials: $('#damagedLearningMaterials').val(),
+                damagedComputerEquipment: $('#damagedComputerEquipment').val()
+        })
+
+        .catch(function(error) {
+            console.log("Login Failed!", error.message);
+            $("#notif").append('<div class="alert alert-danger fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Error</strong> ' + error.message + '</div>');
+            setTimeout(function() {
+                $("#notif").hide()
+            }, 10000);
+
+        });
+
+        // window.location.href = "#ecdlist";
+
+        $("#notif").append('<div class="alert alert-success fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Success</strong> Updated !</div>');
+        setTimeout(function() {
+            $("#notif").hide()
+        }, 10000);
+
+        $('#myModal').modal('hide');
+
+    };
+
+    $scope.deleteUser = function() {
+        var ref = firebase.database().ref("/cswdo/rocr/" + id.key);
+        ref.remove()
+        .catch(function(error) {
+            console.log("Login Failed!", error.message);
+            $("#notif").append('<div class="alert alert-danger fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Error</strong> ' + error.message + '</div>');
+            setTimeout(function() {
+                $("#notif").hide()
+            }, 1500);
+
+        });;
+
+        // $("#notif").show();
+        // window.location.href = "#ecdlist";
+
+        $("#notif").append('<div class="alert alert-success fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Success</strong> Deleted !</div>');
+        setTimeout(function() {
+            window.location.href = "#/"
+            window.location.href = "#rocrlist"
+        }, 1500);
+        $('#myModal2').modal('hide');
+    };
+
+    $scope.close = function() {
+        $('#myModal').modal('hide');
+        $('#myModal2').modal('hide');
+        $('#myModal3').modal('hide');
+    };
+
+
+
+    var obj;
+    $scope.tojson = function(obj) {
+
+        var table = $('#convert-table').tableToJSON({
+
+            extractor: function(cellIndex, $cell) {
+                return $cell.find('input').val() || $cell.find("#type option:selected").text();
+            }
+
+
+        })
+        return table;
+
+    }
+
+    var dateObj = new Date();
+    var month = dateObj.getUTCMonth() + 1; //months from 1-12
+    var day = dateObj.getUTCDate();
+    var year = dateObj.getUTCFullYear();
+
+    var datetoday = month + ":" + day + ":" + year;
+
+    $('#newrocr').on('submit', function(e) {
+        $scope.tojson();
+
+        e.preventDefault();
+
+        console.log($scope.tojson(obj))
+
+        var newobj = $scope.tojson(obj);
+        // [$scope.tojson(obj)];
+
+        // var uid = firebase.database().ref().child('/cswdo/mgfdc').push().key;
+        var orno = $scope.ornum;
+        var sector = $scope.sector;
+        var dateOfDelivery = $scope.dateOfDelivery;
+        var evacCenter = $scope.evacCenter;
+        var noOfFamilies = $scope.noOfFamilies;
+        var noOfMeals = $scope.noOfMeals;
+        var start = $scope.start;
+        var end = $scope.end;
+
+
+
+        const [, ...rest] = newobj.reverse();
+        const withoutLast = rest.reverse();
+        const withoutLast2 = $scope.tojson(obj);
+        // console.log(withoutLast)
+        var data = {
+            date: $scope.clickedUser.date,
+            evacCenter: $scope.clickedUser.evacCenter,
+            incharge: $scope.clickedUser.incharge,
+            recievedBy: $scope.clickedUser.recievedBy,
+            receivedDesignation: $scope.clickedUser.receivedDesignation,
+            date1: $('#date1').val(),
+            releasedBy: $scope.clickedUser.releasedBy,
+            releasedDesignation: $scope.clickedUser.releasedDesignation,
+            date2: $('#date2').val(),
+            donors: withoutLast2,
+        }
+
+        var updates = {};
+        updates['/cswdo/rocr/'  + id.key] = data;
+        firebase.database().ref().update(updates);
+        console.log(updates)
+
+
+        if (updates) {
+            $('#myModal').modal('hide');
+
+            $("#notif").append('<div class="alert alert-success fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Success</strong> Data had been save!.</div>');
+            setTimeout(function() {
+                window.location.href = "#/"
+                window.location.href = "#rocrlist"
+            }, 1500);
+        } else {
+            $("#notif").append('<div class="alert alert-danger fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Error</strong> Check your Input !</div>');
+        }
+
+    });
+
+
+        var cnt = 0;
+    $scope.addtr = function() {
+        $("#appendhere").append(' <tr class="row_to_clone"><td class="col-md-2"> <label class="input"> <input type="text" name="remarks" placeholder="" required></label></td></td><td class="col-md-1"> <label class="input"> <input type="date" name="remarks" placeholder="" ></label></td></td><td class="col-md-2"><label class="input"> <input type="text" name="remarks" placeholder=""></label></td></td><td class=""><label class="input"> <input type="number" name="remarks" placeholder=""></label></td></td><td class="col-md-2"><label class="input"> <input type="text" name="remarks" placeholder=""></label></td></td><td class="col-md-1"><label class="input"> <input type="number" name="remarks" placeholder=""></label></td></td><td class="col-md-1"><label class="input"> <input type="number" name="remarks" placeholder=""></label></td></td><td class="col-md-2"><label class="input"> <input type="text" name="amount" value="" class="" autocomplete="off" /></label></td></tr>');
+        cnt++;
+        $('table thead th').each(function(i) {
+
+        });
+
+    }
+    $scope.removetr = function() {
+
+        $('#appendhere tr:last').remove();
+        $('table thead th').each(function(i) {
+
+        });
+        calculateSum();
+        calculateSum2();
+        calculateSum3();
+    }
+
+    $scope.delAppend = function() {
+        console.log("Del")
+        $(this).closest("tr").remove();
+        $('table thead th').each(function(i) {
+
+        });
+        calculateSum();
+        calculateSum2();
+        calculateSum3();
+
+        $('#myModal').modal('hide');
+    };
+
+    $("#appendhere").on('click', '.deleteb', function() {
+        $(this).closest("tr").remove();
+        $('table thead th').each(function(i) {
+
+        });
+        calculateSum();
+        calculateSum2();
+        calculateSum3();
+    });
+
+
+    // function calculateSum() {
+    //     var sum = 0;
+    //     //iterate through each textboxes and add the values
+    //     $(".txt").each(function() {
+
+    //         //add only if the value is number
+    //         if (!isNaN(this.value) && this.value.length != 0) {
+    //             sum += parseFloat(this.value);
+    //         }
+
+    //     });
+    //     //.toFixed() method will roundoff the final sum to 2 decimal places
+    //     $("#sum").html(sum.toFixed(2));
+    //     console.log(sum.toFixed(2));
+    // }
+
+    // function calculateSum2() {
+    //     var sum = 0;
+    //     //iterate through each textboxes and add the values
+    //     $(".txt2").each(function() {
+
+    //         //add only if the value is number
+    //         if (!isNaN(this.value) && this.value.length != 0) {
+    //             sum += parseFloat(this.value);
+    //         }
+
+    //     });
+    //     //.toFixed() method will roundoff the final sum to 2 decimal places
+    //     $("#sum2").html(sum.toFixed(2));
+    //     console.log(sum.toFixed(2));
+    // }
+
+    // function calculateSum3() {
+    //     var sum = 0;
+    //     //iterate through each textboxes and add the values
+    //     $(".txt3").each(function() {
+
+    //         //add only if the value is number
+    //         if (!isNaN(this.value) && this.value.length != 0) {
+    //             sum += parseFloat(this.value);
+    //         }
+
+    //     });
+    //     //.toFixed() method will roundoff the final sum to 2 decimal places
+    //     $("#sum3").html(sum.toFixed(2));
+    //     console.log(sum.toFixed(2));
+    // }
+
+    // $("#convert-table").on("keyup", ".txt", function() {
+    //     calculateSum();
+    // });
+
+    // $("#convert-table").on("keyup", ".txt2", function() {
+    //     calculateSum2();
+    // });
+
+    // $("#convert-table").on("keyup", ".txt3", function() {
+    //     calculateSum3();
+    // });
+
+});
