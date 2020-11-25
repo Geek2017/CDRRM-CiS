@@ -181,52 +181,52 @@ angular.module('newApp').controller('soclistCtrl', function($firebaseArray, $sco
         console.log($scope.tojson1(obj1))
         console.log($scope.tojson2(obj2))
 
+        setTimeout(function() {
+            console.log('done')
 
-        var uid = firebase.database().ref().child('cswdo/soec/').push().key;
+            var data = {
+                date: datetoday,
 
-        var data = {
-            date: datetoday,
+                "type_disaster": $scope.type_disaster,
+                "place_occurence": $scope.place_occurence,
+                "asof": $scope.asof,
 
-            "type_disaster": $scope.type_disaster,
-            "place_occurence": $scope.place_occurence,
-            "asof": $scope.asof,
+                "prefered_by": $scope.prefered_by,
+                "prefered_by_designation": $scope.prefered_by_designation,
 
-            "prefered_by": $scope.prefered_by,
-            "prefered_by_designation": $scope.prefered_by_designation,
+                "certified_by": $scope.certified_by,
+                "certified_by_designation": $scope.certified_by_designation,
 
-            "certified_by": $scope.certified_by,
-            "certified_by_designation": $scope.certified_by_designation,
+                "submmitted_by": $scope.submmitted_by,
+                "submmitted_by_designation": $scope.submmitted_by_designation,
 
-            "submmitted_by": $scope.submmitted_by,
-            "submmitted_by": $scope.submmitted_by_designation,
-
-            "details": $.extend(true,
-                JSON.parse(localStorage.getItem('i0')),
-                JSON.parse(localStorage.getItem('i1')),
-                JSON.parse(localStorage.getItem('i2')))
-
-
-        }
-
-        var updates = {};
-        updates['cswdo/soec/' + uid] = data;
-        firebase.database().ref().update(updates);
-        console.log(updates)
-
-        if (updates) {
+                "details": $.extend(true,
+                    JSON.parse(localStorage.getItem('i0')),
+                    JSON.parse(localStorage.getItem('i1')),
+                    JSON.parse(localStorage.getItem('i2')))
 
 
-            $("#notif").append('<div class="alert alert-success fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Success</strong> Data had been save!.</div>');
-            setTimeout(function() {
-                window.location.href = "#/"
-                window.location.href = "#socnew"
-            }, 1500);
-        } else {
-            $("#notif").append('<div class="alert alert-danger fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Error</strong> Check your Input !</div>');
-        }
+            }
+
+            var updates = {};
+            updates['cswdo/soec/' + localStorage.getItem('keyid')] = data;
+            firebase.database().ref().update(updates);
+            console.log(updates)
+
+            if (updates) {
 
 
+                $("#notif").append('<div class="alert alert-success fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Success</strong> Data had been save!.</div>');
+                setTimeout(function() {
+                    window.location.href = "#/"
+                    window.location.href = "#soclist"
+                }, 1500);
+            } else {
+                $("#notif").append('<div class="alert alert-danger fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Error</strong> Check your Input !</div>');
+            }
 
+
+        }, 2000);
 
 
     });
@@ -250,7 +250,6 @@ angular.module('newApp').controller('soclistCtrl', function($firebaseArray, $sco
     });
 
     $('ul.setup-panel li.active a').trigger('click');
-
 
     $('.step-2').click(function() {
         $scope.tojson0();
@@ -290,8 +289,6 @@ angular.module('newApp').controller('soclistCtrl', function($firebaseArray, $sco
 
 
 
-
-
     var cnt = 0;
     $scope.addtr = function() {
         $("#appendhere0").append("<tr class='row_to_clone '> <td> <label class='input '> <input type='text' name='' class=' ' autocomplete='off'/> </label> </td><td> <label class='input '> <input type='text ' name=' ' placeholder=' '> </label> </td><td> <label class='input '> <input type='number ' name=' ' value=' ' class=' ' autocomplete='off'/> </label> </td><td> <label class='input '> <input type='number ' name=' ' value=' ' class=' ' autocomplete='off'/> </label> </td><td> <label class='input '> <input type='number ' name=' ' value=' ' class=' ' autocomplete='off'/> </label> </td>")
@@ -315,8 +312,11 @@ angular.module('newApp').controller('soclistCtrl', function($firebaseArray, $sco
     }
 
 
-    $scope.getid = function(id) {
+    $scope.editgetid = function(id) {
         var id = id;
+
+        localStorage.setItem('keyid', id);
+
         var cdata = []
         firebase.database().ref("cswdo/soec/" + id).on("child_added", function(snapshot) {
             var data = snapshot.val();
@@ -326,15 +326,39 @@ angular.module('newApp').controller('soclistCtrl', function($firebaseArray, $sco
 
         });
 
-        console.log(cdata[4])
+        console.log(cdata)
 
         $('#myModal').modal('show');
 
-        // $scope.asof = cdata[0]
-        $scope.type_disaster = cdata[9]
+        $scope.asof = cdata[0]
+
+        $scope.type_disaster = cdata[10]
         $scope.place_occurence = cdata[5]
 
         $scope.tbldatas = cdata[4]
+
+        $scope.certified_by = cdata[1]
+        $scope.certified_by_designation = cdata[2]
+
+        $scope.prefered_by = cdata[6]
+        $scope.prefered_by_designation = cdata[7]
+
+        $scope.submmitted_by = cdata[8]
+        $scope.submmitted_by_designation = cdata[9]
+
     }
 
+
+    $scope.delgetid = function(id) {
+        var id = id;
+        console.log(id)
+        var adaRef = firebase.database().ref('/cswdo/soec/' + id);
+        adaRef.remove()
+            .then(function() {
+                console.log("Remove succeeded.")
+            })
+            .catch(function(error) {
+                console.log("Remove failed: " + error.message)
+            });
+    }
 });

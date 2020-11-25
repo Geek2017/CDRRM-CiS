@@ -60,61 +60,62 @@ angular.module('newApp').controller('socnewCtrl', function($scope) {
 
         e.preventDefault($(".step-1").trigger("click"));
 
+        setTimeout(function() {
+            console.log('done')
+            $scope.tojson0();
+            $scope.tojson1();
+            $scope.tojson2();
 
-        $scope.tojson0();
-        $scope.tojson1();
-        $scope.tojson2();
-
-        console.log($scope.tojson0(obj0))
-        console.log($scope.tojson1(obj1))
-        console.log($scope.tojson2(obj2))
-
-
-        var uid = firebase.database().ref().child('cswdo/soec/').push().key;
-
-        var data = {
-            date: datetoday,
-
-            "type_disaster": $scope.type_disaster,
-            "place_occurence": $scope.place_occurence,
-            "asof": $scope.asof,
-
-            "prefered_by": $scope.prefered_by,
-            "prefered_by_designation": $scope.prefered_by_designation,
-
-            "certified_by": $scope.certified_by,
-            "certified_by_designation": $scope.certified_by_designation,
-
-            "submmitted_by": $scope.submmitted_by,
-            "submmitted_by": $scope.submmitted_by_designation,
-
-            "details": $.extend(true,
-                JSON.parse(localStorage.getItem('i0')),
-                JSON.parse(localStorage.getItem('i1')),
-                JSON.parse(localStorage.getItem('i2')))
+            console.log($scope.tojson0(obj0))
+            console.log($scope.tojson1(obj1))
+            console.log($scope.tojson2(obj2))
 
 
-        }
+            var uid = firebase.database().ref().child('cswdo/soec/').push().key;
 
-        var updates = {};
-        updates['cswdo/soec/' + uid] = data;
-        firebase.database().ref().update(updates);
-        console.log(updates)
+            var data = {
+                date: datetoday,
 
-        if (updates) {
+                "type_disaster": $scope.type_disaster,
+                "place_occurence": $scope.place_occurence,
+                "asof": $scope.asof,
+
+                "prefered_by": $scope.prefered_by,
+                "prefered_by_designation": $scope.prefered_by_designation,
+
+                "certified_by": $scope.certified_by,
+                "certified_by_designation": $scope.certified_by_designation,
+
+                "submmitted_by": $scope.submmitted_by,
+                "submmitted_by_designation": $scope.submmitted_by_designation,
+
+                "details": $.extend(true,
+                    JSON.parse(localStorage.getItem('i0')),
+                    JSON.parse(localStorage.getItem('i1')),
+                    JSON.parse(localStorage.getItem('i2')))
 
 
-            $("#notif").append('<div class="alert alert-success fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Success</strong> Data had been save!.</div>');
-            setTimeout(function() {
-                window.location.href = "#/"
-                window.location.href = "#socnew"
-            }, 1500);
-        } else {
-            $("#notif").append('<div class="alert alert-danger fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Error</strong> Check your Input !</div>');
-        }
+            }
+
+            var updates = {};
+            updates['cswdo/soec/' + uid] = data;
+            firebase.database().ref().update(updates);
+            console.log(updates)
+
+            if (updates) {
 
 
+                $("#notif").append('<div class="alert alert-success fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Success</strong> Data had been save!.</div>');
+                setTimeout(function() {
+                    window.location.href = "#/"
+                    window.location.href = "#socnew"
+                }, 1500);
+            } else {
+                $("#notif").append('<div class="alert alert-danger fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Error</strong> Check your Input !</div>');
+            }
 
+
+        }, 2000);
 
 
 

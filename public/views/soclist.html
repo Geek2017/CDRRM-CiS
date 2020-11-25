@@ -10,17 +10,7 @@
 
     <!-- Widget ID (each widget will need unique ID)-->
     <div class="jarviswidget jarviswidget-color-white" id="wid-id-0" data-widget-editbutton="true" style="margin-bottom: 3px!important;">
-        <!-- widget options:
-        usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
-        data-widget-colorbutton="false"
-        data-widget-editbutton="false"
-        data-widget-togglebutton="false"
-        data-widget-deletebutton="false"
-        data-widget-fullscreenbutton="false"
-        data-widget-custombutton="false" 
-        data-widget-collapsed="true"
-        data-widget-sortable="false"
-        -->
+
         <header>
             <span class="widget-icon"> <i class="fa fa-table"></i> </span>
             <h2>Status Of Evacuation Center List</h2>
@@ -77,10 +67,10 @@
 
 
                         <td>
-                            <button type="button" class="btn btn-success btn-xs" ng-click="getid(cfs.key)"><i
+                            <button type="button" class="btn btn-success btn-xs" ng-click="editgetid(cfs.key)"><i
                                             class="fa fa-pencil"></i></button> </td>
                         <td>
-                            <button type="button" class="btn btn-danger btn-xs" ng-click=""><i
+                            <button type="button" class="btn btn-danger btn-xs" ng-click="delgetid(cfs.key)"><i
                                             class="fa fa-minus-circle"></i></button>
                         </td>
 
@@ -193,7 +183,7 @@
                                         <section class="col col-4">
                                             <label class="label">As of </label>
                                             <label class="input">
-                                                    <input type="datetime-local" ng-model="asof" >
+                                                    <input type="text" ng-model="asof" >
                                                 </label>
                                         </section>
 
@@ -245,39 +235,39 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody id="appendhere0">
-                                                            <tr class="row_to_clone" ng-repeat="tbld in tbldatas">
+                                                            <tr class="row_to_clone" ng-repeat="tbld0 in tbldatas">
 
 
                                                                 <td>
                                                                     <label class="input">
                                                                             <input type="text"
-                                                                                autocomplete='off' value="{{tbld.Barangay}}"/>
+                                                                                autocomplete='off' value="{{tbld0.Barangay}}"/>
                                                                         </label>
                                                                 </td>
 
                                                                 <td>
                                                                     <label class="input">
                                                                             <input type="text" 
-                                                                            autocomplete='off' />
+                                                                            autocomplete='off' value="{{tbld0['Distance from']}}"/>
                                                                         </label>
                                                                 </td>
 
                                                                 <td>
                                                                     <label class="input">
                                                                             <input type="text" 
-                                                                                autocomplete='off' />
+                                                                                autocomplete='off' value="{{tbld0['Female']}}"/>
                                                                         </label>
                                                                 </td>
                                                                 <td>
                                                                     <label class="input">
                                                                             <input type="number " 
-                                                                                autocomplete='off' />
+                                                                                autocomplete='off' value="{{tbld0['Male']}}"/>
                                                                         </label>
                                                                 </td>
                                                                 <td>
                                                                     <label class="input">
                                                                             <input type="text" 
-                                                                                autocomplete='off' />
+                                                                                autocomplete='off' value="{{tbld0['Evac Centers']}}"/>
                                                                         </label>
                                                                 </td>
 
@@ -306,52 +296,52 @@
 
                                                             </tr>
                                                         </thead>
-                                                        <tbody id="appendhere1">
+                                                        <tbody id="appendhere1" ng-repeat="tbld1 in tbldatas">
                                                             <tr class="row_to_clone">
 
 
                                                                 <td>
                                                                     <label class="input">
                                                                             <input type="text" name="" class=" "
-                                                                                autocomplete='off' />
+                                                                                autocomplete='off' value="{{tbld1['Evacuees']}}"/>
                                                                         </label>
                                                                 </td>
 
                                                                 <td>
                                                                     <label class="input">
                                                                             <input type="text" 
-                                                                            autocomplete='off' />
+                                                                            autocomplete='off' value="{{tbld1['Tents Covered Court']}}"/>
                                                                         </label>
                                                                 </td>
 
                                                                 <td>
                                                                     <label class="input">
                                                                             <input type="text" 
-                                                                                autocomplete='off' />
+                                                                                autocomplete='off' value="{{tbld1['ROC']}}"/>
                                                                         </label>
                                                                 </td>
                                                                 <td>
                                                                     <label class="input">
                                                                             <input type="number " 
-                                                                                autocomplete='off' />
+                                                                                autocomplete='off'  value="{{tbld1['Health']}}"/>
                                                                         </label>
                                                                 </td>
                                                                 <td>
                                                                     <label class="input">
                                                                             <input type="number " 
-                                                                                autocomplete='off' />
+                                                                                autocomplete='off' value="{{tbld1['Other uses']}}"/>
                                                                         </label>
                                                                 </td>
                                                                 <td>
                                                                     <label class="input">
                                                                             <input type="number " 
-                                                                                autocomplete='off' />
+                                                                                autocomplete='off' value="{{tbld1['F']}}"/>
                                                                         </label>
                                                                 </td>
                                                                 <td>
                                                                     <label class="input">
                                                                             <input type="number " 
-                                                                                autocomplete='off' />
+                                                                                autocomplete='off' value="{{tbld1['FM']}}"/>
                                                                         </label>
                                                                 </td>
 
@@ -379,54 +369,54 @@
 
                                                             </tr>
                                                         </thead>
-                                                        <tbody id="appendhere2">
+                                                        <tbody id="appendhere2" ng-repeat="tbld2 in tbldatas">
                                                             <tr class="row_to_clone">
 
                                                                 <td>
                                                                     <label class="input">
+                                                                            <input type="text" value="{{tbld2['F']}}"/>
+                                                                        </label>
+                                                                </td>
+
+                                                                <td>
+                                                                    <label class="input">
+                                                                            <input type="number " 
+                                                                                autocomplete='off' value="{{tbld2['FM']}}"/>
+                                                                        </label>
+                                                                </td>
+
+                                                                <td>
+                                                                    <label class="input">
+                                                                            <input type="number " 
+                                                                                autocomplete='off' value="{{tbld2['F']}}"/>
+                                                                        </label>
+                                                                </td>
+
+                                                                <td>
+                                                                    <label class="input">
+                                                                            <input type="number " 
+                                                                                autocomplete='off' value="{{tbld2['FM']}}"/>
+                                                                        </label>
+                                                                </td>
+
+                                                                <td>
+                                                                    <label class="input">
+                                                                            <input type="number " 
+                                                                                autocomplete='off' value="{{tbld2['From Donors']}}"/>
+                                                                        </label>
+                                                                </td>
+
+                                                                <td>
+                                                                    <label class="input">
+                                                                            <input type="number " 
+                                                                                autocomplete='off' value="{{tbld2['From LGU']}}"/>
+                                                                        </label>
+                                                                </td>
+
+                                                                <td>
+                                                                    <label class="input">
                                                                             <input type="input" name="" class=""
-                                                                                autocomplete='off' ng-model="jd.brgy"/>
-                                                                        </label>
-                                                                </td>
-
-                                                                <td>
-                                                                    <label class="input">
-                                                                            <input type="text " name=" " placeholder=" ">
-                                                                        </label>
-                                                                </td>
-
-                                                                <td>
-                                                                    <label class="input">
-                                                                            <input type="number " 
-                                                                                autocomplete='off' />
-                                                                        </label>
-                                                                </td>
-
-                                                                <td>
-                                                                    <label class="input">
-                                                                            <input type="number " 
-                                                                                autocomplete='off' />
-                                                                        </label>
-                                                                </td>
-
-                                                                <td>
-                                                                    <label class="input">
-                                                                            <input type="number " 
-                                                                                autocomplete='off' />
-                                                                        </label>
-                                                                </td>
-
-                                                                <td>
-                                                                    <label class="input">
-                                                                            <input type="number " 
-                                                                                autocomplete='off' />
-                                                                        </label>
-                                                                </td>
-
-                                                                <td>
-                                                                    <label class="input">
-                                                                            <input type="number " 
-                                                                                autocomplete='off' />
+                                                                                autocomplete='off' value="{{tbld2['Remarks']}}"/>
                                                                         </label>
                                                                 </td>
 
@@ -480,7 +470,7 @@
                                 </fieldset>
 
                                 <footer>
-                                    <button type="submit " class="btn btn-primary ">Submit</button>
+                                    <button type="submit " class="btn btn-primary ">Update</button>
                                 </footer>
                             </form>
 
