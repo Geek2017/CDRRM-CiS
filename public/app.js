@@ -1,7 +1,7 @@
 // Application Modules and Routing
 angular
     .module('newApp', ['ngRoute', 'firebase'])
-    .config(function($routeProvider) {
+    .config(function ($routeProvider) {
         $routeProvider
             .when('/', {
                 templateUrl: 'views/dashboard.html',
@@ -146,7 +146,48 @@ angular
             .when('/hfrnew', {
                 templateUrl: 'views/hfrnew.html',
                 controller: "hfrnewCtrl"
-            });
+            })
+            .when('/mgfdcnew', {
+                templateUrl: 'views/mgfdcnew.html',
+                controller: "mgfdcnewCtrl"
+            })
+            .when('/mgfdclist', {
+                templateUrl: 'views/mgfdclist.html',
+                controller: "mgfdclistCtrl"
+            })
+            .when('/rocrnew', {
+                templateUrl: 'views/rocrnew.html',
+                controller: "rocrnewCtrl"
+            })
+            .when('/rocrlist', {
+                templateUrl: 'views/rocrlist.html',
+                controller: "rocrlistCtrl"
+            })
+            .when('/rdsnew', {
+                templateUrl: 'views/rdsnew.html',
+                controller: "rdsnewCtrl"
+            })
+            .when('/rdslist', {
+                templateUrl: 'views/rdslist.html',
+                controller: "rdslistCtrl"
+            })
+            .when('/radnew', {
+                templateUrl: 'views/radnew.html',
+                controller: "radnewCtrl"
+            })
+            .when('/radlist', {
+                templateUrl: 'views/radlist.html',
+                controller: "radlistCtrl"
+            })
+            .when('/donationnew', {
+                templateUrl: 'views/donationnew.html',
+                controller: "donationnewCtrl"
+            })
+            .when('/donationlist', {
+                templateUrl: 'views/donationlist.html',
+                controller: "donationlistCtrl"
+            })
+            ;
 
 
     });

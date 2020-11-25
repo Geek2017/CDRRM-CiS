@@ -53,15 +53,17 @@
                 <thead>
                     <tr>
 
+                        <th>#</th>
                         <th>Date</th>
+                        <th>Date of Delivery</th>
                         <th>Evacuation Center</th>
-                        <th>Purok</th>
-                        <th>Family Head</th>
-                        <th>Room Assignment</th>
-                        <th>Teacher-in-Charge</th>
-                        <th>Name of Family Member</th>
-                        <th>Marital Status</th>
-                        <th>Age</th>
+                        <th>No. of Families</th>
+                        <th>Breakfast</th>
+                        <th>Lunch</th>
+                        <th>Dinner</th>
+                        <th>No. of Meals</th>
+                        <th>Start</th>
+                        <th>End</th>
                         <!-- <th>Relationship to Family Member</th>
                         <th>Educational Attainment</th>
                         <th>Occupation</th>
@@ -75,11 +77,11 @@
 
                     <!-- <th colspan="6" class=""></th>
                     <th colspan="4">Action</th> -->
-                    <th colspan="9"></th>
+                    <th colspan="11"></th>
                     <th colspan="1">
                         <div class="btn-group btn-group-sm text-center">
-                            <button type="button" class="btn btn-primary " ng-click="selectUser3(cf)"><i
-                                class="fa fa-search"></i></button>
+                            <!-- <button type="button" class="btn btn-primary " ng-click="selectUser3(cf)"><i
+                                class="fa fa-search"></i></button> -->
                             <button type="button" class="btn btn-success " ng-click="selectUser(cf)"><i
                                     class="fa fa-pencil"></i></button>
 
@@ -88,16 +90,18 @@
                         </div>
                     </th>
 
-                    <tr ng-repeat="ncf in cf.family ">
+                    <tr ng-repeat="ncf in cf.meals ">
+                        <td>{{$index + 1}}</td>
                         <td>{{cf.date}}</td>
+                        <td>{{cf.dateOfDelivery}}</td>
                         <td>{{cf.evacCenter}}</td>
-                        <td>{{cf.purok}}</td>
-                        <td>{{cf.familyHead}}</td>
-                        <td>{{cf.roomAssignment}}</td>
-                        <td>{{cf.teacherIncharge}}</td>
-                        <td>{{ncf['Name of Family Member']}}</td>
-                        <td> {{ncf['Marital Status']}}</td>
-                        <td colspan="2"> {{ncf['Age']}}</td>
+                        <td>{{cf.noOfFamilies}}</td>
+                        <td>{{ncf['Breakfast']}}</td>
+                        <td> {{ncf['Lunch']}}</td>
+                        <td > {{ncf['Dinner']}}</td>
+                        <td>{{cf.noOfMeals}}</td>
+                        <td>{{cf.start}}</td>
+                        <td colspan="2">{{cf.end}}</td>
                         <!-- <td colspan="2" class="text-center"> {{ncf['Relationship to Family Member']}}</td> -->
                         <!-- <td> {{ncf['Educational Attainment']}}</td>
                         <td> {{ncf['Occupation']}}</td>
@@ -171,46 +175,32 @@
 
             <div class="modal-body">
 
-                <form class="smart-form " id="newcf">
+                <form class="smart-form " id="newmgfdc">
                     <header>
-                        Intake Sheet
+                        MENU GUIDE FOR DELIVERED COMMODITES
                     </header>
 
                     <fieldset>
                         <div class="row">
                             <section class="col col-4">
+                                <label class="label">Date of Delivery</label>
+                                <label class="input ">
+                                    <!-- <input type="date" name="remarks" ng-model="dateOfDelivery" id="dateOfDelivery" placeholder=""> -->
+                                    <input type="date" id="dateOfDelivery" required>
+                                </label>
+                            </section>
+                            <section class="col col-4">
                                 <label class="label">Evacuation Center</label>
                                 <label class="input ">
+                                    <!-- <input type="text" name="remarks"  placeholder="" ng-model="evacCenter" id="evacCenter"> -->
                                     <input type="text" ng-model="clickedUser.evacCenter" id="evacCenter" required>
                                 </label>
                             </section>
                             <section class="col col-4">
-                                <label class="label">Purok</label>
+                                <label class="label">No. of Families</label>
                                 <label class="input ">
-                                    <input type="text" ng-model="clickedUser.purok" id="purok" required>
-                                </label>
-                            </section>
-                            <section class="col col-4">
-                                <label class="label">Family Head </label>
-                                <label class="input ">
-                                    <input type="text" ng-model="clickedUser.familyHead" id="familyHead" required>
-                                </label>
-                            </section>
-
-                        </div>
-
-                        <div class="row">
-                            <section class="col col-6">
-                                <label class="label">Room Assignment</label>
-                                <label class="input ">
-                                    <input type="text" ng-model="clickedUser.roomAssignment" id="roomAssignment" required>
-                                </label>
-                            </section>
-
-                            <section class="col col-6">
-                                <label class="label">Teacher-in-Charge </label>
-                                <label class="input ">
-                                    <input type="text" ng-model="clickedUser.teacherIncharge" id="teacherIncharge" required>
+                                    <!-- <input type="number" name="remarks"  placeholder="" ng-model="noOfFamilies" id="noOfFamilies"> -->
+                                    <input type="text" ng-model="clickedUser.noOfFamilies" id="noOfFamilies" required>
                                 </label>
                             </section>
 
@@ -238,70 +228,50 @@
                 
                                     </tr> -->
                                     <tr>
-                                        <th class="text-center th">Name of Family Member</th>
-                                        <th class="text-center th">Marital Status</th>
-                                        <th class="text-center th">Age</th>
-                                        <th class="text-center th">Relationship to Family Member</th>
-                                        <th class="text-center th">Educational Attainment</th>
-                                        <th class="text-center th">Occupation</th>
-                                        <th class="text-center th">Income</th>
-                                        <th class="text-center th">Disability (Specify)</th>
-                                        <th class="text-center th">Pregnant(P) or Lactating(L)</th>
+                                        <!-- <th class="text-center th">Dates</th> -->
+                                        <th class="text-center th">Breakfast</th>
+                                        <th class="text-center th">Lunch</th>
+                                        <th class="text-center th">Dinner</th>
                                     </tr>
                                 </thead>
                                 <tbody id="appendhere">
-                                    <tr class="row_to_clone" ng-repeat="ncf in usersClicked.family ">
+                                    <tr class="row_to_clone" ng-repeat="ncf in usersClicked.meals ">
                                         <td class="col-md-2"> <label class="input"> 
-                                            <input type="text" name="particulars" ng-model="ncf['Name of Family Member']"  placeholder="" required>
+                                            <input type="text" name="remarks" ng-model="ncf['Breakfast']" placeholder="" required>
                                         </label></td>
-                                        <td  class="col-md-1">
-                                            <select name="interested " ng-model="ncf['Marital Status']" id="marital" required class="form-control btn-block">
-                                                <option value="0 " selected="true" disabled=" ">Select</option>
-                                                <option value="Single" >Single</option>
-                                                <option value="Married">Married</option>
-                                                <option value="Widowed">Widowed</option>
-                                                <option value="Separated">Separated</option>
-                                            </select>
-                                        </td>
-                                        </td>
-                                        <td class="col-md-1">
-
-                                            <label class="input"> 
-                                                <input type="text" ng-model="ncf['Age']" name="amount" value="" class="" autocomplete='off' />
-                                           </label>
                                         </td>
 
                                         <td class="col-md-2"><label class="input"> 
-                                            <input type="text" ng-model="ncf['Relationship to Family Member']" name="remarks" placeholder="">
+                                            <input type="text" name="remarks" ng-model="ncf['Lunch']" placeholder="">
                                         </label></td>
                                         </td>
                                         <td class="col-md-2">
 
                                             <label class="input"> 
-                                                <input type="text" ng-model="ncf['Educational Attainment']" name="amount" value="" class="" autocomplete='off' />
+                                                <input type="text" name="amount" value="" ng-model="ncf['Dinner']" class="" autocomplete='off' />
                                            </label>
                                         </td>
 
-                                        <td class="col-md-1"><label class="input"> 
-                                            <input type="text" ng-model="ncf['Occupation']" name="remarks" placeholder="">
+                                        <!-- <td class="col-md-1"><label class="input"> 
+                                            <input type="text" name="remarks" placeholder="">
                                         </label></td>
                                         <td class="col-md-1"><label class="input"> 
-                                            <input type="text" ng-model="ncf['Income']" name="remarks" placeholder="">
+                                            <input type="text" name="remarks" placeholder="">
                                         </label></td>
                                         <td class="col-md-2"><label class="input"> 
-                                            <input type="text" ng-model="ncf['Disability (Specify)']" name="remarks" placeholder="">
+                                            <input type="text" name="remarks" placeholder="">
                                         </label></td>
-                                        </td>
-                                        <td class="col-md-1">
+                                        </td> -->
+                                        <!-- <td class="col-md-1">
 
                                             <label class="input col-md-10"> 
-                                                <input type="text" ng-model="ncf['Pregnant(P) or Lactating(L)']" name="amount" value="" class="" autocomplete='off' />
+                                                <input type="text" name="amount" value="" class="" autocomplete='off' />
                                            </label>
 
-                                           <!-- <label class="input col-md-1"> 
+                                           <label class="input col-md-1"> 
                                             <button class="btn btn-danger btn-sm deleteb">X</button>
-                                        </label> -->
-                                        </td>
+                                        </label>
+                                        </td> -->
                                     </tr>
                                 </tbody>
                                 <!-- <tbody>
@@ -333,12 +303,38 @@
                             </table>
                         </div>
 
+                        <br><br>
+
+
+                        <div class="row">
+                            <section class="col col-4">
+                                <label class="label">No. of Meals</label>
+                                <label class="input ">
+                                    <input type="text" ng-model="clickedUser.noOfMeals" id="noOfMeals" required>
+                                </label>
+                            </section>
+                            <section class="col col-4">
+                                <label class="label">Start</label>
+                                <label class="input ">
+                                    <input type="date" ng-model="clickedUser.start" id="start" required>
+                                </label>
+                            </section>
+                            <section class="col col-4">
+                                <label class="label">End</label>
+                                <label class="input ">
+                                    <input type="date" ng-model="clickedUser.end" id="end" required>
+                                </label>
+                            </section>
+
+                        </div>
+
 
                     </fieldset>
                     <br>
                     <footer>
-                        <button type="submit " class="btn btn-primary ">Save</button>
-                        <button type="button " class="btn btn-default " data-dismiss="modal">Close</button>
+                        <button type="submit " class="btn btn-primary ">Submit</button>
+                        <button type="button " class="btn btn-default " onclick="  window.location.href = '#'
+                        window.location.href = '#mgfdclist' ">Clear</button>
 
                     </footer>
                 </form>
@@ -467,7 +463,7 @@
                                     <!-- <th>Action</th> -->
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody ng-repeat="cf in cfs  | filter: findcf">
             
                                 <!-- <th colspan="6" class=""></th>
                                 <th colspan="4">Action</th> -->
