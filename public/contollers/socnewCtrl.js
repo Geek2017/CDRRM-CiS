@@ -58,7 +58,8 @@ angular.module('newApp').controller('socnewCtrl', function($scope) {
 
     $('#newsoc').on('submit', function(e) {
 
-        e.preventDefault();
+        e.preventDefault($(".step-1").trigger("click"));
+
 
         $scope.tojson0();
         $scope.tojson1();
@@ -111,6 +112,13 @@ angular.module('newApp').controller('socnewCtrl', function($scope) {
         } else {
             $("#notif").append('<div class="alert alert-danger fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Error</strong> Check your Input !</div>');
         }
+
+
+
+
+
+
+
 
     });
 
