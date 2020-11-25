@@ -1,0 +1,249 @@
+<style>
+    th {
+        background-color: #57889c !important;
+        color: white;
+    }
+</style>
+<article class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+
+    <!-- Widget ID (each widget will need unique ID)-->
+    <div class="jarviswidget jarviswidget-color-white" id="wid-id-0" data-widget-editbutton="true" style="margin-bottom: 3px!important;">
+        <!-- widget options:
+        usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+        data-widget-colorbutton="false"
+        data-widget-editbutton="false"
+        data-widget-togglebutton="false"
+        data-widget-deletebutton="false"
+        data-widget-fullscreenbutton="false"
+        data-widget-custombutton="false" 
+        data-widget-collapsed="true"
+        data-widget-sortable="false"
+        -->
+        <header>
+            <span class="widget-icon"> <i class="fa fa-table"></i> </span>
+            <h2>Access Card List</h2>
+
+        </header>
+
+        <!-- widget div-->
+        <div>
+
+
+
+            <label class="input">
+                <input type="text" name="name" ng-model="findcf"> <i class="icon-append fa fa-search"></i>
+            </label>
+
+            <label class="input pull-right">
+                <label class="select ">Page Filter
+                    <select name="options" id="pfilter">
+
+                        <option value="10">10</option>
+                        <option value="30">30</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+
+                    </select> <i></i> </label>
+            </label>
+
+            <table id="data" class="table table-striped table-bordered table-hover" width="100%">
+
+                <div id="notif"></div>
+                <thead>
+
+                    <tr>
+                        <th colspan="11" class="th">City Disaster Coordination Council</th>
+                    </tr>
+                    <tr>
+                        <th class="text-center">City</th>
+                        <th class="text-center">Evacuation Center</th>
+                        <th class="text-center">Case No</th>
+                        <th class="text-center">Name of Hamily Head</th>
+                        <th class="text-center">Place of Origin</th>
+                        <th class="text-center">No of Family Members</th>
+                        <th class="text-center">Occupation</th>
+                        <th class="text-center">Family Income</th>
+                        <th class="text-center">CDCC Chairman or Action Officer</th>
+                        <th class="text-center">CSWDO</th>
+
+                        <th colspan="2" class="text-center">Action</th>
+
+                    </tr>
+
+                </thead>
+                <tbody ng-repeat="cf in cfs  | filter: findcf">
+
+                    <td>{{cf.City}}</td>
+                    <td class="text-center">{{cf.EvacuationCenter}}</td>
+                    <td class="text-center">{{cf.CaseNo}}</td>
+                    <td class="text-center">{{cf.Nameofamilyhead}}</td>
+                    <td class="text-center">{{cf.PlaceofOrigin}}</td>
+                    <td class="text-center">{{cf.Noofamilymembers}}</td>
+                    <td class="text-center">{{cf.Occupation}}</td>
+                    <td class="text-center">{{cf.FamilyIncome}}</td>
+                    <td class="text-center">{{cf.Chairman}}</td>
+                    <td class="text-center">{{cf.cswdo}}</td>
+
+                    <td>
+                        <div class="btn-group btn-group-sm text-center">
+                            <button type="button" class="btn btn-success " ng-click="editgetid(cf.key)"><i
+                                    class="fa fa-pencil"></i></button>
+
+                            <button type="button" class="btn btn-danger" ng-click="delgetid(cf.key)"><i
+                                    class="fa fa-minus-circle"></i></button>
+                        </div>
+                    </td>
+
+                </tbody>
+
+
+            </table>
+
+        </div>
+
+    </div>
+
+    <span id="here"></span>
+</article>
+
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+
+
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Edit Info.</h4>
+            </div>
+
+            <div class="modal-body">
+
+                <form class="smart-form " id="updateac">
+                    <header>
+                        New Access CARD
+                    </header>
+
+                    <fieldset>
+                        <div class="row">
+                            <section class="col col-2">
+                                <label class="label">City</label>
+                                <label class="input ">
+                                    <input type="text" ng-model="City" id="City" required>
+                                </label>
+                            </section>
+                            <section class="col col-2">
+                                <label class="label">Evacuation Center</label>
+                                <label class="input ">
+                                    <input type="text" ng-model="EvacuationCenter" id="EvacuationCenter" required>
+                                </label>
+                            </section>
+                            <section class="col col-2">
+                                <label class="label">Case No</label>
+                                <label class="input ">
+                                    <input type="text" ng-model="CaseNo" id="CaseNo" required>
+                                </label>
+                            </section>
+                            <section class="col col-2">
+                                <label class="label">Name of Family Head</label>
+                                <label class="input ">
+                                    <input type="text" ng-model="Nameofamilyhead" id="Nameofamilyhead" required>
+                                </label>
+                            </section>
+                            <section class="col col-2">
+                                <label class="label">Place of Origin</label>
+                                <label class="input ">
+                                    <input type="text" ng-model="PlaceofOrigin" id="PlaceofOrigin" required>
+                                </label>
+                            </section>
+
+                            <section class="col col-2">
+                                <label class="label">No of Family Members</label>
+                                <label class="input ">
+                                    <input type="text" ng-model="Noofamilymembers" id="Noofamilymembers" required>
+                                </label>
+                            </section>
+                            <section class="col col-3">
+                                <label class="label">Occupation</label>
+                                <label class="input ">
+                                    <input type="text" ng-model="Occupation" id="Occupation" required>
+                                </label>
+                            </section>
+                            <section class="col col-3">
+                                <label class="label">Family Income</label>
+                                <label class="input ">
+                                    <input type="text" ng-model="FamilyIncome" id="FamilyIncome" required>
+                                </label>
+                            </section>
+                            <section class="col col-3">
+                                <label class="label">CDCC Chairman or Action Officer</label>
+                                <label class="input ">
+                                    <input type="text" ng-model="Chairman" id="Chairman" required>
+                                </label>
+                            </section>
+                            <section class="col col-3">
+                                <label class="label">CSWDO</label>
+                                <label class="input ">
+                                    <input type="text" ng-model="cswdo" id="cswdo" required>
+                                </label>
+                            </section>
+
+                        </div>
+
+                        <div class="panel-body ">
+
+                            <div class="btn-group btn-group-sm pull-right">
+                                <button type="button" class="btn btn-success " ng-click="addtr()"><i class="fa fa-plus-circle"></i></button>
+
+                                <button type="button" class="btn btn-danger" ng-click="removetr()"><i class="fa fa-minus-circle"></i></button>
+                            </div>
+                            <br>
+                            <br>
+                            <table id="table0" class="table table-striped table-bordered table-hover" width="100%">
+                                <thead>
+
+                                    <tr>
+                                        <th class="text-center th">Date</th>
+                                        <th class="text-center th">SERVICE EXTENDED</th>
+                                        <th class="text-center th">SIGNATURE OF WORKER</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="appendhere" ng-repeat="tbl in tbldatas">
+                                    <tr class="row_to_clone">
+                                        <td> <label class="input"> 
+                                            <input type="date" value="{{tbl['Date']}}" required>
+                                        </label>
+                                        </td>
+
+                                        <td><label class="input"> 
+                                            <input type="text" value="{{tbl['SERVICE EXTENDED']}}" required>
+                                        </label>
+                                        </td>
+
+                                        <td>
+                                            <label class="input "> 
+                                                <input type="text" value="{{tbl['SIGNATURE OF WORKER']}}" required/>
+                                           </label>
+                                        </td>
+                                    </tr>
+                                </tbody>
+
+                            </table>
+                        </div>
+
+
+                    </fieldset>
+                    <br>
+                    <footer>
+                        <button type="submit" class="btn btn-primary ">UPDATE</button>
+                    </footer>
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
