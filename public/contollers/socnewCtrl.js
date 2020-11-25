@@ -180,10 +180,6 @@ angular.module('newApp').controller('socnewCtrl', function($scope) {
     });
 
 
-
-
-
-
     var cnt = 0;
     $scope.addtr = function() {
         $("#appendhere0").append("<tr class='row_to_clone '> <td> <label class='input '> <input type='text' name='' class=' ' autocomplete='off'/> </label> </td><td> <label class='input '> <input type='text ' name=' ' placeholder=' '> </label> </td><td> <label class='input '> <input type='number ' name=' ' value=' ' class=' ' autocomplete='off'/> </label> </td><td> <label class='input '> <input type='number ' name=' ' value=' ' class=' ' autocomplete='off'/> </label> </td><td> <label class='input '> <input type='number ' name=' ' value=' ' class=' ' autocomplete='off'/> </label> </td>")

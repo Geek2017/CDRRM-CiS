@@ -215,6 +215,8 @@
 
                         </div>
 
+
+
                         <div class="panel-body ">
 
                             <div class="btn-group btn-group-sm pull-right">
@@ -296,42 +298,40 @@
                                                 <input type="text" ng-model="ncf['Pregnant(P) or Lactating(L)']" name="amount" value="" class="" autocomplete='off' />
                                            </label>
 
-                                            <!-- <label class="input col-md-1"> 
-                                            <button class="btn btn-danger btn-sm deleteb">X</button>
-                                        </label> -->
                                         </td>
                                     </tr>
                                 </tbody>
-                                <!-- <tbody>
-                                    <tr>
-                                        <td><h4>Total</h4></td>
-                                        <td></td>
-                                        <td>
-                                            <h4><label class="input"> 
-                                                <span id="sum">0.00</span>
 
-                                            </label></h4>
-                                        </td>
-                                        <td></td>
-                                        <td>
-                                            <h4><label class="input"> 
-                                                <span id="sum2">0.00</span>
-
-                                            </label></h4>
-                                        </td>
-                                        <td></td>
-                                        <td>
-                                            <h4><label class="input"> 
-                                                <span id="sum3">0.00</span>
-
-                                            </label></h4>
-                                        </td>
-                                    </tr>
-                                </tbody> -->
                             </table>
                         </div>
 
+                        <div class="row">
+                            <section class="col col-4">
+                                <label class="label">Status</label>
+                                <label class="select ">
+                                    <select id="status" ng-model="status" required>
+                                        <option value="For Review" selected>For Review</option>
+                                        <option value="Approve">Approve</option>
+                                        <option value="DisApprove">DisApprove</option>
+                                    </select>
+                                    <i></i>
+                                </label>
+                            </section>
+                            <section class="col col-4">
+                                <label class="label">Officer In-Charge</label>
+                                <label class="input ">
+                                    <input type="text" ng-model="clickedUser.approve_by" id="approve_by" required>
+                                </label>
+                            </section>
 
+                            <section class="col col-4">
+                                <label class="label">Designation:</label>
+                                <label class="input ">
+                                    <input type="text" ng-model="clickedUser.approve_by_designation" id="approve_by_designation" required>
+                                </label>
+                            </section>
+
+                        </div>
                     </fieldset>
                     <br>
                     <footer>

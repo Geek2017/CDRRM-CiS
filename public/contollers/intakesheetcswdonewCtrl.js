@@ -32,7 +32,7 @@ angular.module('newApp').controller('intakesheetcswdonewCtrl', function($scope) 
         var newobj = $scope.tojson(obj);
         // [$scope.tojson(obj)];
 
-        var uid = firebase.database().ref().child('cswdo/intakesheet').push().key;
+        var uid = firebase.database().ref().child('/barangay/intakesheet').push().key;
         var orno = $scope.ornum;
         var sector = $scope.sector;
         var evacCenter = $scope.evacCenter;
@@ -58,7 +58,7 @@ angular.module('newApp').controller('intakesheetcswdonewCtrl', function($scope) 
         }
 
         var updates = {};
-        updates['/cswdo/intakesheet/'  + uid] = data;
+        updates['/barangay/intakesheet/' + uid] = data;
         firebase.database().ref().update(updates);
         console.log(updates)
 
@@ -122,7 +122,7 @@ angular.module('newApp').controller('intakesheetcswdonewCtrl', function($scope) 
     //     calculateSum();
     // });
 
-    
 
-   
+
+
 });

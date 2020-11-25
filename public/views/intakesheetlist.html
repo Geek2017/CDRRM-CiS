@@ -302,36 +302,35 @@
                                         </td>
                                     </tr>
                                 </tbody>
-                                <!-- <tbody>
-                                    <tr>
-                                        <td><h4>Total</h4></td>
-                                        <td></td>
-                                        <td>
-                                            <h4><label class="input"> 
-                                                <span id="sum">0.00</span>
 
-                                            </label></h4>
-                                        </td>
-                                        <td></td>
-                                        <td>
-                                            <h4><label class="input"> 
-                                                <span id="sum2">0.00</span>
-
-                                            </label></h4>
-                                        </td>
-                                        <td></td>
-                                        <td>
-                                            <h4><label class="input"> 
-                                                <span id="sum3">0.00</span>
-
-                                            </label></h4>
-                                        </td>
-                                    </tr>
-                                </tbody> -->
                             </table>
+
                         </div>
 
+                        <div class="row">
+                            <section class="col col-4">
+                                <select name="interested " ng-model="ncf['Marital Status']" id="marital" required class="form-control btn-block">
+                                <option value="For Review" selected>For Review</option>
+                                <option value="Approve">Approve</option>
+                                <option value="DisApprove">DisApprove</option>
+                              
+                            </section>
+                            </select>
+                                <section class="col col-4">
+                                    <label class="label">Approve by:</label>
+                                    <label class="input ">
+                                    <input type="text" ng-model="clickedUser.roomAssignment" id="roomAssignment" required>
+                                </label>
+                                </section>
 
+                                <section class="col col-4">
+                                    <label class="label">Designation:</label>
+                                    <label class="input ">
+                                    <input type="text" ng-model="clickedUser.teacherIncharge" id="teacherIncharge" required>
+                                </label>
+                                </section>
+
+                        </div>
                     </fieldset>
                     <br>
                     <footer>
@@ -466,7 +465,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-            
+
                                 <!-- <th colspan="6" class=""></th>
                                 <th colspan="4">Action</th> -->
                                 <!-- <th colspan="9"></th> -->
