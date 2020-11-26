@@ -202,6 +202,14 @@ angular
             .when('/accesscardnew', {
                 templateUrl: 'views/accesscardnew.html',
                 controller: "accesscardnewCtrl"
+            })
+            .when('/ddorlist', {
+                templateUrl: 'views/ddorlist.html',
+                controller: "ddorlistCtrl"
+            })
+            .when('/ddornew', {
+                templateUrl: 'views/ddornew.html',
+                controller: "ddornewCtrl"
             });
 
 
