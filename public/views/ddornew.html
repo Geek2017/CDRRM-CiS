@@ -30,20 +30,20 @@
                         <header>STATISTICS</header>
                         <fieldset>
                             <div class="row">
-                                <section class="col col-4">
+                                <section class="col col-3">
                                     <label class="label">As of</label>
                                     <label class="input">
                                         <input type="date" ng-model="aof" >
                                     </label>
                                 </section>
 
-                                <section class="col col-4">
+                                <section class="col col-3">
                                     <label class="label">Time</label>
                                     <label class="input">
                                         <input type="time" ng-model="time" >
                                     </label>
                                 </section>
-                                <section class="col col-4">
+                                <section class="col col-3">
                                     <label class="label">Evacuation Center</label>
                                     <label class="input">
                                         <input type="text" ng-model="ec" >
@@ -72,6 +72,12 @@
                                     <label class="label">No of Family Occupied</label>
                                     <label class="input">
                                         <input type="text" ng-model="nofo" >
+                                    </label>
+                                </section>
+                                <section class="col col-3">
+                                    <label class="label">No of Room Occupied</label>
+                                    <label class="input">
+                                        <input type="text" ng-model="noro" >
                                     </label>
                                 </section>
 
@@ -172,19 +178,19 @@
                                 <section class="col col-4">
                                     <label class="label">PROBLEM ENCOUNTER</label>
                                     <label class="textarea">
-                                        <textarea  rows="3" ng-model="pe"></textarea>
+                                        <textarea  rows="3" ng-model="promblem_encounter"></textarea>
                                     </label>
                                 </section>
                                 <section class="col col-4">
                                     <label class="label">ACTION TAKEN</label>
                                     <label class="textarea">
-                                        <textarea  rows="3" ng-model="at"></textarea>
+                                        <textarea  rows="3" ng-model="action_taken"></textarea>
                                     </label>
                                 </section>
                                 <section class="col col-4">
                                     <label class="label">PLANS/RECOMMENDATION</label>
-                                    <label class="textarea" ng-model="pr">
-                                        <textarea  rows="3" ></textarea>
+                                    <label class="textarea">
+                                        <textarea  rows="3" ng-model="plans_reccommendation"></textarea>
                                     </label>
                                 </section>
                             </div>

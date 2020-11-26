@@ -45,51 +45,56 @@ angular.module('newApp').controller('ddornewCtrl', function($scope) {
 
         e.preventDefault($(".step-1").trigger("click"));
 
-        setTimeout(function() {
-            console.log('done')
-            $scope.tojson0();
-            $scope.tojson1();
 
-            console.log($scope.tojson0(obj0))
-            console.log($scope.tojson1(obj1))
+        console.log('done')
+        $scope.tojson0();
+        $scope.tojson1();
 
-
-            var uid = firebase.database().ref().child('/cswdo/ddor/').push().key;
-
-            var data = {
-                date: datetoday,
-
-                aof: $scope.aof,
-                time: $scope.time,
-                ec: $scope.ec,
-                bie: $scope.bie,
-                nof: $scope.nof,
-                nofm: $scope.nofm,
-
-                table0: $scope.tojson0(obj0),
-                table1: $scope.tojson1(obj1),
-
-            }
-
-            var updates = {};
-            updates['/cswdo/ddor/' + uid] = data;
-            firebase.database().ref().update(updates);
-            console.log(updates)
-
-            if (updates) {
+        console.log($scope.tojson0(obj0))
+        console.log($scope.tojson1(obj1))
 
 
-                $("#notif").append('<div class="alert alert-success fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Success</strong> Data had been save!.</div>');
-                setTimeout(function() {
-                    window.location.href = "#/"
-                    window.location.href = "#ddornew"
-                }, 1500);
-            } else {
-                $("#notif").append('<div class="alert alert-danger fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Error</strong> Check your Input !</div>');
-            }
+        var uid = firebase.database().ref().child('/cswdo/ddor/').push().key;
+
+        var data = {
+            date: datetoday,
+
+            aof: $scope.aof,
+            time: $scope.time,
+            ec: $scope.ec,
+            bie: $scope.bie,
+            nof: $scope.nof,
+            nofm: $scope.nofm,
+            noro: $scope.noro,
+
+            table0: $scope.tojson0(obj0),
+            table1: $scope.tojson1(obj1),
+
+            promblem_encounter: $scope.promblem_encounter,
+            action_taken: $scope.action_taken,
+            plans_reccommendation: $scope.plans_reccommendation,
+
+        }
+
+        var updates = {};
+        updates['/cswdo/ddor/' + uid] = data;
+        firebase.database().ref().update(updates);
+        console.log(updates)
+
+        if (updates) {
 
 
-        }, 2000);
+            $("#notif").append('<div class="alert alert-success fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Success</strong> Data had been save!.</div>');
+            setTimeout(function() {
+                window.location.href = "#/"
+                window.location.href = "#ddornew"
+            }, 1500);
+        } else {
+            $("#notif").append('<div class="alert alert-danger fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Error</strong> Check your Input !</div>');
+        }
+
+
+
 
 
 

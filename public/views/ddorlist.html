@@ -58,19 +58,19 @@
 
                         <th colspan="2">Action</th>
                     </tr>
-                    <tbody ng-repeat="cfs in cfss  ">
+                    <tbody ng-repeat="cfs in cfss ">
 
-                        <td>As of</td>
-                        <td>Time</td>
-                        <td>Evacuation Center</td>
-                        <td>Barangay Inside Evac</td>
-                        <td>No of Families</td>
-                        <td>No of Family Members</td>
-                        <td>No of Room Occupied</td>
+                        <td>{{cfs.aof | date}}</td>
+                        <td>{{cfs.time | date:'hh:mm:a'}}</td>
+                        <td>{{cfs.ec}}</td>
+                        <td>{{cfs.bie}}</td>
+                        <td>{{cfs.nof}}</td>
+                        <td>{{cfs.nofm}}</td>
 
-                        <td>Problem Encounter</td>
-                        <td>Action Taken</td>
-                        <td>Plans and Recommendations</td>
+                        <td>{{cfs.noro}}</td>
+                        <td>{{cfs.promblem_encounter}}</td>
+                        <td>{{cfs.action_taken}}</td>
+                        <td>{{cfs.plans_reccommendation}}</td>
 
                         <td>
                             <button type="button" class="btn btn-success btn-xs" ng-click="editgetid(cfs.key)"><i
@@ -116,367 +116,183 @@
             <div class="modal-body">
 
                 <div id="notif"></div>
-                <!-- Widget ID (each widget will need unique ID)-->
-
-
-
                 <div class="jarviswidget jarviswidget-color-white" id="wid-id-0" data-widget-editbutton="true" style="margin-bottom: 5%!important;">
-                    <!-- widget options:
-                        usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
-                        data-widget-colorbutton="false"
-                        data-widget-editbutton="false"
-                        data-widget-togglebutton="false"
-                        data-widget-deletebutton="false"
-                        data-widget-fullscreenbutton="false"
-                        data-widget-custombutton="false" 
-                        data-widget-collapsed="true"
-                        data-widget-sortable="false"
-                        -->
+
                     <header>
                         <span class="widget-icon"> <i class="fa fa-table"></i> </span>
-                        <h2>EDIT INFORMATION</h2>
+                        <h2>DAILY DISASTER OPERATION REPORT</h2>
 
                     </header>
 
-                    <!-- widget div-->
                     <div>
-
                         <div class="widget-body no-padding">
 
-                            <form class="smart-form" id="newsoc">
-                                <header>
-                                    DAILY DISASTER OPERATION REPORT
-                                </header>
-
+                            <form class="smart-form" id="newddor">
+                                <header>STATISTICS</header>
                                 <fieldset>
-
-
                                     <div class="row">
                                         <section class="col col-4">
-                                            <label class="label">Type Of Disaster</label>
-                                            <label class="select ">
-                                                    <select ng-model="type_disaster">
-                                                        <option value="select">select</option>
-                                                        <option value="Volcanic Eruption">Volcanic Eruption</option>
-                                                        <option value="Earthquake">Earthquake</option>
-                                                        <option value="Tsunami">Tsunami</option>
-                                                        <option value="Landslide">Landslide</option>
-                                                        <option value="Typhoon" >Typhoon</option>
-                                                        <option value="Storm Surge">Storm Surge</option>
-                                                        <option value="Drougth">Drougth</option>
-                                                        <option value="Cold Spell">Cold Spell</option>
-                                                        <option value="FlashFlood">FlashFlood</option>
-                                                        <option value="Red Tide">Red Tide</option>
-                                                        <option value="Fish Kills">Fish Kills</option>
-                                                        <option value="Locust">Locust</option>
-                                                        <option value="Infestation">Infestation</option>
-                                                        <option value="Fire">Fire</option>
-                                                        <option value="Explosion">Explosion</option>
-                                                        <option value="Armed Conflict">Armed Conflict</option>
-                                                        <option value="Terrorism">Terrorism</option>
-                                                        <option value="Poisoning">Poisoning</option>
-                                                        <option value="Mass Action">Mass Action</option>
-                                                        <option value="Accident">Accident</option>
-                                                        <option value="Other">Other</option>
-                                                    </select><i></i>
-                                            </section>
-                                            <section class="col col-4">
-                                                <label class="label">Place of Occurence</label>
+                                            <label class="label">As of</label>
                                             <label class="input">
-                                                    <input type="text"  ng-model="place_occurence">
-                                                </label>
+                                                <input type="date" ng-model="aof" >
+                                            </label>
+                                        </section>
+
+                                        <section class="col col-4">
+                                            <label class="label">Time</label>
+                                            <label class="input">
+                                                <input type="time" ng-model="time" >
+                                            </label>
                                         </section>
                                         <section class="col col-4">
-                                            <label class="label">As of </label>
+                                            <label class="label">Evacuation Center</label>
                                             <label class="input">
-                                                    <input type="text" ng-model="asof" >
-                                                </label>
+                                                <input type="text" ng-model="ec" >
+                                            </label>
+                                        </section>
+                                        <section class="col col-3">
+                                            <label class="label">Barangay Inside Evacuation</label>
+                                            <label class="input">
+                                                <input type="text" ng-model="bie" >
+                                            </label>
+                                        </section>
+
+                                        <section class="col col-3">
+                                            <label class="label">No of Families</label>
+                                            <label class="input">
+                                                <input type="text" ng-model="nof" >
+                                            </label>
+                                        </section>
+                                        <section class="col col-3">
+                                            <label class="label">No of Family Members</label>
+                                            <label class="input">
+                                                <input type="text" ng-model="nofm" >
+                                            </label>
+                                        </section>
+                                        <section class="col col-3">
+                                            <label class="label">No of Family Occupied</label>
+                                            <label class="input">
+                                                <input type="text" ng-model="noro" >
+                                            </label>
                                         </section>
 
                                     </div>
+                                    <header>
+                                        REPORT OF COMMODITIES RECEIVED
+
+                                    </header>
                                     <div class="btn-group btn-group-sm pull-right">
-                                        <button type="button" class="btn btn-success " ng-click="addtr()"><i
-                                                    class="fa fa-plus-circle"></i></button>
+                                        <button type="button" class="btn btn-success " ng-click="addtr()"><i class="fa fa-plus-circle"></i></button>
 
-                                        <button type="button" class="btn btn-danger" ng-click="removetr()"><i
-                                                    class="fa fa-minus-circle"></i></button>
+                                        <button type="button" class="btn btn-danger" ng-click="removetr()"><i class="fa fa-minus-circle"></i></button>
                                     </div>
-                                    <br>
-                                    <br>
                                     <div class="panel-body ">
-                                        <section class="col col-12">
-                                            <div class="row form-group">
-                                                <div class="col-xs-12">
+                                        <br>
+                                        <br>
+                                        <table id="table0" class="table table-striped table-bordered table-hover" width="100%">
+                                            <thead>
+                                                <tr>
+                                                    <th class="text-center th">Quantity</th>
+                                                    <th class="text-center th">Items</th>
+                                                    <th class="text-center th">Balance</th>
+                                                    <th class="text-center th">Remarks</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="appendhere0">
+                                                <tr class="row_to_clone" ng-repeat="tbld0 in tbldata0">
+                                                    <td>
+                                                        <label class="input"> 
+                                                            <input type="text" value="{{tbld0['Quantity']}}" required>
+                                                        </label>
+                                                    </td>
+                                                    <td>
+                                                        <label class="input"> 
+                                                            <input type="text" value="{{tbld0['Items']}}" required>
+                                                        </label>
+                                                    </td>
+                                                    <td>
+                                                        <label class="input"> 
+                                                            <input type="text" value="{{tbld0['Balance']}}" required>
+                                                        </label>
+                                                    </td>
+                                                    <td>
+                                                        <label class="input "> 
+                                                            <input type="text" value="{{tbld0['Remarks']}}" required/>
+                                                       </label>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
 
-                                                    <ul class="nav nav-pills nav-justified thumbnail setup-panel">
-                                                        <li class="active">
-                                                            <a href="#step-1">
-                                                                <button class="btn btn-primary btn-lg btn-block step-1">STEP-1</button>
-                                                            </a>
-                                                        </li>
-                                                        <li class="disabled">
-                                                            <a href="#step-2">
-                                                                <button class="btn btn-warning btn-lg btn-block step-2">STEP-2</button>
-                                                            </a>
-                                                            </a>
-                                                        </li>
-                                                        <li class="disabled">
-                                                            <a href="#step-3">
-                                                                <button class="btn btn-success btn-lg btn-block step-3">STEP-3</button>
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="row setup-content" id="step-1">
-                                                <div class="col-xs-12">
-                                                    <table id="table0" class="table table-striped table-bordered table-hover" width="100%">
-                                                        <thead>
-                                                            <tr>
-                                                                <th>Barangay</th>
-                                                                <th>Distance from</th>
-                                                                <th>Female</th>
-                                                                <th>Male</th>
-                                                                <th>Evac Centers</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody id="appendhere0">
-                                                            <tr class="row_to_clone" ng-repeat="tbld0 in tbldatas">
-
-
-                                                                <td>
-                                                                    <label class="input">
-                                                                            <input type="text"
-                                                                                autocomplete='off' value="{{tbld0.Barangay}}"/>
-                                                                        </label>
-                                                                </td>
-
-                                                                <td>
-                                                                    <label class="input">
-                                                                            <input type="text" 
-                                                                            autocomplete='off' value="{{tbld0['Distance from']}}"/>
-                                                                        </label>
-                                                                </td>
-
-                                                                <td>
-                                                                    <label class="input">
-                                                                            <input type="text" 
-                                                                                autocomplete='off' value="{{tbld0['Female']}}"/>
-                                                                        </label>
-                                                                </td>
-                                                                <td>
-                                                                    <label class="input">
-                                                                            <input type="number " 
-                                                                                autocomplete='off' value="{{tbld0['Male']}}"/>
-                                                                        </label>
-                                                                </td>
-                                                                <td>
-                                                                    <label class="input">
-                                                                            <input type="text" 
-                                                                                autocomplete='off' value="{{tbld0['Evac Centers']}}"/>
-                                                                        </label>
-                                                                </td>
-
-
-                                                            </tr>
-                                                        </tbody>
-
-                                                    </table>
-
-                                                </div>
-                                            </div>
-                                            <div class="row setup-content" id="step-2">
-                                                <div class="col-xs-12">
-                                                    <table id="table1" class="table table-striped table-bordered table-hover" width="100%">
-                                                        <thead>
-
-                                                            <tr>
-
-                                                                <th>Evacuees</th>
-                                                                <th>Tents Covered Court</th>
-                                                                <th>ROC</th>
-                                                                <th>Health</th>
-                                                                <th>Other uses</th>
-                                                                <th>F</th>
-                                                                <th>FM</th>
-
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody id="appendhere1" ng-repeat="tbld1 in tbldatas">
-                                                            <tr class="row_to_clone">
-
-
-                                                                <td>
-                                                                    <label class="input">
-                                                                            <input type="text" name="" class=" "
-                                                                                autocomplete='off' value="{{tbld1['Evacuees']}}"/>
-                                                                        </label>
-                                                                </td>
-
-                                                                <td>
-                                                                    <label class="input">
-                                                                            <input type="text" 
-                                                                            autocomplete='off' value="{{tbld1['Tents Covered Court']}}"/>
-                                                                        </label>
-                                                                </td>
-
-                                                                <td>
-                                                                    <label class="input">
-                                                                            <input type="text" 
-                                                                                autocomplete='off' value="{{tbld1['ROC']}}"/>
-                                                                        </label>
-                                                                </td>
-                                                                <td>
-                                                                    <label class="input">
-                                                                            <input type="number " 
-                                                                                autocomplete='off'  value="{{tbld1['Health']}}"/>
-                                                                        </label>
-                                                                </td>
-                                                                <td>
-                                                                    <label class="input">
-                                                                            <input type="number " 
-                                                                                autocomplete='off' value="{{tbld1['Other uses']}}"/>
-                                                                        </label>
-                                                                </td>
-                                                                <td>
-                                                                    <label class="input">
-                                                                            <input type="number " 
-                                                                                autocomplete='off' value="{{tbld1['F']}}"/>
-                                                                        </label>
-                                                                </td>
-                                                                <td>
-                                                                    <label class="input">
-                                                                            <input type="number " 
-                                                                                autocomplete='off' value="{{tbld1['FM']}}"/>
-                                                                        </label>
-                                                                </td>
-
-                                                            </tr>
-                                                        </tbody>
-
-                                                    </table>
-
-                                                </div>
-                                            </div>
-                                            <div class="row setup-content" id="step-3">
-                                                <div class="col-xs-12">
-                                                    <table id="table2" class="table table-striped table-bordered table-hover" width="100%">
-                                                        <thead>
-
-                                                            <tr>
-
-                                                                <th>F</th>
-                                                                <th>FM</th>
-                                                                <th>F</th>
-                                                                <th>FM</th>
-                                                                <th>From Donors</th>
-                                                                <th>From LGU</th>
-                                                                <th>Remarks</th>
-
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody id="appendhere2" ng-repeat="tbld2 in tbldatas">
-                                                            <tr class="row_to_clone">
-
-                                                                <td>
-                                                                    <label class="input">
-                                                                            <input type="text" value="{{tbld2['F']}}"/>
-                                                                        </label>
-                                                                </td>
-
-                                                                <td>
-                                                                    <label class="input">
-                                                                            <input type="number " 
-                                                                                autocomplete='off' value="{{tbld2['FM']}}"/>
-                                                                        </label>
-                                                                </td>
-
-                                                                <td>
-                                                                    <label class="input">
-                                                                            <input type="number " 
-                                                                                autocomplete='off' value="{{tbld2['F']}}"/>
-                                                                        </label>
-                                                                </td>
-
-                                                                <td>
-                                                                    <label class="input">
-                                                                            <input type="number " 
-                                                                                autocomplete='off' value="{{tbld2['FM']}}"/>
-                                                                        </label>
-                                                                </td>
-
-                                                                <td>
-                                                                    <label class="input">
-                                                                            <input type="number " 
-                                                                                autocomplete='off' value="{{tbld2['From Donors']}}"/>
-                                                                        </label>
-                                                                </td>
-
-                                                                <td>
-                                                                    <label class="input">
-                                                                            <input type="number " 
-                                                                                autocomplete='off' value="{{tbld2['From LGU']}}"/>
-                                                                        </label>
-                                                                </td>
-
-                                                                <td>
-                                                                    <label class="input">
-                                                                            <input type="input" name="" class=""
-                                                                                autocomplete='off' value="{{tbld2['Remarks']}}"/>
-                                                                        </label>
-                                                                </td>
-
-                                                            </tr>
-                                                        </tbody>
-
-                                                    </table>
-                                                </div>
-                                            </div>
-                                        </section>
-
-
-
-
+                                        </table>
                                     </div>
+                                    <header>
+                                        COMMODITY DONATION MONITORING REPORT
+                                    </header>
+                                    <div class="btn-group btn-group-sm pull-right">
+                                        <button type="button" class="btn btn-success " ng-click="addtrs()"><i class="fa fa-plus-circle"></i></button>
 
+                                        <button type="button" class="btn btn-danger" ng-click="removetrs()"><i class="fa fa-minus-circle"></i></button>
+                                    </div>
+                                    <div class="panel-body ">
+                                        <br>
+                                        <br>
+                                        <table id="table1" class="table table-striped table-bordered table-hover" width="100%">
+                                            <thead>
+
+                                                <tr>
+                                                    <th class="text-center th">Activities</th>
+                                                    <th class="text-center th">No of Benificiaries</th>
+                                                    <th class="text-center th">GO and NGO Involved</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="appendhere1" ng-repeat="tbld1 in tbldata1">
+                                                <tr class="row_to_clone">
+                                                    <td> <label class="input"> 
+                                                        <input type="text" value="{{tbld1['Activities']}}" required>
+                                                    </label>
+                                                    </td>
+                                                    <td> <label class="input"> 
+                                                        <input type="text" value="{{tbld1['No of Benificiaries']}}" required>
+                                                    </label>
+                                                    </td>
+
+                                                    <td><label class="input"> 
+                                                        <input type="text" value="{{tbld1['GO and NGO Involved']}}" required>
+                                                    </label>
+                                                    </td>
+
+                                                </tr>
+                                            </tbody>
+
+                                        </table>
+                                    </div>
+                                    <br>
                                     <div class="row">
-                                        <section class="col col-4">
-                                            <label class="label">Prefered By:</label>
-                                            <label class="input">
-                                                    <input type="text" ng-model="prefered_by" />
-                                                </label>
-                                            <label class="label">Designation:</label>
-                                            <label class="input">
-                                                    <input type="text" ng-model="prefered_by_designation" />
-                                                </label>
-                                        </section>
-                                        <section class="col col-4">
-                                            <label class="label">Certified True and Correct:</label>
-                                            <label class="input">
-                                                    <input type="text" ng-model="certified_by" />
-                                                </label>
-                                            <label class="label">Designation:</label>
-                                            <label class="input">
-                                                    <input type="text" ng-model="certified_by_designation" />
-                                                </label>
-                                        </section>
-                                        <section class="col col-4">
-                                            <label class="label">Submmitted By:</label>
-                                            <label class="input">
-                                                    <input type="text" ng-model="submmitted_by" />
-                                                </label>
-                                            <label class="label">Designation:</label>
-                                            <label class="input">
-                                                    <input type="text" ng-model="submmitted_by_designation" />
-                                                </label>
-                                        </section>
 
+                                        <section class="col col-4">
+                                            <label class="label">PROBLEM ENCOUNTER</label>
+                                            <label class="textarea">
+                                                <textarea  rows="3" ng-model="promblem_encounter"></textarea>
+                                            </label>
+                                        </section>
+                                        <section class="col col-4">
+                                            <label class="label">ACTION TAKEN</label>
+                                            <label class="textarea">
+                                                <textarea  rows="3" ng-model="action_taken"></textarea>
+                                            </label>
+                                        </section>
+                                        <section class="col col-4">
+                                            <label class="label">PLANS/RECOMMENDATION</label>
+                                            <label class="textarea">
+                                                <textarea  rows="3" ng-model="plans_reccommendation"></textarea>
+                                            </label>
+                                        </section>
                                     </div>
 
                                 </fieldset>
 
                                 <footer>
-                                    <button type="submit " class="btn btn-primary ">Update</button>
+                                    <button type="submit " class="btn btn-primary ">Submit</button>
                                 </footer>
                             </form>
 
@@ -488,7 +304,6 @@
                     <!-- end widget div -->
 
                 </div>
-                <!-- end widget -->
 
 
             </div>
