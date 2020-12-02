@@ -72,39 +72,39 @@
                                         <tr class="row_to_clone">
 
                                             <td class="col-md-6"><label class="input"> 
-                                                <input type="text" >
+                                                <input type="text" placeholder="Description">
                                             </label></td>
                                             </td>
 
                                             <td class="col-md-1"><label class="input"> 
-                                                <input type="text" >
+                                                <input type="text"  placeholder="Qty">
                                             </label></td>
                                             </td>
                                             <td class="col-md-1">
                                                 <label class="input "> 
-                                                    <input type="text"/>
+                                                    <input type="number" class="txt" autocomplete='off' placeholder="0.00"/>
                                                </label>
                                             </td>
 
                                             <td class="col-md-1"><label class="input"> 
-                                                <input type="text" >
+                                                <input type="text" autocomplete='off' placeholder="Qty">
                                             </label></td>
                                             </td>
                                             <td class="col-md-1">
 
                                                 <label class="input "> 
-                                                    <input type="text" name="amount" value="" class="txt2" autocomplete='off' />
+                                                    <input type="number"  class="txt2" autocomplete='off' placeholder="0.00"/>
                                                </label>
                                             </td>
 
                                             <td class="col-md-1"><label class="input"> 
-                                                <input type="text" >
+                                                <input type="text" placeholder="Qty">
                                             </label></td>
                                             </td>
                                             <td class="col-md-1">
 
                                                 <label class="input "> 
-                                                    <input type="text" name="amount" value="" class="txt3" autocomplete='off' />
+                                                    <input type="number"  class="txt3" autocomplete='off' placeholder="0.00"/>
                                                </label>
                                             </td>
                                         </tr>
@@ -139,12 +139,49 @@
                                     </tbody>
                                 </table>
                             </div>
+                            <br>
+                            <div class="row">
+                                <section class="col col-4">
+                                    <label class="label">Prepared By 1:</label>
+                                    <label class="input ">
+                                        <input type="text" ng-model="pban1" placeholder="FullName" required>
+                                    </label>
+                                    <br>
+                                    <label class="input ">
+                                        <input type="text" ng-model="pban1d" placeholder="Designation" required>
+                                    </label>
+
+                                </section>
+
+                                <section class="col col-4">
+                                    <label class="label">Prepared By 2:</label>
+                                    <label class="input ">
+                                        <input type="text" ng-model="pban2"  placeholder="FullName">
+                                    </label>
+                                    <br>
+                                    <label class="input ">
+                                        <input type="text" ng-model="pban2d" placeholder="Designation">
+                                    </label>
+                                </section>
+
+                                <section class="col col-4">
+                                    <label class="label">Submitted By:</label>
+                                    <label class="input ">
+                                        <input type="text" ng-model="sb1" id="sector" placeholder="FullName" required>
+                                    </label>
+                                    <br>
+                                    <label class="input ">
+                                        <input type="text" ng-model="sb1d" id="sector" placeholder="Designation" required>
+                                    </label>
+                                </section>
+
+                            </div>
 
 
                         </fieldset>
                         <br>
                         <footer>
-                            <button type="button " class="btn btn-primary " ng-click="printitna()">PRINT</button>
+                            <button type="button " class="btn btn-primary " ng-click="printitna()">Save</button>
                             <button type="button " class="btn btn-default " onclick="  window.location.href = '#'
                             window.location.href = '#cnsbdnew' ">Clear</button>
 

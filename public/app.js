@@ -210,7 +210,32 @@ angular
             .when('/ddornew', {
                 templateUrl: 'views/ddornew.html',
                 controller: "ddornewCtrl"
+            })
+            .when('/ecllist', {
+                templateUrl: 'views/ecllist.html',
+                controller: "ecllisttCtrl"
+            })
+            .when('/eclnew', {
+                templateUrl: 'views/eclnew.html',
+                controller: "eclnewCtrl"
+            })
+            .when('/docmlist', {
+                templateUrl: 'views/docmlist.html',
+                controller: "docmlistCtrl"
+            })
+            .when('/docmnew', {
+                templateUrl: 'views/docmnew.html',
+                controller: "docmnewCtrl"
+            })
+            .when('/esrlist', {
+                templateUrl: 'views/esrlist.html',
+                controller: "esrlistCtrl"
+            })
+            .when('/esrnew', {
+                templateUrl: 'views/esrlist.html',
+                controller: "esrnewCtrl"
             });
+
 
 
     });

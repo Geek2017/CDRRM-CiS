@@ -48,8 +48,18 @@ angular.module('newApp').controller('cnsbdchonewCtrl', function($scope) {
             date: datetoday,
             sector: sector,
             leadAgency: leadAgency,
-            peration: $scope.operation,
+            operation: $scope.operation,
             operationfor: operationfor,
+
+            pban1: $scope.pban1,
+            pban1d: $scope.pban1d,
+
+            pban2: $scope.pban2,
+            pban2d: $scope.pban2d,
+
+            sb1: $scope.sb1,
+            sb1d: $scope.sb1d,
+
             needs: withoutLast,
             total: $('#sum').text(),
             total2: $('#sum2').text(),
@@ -76,7 +86,7 @@ angular.module('newApp').controller('cnsbdchonewCtrl', function($scope) {
     });
     var cnt = 0;
     $scope.addtr = function() {
-        $("#appendhere").append(' <tr class="row_to_clone"> <td class="col-md-6"><label class="input"> <input type="text" > </label></td></td><td class="col-md-1"><label class="input"> <input type="text" > </label></td></td><td class="col-md-1"> <label class="input "> <input type="text"/> </label> </td><td class="col-md-1"><label class="input"> <input type="text" > </label></td></td><td class="col-md-1"> <label class="input "> <input type="text" name="amount" value="" class="txt2" /> </label> </td><td class="col-md-1"><label class="input"> <input type="text" > </label></td></td><td class="col-md-1"> <label class="input "> <input type="text" name="amount" value="" class="txt3" /> </label> </td></tr>');
+        $("#appendhere").append('<tr class="row_to_clone"> <td class="col-md-6"><label class="input"> <input type="text" placeholder="Description"> </label></td></td><td class="col-md-1"><label class="input"> <input type="text" placeholder="Qty"> </label></td></td><td class="col-md-1"> <label class="input "> <input type="number" class="txt" autocomplete="off" placeholder="0.00"/> </label> </td><td class="col-md-1"><label class="input"> <input type="text" autocomplete="off" placeholder="Qty"> </label></td></td><td class="col-md-1"> <label class="input "> <input type="number" class="txt2" autocomplete="off" placeholder="0.00"/> </label> </td><td class="col-md-1"><label class="input"> <input type="text" placeholder="Qty"> </label></td></td><td class="col-md-1"> <label class="input "> <input type="number" class="txt3" autocomplete="off" placeholder="0.00"/> </label> </td></tr>');
         cnt++;
         $('table thead th').each(function(i) {
 
