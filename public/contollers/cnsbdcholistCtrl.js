@@ -115,30 +115,77 @@ angular.module('newApp').controller('cnsbdcholistCtrl', function($firebaseArray,
 
 
     $scope.selectUser = function(users) {
-        document.getElementById("sum").innerHTML=users.total;
-        document.getElementById("sum2").innerHTML=users.total2;
-        document.getElementById("sum3").innerHTML=users.total3;
-        // console.log( users );
-        // console.log( $scope.cfs );
+        document.getElementById("sum").innerHTML = users.total;
+        document.getElementById("sum2").innerHTML = users.total2;
+        document.getElementById("sum3").innerHTML = users.total3;
+
 
         for (let index = 0; index < $scope.cfs.length; index++) {
             // console.log($scope.cfs[index].key)
             // console.log(users.key)
-            if(users.key == $scope.cfs[index].key){
+            if (users.key == $scope.cfs[index].key) {
                 // console.log($scope.cfs[index])
                 $scope.usersClicked = $scope.cfs[index];
                 // console.log($scope.usersClicked.needs)
             }
-            
+
         }
-        
-        
+
+
         $scope.clickedUser = users;
         id = users;
         // document.getElementById("editDateOfDecampment").value = users.dateOfDecampment;
         // document.getElementById("editDateOfEvacuation").value = users.dateOfEvacuation;
 
+        console.log($scope.clickedUser)
+
+
         $('#myModal').modal('show');
+    };
+
+
+
+
+    $scope.printit = function(users) {
+        document.getElementById("sum").innerHTML = users.total;
+        document.getElementById("sum2").innerHTML = users.total2;
+        document.getElementById("sum3").innerHTML = users.total3;
+
+
+        for (let index = 0; index < $scope.cfs.length; index++) {
+            // console.log($scope.cfs[index].key)
+            // console.log(users.key)
+            if (users.key == $scope.cfs[index].key) {
+                // console.log($scope.cfs[index])
+                $scope.usersClicked = $scope.cfs[index];
+                // console.log($scope.usersClicked.needs)
+            }
+
+        }
+
+
+        $scope.clickedUser = users;
+        id = users;
+        // document.getElementById("editDateOfDecampment").value = users.dateOfDecampment;
+        // document.getElementById("editDateOfEvacuation").value = users.dateOfEvacuation;
+
+        console.log($scope.clickedUser.operationfor)
+
+
+        $('#printit').modal('show');
+
+
+        $('#fter').hide()
+        setTimeout(function() {
+
+            printJS({
+                printable: 'newcfp',
+                type: 'html',
+                targetStyles: ['*'],
+                maxWidth: 'auto'
+            })
+        }, 2000);
+        // $('#printit').modal('hide');
     };
 
     $scope.selectUser2 = function(users) {
@@ -160,29 +207,29 @@ angular.module('newApp').controller('cnsbdcholistCtrl', function($firebaseArray,
         var ref2 = firebase.database().ref("/cho/rne/" + id.$id);
         ref2.update({
             schoolID: $('#schoolID').val(),
-                school: $('#school').val(),
-                region: $('#region').val(),
-                division: $('#division').val(),
-                district: $('#district').val(),
-                municipality: $('#municipality').val(),
-                enrollment: $('#enrollment').val(),
-                totalSchool: $('#totalSchool').val(),
-                schoolWithInfraDamage: $('#schoolWithInfraDamage').val(),
-                totalDamageClassroom: $('#totalDamageClassroom').val(),
-                partialDamageClassMajor: $('#partialDamageClassMajor').val(),
-                partialDamageClassMinor: $('#partialDamageClassMinor').val(),
-                temporaryLearning: $('#temporaryLearning').val(),
-                deceasedPersonnel: $('#deceasedPersonnel').val(),
-                injuredPersonnel: $('#injuredPersonnel').val(),
-                missingPersonnel: $('#missingPersonnel').val(),
-                displacedPersonnel: $('#displacedPersonnel').val(),
-                totalEvacSchool: $('#totalEvacSchool').val(),
-                ECLasted: $('#ECLasted').val(),
-                totalSchoolReport: $('#totalSchoolReport').val(),
-                schoolWithNonInfraDamage: $('#schoolWithNonInfraDamage').val(),
-                damagedSchoolFurnitures: $('#damagedSchoolFurnitures').val(),
-                damagedLearningMaterials: $('#damagedLearningMaterials').val(),
-                damagedComputerEquipment: $('#damagedComputerEquipment').val()
+            school: $('#school').val(),
+            region: $('#region').val(),
+            division: $('#division').val(),
+            district: $('#district').val(),
+            municipality: $('#municipality').val(),
+            enrollment: $('#enrollment').val(),
+            totalSchool: $('#totalSchool').val(),
+            schoolWithInfraDamage: $('#schoolWithInfraDamage').val(),
+            totalDamageClassroom: $('#totalDamageClassroom').val(),
+            partialDamageClassMajor: $('#partialDamageClassMajor').val(),
+            partialDamageClassMinor: $('#partialDamageClassMinor').val(),
+            temporaryLearning: $('#temporaryLearning').val(),
+            deceasedPersonnel: $('#deceasedPersonnel').val(),
+            injuredPersonnel: $('#injuredPersonnel').val(),
+            missingPersonnel: $('#missingPersonnel').val(),
+            displacedPersonnel: $('#displacedPersonnel').val(),
+            totalEvacSchool: $('#totalEvacSchool').val(),
+            ECLasted: $('#ECLasted').val(),
+            totalSchoolReport: $('#totalSchoolReport').val(),
+            schoolWithNonInfraDamage: $('#schoolWithNonInfraDamage').val(),
+            damagedSchoolFurnitures: $('#damagedSchoolFurnitures').val(),
+            damagedLearningMaterials: $('#damagedLearningMaterials').val(),
+            damagedComputerEquipment: $('#damagedComputerEquipment').val()
         })
 
         .catch(function(error) {
@@ -208,14 +255,14 @@ angular.module('newApp').controller('cnsbdcholistCtrl', function($firebaseArray,
     $scope.deleteUser = function() {
         var ref = firebase.database().ref("/cho/cnsbd/" + id.key);
         ref.remove()
-        .catch(function(error) {
-            console.log("Login Failed!", error.message);
-            $("#notif").append('<div class="alert alert-danger fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Error</strong> ' + error.message + '</div>');
-            setTimeout(function() {
-                $("#notif").hide()
-            }, 1500);
+            .catch(function(error) {
+                console.log("Login Failed!", error.message);
+                $("#notif").append('<div class="alert alert-danger fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Error</strong> ' + error.message + '</div>');
+                setTimeout(function() {
+                    $("#notif").hide()
+                }, 1500);
 
-        });;
+            });;
 
         // $("#notif").show();
         // window.location.href = "#ecdlist";
@@ -292,7 +339,7 @@ angular.module('newApp').controller('cnsbdcholistCtrl', function($firebaseArray,
 
         var updates = {};
         // console.log(id.key);
-        updates['/cho/cnsbd/'  + id.key] = data;
+        updates['/cho/cnsbd/' + id.key] = data;
         firebase.database().ref().update(updates);
         console.log(updates)
 
@@ -311,7 +358,7 @@ angular.module('newApp').controller('cnsbdcholistCtrl', function($firebaseArray,
     });
 
 
-        var cnt = 0;
+    var cnt = 0;
     $scope.addtr = function() {
         $("#appendhere").append(' <tr><td> <label class="input"> <input type="text" name="particulars"  placeholder="" required></label></td><td><label class="input"> <input type="text" name="remarks3" placeholder=""></label></td></td><td class="col-md-2"><label class="input col-md-10"><input type="text" name="amount" value="" class="txt" autocomplete="off" /></label></td><td><label class="input"> <input type="text" name="remarks2" placeholder=""></label></td></td><td class="col-md-2"><label class="input col-md-10"> <input type="text" name="amount2" value="" class="txt2" autocomplete="off" /></label></td><td><label class="input"> <input type="text" name="remarks" placeholder=""></label></td></td><td class="col-md-2"><label class="input col-md-10"> <input type="text" name="amount3" value="" class="txt3" autocomplete="off" /></label> <label class="input col-md-1"> <button class="btn btn-danger btn-sm deleteb">X</button></label></td></tr>');
         cnt++;

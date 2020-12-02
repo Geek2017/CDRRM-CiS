@@ -63,6 +63,30 @@ th {
     }
 }
 
+@media (min-width:411px) {
+    .analytics {
+        visibility: hidden;
+    }
+}
+
+@media (min-width:360px) {
+    .analytics {
+        visibility: hidden;
+    }
+}
+
+@media (min-width:320x) {
+    .analytics {
+        visibility: hidden;
+    }
+}
+
+@media (min-width:375px) {
+    .analytics {
+        visibility: hidden;
+    }
+}
+
 td {
     max-width: 150px;
     max-height: 150px;
@@ -70,6 +94,6 @@ td {
 
 table td,
 table th {
-    font-size: 9.5px;
+    font-size: 12px;
     text-align: center;
 }

@@ -36,7 +36,8 @@ angular.module('newApp').controller('cnsbdcswdonewCtrl', function($scope) {
         var orno = $scope.ornum;
         var sector = $scope.sector;
         var leadAgency = $scope.leadAgency;
-        var location = $scope.location;
+        var operation = $scope.operation;
+        var operationfor = $scope.operationfor;
 
 
 
@@ -47,7 +48,7 @@ angular.module('newApp').controller('cnsbdcswdonewCtrl', function($scope) {
             date: datetoday,
             sector: sector,
             leadAgency: leadAgency,
-            location: location,
+            operationfor: operationfor,
             needs: withoutLast,
             total: $('#sum').text(),
             total2: $('#sum2').text(),
@@ -55,7 +56,7 @@ angular.module('newApp').controller('cnsbdcswdonewCtrl', function($scope) {
         }
 
         var updates = {};
-        updates['/cswdo/cnsbd/'  + uid] = data;
+        updates['/cswdo/cnsbd/' + uid] = data;
         firebase.database().ref().update(updates);
         console.log(updates)
 
@@ -74,7 +75,7 @@ angular.module('newApp').controller('cnsbdcswdonewCtrl', function($scope) {
     });
     var cnt = 0;
     $scope.addtr = function() {
-        $("#appendhere").append(' <tr><td> <label class="input"> <input type="text" name="particulars"  placeholder="" required></label></td><td><label class="input"> <input type="text" name="remarks3" placeholder=""></label></td></td><td class="col-md-2"><label class="input col-md-10"><input type="text" name="amount" value="" class="txt" autocomplete="off" /></label></td><td><label class="input"> <input type="text" name="remarks2" placeholder=""></label></td></td><td class="col-md-2"><label class="input col-md-10"> <input type="text" name="amount2" value="" class="txt2" autocomplete="off" /></label></td><td><label class="input"> <input type="text" name="remarks" placeholder=""></label></td></td><td class="col-md-2"><label class="input col-md-10"> <input type="text" name="amount3" value="" class="txt3" autocomplete="off" /></label> <label class="input col-md-1"> <button class="btn btn-danger btn-sm deleteb">X</button></label></td></tr>');
+        $("#appendhere").append("<tr class='row_to_clone'> <td lass='col-md-3'> <label class='textarea'> <textarea rows='3' required></textarea> </label></td><td class='col-md-2'><label class='input'> <input type='text' name='remarks' placeholder=''> </label></td></td><td class='col-md-2'> <label class='input '> <input type='text' name='amount' value='' class='txt' autocomplete='off'/> </label> </td><td class='col-md-2'><label class='input'> <input type='text' name='remarks' placeholder=''> </label></td></td><td class='col-md-1'> <label class='input '> <input type='text' name='amount' value='' class='txt2' autocomplete='off'/> </label> </td><td class='col-md-1'><label class='input'> <input type='text' name='remarks' placeholder=''> </label></td></td><td class='col-md-1'> <label class='input '> <input type='text' name='amount' value='' class='txt3' autocomplete='off'/> </label> </td></tr>");
         cnt++;
         $('table thead th').each(function(i) {
 
@@ -164,7 +165,7 @@ angular.module('newApp').controller('cnsbdcswdonewCtrl', function($scope) {
     });
 
 
-    
 
-   
+
+
 });
