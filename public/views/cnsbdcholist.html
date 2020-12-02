@@ -1,9 +1,52 @@
 <style>
-    th {
-        background-color: #57889c !important;
-        color: white;
+    #table-example-1 {
+        border: solid thin black;
+        border-collapse: collapse;
+        color: #000;
+    }
+    
+    #table-example-1 caption {
+        padding-bottom: 0.5em;
+    }
+    
+    #table-example-1 th,
+    #table-example-1 td {
+        border: solid thin black;
+        padding: 0.5rem 2rem;
+        color: #000;
+    }
+    
+    #table-example-1 td {
+        white-space: nowrap;
+    }
+    
+    #table-example-1 th {
+        font-weight: normal;
+    }
+    
+    #table-example-1 td {
+        border-style: solid thin black;
+        vertical-align: top;
+        color: #000;
+        font-family: Arial, Helvetica, sans-serif!important;
+        font-size: 18px!important;
+    }
+    
+    #table-example-1 th {
+        padding: 0.2em;
+        vertical-align: middle;
+        text-align: center;
+    }
+    
+    #table-example-1 tbody td:first-child::after {
+        content: leader(". ");
+    }
+    
+    tr.child_row td {
+        padding-left: 20px;
     }
 </style>
+
 <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
 
     <!-- Widget ID (each widget will need unique ID)-->
@@ -21,7 +64,7 @@
         -->
         <header>
             <span class="widget-icon"> <i class="fa fa-table"></i> </span>
-            <h2>Accounts</h2>
+            <h2>CLUSTER NEEDS THAT SHOULD TO BE DOWNLOADED TO THE LOCAL UNIT</h2>
 
         </header>
 
@@ -50,94 +93,46 @@
 
                 <div id="notif"></div>
                 <thead>
-
-                    <tr>
-                        <th colspan="5" class="text-center">Location and Description of needs/items </th>
-                        <th colspan="2" class="text-center">On the First 30 days </th>
-                        <th colspan="2" class="text-center">On the Second 30 days </th>
-                        <th colspan="3" class="text-center">On the Third 30 days </th>
-                        <!-- <th colspan=""></th> -->
-
-                    </tr>
                     <tr>
 
                         <th>Date</th>
                         <th>Sector/Cluster</th>
                         <th>Cluster Lead Agency</th>
-                        <th>Location</th>
-                        <th>Needs</th>
-                        <th>Quantity</th>
-                        <th>Total Cost</th>
-                        <th>Quantity</th>
-                        <th>Total Cost</th>
-                        <th>Quantity</th>
-                        <th>Total Cost</th>
-                        <th>Action</th>
-                        <!-- <th>Amount</th> -->
+                        <th>Operation Name</th>
+                        <th>Evacuation Center</th>
+                        <th colspan="3">Controls</th>
                     </tr>
                 </thead>
                 <tbody ng-repeat="cf in cfs  | filter: findcf">
 
-                    <!-- <th colspan="6" class=""></th>
-                    <th colspan="4">Action</th> -->
-                    <th colspan="11"></th>
-                    <th colspan="1">
-                        <div class="btn-group btn-group-sm text-center">
-                            <button type="button" class="btn btn-success " ng-click="selectUser(cf)"><i
-                                    class="fa fa-pencil"></i></button>
 
-                            <button type="button" class="btn btn-danger" ng-click="selectUser2(cf)"><i
-                                    class="fa fa-minus-circle"></i></button>
-                        </div>
-                    </th>
 
-                    <tr ng-repeat="ncf in cf.needs ">
-                        <td>{{cf.date}}</td>
-                        <td>{{cf.sector}}</td>
-                        <td>{{cf.leadAgency}}</td>
-                        <td>{{cf.location}}</td>
-                        <td>{{ncf['Description of Needs']}}</td>
-                        <td> {{ncf['First 30 Days Quantity']}}</td>
-                        <td> {{ncf['First 30 Days Total Cost']}}</td>
-                        <td> {{ncf['Second 30 Days Quantity']}}</td>
-                        <td> {{ncf['Second 30 Days Total Cost']}}</td>
-                        <td> {{ncf['Third 30 Days Quantity']}}</td>
-                        <td colspan="2" class="text-center"> {{ncf['Third 30 Days Total Cost']}}</td>
-                        <!-- <td></td> -->
-                        <!-- <td></td> -->
-                        <!-- <td><button type="button" class="btn btn-info btn-block btn-xs " ng-click="selectUser3(data)"><i class="icon-append fa fa-search"></i></button></td> -->
-                        <!-- <td><button type="button" class="btn btn-success btn-block btn-xs " ng-click="selectUser(cf)"><i
-                                    class="icon-append fa fa-pencil"></i></button></td>
-                        <td><button type="button" class="btn btn-danger btn-block btn-xs " ng-click="selectUser2(cf)"><i
-                                    class="icon-append fa fa-minus-circle"></i></button></td> -->
-                        <!-- <td>{{ncf.Amount | currency : '₱ ' : 2}}</td> -->
-                    </tr>
-                    <tr style="background-color: #57889c!important;
-                    color: white;">
-                        <td colspan="5"></td>
+                    <td>{{cf.date}}</td>
+                    <td>{{cf.sector}}</td>
+                    <td>{{cf.leadAgency}}</td>
+                    <td>{{cf.peration}}</td>
+                    <td>{{cf.operationfor}}</td>
+                    <td class="col col-4">
 
-                        <td><strong>Total:</strong> </td>
-                        <td><strong> {{cf.total | currency : '₱ ' : 2}} </strong></td>
-                        <td></td>
-                        <td><strong> {{cf.total2 | currency : '₱ ' : 2}} </strong></td>
-                        <td></td>
-                        <td><strong> {{cf.total3 | currency : '₱ ' : 2}} </strong></td>
-                        <td></td>
+                        <button type="button" class="btn  btn-block btn-success " ng-click="selectUser(cf)"><i
+                class="fa fa-pencil"></i> Edit</button>
+                    </td>
+                    <td class="col col-4">
 
-                    </tr>
+                        <button type="button" class="btn btn-block btn-info" ng-click="printit(cf)"><i
+                    class="fa fa-print"></i> Print</button>
+                    </td>
+                    <td class="col col-4">
+
+                        <button type="button" class="btn btn-block btn-danger" ng-click="selectUser2(cf)"><i
+                class="fa fa-minus-circle"></i> Delete</button>
+
+                    </td>
+
+
 
                 </tbody>
-                <!-- <tr style="background-color:#57889c!important;
-                color: white;">
-                    <td colspan="7"></td>
 
-                    <td>
-                        <h5 class="text-center">Total Cash & Check Receipts for the Day:</h5>
-                    </td>
-                    <td>
-                        <h6>{{tcol | currency : '₱ ' : 2}} </h6>
-                    </td>
-                </tr> -->
 
 
             </table>
@@ -177,25 +172,30 @@
 
                     <fieldset>
                         <div class="row">
-                            <section class="col col-4">
+                            <section class="col col-6">
+                                <label class="label">Operation Name</label>
+                                <label class="input ">
+                                    <input type="text" ng-model="clickedUser.peration" id="operation" required>
+                                </label>
+                            </section>
+                            <section class="col col-6">
                                 <label class="label">Sector/Cluster</label>
                                 <label class="input ">
                                     <input type="text" ng-model="clickedUser.sector" id="sector" required>
                                 </label>
                             </section>
-                            <section class="col col-4">
+                            <section class="col col-6">
                                 <label class="label">Cluster Lead Agency</label>
                                 <label class="input ">
-                                    <input type="text" ng-model="clickedUser.leadAgency" id="leadAgency" required>
+                                    <input type="text"  ng-model="clickedUser.leadAgency" id="leadAgency" required>
                                 </label>
                             </section>
-                            <section class="col col-4">
-                                <label class="label">Location </label>
+                            <section class="col col-6">
+                                <label class="label">Operation For</label>
                                 <label class="input ">
-                                    <input type="text" ng-model="clickedUser.location" id="location" required>
+                                    <input type="text"  ng-model="clickedUser.operationfor" id="operationfor"required>
                                 </label>
                             </section>
-
                         </div>
 
                         <div class="panel-body ">
@@ -203,6 +203,8 @@
                             <div class="btn-group btn-group-sm pull-right">
                                 <button type="button" class="btn btn-success " ng-click="addtr()"><i
                                         class="fa fa-plus-circle"></i></button>
+
+
 
                                 <button type="button" class="btn btn-danger" ng-click="removetr()"><i
                                         class="fa fa-minus-circle"></i></button>
@@ -352,6 +354,135 @@
                 <button type="button" class="btn btn-danger" ng-click="deleteUser()">Yes</button>
             </div>
 
+
+        </div>
+
+    </div>
+</div>
+
+
+<div id="printit" class="modal fade" role="dialog">
+    <div class="modal-dialog" style="width: 100%;height: 100%; ">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Preview</h4>
+            </div>
+
+            <div class="modal-body">
+
+
+                <form class="smart-form " id="newcfp">
+                    <header class="text-center">
+
+                        <h6>Republic of the Philipines</h6>
+                        <h6>CITY GOVERNMENT OF LEGAZPI</h6>
+                        <br>
+                        <h5>{{clickedUser.peration}} </h5>
+                        CLUSTER NEEDS THAT SHOULD TO BE DOWNLOADED TO THE LOCAL UNIT
+
+                    </header>
+
+                    <fieldset>
+                        <div class="panel-body">
+                            <caption> SECTOR/CLUSTER: <u>{{clickedUser.sector}} </u> </caption> <br>
+                            <caption> CLUSTER LEAD AGENCY: <u>{{clickedUser.leadAgency}}</u> </caption><br><br>
+                        </div>
+
+                        <div class="panel-body ">
+
+                            <table id="table-example-1" width="100%">
+
+                                <thead>
+                                    <tr>
+                                        <th rowspan="2">Description of Needs</th>
+
+                                        <th class="text-center " colspan="2">On The First 30 Days</th>
+                                        <th class="text-center " colspan="2">On The Second Days</th>
+                                        <th class="text-center " colspan="2">On The Third 30 Days</th>
+                                    </tr>
+                                    <tr>
+
+                                        <th class="text-center">First 30 Days Quantity</th>
+                                        <th class="text-center">First 30 Days Total Cost</th>
+                                        <th class="text-center">Second 30 Days Quantity</th>
+                                        <th class="text-center">Second 30 Days Total Cost</th>
+                                        <th class="text-center">Third 30 Days Quantity</th>
+                                        <th class="text-center ">Third 30 Days Total Cost</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="text-left" colspan="7">
+                                            <strong> {{clickedUser.operationfor}}</strong>
+                                        </td>
+                                    </tr>
+                                    <tr ng-repeat="ncf in usersClicked.needs">
+
+                                        <td class="text-left col-md-3 ">
+                                            &nbsp; &nbsp;&nbsp;&nbsp; {{ncf['Description of Needs']}}
+                                        </td>
+                                        <td class="col-md-1">
+                                            {{ncf['First 30 Days Quantity']}}
+                                        </td>
+                                        <td class="col-md-1">
+                                            {{ncf['First 30 Days Total Cost'] | currency:"₱ " :2}}
+                                        </td>
+
+                                        <td class="col-md-1">
+                                            {{ncf['Second 30 Days Quantity']}}
+                                        </td>
+                                        <td class="col-md-1">
+                                            {{ncf['Second 30 Days Total Cost'] | currency:"₱ " :2}}
+                                        </td>
+
+                                        <td class="col-md-1">
+                                            {{ncf['Third 30 Days Quantity']}}
+                                        </td>
+                                        <td class="col-md-1">
+                                            {{ncf['Third 30 Days Total Cost'] | currency:"₱ ": 2}}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <h4>Total</h4>
+                                        </td>
+                                        <td></td>
+                                        <td>
+                                            {{clickedUser.total | currency:"₱ ": 2}}
+                                        </td>
+                                        <td></td>
+                                        <td>
+                                            {{clickedUser.total2 | currency:"₱ ": 2}}
+                                        </td>
+                                        <td></td>
+                                        <td>
+                                            {{clickedUser.total3 | currency:"₱ ": 2}}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+
+
+                        </div>
+
+
+                    </fieldset>
+                    <br>
+                    <footer id="fter">
+                        <button type="button " class="btn btn-primary " ng-click="printitna();">Print</button>
+                        <button type="button " class="btn btn-default " data-dismiss="modal">Close</button>
+
+                    </footer>
+                </form>
+
+            </div>
 
         </div>
 
