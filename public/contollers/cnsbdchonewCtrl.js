@@ -33,7 +33,7 @@ angular.module('newApp').controller('cnsbdchonewCtrl', function($scope) {
         // [$scope.tojson(obj)];
 
         var uid = firebase.database().ref().child('cho/cnsbd').push().key;
-        var orno = $scope.ornum;
+
         var sector = $scope.sector;
         var leadAgency = $scope.leadAgency;
         var operation = $scope.operation;
