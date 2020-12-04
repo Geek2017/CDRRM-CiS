@@ -73,8 +73,7 @@
         -->
         <header>
             <span class="widget-icon"> <i class="fa fa-table"></i> </span>
-            <h2>(DEPED) CLUSTER NEEDS THAT SHOULD TO BE DOWNLOADED TO THE LOCAL UNIT</h2>
-
+            <h2>EVACUATION CENTER LOG OF ISSUES/CONCERNS AND ACTION TAKEN</h2>
         </header>
 
         <!-- widget div-->
@@ -96,22 +95,21 @@
                     <tr>
                         <th>#</th>
                         <th>Date</th>
-                        <th>Sector/Cluster</th>
-                        <th>Cluster Lead Agency</th>
-                        <th>Operation Name</th>
                         <th>Evacuation Center</th>
+                        <th>Issue and Concern</th>
+                        <th>Action Taken</th>
+                        <th>Log By</th>
                         <th colspan="3">Controls</th>
                     </tr>
                 </thead>
                 <tbody ng-repeat="cf in cfs  | startFrom:currentPage*pageSize | limitTo:pageSize |filter:findcf">
 
                     <td>{{$index+1}}</td>
-
                     <td>{{cf.date}}</td>
-                    <td>{{cf.sector}}</td>
-                    <td>{{cf.leadAgency}}</td>
-                    <td>{{cf.operation}}</td>
-                    <td>{{cf.operationfor}}</td>
+                    <td>{{cf.ecs}}</td>
+                    <td>{{cf.iacs}}</td>
+                    <td>{{cf.ats}}</td>
+                    <td>{{cf.lbs}}</td>
                     <td class="col col-4">
 
                         <button type="button" class="btn  btn-block btn-success " ng-click="selectUser(cf)"><i
@@ -128,8 +126,6 @@
                 class="fa fa-minus-circle"></i> Delete</button>
 
                     </td>
-
-
 
                 </tbody>
 
@@ -164,190 +160,60 @@
         <div class="modal-content">
 
             <div class="modal-header">
-                <button type="button" class="close" ng-click="delAppend()">&times;</button>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title">Edit Info.</h4>
             </div>
 
             <div class="modal-body">
 
-
                 <form class="smart-form " id="newcf">
                     <header>
-                        (DEPED) Cluster Needs that Should Be Downloaded to the Local Government Unit
+                        <h2>EVACUATION CENTER LOG OF ISSUES/CONCERNS AND ACTION TAKEN</h2>
                     </header>
 
                     <fieldset>
                         <div class="row">
-                            <section class="col col-6">
-                                <label class="label">Operation Name</label>
+                            <section class="col col-4">
+                                <label class="label">Date Log</label>
                                 <label class="input ">
-                                    <input type="text" ng-model="clickedUser.operation"  required>
+                                    <input type="text" ng-model="date"  readonly>
                                 </label>
                             </section>
-                            <section class="col col-6">
-                                <label class="label">Sector/Cluster</label>
+                            <section class="col col-4">
+                                <label class="label">Log By</label>
                                 <label class="input ">
-                                    <input type="text" ng-model="clickedUser.sector" required>
+                                    <input type="text" ng-model="lbs" placeholder="Full Name" required>
                                 </label>
                             </section>
-                            <section class="col col-6">
-                                <label class="label">Cluster Lead Agency</label>
+                            <section class="col col-4">
+                                <label class="label">Evacuation Center</label>
                                 <label class="input ">
-                                    <input type="text"  ng-model="clickedUser.leadAgency"  required>
-                                </label>
-                            </section>
-                            <section class="col col-6">
-                                <label class="label">Operation For</label>
-                                <label class="input ">
-                                    <input type="text"  ng-model="clickedUser.operationfor" required>
+                                    <input type="text" ng-model="ecs"  placeholder="Evacuation Center" required>
                                 </label>
                             </section>
                         </div>
 
-                        <div class="panel-body ">
-
-                            <div class="btn-group btn-group-sm pull-right">
-                                <button type="button" class="btn btn-success " ng-click="addtr()"><i
-                                        class="fa fa-plus-circle"></i></button>
-
-
-
-                                <button type="button" class="btn btn-danger" ng-click="removetr()"><i
-                                        class="fa fa-minus-circle"></i></button>
-                            </div>
-                            <br>
-                            <br>
-                            <table id="convert-table" class="table table-striped table-bordered table-hover" width="100%">
-                                <thead>
-                                    <tr>
-                                        <th class="text-center th">Description of Needs</th>
-                                        <th class="text-center th">First 30 Days Quantity</th>
-                                        <th class="text-center th">First 30 Days Total Cost</th>
-                                        <th class="text-center th">Second 30 Days Quantity</th>
-                                        <th class="text-center th">Second 30 Days Total Cost</th>
-                                        <th class="text-center th">Third 30 Days Quantity</th>
-                                        <th class="text-center th">Third 30 Days Total Cost</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="appendhere">
-                                    <tr ng-repeat="ncf in usersClicked.needs ">
-
-                                        <td class="col-md-6"> <label class="input">
-                                                <input type="text" name="particulars" placeholder=""
-                                                    ng-model="ncf['Description of Needs']" required> 
-                                                
-                                            </label></td>
-                                        <td class="col-md-1"><label class="input">
-                                                <input type="text" name="remarks" placeholder="" ng-model="ncf['First 30 Days Quantity']">
-                                            </label></td>
-                                        </td>
-                                        <td class="col-md-1">
-
-                                            <label class="input ">
-                                                <input type="text" name="amount" value="" class="txt" ng-model="ncf['First 30 Days Total Cost']"
-                                                    autocomplete='off' />
-                                            </label>
-                                        </td>
-
-                                        <td class="col-md-1"><label class="input">
-                                                <input type="text" name="remarks" placeholder="" ng-model="ncf['Second 30 Days Quantity']">
-                                            </label></td>
-                                        </td>
-                                        <td class="col-md-1">
-
-                                            <label class="input ">
-                                                <input type="text" name="amount" value="" class="txt2" ng-model="ncf['Second 30 Days Total Cost']"
-                                                    autocomplete='off' />
-                                            </label>
-                                        </td>
-
-                                        <td class="col-md-1"><label class="input">
-                                                <input type="text" name="remarks" placeholder="" ng-model="ncf['Third 30 Days Quantity']">
-                                            </label></td>
-                                        </td>
-                                        <td class="col-md-1">
-
-                                            <label class="input ">
-                                                <input type="text" name="amount" value="" class="txt3" ng-model="ncf['Third 30 Days Total Cost']"
-                                                    autocomplete='off' />
-                                            </label>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <h4>Total</h4>
-                                        </td>
-                                        <td></td>
-                                        <td>
-                                            <h4><label class="input">
-                                                    <span id="sum">0.00</span>
-
-                                                </label></h4>
-                                        </td>
-                                        <td></td>
-                                        <td>
-                                            <h4><label class="input">
-                                                    <span id="sum2">0.00</span>
-
-                                                </label></h4>
-                                        </td>
-                                        <td></td>
-                                        <td>
-                                            <h4><label class="input">
-                                                    <span id="sum3">0.00</span>
-
-                                                </label></h4>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <br>
                         <div class="row">
-                            <section class="col col-4">
-                                <label class="label">Prepared By 1:</label>
-                                <label class="input ">
-                                    <input type="text" ng-model="clickedUser.pban1" placeholder="FullName" required>
-                                </label>
-                                <br>
-                                <label class="input ">
-                                    <input type="text" ng-model="clickedUser.pban1d" placeholder="Designation" required>
-                                </label>
-
-                            </section>
-
-                            <section class="col col-4">
-                                <label class="label">Prepared By 2:</label>
-                                <label class="input ">
-                                    <input type="text" ng-model="clickedUser.pban2"  placeholder="FullName">
-                                </label>
-                                <br>
-                                <label class="input ">
-                                    <input type="text" ng-model="clickedUser.pban2d" placeholder="Designation">
+                            <section class="col col-6">
+                                <label class="label">Issue and Concern</label>
+                                <label class="textarea">
+                                    <textarea ng-model="iacs" cols="3" ></textarea>
                                 </label>
                             </section>
-
-                            <section class="col col-4">
-                                <label class="label">Submitted By:</label>
-                                <label class="input ">
-                                    <input type="text" ng-model="clickedUser.sb1" id="sector" placeholder="FullName" required>
-                                </label>
-                                <br>
-                                <label class="input ">
-                                    <input type="text" ng-model="clickedUser.sb1d" id="sector" placeholder="Designation" required>
+                            <section class="col col-6">
+                                <label class="label">Action Taken</label>
+                                <label class="textarea">
+                                    <textarea ng-model="ats" cols="3" ></textarea>
                                 </label>
                             </section>
 
                         </div>
+
 
                     </fieldset>
                     <br>
                     <footer>
-                        <button type="submit " class="btn btn-primary ">Update</button>
-                        <button type="button " class="btn btn-default " data-dismiss="modal">Close</button>
-
+                        <button type="button " class="btn btn-primary " ng-click="printitna()">Update</button>
                     </footer>
                 </form>
 
@@ -373,8 +239,8 @@
             <div class="modal-body">
 
 
-                <p>You want to delete <strong style="color: red;">{{clickedUser.leadAgency}}</strong>'s infomation?
-                    <strong style="color: red;">{{clickedUser.municipality}} {{clickedUser.division}}</strong>?</p>
+                <p>You want to delete <strong style="color: red;">{{clickedUser.ecs}}</strong>'s infomation?
+                    <strong style="color: red;">{{clickedUser.iacs}}</strong>?</p>
 
             </div>
 
