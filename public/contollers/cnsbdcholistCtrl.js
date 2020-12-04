@@ -4,6 +4,19 @@ angular.module('newApp').controller('cnsbdcholistCtrl', function($firebaseArray,
 
     var id;
 
+    $scope.currentPage = 0;
+    $scope.pageSize = 5;
+    $scope.data = [];
+
+    $scope.numberOfPages = () => {
+        return Math.ceil(
+            $scope.data.length / $scope.pageSize
+        );
+    }
+
+    for (var i = 0; i < 10; i++) {
+        $scope.data.push(`Question number ${i}`);
+    }
 
     firebase.database().ref('/cho/cnsbd/').orderByChild('uid').on("value", function(snapshot) {
 
@@ -144,8 +157,6 @@ angular.module('newApp').controller('cnsbdcholistCtrl', function($firebaseArray,
     };
 
 
-
-
     $scope.printit = function(users) {
         document.getElementById("sum").innerHTML = users.total;
         document.getElementById("sum2").innerHTML = users.total2;
@@ -281,8 +292,6 @@ angular.module('newApp').controller('cnsbdcholistCtrl', function($firebaseArray,
         $('#myModal2').modal('hide');
         $('#myModal3').modal('hide');
     };
-
-
 
     var obj;
     $scope.tojson = function(obj) {
@@ -464,4 +473,9 @@ angular.module('newApp').controller('cnsbdcholistCtrl', function($firebaseArray,
         calculateSum3();
     });
 
-});
+}).filter('startFrom', function() {
+    return (input, start) => {
+        start = +start;
+        return input.slice(start);
+    }
+})

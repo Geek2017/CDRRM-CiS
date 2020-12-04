@@ -1,5 +1,8 @@
 angular.module('newApp').controller('rhalistCtrl', function($scope, $http, $timeout) {
 
+    pageSetUp();
+    var id;
+
 
     $scope.currentPage = 0;
     $scope.pageSize = 5;
@@ -31,8 +34,6 @@ angular.module('newApp').controller('rhalistCtrl', function($scope, $http, $time
         });
     }
 
-    pageSetUp();
-    var id;
 
 
     firebase.database().ref('/cho/rha/').orderByChild('uid').on("value", function(snapshot) {
@@ -501,9 +502,6 @@ angular.module('newApp').controller('rhalistCtrl', function($scope, $http, $time
 
     });
 
-
-
-
     (function() {
         window.requestAnimFrame = (function(callback) {
             return window.requestAnimationFrame ||
@@ -639,8 +637,6 @@ angular.module('newApp').controller('rhalistCtrl', function($scope, $http, $time
         }, false);
 
     })();
-
-
 
 }).filter('startFrom', function() {
     return (input, start) => {
