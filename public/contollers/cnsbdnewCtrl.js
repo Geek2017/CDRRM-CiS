@@ -6,7 +6,7 @@ angular.module('newApp').controller('cnsbdnewCtrl', function($scope) {
         var table = $('#convert-table').tableToJSON({
 
             extractor: function(cellIndex, $cell) {
-                return $cell.find('input').val() || $cell.find("#type option:selected").text();
+                return $cell.find('input').val() || $cell.text() || $cell.find('.textarea').val();
             }
 
 
@@ -32,11 +32,12 @@ angular.module('newApp').controller('cnsbdnewCtrl', function($scope) {
         var newobj = $scope.tojson(obj);
         // [$scope.tojson(obj)];
 
-        var uid = firebase.database().ref().child('deped/cnsbd').push().key;
-        var orno = $scope.ornum;
+        var uid = firebase.database().ref().child('/deped/cnsbd').push().key;
+
         var sector = $scope.sector;
         var leadAgency = $scope.leadAgency;
-        var location = $scope.location;
+        var operation = $scope.operation;
+        var operationfor = $scope.operationfor;
 
 
 
@@ -47,7 +48,18 @@ angular.module('newApp').controller('cnsbdnewCtrl', function($scope) {
             date: datetoday,
             sector: sector,
             leadAgency: leadAgency,
-            location: location,
+            operation: $scope.operation,
+            operationfor: operationfor,
+
+            pban1: $scope.pban1,
+            pban1d: $scope.pban1d,
+
+            pban2: $scope.pban2,
+            pban2d: $scope.pban2d,
+
+            sb1: $scope.sb1,
+            sb1d: $scope.sb1d,
+
             needs: withoutLast,
             total: $('#sum').text(),
             total2: $('#sum2').text(),
@@ -55,7 +67,7 @@ angular.module('newApp').controller('cnsbdnewCtrl', function($scope) {
         }
 
         var updates = {};
-        updates['/deped/cnsbd/'  + uid] = data;
+        updates['/deped/cnsbd/' + uid] = data;
         firebase.database().ref().update(updates);
         console.log(updates)
 
@@ -74,7 +86,7 @@ angular.module('newApp').controller('cnsbdnewCtrl', function($scope) {
     });
     var cnt = 0;
     $scope.addtr = function() {
-        $("#appendhere").append(' <tr><td> <label class="input"> <input type="text" name="particulars"  placeholder="" required></label></td><td><label class="input"> <input type="text" name="remarks3" placeholder=""></label></td></td><td class="col-md-2"><label class="input col-md-10"><input type="text" name="amount" value="" class="txt" autocomplete="off" /></label></td><td><label class="input"> <input type="text" name="remarks2" placeholder=""></label></td></td><td class="col-md-2"><label class="input col-md-10"> <input type="text" name="amount2" value="" class="txt2" autocomplete="off" /></label></td><td><label class="input"> <input type="text" name="remarks" placeholder=""></label></td></td><td class="col-md-2"><label class="input col-md-10"> <input type="text" name="amount3" value="" class="txt3" autocomplete="off" /></label> <label class="input col-md-1"> <button class="btn btn-danger btn-sm deleteb">X</button></label></td></tr>');
+        $("#appendhere").append('<tr class="row_to_clone"> <td class="col-md-6"><label class="input"> <input type="text" placeholder="Description"> </label></td></td><td class="col-md-1"><label class="input"> <input type="text" placeholder="Qty"> </label></td></td><td class="col-md-1"> <label class="input "> <input type="number" class="txt" autocomplete="off" placeholder="0.00"/> </label> </td><td class="col-md-1"><label class="input"> <input type="text" autocomplete="off" placeholder="Qty"> </label></td></td><td class="col-md-1"> <label class="input "> <input type="number" class="txt2" autocomplete="off" placeholder="0.00"/> </label> </td><td class="col-md-1"><label class="input"> <input type="text" placeholder="Qty"> </label></td></td><td class="col-md-1"> <label class="input "> <input type="number" class="txt3" autocomplete="off" placeholder="0.00"/> </label> </td></tr>');
         cnt++;
         $('table thead th').each(function(i) {
 
@@ -164,7 +176,7 @@ angular.module('newApp').controller('cnsbdnewCtrl', function($scope) {
     });
 
 
-    
 
-   
+
+
 });

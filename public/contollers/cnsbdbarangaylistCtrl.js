@@ -4,6 +4,19 @@ angular.module('newApp').controller('cnsbdbarangaylistCtrl', function($firebaseA
 
     var id;
 
+    $scope.currentPage = 0;
+    $scope.pageSize = 5;
+    $scope.data = [];
+
+    $scope.numberOfPages = () => {
+        return Math.ceil(
+            $scope.data.length / $scope.pageSize
+        );
+    }
+
+    for (var i = 0; i < 10; i++) {
+        $scope.data.push(`Question number ${i}`);
+    }
 
     firebase.database().ref('/barangay/cnsbd/').orderByChild('uid').on("value", function(snapshot) {
 
@@ -52,14 +65,14 @@ angular.module('newApp').controller('cnsbdbarangaylistCtrl', function($firebaseA
                 localStorage.setItem('pf', $("#pfilter option:selected").text())
 
                 window.location.href = "#"
-                window.location.href = "#cnsbdbarangaylist"
+                window.location.href = "#cnsbdcholist"
             });
 
             var rowsTotal = $('#data tbody tr').length;
             var numPages = rowsTotal / rowsShown;
             for (i = 0; i < numPages; i++) {
                 var pageNum = i + 1;
-                $('#nav').append('<a href="#cnsbdbarangaylist" rel="' + i + '">' + pageNum + '</a>');
+                $('#nav').append('<a href="#cnsbdcholist" rel="' + i + '">' + pageNum + '</a>');
             }
 
             $('#data tbody tr').hide();
@@ -115,30 +128,76 @@ angular.module('newApp').controller('cnsbdbarangaylistCtrl', function($firebaseA
 
 
     $scope.selectUser = function(users) {
-        document.getElementById("sum").innerHTML=users.total;
-        document.getElementById("sum2").innerHTML=users.total2;
-        document.getElementById("sum3").innerHTML=users.total3;
-        // console.log( users );
-        // console.log( $scope.cfs );
+        document.getElementById("sum").innerHTML = users.total;
+        document.getElementById("sum2").innerHTML = users.total2;
+        document.getElementById("sum3").innerHTML = users.total3;
+
 
         for (let index = 0; index < $scope.cfs.length; index++) {
             // console.log($scope.cfs[index].key)
             // console.log(users.key)
-            if(users.key == $scope.cfs[index].key){
+            if (users.key == $scope.cfs[index].key) {
                 // console.log($scope.cfs[index])
                 $scope.usersClicked = $scope.cfs[index];
                 // console.log($scope.usersClicked.needs)
             }
-            
+
         }
-        
-        
+
+
         $scope.clickedUser = users;
         id = users;
         // document.getElementById("editDateOfDecampment").value = users.dateOfDecampment;
         // document.getElementById("editDateOfEvacuation").value = users.dateOfEvacuation;
 
+        console.log($scope.clickedUser)
+
+
         $('#myModal').modal('show');
+    };
+
+
+    $scope.printit = function(users) {
+        document.getElementById("sum").innerHTML = users.total;
+        document.getElementById("sum2").innerHTML = users.total2;
+        document.getElementById("sum3").innerHTML = users.total3;
+
+
+        for (let index = 0; index < $scope.cfs.length; index++) {
+            // console.log($scope.cfs[index].key)
+            // console.log(users.key)
+            if (users.key == $scope.cfs[index].key) {
+                // console.log($scope.cfs[index])
+                $scope.usersClicked = $scope.cfs[index];
+                // console.log($scope.usersClicked.needs)
+            }
+
+        }
+
+
+        $scope.clickedUser = users;
+        id = users;
+        // document.getElementById("editDateOfDecampment").value = users.dateOfDecampment;
+        // document.getElementById("editDateOfEvacuation").value = users.dateOfEvacuation;
+
+        console.log($scope.clickedUser.operationfor)
+
+
+        $('#printit').modal('show');
+
+
+        setTimeout(function() {
+
+            printJS({
+                printable: 'newcfp',
+                type: 'html',
+                targetStyles: ['*'],
+                maxWidth: 'auto'
+            })
+
+            $('#printit').modal('hide');
+        }, 1000);
+
     };
 
     $scope.selectUser2 = function(users) {
@@ -157,32 +216,32 @@ angular.module('newApp').controller('cnsbdbarangaylistCtrl', function($firebaseA
     };
 
     $scope.updateUser = function() {
-        var ref2 = firebase.database().ref("/barangay/rne/" + id.$id);
+        var ref2 = firebase.database().ref("/cho/rne/" + id.$id);
         ref2.update({
             schoolID: $('#schoolID').val(),
-                school: $('#school').val(),
-                region: $('#region').val(),
-                division: $('#division').val(),
-                district: $('#district').val(),
-                municipality: $('#municipality').val(),
-                enrollment: $('#enrollment').val(),
-                totalSchool: $('#totalSchool').val(),
-                schoolWithInfraDamage: $('#schoolWithInfraDamage').val(),
-                totalDamageClassroom: $('#totalDamageClassroom').val(),
-                partialDamageClassMajor: $('#partialDamageClassMajor').val(),
-                partialDamageClassMinor: $('#partialDamageClassMinor').val(),
-                temporaryLearning: $('#temporaryLearning').val(),
-                deceasedPersonnel: $('#deceasedPersonnel').val(),
-                injuredPersonnel: $('#injuredPersonnel').val(),
-                missingPersonnel: $('#missingPersonnel').val(),
-                displacedPersonnel: $('#displacedPersonnel').val(),
-                totalEvacSchool: $('#totalEvacSchool').val(),
-                ECLasted: $('#ECLasted').val(),
-                totalSchoolReport: $('#totalSchoolReport').val(),
-                schoolWithNonInfraDamage: $('#schoolWithNonInfraDamage').val(),
-                damagedSchoolFurnitures: $('#damagedSchoolFurnitures').val(),
-                damagedLearningMaterials: $('#damagedLearningMaterials').val(),
-                damagedComputerEquipment: $('#damagedComputerEquipment').val()
+            school: $('#school').val(),
+            region: $('#region').val(),
+            division: $('#division').val(),
+            district: $('#district').val(),
+            municipality: $('#municipality').val(),
+            enrollment: $('#enrollment').val(),
+            totalSchool: $('#totalSchool').val(),
+            schoolWithInfraDamage: $('#schoolWithInfraDamage').val(),
+            totalDamageClassroom: $('#totalDamageClassroom').val(),
+            partialDamageClassMajor: $('#partialDamageClassMajor').val(),
+            partialDamageClassMinor: $('#partialDamageClassMinor').val(),
+            temporaryLearning: $('#temporaryLearning').val(),
+            deceasedPersonnel: $('#deceasedPersonnel').val(),
+            injuredPersonnel: $('#injuredPersonnel').val(),
+            missingPersonnel: $('#missingPersonnel').val(),
+            displacedPersonnel: $('#displacedPersonnel').val(),
+            totalEvacSchool: $('#totalEvacSchool').val(),
+            ECLasted: $('#ECLasted').val(),
+            totalSchoolReport: $('#totalSchoolReport').val(),
+            schoolWithNonInfraDamage: $('#schoolWithNonInfraDamage').val(),
+            damagedSchoolFurnitures: $('#damagedSchoolFurnitures').val(),
+            damagedLearningMaterials: $('#damagedLearningMaterials').val(),
+            damagedComputerEquipment: $('#damagedComputerEquipment').val()
         })
 
         .catch(function(error) {
@@ -208,14 +267,14 @@ angular.module('newApp').controller('cnsbdbarangaylistCtrl', function($firebaseA
     $scope.deleteUser = function() {
         var ref = firebase.database().ref("/barangay/cnsbd/" + id.key);
         ref.remove()
-        .catch(function(error) {
-            console.log("Login Failed!", error.message);
-            $("#notif").append('<div class="alert alert-danger fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Error</strong> ' + error.message + '</div>');
-            setTimeout(function() {
-                $("#notif").hide()
-            }, 1500);
+            .catch(function(error) {
+                console.log("Login Failed!", error.message);
+                $("#notif").append('<div class="alert alert-danger fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Error</strong> ' + error.message + '</div>');
+                setTimeout(function() {
+                    $("#notif").hide()
+                }, 1500);
 
-        });;
+            });;
 
         // $("#notif").show();
         // window.location.href = "#ecdlist";
@@ -223,7 +282,7 @@ angular.module('newApp').controller('cnsbdbarangaylistCtrl', function($firebaseA
         $("#notif").append('<div class="alert alert-success fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Success</strong> Deleted !</div>');
         setTimeout(function() {
             window.location.href = "#/"
-            window.location.href = "#cnsbdbarangaylist"
+            window.location.href = "#cnsbdcholist"
         }, 1500);
         $('#myModal2').modal('hide');
     };
@@ -233,8 +292,6 @@ angular.module('newApp').controller('cnsbdbarangaylistCtrl', function($firebaseA
         $('#myModal2').modal('hide');
         $('#myModal3').modal('hide');
     };
-
-
 
     var obj;
     $scope.tojson = function(obj) {
@@ -266,24 +323,25 @@ angular.module('newApp').controller('cnsbdbarangaylistCtrl', function($firebaseA
         console.log($scope.tojson(obj))
 
         var newobj = $scope.tojson(obj);
-        // [$scope.tojson(obj)];
-
-        // var uid = firebase.database().ref().child('deped/cnsbd').push().key;
-        var orno = $scope.ornum;
-        var sector = $scope.clickedUser.sector;
-        var leadAgency = $scope.clickedUser.leadAgency;
-        var location = $scope.clickedUser.location;
-
-
 
         const [, ...rest] = newobj.reverse();
         const withoutLast = rest.reverse();
         console.log(withoutLast)
         var data = {
-            date: id.date,
-            sector: sector,
-            leadAgency: leadAgency,
-            location: location,
+            date: datetoday,
+            sector: $scope.clickedUser.operation,
+            leadAgency: $scope.clickedUser.leadAgency,
+            operation: $scope.clickedUser.operation,
+            operationfor: $scope.clickedUser.operationfor,
+
+            pban1: $scope.clickedUser.pban1,
+            pban1d: $scope.clickedUser.pban1d,
+
+            pban2: $scope.clickedUser.pban2,
+            pban2d: $scope.clickedUser.pban2d,
+
+            sb1: $scope.clickedUser.sb1,
+            sb1d: $scope.clickedUser.sb1d,
             needs: withoutLast,
             total: $('#sum').text(),
             total2: $('#sum2').text(),
@@ -292,7 +350,7 @@ angular.module('newApp').controller('cnsbdbarangaylistCtrl', function($firebaseA
 
         var updates = {};
         // console.log(id.key);
-        updates['/barangay/cnsbd/'  + id.key] = data;
+        updates['/barangay/cnsbd/' + id.key] = data;
         firebase.database().ref().update(updates);
         console.log(updates)
 
@@ -311,9 +369,9 @@ angular.module('newApp').controller('cnsbdbarangaylistCtrl', function($firebaseA
     });
 
 
-        var cnt = 0;
+    var cnt = 0;
     $scope.addtr = function() {
-        $("#appendhere").append(' <tr><td> <label class="input"> <input type="text" name="particulars"  placeholder="" required></label></td><td><label class="input"> <input type="text" name="remarks3" placeholder=""></label></td></td><td class="col-md-2"><label class="input col-md-10"><input type="text" name="amount" value="" class="txt" autocomplete="off" /></label></td><td><label class="input"> <input type="text" name="remarks2" placeholder=""></label></td></td><td class="col-md-2"><label class="input col-md-10"> <input type="text" name="amount2" value="" class="txt2" autocomplete="off" /></label></td><td><label class="input"> <input type="text" name="remarks" placeholder=""></label></td></td><td class="col-md-2"><label class="input col-md-10"> <input type="text" name="amount3" value="" class="txt3" autocomplete="off" /></label> <label class="input col-md-1"> <button class="btn btn-danger btn-sm deleteb">X</button></label></td></tr>');
+        $("#appendhere").append('<tr class="row_to_clone"> <td class="col-md-6"><label class="input"> <input type="text" placeholder="Description"> </label></td></td><td class="col-md-1"><label class="input"> <input type="text" placeholder="Qty"> </label></td></td><td class="col-md-1"> <label class="input "> <input type="number" class="txt" autocomplete="off" placeholder="0.00"/> </label> </td><td class="col-md-1"><label class="input"> <input type="text" autocomplete="off" placeholder="Qty"> </label></td></td><td class="col-md-1"> <label class="input "> <input type="number" class="txt2" autocomplete="off" placeholder="0.00"/> </label> </td><td class="col-md-1"><label class="input"> <input type="text" placeholder="Qty"> </label></td></td><td class="col-md-1"> <label class="input "> <input type="number" class="txt3" autocomplete="off" placeholder="0.00"/> </label> </td></tr>');
         cnt++;
         $('table thead th').each(function(i) {
 
@@ -415,4 +473,9 @@ angular.module('newApp').controller('cnsbdbarangaylistCtrl', function($firebaseA
         calculateSum3();
     });
 
-});
+}).filter('startFrom', function() {
+    return (input, start) => {
+        start = +start;
+        return input.slice(start);
+    }
+})
