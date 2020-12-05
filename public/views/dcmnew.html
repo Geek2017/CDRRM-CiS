@@ -1,0 +1,107 @@
+<section id="widget-grid" class="" style="margin: 0.5%;">
+    <div class="row">
+        <article class="col-sm-12 col-md-12 col-lg-12">
+
+            <!-- Widget ID (each widget will need unique ID)-->
+            <div class="jarviswidget" id="wid-id-2" data-widget-colorbutton="false" data-widget-editbutton="false">
+                <!-- widget options:
+            usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+            
+            data-widget-colorbutton="false"	
+            data-widget-editbutton="false"
+            data-widget-togglebutton="false"
+            data-widget-deletebutton="false"
+            data-widget-fullscreenbutton="false"
+            data-widget-custombutton="false"
+            data-widget-collapsed="true" 
+            data-widget-sortable="false"
+            
+        -->
+                <header>
+                    <span class="widget-icon"> <i class="fa fa-table"></i> </span>
+                    <h2>CREATE NEW</h2>
+                </header>
+
+                <!-- widget div-->
+                <div>
+
+                    <!-- widget edit box -->
+                    <div class="jarviswidget-editbox">
+                        <!-- This area used as dropdown edit box -->
+
+                    </div>
+                    <!-- end widget edit box -->
+
+                    <!-- widget content -->
+                    <div class="widget-body no-padding">
+
+                        <div id="notif"></div>
+
+                        <!-- Success states for elements -->
+                        <form class="smart-form" id="newcf">
+                            <header>Directory of Camp Managers</header>
+
+                            <fieldset>
+                                <section>
+                                    <div class="row">
+                                        <section class="col col-4">
+                                            <label class="label">Year</label>
+                                            <label class="input ">
+                                                <input type="date" ng-model="date" required>
+                                            </label>
+                                        </section>
+                                        <section class="col col-4">
+                                            <label class="label">Operation Name</label>
+                                            <label class="input ">
+                                                <input type="text" ng-model="ons" required>
+                                            </label>
+                                        </section>
+                                        <section class="col col-4">
+                                            <label class="label">Barangay</label>
+                                            <label class="input ">
+                                                <input type="text" ng-model="brgy" required>
+                                            </label>
+                                        </section>
+                                        <section class="col col-4">
+                                            <label class="label">Evac Center</label>
+                                            <label class="input ">
+                                                <input type="text" ng-model="ecs" required>
+                                            </label>
+                                        </section>
+                                        <section class="col col-4">
+                                            <label class="label">Name of Camp Manager</label>
+                                            <label class="input ">
+                                                <input type="text" ng-model="ncm" required>
+                                            </label>
+                                        </section>
+                                        <section class="col col-4">
+                                            <label class="label">CP Number</label>
+                                            <label class="input ">
+                                                <input type="number" ng-model="cpn" required>
+                                        </label>
+                                        </section>
+                                    </div>
+                                    <i></i>
+                                    <!-- <div class="note note-success">Thanks for your selection.</div> -->
+                                </section>
+                            </fieldset>
+
+                            <footer>
+                                <button type="submit" class="btn btn-primary">Save</button>
+                                <button type="button" class="btn btn-default" onclick="window.history.back();">Back</button>
+                            </footer>
+                        </form>
+                        <!--/ Success states for elements -->
+
+                    </div>
+                    <!-- end widget content -->
+
+                </div>
+                <!-- end widget div -->
+
+            </div>
+            <!-- end widget -->
+
+        </article>
+    </div>
+</section>

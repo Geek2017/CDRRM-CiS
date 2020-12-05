@@ -219,13 +219,13 @@ angular
                 templateUrl: 'views/eclnew.html',
                 controller: "eclnewCtrl"
             })
-            .when('/docmlist', {
-                templateUrl: 'views/docmlist.html',
-                controller: "docmlistCtrl"
+            .when('/dcmlist', {
+                templateUrl: 'views/dcmlist.html',
+                controller: "dcmlistCtrl"
             })
-            .when('/docmnew', {
-                templateUrl: 'views/docmnew.html',
-                controller: "docmnewCtrl"
+            .when('/dcmnew', {
+                templateUrl: 'views/dcmnew.html',
+                controller: "dcmnewCtrl"
             })
             .when('/esrlist', {
                 templateUrl: 'views/esrlist.html',
