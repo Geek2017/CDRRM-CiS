@@ -234,6 +234,14 @@ angular
             .when('/esrnew', {
                 templateUrl: 'views/esrlist.html',
                 controller: "esrnewCtrl"
+            })
+            .when('/cnsbdcdrrmolist', {
+                templateUrl: 'views/cnsbdcdrrmolist.html',
+                controller: "cnsbdcdrrmolistCtrl"
+            })
+            .when('/cnsbdcdrrmonew', {
+                templateUrl: 'views/cnsbdcdrrmonew.html',
+                controller: "cnsbdcdrrmonewCtrl"
             });
 
 

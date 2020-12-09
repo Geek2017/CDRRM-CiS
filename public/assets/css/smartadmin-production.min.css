@@ -9790,7 +9790,7 @@ textarea.clone {
 }
 
 #extr-page {
-    background: #fff;
+    /* background: #fff; */
     overflow: visible
 }
 
