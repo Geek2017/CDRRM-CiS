@@ -1,58 +1,11 @@
 <style>
-    #table-example-1 {
-        border: solid thin black;
-        border-collapse: collapse;
-        color: #000;
+    .indent-1 {
+        float: left;
     }
     
-    #table-example-1 caption {
-        padding-bottom: 0.5em;
-    }
-    
-    #table-example-1 th,
-    #table-example-1 td {
-        border: solid thin black;
-        padding: 0.5rem 2rem;
-        color: #000;
-    }
-    
-    #table-example-1 td {
-        white-space: nowrap;
-    }
-    
-    #table-example-1 th {
-        font-weight: normal;
-    }
-    
-    #table-example-1 td {
-        border-style: solid thin black;
-        vertical-align: top;
-        color: #000;
-        font-family: Arial, Helvetica, sans-serif!important;
-        font-size: 18px!important;
-    }
-    
-    #table-example-1 th {
-        padding: 0.2em;
-        vertical-align: middle;
-        text-align: center;
-    }
-    
-    #table-example-1 tbody td:first-child::after {
-        content: leader(". ");
-    }
-    
-    tr.child_row td {
-        padding-left: 20px;
-    }
-    
-    .fsize {
-        color: #000!important;
-    }
-    
-    .no-bottom-border {
-        border-bottom: none!important;
-        border-top: none!important;
+    .indent-1 section {
+        width: 50%;
+        float: left;
     }
 </style>
 
@@ -419,152 +372,143 @@
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title">Preview</h4>
             </div>
+            <div id="printThis">
+                <div class="modifyMe">
+                    <div class="modal-body">
 
-            <div class="modal-body">
+                        <center>
+                            <section>
+                                <h4> <strong> Republic of the Philipines <br> CITY GOVERNMENT OF LEGAZPI <strong> </h4>
+                            </section>
+                            <section>
+                            <h3>
+                                <strong>{{clickedUser.operation}} <br> CLUSTER NEEDS THAT SHOULD TO BE DOWNLOADED TO THE LOCAL UNIT</strong>
+                                    </h3>
+                            </section>
+                        </center>
 
 
-                <form class="smart-form " id="newcfp">
-                    <div class="pull-center text-center fsize">
-                        <h5 class="fsize">Republic of the Philipines</h5>
-                        <h5 class="fsize">CITY GOVERNMENT OF LEGAZPI</h5>
-                        <br>
-                        <h2>
-                            <label class="input fsize"><strong > {{clickedUser.operation}} </strong></label>
-                        </h2>
-                        <h2>
-                            <label class="input fsize"><strong >CLUSTER NEEDS THAT SHOULD TO BE DOWNLOADED TO THE LOCAL UNIT</strong></label>
-                        </h2>
+                        <div>
+
+                            <div class="panel-body ">
+                                <caption> SECTOR/CLUSTER: <u>{{clickedUser.sector}} </u> </caption> <br>
+                                <caption> CLUSTER LEAD AGENCY: <u>{{clickedUser.leadAgency}}</u> </caption><br><br>
+                            </div>
+
+                            <div class="panel-body ">
+
+                                <table id="table-example-1" width="100%">
+
+                                    <thead>
+                                        <tr>
+                                            <th rowspan="2">Description of Needs</th>
+
+                                            <th class="text-center " colspan="2">On The First 30 Days</th>
+                                            <th class="text-center " colspan="2">On The Second Days</th>
+                                            <th class="text-center " colspan="2">On The Third 30 Days</th>
+                                        </tr>
+                                        <tr>
+
+                                            <th class="text-center">First 30 Days Quantity</th>
+                                            <th class="text-center">First 30 Days Total Cost</th>
+                                            <th class="text-center">Second 30 Days Quantity</th>
+                                            <th class="text-center">Second 30 Days Total Cost</th>
+                                            <th class="text-center">Third 30 Days Quantity</th>
+                                            <th class="text-center ">Third 30 Days Total Cost</th>
+                                        </tr>
+
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-left no-bottom-border ">
+                                                <strong> {{clickedUser.operationfor}}</strong>
+                                            </td>
+                                            <td class="text-left no-bottom-border">
+                                            </td>
+                                            <td class="text-left no-bottom-border">
+                                            </td>
+                                            <td class="text-left no-bottom-border">
+                                            </td>
+                                            <td class="text-left no-bottom-border">
+                                            </td>
+                                            <td class="text-left no-bottom-border">
+                                            </td>
+                                            <td class="text-left no-bottom-border">
+                                            </td>
+                                        </tr>
+
+                                        <tr ng-repeat="ncf in usersClicked.needs">
+
+                                            <td class="text-left col-md-3 no-bottom-border">
+                                                &nbsp; &nbsp;&nbsp;&nbsp; {{ncf['Description of Needs']}}
+                                            </td>
+                                            <td class=" ">
+                                                {{ncf['First 30 Days Quantity']}}
+                                            </td>
+                                            <td class=" ">
+                                                {{ncf['First 30 Days Total Cost'] | currency:"₱ " :2}}
+                                            </td>
+
+                                            <td class=" ">
+                                                {{ncf['Second 30 Days Quantity']}}
+                                            </td>
+                                            <td class=" ">
+                                                {{ncf['Second 30 Days Total Cost'] | currency:"₱ " :2}}
+                                            </td>
+
+                                            <td class=" ">
+                                                {{ncf['Third 30 Days Quantity']}}
+                                            </td>
+                                            <td class=" ">
+                                                {{ncf['Third 30 Days Total Cost'] | currency:"₱ ": 2}}
+                                            </td>
+
+                                        </tr>
+
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-right">
+                                                Total
+                                            </td>
+                                            <td></td>
+                                            <td>
+                                                {{clickedUser.total | currency:"₱ ": 2}}
+                                            </td>
+                                            <td></td>
+                                            <td>
+                                                {{clickedUser.total2 | currency:"₱ ": 2}}
+                                            </td>
+                                            <td></td>
+                                            <td>
+                                                {{clickedUser.total3 | currency:"₱ ": 2}}
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+                            <div class="panel-body">
+
+                                <section id="spansigr">
+                                    <strong style="float: right;">Submitted By: <br><h4>{{clickedUser.sb1}} <br>{{clickedUser.sb1d}} </h4></strong>
+                                </section>
+
+                                <section id="spansigl">
+                                    <strong>Prepared By:</strong>
+                                    <strong><h4>{{clickedUser.pban1}} <br>{{clickedUser.pban1d}} </h4></strong>
+                                    <strong><h4>{{clickedUser.pban2}} <br>{{clickedUser.pban2d}} </h4></strong>
+
+                                </section>
+                                <section>
+                                    <strong>NOTE:</strong><br>
+                                    <caption>&nbsp;&nbsp; Description of needs/Item are made to the request of the camp head</caption>
+                                </section>
+                            </div>
+                        </div>
                     </div>
-
-                    <fieldset>
-                        <div class="panel-body fsize">
-                            <caption> SECTOR/CLUSTER: <u>{{clickedUser.sector}} </u> </caption> <br>
-                            <caption> CLUSTER LEAD AGENCY: <u>{{clickedUser.leadAgency}}</u> </caption><br><br>
-                        </div>
-
-                        <div class="panel-body ">
-
-                            <table id="table-example-1" width="100%">
-
-                                <thead>
-                                    <tr>
-                                        <th rowspan="2">Description of Needs</th>
-
-                                        <th class="text-center " colspan="2">On The First 30 Days</th>
-                                        <th class="text-center " colspan="2">On The Second Days</th>
-                                        <th class="text-center " colspan="2">On The Third 30 Days</th>
-                                    </tr>
-                                    <tr>
-
-                                        <th class="text-center">First 30 Days Quantity</th>
-                                        <th class="text-center">First 30 Days Total Cost</th>
-                                        <th class="text-center">Second 30 Days Quantity</th>
-                                        <th class="text-center">Second 30 Days Total Cost</th>
-                                        <th class="text-center">Third 30 Days Quantity</th>
-                                        <th class="text-center ">Third 30 Days Total Cost</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class="text-left no-bottom-border">
-                                            <strong> {{clickedUser.operationfor}}</strong>
-                                        </td>
-                                        <td class="text-left no-bottom-border">
-                                        </td>
-                                        <td class="text-left no-bottom-border">
-                                        </td>
-                                        <td class="text-left no-bottom-border">
-                                        </td>
-                                        <td class="text-left no-bottom-border">
-                                        </td>
-                                        <td class="text-left no-bottom-border">
-                                        </td>
-                                        <td class="text-left no-bottom-border">
-                                        </td>
-                                    </tr>
-                                    <tr ng-repeat="ncf in usersClicked.needs">
-
-                                        <td class="text-left col-md-3 no-bottom-border">
-                                            &nbsp; &nbsp;&nbsp;&nbsp; {{ncf['Description of Needs']}}
-                                        </td>
-                                        <td class="col-md-1 no-bottom-border">
-                                            {{ncf['First 30 Days Quantity']}}
-                                        </td>
-                                        <td class="col-md-1 no-bottom-border">
-                                            {{ncf['First 30 Days Total Cost'] | currency:"₱ " :2}}
-                                        </td>
-
-                                        <td class="col-md-1 no-bottom-border">
-                                            {{ncf['Second 30 Days Quantity']}}
-                                        </td>
-                                        <td class="col-md-1 no-bottom-border">
-                                            {{ncf['Second 30 Days Total Cost'] | currency:"₱ " :2}}
-                                        </td>
-
-                                        <td class="col-md-1 no-bottom-border">
-                                            {{ncf['Third 30 Days Quantity']}}
-                                        </td>
-                                        <td class="col-md-1 no-bottom-border">
-                                            {{ncf['Third 30 Days Total Cost'] | currency:"₱ ": 2}}
-                                        </td>
-                                    </tr>
-                                </tbody>
-                                <tbody>
-                                    <tr>
-                                        <td class="text-right">
-                                            <h4>Total</h4>
-                                        </td>
-                                        <td></td>
-                                        <td>
-                                            {{clickedUser.total | currency:"₱ ": 2}}
-                                        </td>
-                                        <td></td>
-                                        <td>
-                                            {{clickedUser.total2 | currency:"₱ ": 2}}
-                                        </td>
-                                        <td></td>
-                                        <td>
-                                            {{clickedUser.total3 | currency:"₱ ": 2}}
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <br>
-                        <br>
-                        <div class="panel-body fsize" style="padding-left: 100px!important;">
-                            <section class="col col-6 ">
-                                <label class="label fsize">Prepared By:</label>
-                                <br>
-                                <br>
-                                <br>
-                                <label class="input"><h3><strong>{{clickedUser.pban1}}</strong></h3></label>
-                                <label class="input fsize">{{clickedUser.pban1d}}</label>
-                                <br>
-                                <label class="input"><h3><strong>{{clickedUser.pban2}}</strong></h3></label>
-                                <label class="input fsize">{{clickedUser.pban2d}}</label>
-                            </section>
-
-                            <section class="col col-6 ">
-                                <label class="label fsize">Submitted By:</label>
-                                <br>
-                                <br>
-                                <br>
-                                <label class="input"><h3><strong>{{clickedUser.sb1}}</strong></h3></label>
-                                <label class="input fsize">{{clickedUser.sb1d}}</label>
-                            </section>
-                        </div>
-                        <br>
-                        <br>
-                        <div class="panel-body text-left fsize">
-                            <strong>NOTE:</strong> <br>&nbsp;&nbsp;
-                            <caption>Description of needs/item are made due to the request of the camp head.</caption>
-                        </div>
-                    </fieldset>
-
-
-                </form>
-
+                </div>
             </div>
 
         </div>
