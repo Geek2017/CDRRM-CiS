@@ -127,3 +127,58 @@ table th {
  ::-webkit-scrollbar-thumb:hover {
     background: rgba(164, 232, 230, .83);
 }
+
+#sig-canvas {
+    border: 2px dotted #CCCCCC;
+    border-radius: 15px;
+    cursor: crosshair;
+}
+
+@media screen and (min-width: 1076px) {
+    .modal-dialog {
+        max-width: 350px;
+        /* New width for default modal */
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .modal-dialog {
+        max-width: 350px;
+        /* New width for default modal */
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .modal-dialog {
+        max-width: 350px;
+        /* New width for default modal */
+    }
+}
+
+@media screen and (min-width: 360px) {
+    .modal-dialog {
+        max-width: 350px;
+        /* New width for default modal */
+    }
+}
+
+@media screen and (min-width: 411px) {
+    .modal-dialog {
+        max-width: 350px;
+        /* New width for default modal */
+    }
+}
+
+@media screen and (min-width: 375px) {
+    .modal-dialog {
+        max-width: 350px;
+        /* New width for default modal */
+    }
+}
+
+@media screen and (min-width: 375px) {
+    .modal-dialog {
+        max-width: 350px;
+        /* New width for default modal */
+    }
+}
