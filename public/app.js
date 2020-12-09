@@ -1,7 +1,7 @@
 // Application Modules and Routing
 angular
     .module('newApp', ['ngRoute', 'firebase'])
-    .config(function($routeProvider) {
+    .config(function ($routeProvider) {
         $routeProvider
             .when('/', {
                 templateUrl: 'views/dashboard.html',
@@ -234,6 +234,10 @@ angular
             .when('/esrnew', {
                 templateUrl: 'views/esrlist.html',
                 controller: "esrnewCtrl"
+            })
+            .when('/idrnew', {
+                templateUrl: 'views/idrnew.html',
+                controller: "idrnewCtrl"
             });
 
 

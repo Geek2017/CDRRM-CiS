@@ -1,0 +1,944 @@
+<section id="widget-grid" class="">
+    <div class=" col-sm-12 col-md-12 col-lg-12">
+        <div id="notif"></div>
+        <!-- Widget ID (each widget will need unique ID)-->
+
+
+
+        <div class="jarviswidget jarviswidget-color-white" id="wid-id-0" data-widget-editbutton="true" style="margin-bottom: 5%!important;">
+            <!-- widget options:
+            usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+            data-widget-colorbutton="false"
+            data-widget-editbutton="false"
+            data-widget-togglebutton="false"
+            data-widget-deletebutton="false"
+            data-widget-fullscreenbutton="false"
+            data-widget-custombutton="false" 
+            data-widget-collapsed="true"
+            data-widget-sortable="false"
+            -->
+            <header>
+                <span class="widget-icon"> <i class="fa fa-table"></i> </span>
+                <h2>Status Of Evacuation Center</h2>
+
+            </header>
+
+            <!-- widget div-->
+            <div>
+
+                <div class="widget-body no-padding">
+
+                    <form class="smart-form" id="newsoc">
+                        <header>
+                            INITIAL DAMAGE REPORT
+                        </header>
+                        
+                        <div style="overflow-x:auto;">
+                        <fieldset>
+
+
+                            
+                            <b>I. CASUALTIES</b>
+                            <br><br>
+                            <div class="row">
+                                <section class="col col-6">
+                                    <label class="label">Dead (Confirmed)</label>
+                                    <label class="input ">
+                                        <input type="number" ng-model="deadConfirmed" id="deadConfirmed" required>
+                                    </label>
+                                </section>
+                                <section class="col col-6">
+                                    <label class="label">Dead (Reported)</label>
+                                    <label class="input ">
+                                        <input type="number" ng-model="deadReported" id="deadReported" required>
+                                    </label>
+                                </section>
+                                <section class="col col-6">
+                                    <label class="label">Missing</label>
+                                    <label class="input ">
+                                        <input type="number" ng-model="missing" id="missing" required>
+                                    </label>
+                                </section>
+                                <section class="col col-6">
+                                    <label class="label">Injured</label>
+                                    <label class="input ">
+                                        <input type="number" ng-model="injured" id="injured"required>
+                                    </label>
+                                </section>
+
+                            </div>
+
+                            <b>II. EVACUATED POPULATION</b>
+                            <br><br>
+                            <div class="row">
+                                <section class="col col-6">
+                                    <label class="label">Families</label>
+                                    <label class="input ">
+                                        <input type="number" ng-model="families" id="families" required>
+                                    </label>
+                                </section>
+                                <section class="col col-6">
+                                    <label class="label">Persons</label>
+                                    <label class="input ">
+                                        <input type="number" ng-model="persons" id="persons" required>
+                                    </label>
+                                </section>
+
+                            </div>
+                            <div class="btn-group btn-group-sm pull-right">
+                                <button type="button" class="btn btn-success " ng-click="addtr()"><i
+                                        class="fa fa-plus-circle"></i></button>
+
+                                <button type="button" class="btn btn-danger" ng-click="removetr()"><i
+                                        class="fa fa-minus-circle"></i></button>
+                            </div>
+                            <br>
+                            <br>
+                            <div class="panel-body ">
+                                <section class="col col-12">
+                                    <div class="row form-group">
+                                        <div class="col-xs-12">
+
+                                            <ul class="nav nav-pills nav-justified thumbnail setup-panel">
+                                                <li class="active">
+                                                    <a href="#step-1">
+                                                        <button class="btn btn-primary btn-lg btn-block step-1">III. DAMAGED HOUSES</button>
+                                                    </a>
+                                                </li>
+                                                <li class="disabled">
+                                                    <a href="#step-2">
+                                                        <button class="btn btn-warning btn-lg btn-block step-2">IV. DAMAGE TO AGRI AND FISHIRIES </button>
+                                                    </a>
+                                                    </a>
+                                                </li>
+                                                <li class="disabled">
+                                                    <a href="#step-3">
+                                                        <button class="btn btn-success btn-lg btn-block step-3">V. DAMAGE TO LIVESTOCK AND POULTRY</button>
+                                                    </a>
+                                                </li>
+                                                <li class="disabled">
+                                                    <a href="#step-4">
+                                                        <button class="btn btn-danger btn-lg btn-block step-4">V. DAMAGE TO INFRASTRUCTURE</button>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="row setup-content" id="step-1">
+                                        <div class="col-xs-12">
+                                            <table id="table0" class="table table-striped table-bordered table-hover" width="100%">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Type of Damage</th>
+                                                        <th>Number</th>
+                                                        <th>Cost (in Php)</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="appendhere0">
+                                                    <tr class="row_to_clone">
+
+
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="text" value="Totally Damaged"
+                                                                    autocomplete='off' />
+                                                            </label>
+                                                        </td>
+
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="number" 
+                                                                autocomplete='off' />
+                                                            </label>
+                                                        </td>
+
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="number" 
+                                                                    autocomplete='off' />
+                                                            </label>
+                                                        </td>
+
+
+                                                    </tr>
+                                                    <tr class="row_to_clone">
+
+
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="text" value="Partially Damaged"
+                                                                    autocomplete='off' />
+                                                            </label>
+                                                        </td>
+
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="number" 
+                                                                autocomplete='off' />
+                                                            </label>
+                                                        </td>
+
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="number" 
+                                                                    autocomplete='off' />
+                                                            </label>
+                                                        </td>
+
+
+                                                    </tr>
+                                                    <tr class="row_to_clone">
+
+
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="text" value="Substantially Damaged"
+                                                                    autocomplete='off' />
+                                                            </label>
+                                                        </td>
+
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="number" 
+                                                                autocomplete='off' />
+                                                            </label>
+                                                        </td>
+
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="number" 
+                                                                    autocomplete='off' />
+                                                            </label>
+                                                        </td>
+
+
+                                                    </tr>
+                                                </tbody>
+
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <h4>Sub-Total</h4>
+                                                        </td>
+                                                        <td>
+                                                            <h4><label class="input"> 
+                                                                <span id="sumNumber">0.00</span>
+            
+                                                            </label></h4>
+                                                        </td>
+                                                        <td>
+                                                            <h4><label class="input"> 
+                                                                <span id="sumCost">0.00</span>
+            
+                                                            </label></h4>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+
+                                            </table>
+
+                                        </div>
+                                    </div>
+                                    <div class="row setup-content" id="step-2">
+                                        <div class="col-xs-12">
+                                            <table id="table1" class="table table-striped table-bordered table-hover" width="100%">
+                                                <thead>
+
+
+
+                                                    <tr>
+
+                                                        <th>Type</th>
+                                                        <th>Affected Area (in ha)</th>
+                                                        <th>Number of Farmer's Affected</th>
+                                                        <th>Production Loss (in Php)</th>
+
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="appendhere1">
+                                                    <tr class="row_to_clone">
+
+
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="text" name="" class=" " value="Coconut"
+                                                                    autocomplete='off' />
+                                                            </label>
+                                                        </td>
+
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="text" 
+                                                                autocomplete='off' />
+                                                            </label>
+                                                        </td>
+
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="number" 
+                                                                    autocomplete='off' />
+                                                            </label>
+                                                        </td>
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="number " 
+                                                                    autocomplete='off' />
+                                                            </label>
+                                                        </td>
+
+                                                    </tr>
+                                                    <tr class="row_to_clone">
+
+
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="text" name="" class=" " value="Rice"
+                                                                    autocomplete='off' />
+                                                            </label>
+                                                        </td>
+
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="text" 
+                                                                autocomplete='off' />
+                                                            </label>
+                                                        </td>
+
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="number" 
+                                                                    autocomplete='off' />
+                                                            </label>
+                                                        </td>
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="number " 
+                                                                    autocomplete='off' />
+                                                            </label>
+                                                        </td>
+
+                                                    </tr>
+                                                    <tr class="row_to_clone">
+
+
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="text" name="" class=" " value="Corn"
+                                                                    autocomplete='off' />
+                                                            </label>
+                                                        </td>
+
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="text" 
+                                                                autocomplete='off' />
+                                                            </label>
+                                                        </td>
+
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="number" 
+                                                                    autocomplete='off' />
+                                                            </label>
+                                                        </td>
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="number " 
+                                                                    autocomplete='off' />
+                                                            </label>
+                                                        </td>
+
+                                                    </tr>
+                                                    <tr class="row_to_clone">
+
+
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="text" name="" class=" " value="High Value Crops"
+                                                                    autocomplete='off' />
+                                                            </label>
+                                                        </td>
+
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="text" 
+                                                                autocomplete='off' />
+                                                            </label>
+                                                        </td>
+
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="number" 
+                                                                    autocomplete='off' />
+                                                            </label>
+                                                        </td>
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="number " 
+                                                                    autocomplete='off' />
+                                                            </label>
+                                                        </td>
+
+                                                    </tr>
+                                                    <tr class="row_to_clone">
+
+
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="text" name="" class=" " value="Root Crops"
+                                                                    autocomplete='off' />
+                                                            </label>
+                                                        </td>
+
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="text" 
+                                                                autocomplete='off' />
+                                                            </label>
+                                                        </td>
+
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="number" 
+                                                                    autocomplete='off' />
+                                                            </label>
+                                                        </td>
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="number " 
+                                                                    autocomplete='off' />
+                                                            </label>
+                                                        </td>
+
+                                                    </tr>
+                                                    <tr class="row_to_clone">
+
+
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="text" name="" class=" " value="Tilapia"
+                                                                    autocomplete='off' />
+                                                            </label>
+                                                        </td>
+
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="text" 
+                                                                autocomplete='off' />
+                                                            </label>
+                                                        </td>
+
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="number" 
+                                                                    autocomplete='off' />
+                                                            </label>
+                                                        </td>
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="number " 
+                                                                    autocomplete='off' />
+                                                            </label>
+                                                        </td>
+
+                                                    </tr>
+                                                    <tr class="row_to_clone">
+
+
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="text" name="" class=" " value="Bangus"
+                                                                    autocomplete='off' />
+                                                            </label>
+                                                        </td>
+
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="text" 
+                                                                autocomplete='off' />
+                                                            </label>
+                                                        </td>
+
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="number" 
+                                                                    autocomplete='off' />
+                                                            </label>
+                                                        </td>
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="number " 
+                                                                    autocomplete='off' />
+                                                            </label>
+                                                        </td>
+
+                                                    </tr>
+                                                    <tr class="row_to_clone">
+
+
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="text" name="" class=" " value="Crab"
+                                                                    autocomplete='off' />
+                                                            </label>
+                                                        </td>
+
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="text" 
+                                                                autocomplete='off' />
+                                                            </label>
+                                                        </td>
+
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="number" 
+                                                                    autocomplete='off' />
+                                                            </label>
+                                                        </td>
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="number " 
+                                                                    autocomplete='off' />
+                                                            </label>
+                                                        </td>
+
+                                                    </tr>
+                                                </tbody>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <h4>Sub-Total</h4>
+                                                        </td>
+                                                        <td>
+                                                            <h4><label class="input"> 
+                                                                <span id="sumArea">0.00</span>
+            
+                                                            </label></h4>
+                                                        </td>
+                                                        <td>
+                                                            <h4><label class="input"> 
+                                                                <span id="sumFarmers">0.00</span>
+            
+                                                            </label></h4>
+                                                        </td>
+                                                        <td>
+                                                            <h4><label class="input"> 
+                                                                <span id="sumLoss">0.00</span>
+            
+                                                            </label></h4>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+
+                                            </table>
+
+                                        </div>
+                                    </div>
+                                    <div class="row setup-content" id="step-3">
+                                        <div class="col-xs-12">
+                                            <table id="table2" class="table table-striped table-bordered table-hover" width="100%">
+                                                <thead>
+
+
+
+                                                    <tr>
+
+                                                        <th>Type</th>
+                                                        <th>Number of Heads</th>
+                                                        <th>Number of Farmers Affected</th>
+                                                        <th>Production Loss (in Php)</th>
+
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="appendhere2">
+                                                    <tr class="row_to_clone">
+
+
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="input" name="" class="" value="Pig"
+                                                                    autocomplete='off' />
+                                                            </label>
+                                                        </td>
+
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="number " name=" " placeholder=" ">
+                                                            </label>
+                                                        </td>
+
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="number " 
+                                                                    autocomplete='off' />
+                                                            </label>
+                                                        </td>
+
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="number " 
+                                                                    autocomplete='off' />
+                                                            </label>
+                                                        </td>
+
+                                                    </tr>
+                                                    <tr class="row_to_clone">
+
+
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="input" name="" class="" value="Goat"
+                                                                    autocomplete='off' />
+                                                            </label>
+                                                        </td>
+
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="number " name=" " placeholder=" ">
+                                                            </label>
+                                                        </td>
+
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="number " 
+                                                                    autocomplete='off' />
+                                                            </label>
+                                                        </td>
+
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="number " 
+                                                                    autocomplete='off' />
+                                                            </label>
+                                                        </td>
+
+                                                    </tr>
+                                                    <tr class="row_to_clone">
+
+
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="input" name="" class="" value="Cow"
+                                                                    autocomplete='off' />
+                                                            </label>
+                                                        </td>
+
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="number " name=" " placeholder=" ">
+                                                            </label>
+                                                        </td>
+
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="number " 
+                                                                    autocomplete='off' />
+                                                            </label>
+                                                        </td>
+
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="number " 
+                                                                    autocomplete='off' />
+                                                            </label>
+                                                        </td>
+
+                                                    </tr>
+                                                    <tr class="row_to_clone">
+
+
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="input" name="" class="" value="Carabao"
+                                                                    autocomplete='off' />
+                                                            </label>
+                                                        </td>
+
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="number " name=" " placeholder=" ">
+                                                            </label>
+                                                        </td>
+
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="number " 
+                                                                    autocomplete='off' />
+                                                            </label>
+                                                        </td>
+
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="number " 
+                                                                    autocomplete='off' />
+                                                            </label>
+                                                        </td>
+
+                                                    </tr>
+                                                    <tr class="row_to_clone">
+
+
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="input" name="" class="" value="Chicken"
+                                                                    autocomplete='off' />
+                                                            </label>
+                                                        </td>
+
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="number " name=" " placeholder=" ">
+                                                            </label>
+                                                        </td>
+
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="number " 
+                                                                    autocomplete='off' />
+                                                            </label>
+                                                        </td>
+
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="number " 
+                                                                    autocomplete='off' />
+                                                            </label>
+                                                        </td>
+
+                                                    </tr>
+                                                    <tr class="row_to_clone">
+
+
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="input" name="" class="" value="Duck"
+                                                                    autocomplete='off' />
+                                                            </label>
+                                                        </td>
+
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="number " name=" " placeholder=" ">
+                                                            </label>
+                                                        </td>
+
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="number " 
+                                                                    autocomplete='off' />
+                                                            </label>
+                                                        </td>
+
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="number " 
+                                                                    autocomplete='off' />
+                                                            </label>
+                                                        </td>
+
+                                                    </tr>
+                                                    <tr class="row_to_clone">
+
+
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="input" name="" class="" value="Rooster"
+                                                                    autocomplete='off' />
+                                                            </label>
+                                                        </td>
+
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="number " name=" " placeholder=" ">
+                                                            </label>
+                                                        </td>
+
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="number " 
+                                                                    autocomplete='off' />
+                                                            </label>
+                                                        </td>
+
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="number " 
+                                                                    autocomplete='off' />
+                                                            </label>
+                                                        </td>
+
+                                                    </tr>
+                                                </tbody>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <h4>Sub-Total</h4>
+                                                        </td>
+                                                        <td>
+                                                            <h4><label class="input"> 
+                                                                <span id="sumHeads">0.00</span>
+            
+                                                            </label></h4>
+                                                        </td>
+                                                        <td>
+                                                            <h4><label class="input"> 
+                                                                <span id="sumFarmers2">0.00</span>
+            
+                                                            </label></h4>
+                                                        </td>
+                                                        <td>
+                                                            <h4><label class="input"> 
+                                                                <span id="sumLoss2">0.00</span>
+            
+                                                            </label></h4>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+
+                                            </table>
+
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="row setup-content" id="step-4">
+                                        <div class="col-xs-12">
+                                            <table id="table3" class="table table-striped table-bordered table-hover" width="100%">
+                                                <thead>
+
+
+
+                                                    <tr>
+
+                                                        <th>F</th>
+                                                        <th>FM</th>
+                                                        <th>F</th>
+                                                        <th>FM</th>
+                                                        <th>From Donors</th>
+                                                        <th>From LGU</th>
+                                                        <th>Remarks</th>
+
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="appendhere2">
+                                                    <tr class="row_to_clone">
+
+
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="input" name="" class=""
+                                                                    autocomplete='off' />
+                                                            </label>
+                                                        </td>
+
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="text " name=" " placeholder=" ">
+                                                            </label>
+                                                        </td>
+
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="number " 
+                                                                    autocomplete='off' />
+                                                            </label>
+                                                        </td>
+
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="number " 
+                                                                    autocomplete='off' />
+                                                            </label>
+                                                        </td>
+
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="number " 
+                                                                    autocomplete='off' />
+                                                            </label>
+                                                        </td>
+
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="number " 
+                                                                    autocomplete='off' />
+                                                            </label>
+                                                        </td>
+
+                                                        <td>
+                                                            <label class="input">
+                                                                <input type="number " 
+                                                                    autocomplete='off' />
+                                                            </label>
+                                                        </td>
+
+                                                    </tr>
+                                                </tbody>
+
+                                            </table>
+                                        </div>
+                                    </div>
+                                </section>
+
+
+
+
+                            </div>
+                            <br>
+
+                            <div class="row">
+                                <section class="col col-4">
+                                    <label class="label">Prefered By:</label>
+                                    <label class="input">
+                                        <input type="text" ng-model="prefered_by" />
+                                    </label>
+                                    <label class="label">Designation:</label>
+                                    <label class="input">
+                                        <input type="text" ng-model="prefered_by_designation" />
+                                    </label>
+                                </section>
+                                <section class="col col-4">
+                                    <label class="label">Certified True and Correct:</label>
+                                    <label class="input">
+                                        <input type="text" ng-model="certified_by" />
+                                    </label>
+                                    <label class="label">Designation:</label>
+                                    <label class="input">
+                                        <input type="text" ng-model="certified_by_designation" />
+                                    </label>
+                                </section>
+                                <section class="col col-4">
+                                    <label class="label">Submmitted By:</label>
+                                    <label class="input">
+                                        <input type="text" ng-model="submmitted_by" />
+                                    </label>
+                                    <label class="label">Designation:</label>
+                                    <label class="input">
+                                        <input type="text" ng-model="submmitted_by_designation" />
+                                    </label>
+                                </section>
+
+                            </div>
+
+                            
+                        </fieldset>
+                    </div>
+
+                        <footer>
+                            <button type="submit " class="btn btn-primary ">Submit</button>
+                        </footer>
+                    </form>
+
+                </div>
+
+                <!-- end widget content -->
+
+            </div>
+            <!-- end widget div -->
+
+        </div>
+        <!-- end widget -->
+
+    </div>
+
+</section>
