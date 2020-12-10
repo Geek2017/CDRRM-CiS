@@ -1,6 +1,5 @@
 #sig-canvas {
     border: 2px dotted #CCCCCC;
-    border-radius: 15px;
     cursor: crosshair;
 }
 
@@ -167,12 +166,6 @@ table th {
 
  ::-webkit-scrollbar-thumb:hover {
     background: rgba(164, 232, 230, .83);
-}
-
-#sig-canvas {
-    border: 2px dotted #CCCCCC;
-    border-radius: 15px;
-    cursor: crosshair;
 }
 
 @media screen and (min-width: 1076px) {
