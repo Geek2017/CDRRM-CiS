@@ -1,5 +1,17 @@
 angular.module('newApp').controller('demographicslistCtrl', function($scope, $http, $timeout) {
+    $scope.currentPage = 0;
+    $scope.pageSize = 5;
+    $scope.data = [];
 
+    $scope.numberOfPages = () => {
+        return Math.ceil(
+            $scope.data.length / $scope.pageSize
+        );
+    }
+
+    for (var i = 0; i < 10; i++) {
+        $scope.data.push(`Question number ${i}`);
+    }
 
     var acc = document.getElementsByClassName("accordion");
     var i;
@@ -527,4 +539,9 @@ angular.module('newApp').controller('demographicslistCtrl', function($scope, $ht
 
 
 
-});
+}).filter('startFrom', function() {
+    return (input, start) => {
+        start = +start;
+        return input.slice(start);
+    }
+})
