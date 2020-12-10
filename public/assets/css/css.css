@@ -40,24 +40,64 @@ th {
 }
 
 @media (min-width:641px) {
+    .modal-dialogs {
+        width: 100%!important;
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100px;
+        /* Need a specific value to work */
+    }
     .modal-dialog {
         width: 100%!important;
     }
 }
 
 @media (min-width:961px) {
+    .modal-dialogs {
+        width: 100%!important;
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100px;
+        /* Need a specific value to work */
+    }
     .modal-dialog {
         width: 100%!important;
     }
 }
 
 @media (min-width:1025px) {
+    .modal-dialogs {
+        width: 100%!important;
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100px;
+        /* Need a specific value to work */
+    }
     .modal-dialog {
         width: 100%!important;
     }
 }
 
 @media (min-width:1281px) {
+    .modal-dialogs {
+        width: 100%!important;
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100px;
+        /* Need a specific value to work */
+    }
     .modal-dialog {
         width: 100%!important;
     }
@@ -87,10 +127,11 @@ th {
     }
 }
 
-td {
+
+/* td {
     max-width: 150px;
     max-height: 150px;
-}
+} */
 
 table td,
 table th {
@@ -135,49 +176,49 @@ table th {
 }
 
 @media screen and (min-width: 1076px) {
-    .modal-dialog {
+    .modal-dialogs {
         max-width: 350px;
         /* New width for default modal */
     }
 }
 
 @media screen and (min-width: 1024px) {
-    .modal-dialog {
+    .modal-dialogs {
         max-width: 350px;
         /* New width for default modal */
     }
 }
 
 @media screen and (min-width: 768px) {
-    .modal-dialog {
+    .modal-dialogs {
         max-width: 350px;
         /* New width for default modal */
     }
 }
 
 @media screen and (min-width: 360px) {
-    .modal-dialog {
+    .modal-dialogs {
         max-width: 350px;
         /* New width for default modal */
     }
 }
 
 @media screen and (min-width: 411px) {
-    .modal-dialog {
+    .modal-dialogs {
         max-width: 350px;
         /* New width for default modal */
     }
 }
 
 @media screen and (min-width: 375px) {
-    .modal-dialog {
+    .modal-dialogs {
         max-width: 350px;
         /* New width for default modal */
     }
 }
 
 @media screen and (min-width: 375px) {
-    .modal-dialog {
+    .modal-dialogs {
         max-width: 350px;
         /* New width for default modal */
     }

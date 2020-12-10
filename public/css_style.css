@@ -24,57 +24,48 @@
     #spansigl {
         padding-left: 20%;
     }
-}
-
-#table-example-1 {
-    border: solid thin black!important;
-    border-collapse: collapse!important;
-    color: #000!important;
-}
-
-#table-example-1 caption {
-    padding-bottom: 0.5em!important;
-}
-
-#table-example-1 th,
-#table-example-1 td {
-    border: solid thin black!important;
-    padding: 0.5rem 2rem!important;
-    color: #000!important;
-}
-
-#table-example-1 td {
-    white-space: nowrap!important;
-}
-
-#table-example-1 th {
-    font-weight: normal!important;
-}
-
-#table-example-1 td {
-    border-style: solid thin black!important;
-    vertical-align: top!important;
-    color: #000!important;
-    /* font-family: Arial, Helvetica, sans-serif!important; */
-    font-size: 12px!important;
-}
-
-#table-example-1 th {
-    padding: 0.2em!important;
-    vertical-align: middle!important;
-    text-align: center!important;
-    font-size: 16px!important;
-}
-
-#table-example-1 tbody td:first-child::after {
-    content: leader(". ");
-}
-
-tr.child_row td {
-    padding-left: 20px!important;
-}
-
-.no-bottom-border {
-    border-bottom: none!important;
-    border-top: none!important;
+    #table-example-1 {
+        border: solid thin black!important;
+        border-collapse: collapse!important;
+        color: #000!important;
+    }
+    #table-example-1 caption {
+        padding-bottom: 0.5em!important;
+    }
+    #table-example-1 th,
+    #table-example-1 td {
+        border: solid thin black!important;
+        padding: 0.5rem 2rem!important;
+        color: #000!important;
+    }
+    #table-example-1 td {
+        white-space: nowrap!important;
+        overflow-wrap: break-word;
+    }
+    #table-example-1 th {
+        font-weight: normal!important;
+    }
+    #table-example-1 td {
+        border-style: solid thin black!important;
+        vertical-align: top!important;
+        color: #000!important;
+        /* font-family: Arial, Helvetica, sans-serif!important; */
+        font-size: 12px!important;
+    }
+    #table-example-1 th {
+        padding: 0.2em!important;
+        vertical-align: middle!important;
+        text-align: center!important;
+        font-size: 16px!important;
+    }
+    #table-example-1 tbody td:first-child::after {
+        content: leader(". ");
+    }
+    tr.child_row td {
+        padding-left: 20px!important;
+    }
+    .no-bottom-border {
+        border-bottom: none!important;
+        border-top: none!important;
+    }
 }
