@@ -1,4 +1,4 @@
-angular.module('newApp').controller('cnsbdbarangaylistCtrl', function($firebaseArray, $scope, $http, $timeout) {
+angular.module('newApp').controller('cnsbdcdrrmolistCtrl', function($firebaseArray, $scope, $http, $timeout) {
 
     pageSetUp();
 
@@ -18,7 +18,7 @@ angular.module('newApp').controller('cnsbdbarangaylistCtrl', function($firebaseA
         $scope.data.push(`Question number ${i}`);
     }
 
-    firebase.database().ref('/barangay/cnsbd/').orderByChild('uid').on("value", function(snapshot) {
+    firebase.database().ref('/cdrmo/cnsbd').orderByChild('uid').on("value", function(snapshot) {
 
         console.log(snapshot.val())
         if (!localStorage.getItem('pf')) {
@@ -65,7 +65,7 @@ angular.module('newApp').controller('cnsbdbarangaylistCtrl', function($firebaseA
                 localStorage.setItem('pf', $("#pfilter option:selected").text())
 
                 window.location.href = "#"
-                window.location.href = "#cnsbdcholist"
+                window.location.href = "#cnsbdlist"
             });
 
             var rowsTotal = $('#data tbody tr').length;
@@ -288,7 +288,7 @@ angular.module('newApp').controller('cnsbdbarangaylistCtrl', function($firebaseA
     };
 
     $scope.deleteUser = function() {
-        var ref = firebase.database().ref("/barangay/cnsbd/" + id.key);
+        var ref = firebase.database().ref("/cdrmo/cnsbd" + id.key);
         ref.remove()
             .catch(function(error) {
                 console.log("Login Failed!", error.message);
@@ -305,7 +305,7 @@ angular.module('newApp').controller('cnsbdbarangaylistCtrl', function($firebaseA
         $("#notif").append('<div class="alert alert-success fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Success</strong> Deleted !</div>');
         setTimeout(function() {
             window.location.href = "#/"
-            window.location.href = "#cnsbdcholist"
+            window.location.href = "#cnsbdlist"
         }, 1500);
         $('#myModal2').modal('hide');
     };
@@ -373,7 +373,7 @@ angular.module('newApp').controller('cnsbdbarangaylistCtrl', function($firebaseA
 
         var updates = {};
         // console.log(id.key);
-        updates['/barangay/cnsbd/' + id.key] = data;
+        updates['/cdrmo/cnsbd' + id.key] = data;
         firebase.database().ref().update(updates);
         console.log(updates)
 
@@ -383,7 +383,7 @@ angular.module('newApp').controller('cnsbdbarangaylistCtrl', function($firebaseA
             $("#notif").append('<div class="alert alert-success fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Success</strong> Data had been save!.</div>');
             setTimeout(function() {
                 window.location.href = "#/"
-                window.location.href = "#cnsbdbarangaylist"
+                window.location.href = "#cnsbdlist"
             }, 1500);
         } else {
             $("#notif").append('<div class="alert alert-danger fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Error</strong> Check your Input !</div>');

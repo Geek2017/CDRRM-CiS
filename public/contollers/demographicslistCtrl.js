@@ -1,11 +1,23 @@
 angular.module('newApp').controller('demographicslistCtrl', function($scope, $http, $timeout) {
+    $scope.currentPage = 0;
+    $scope.pageSize = 5;
+    $scope.data = [];
 
+    $scope.numberOfPages = () => {
+        return Math.ceil(
+            $scope.data.length / $scope.pageSize
+        );
+    }
+
+    for (var i = 0; i < 10; i++) {
+        $scope.data.push(`Question number ${i}`);
+    }
 
     var acc = document.getElementsByClassName("accordion");
     var i;
 
     var checkbox1, checkbox2, checkbox3, checkbox4, checkbox5, checkbox6,
-    checkbox7, checkbox8, checkbox9, checkbox10, checkbox11, checkbox12;
+        checkbox7, checkbox8, checkbox9, checkbox10, checkbox11, checkbox12;
 
 
     for (i = 0; i < acc.length; i++) {
@@ -23,8 +35,8 @@ angular.module('newApp').controller('demographicslistCtrl', function($scope, $ht
     pageSetUp();
     var id;
 
-    $(function () {
-        $("#editcheckbox1").change(function () {
+    $(function() {
+        $("#editcheckbox1").change(function() {
             if ($(this).is(":checked")) {
                 // $("#otherCheckbox").show();
                 checkbox1 = true;
@@ -32,7 +44,7 @@ angular.module('newApp').controller('demographicslistCtrl', function($scope, $ht
                 checkbox1 = false;
             }
         });
-        $("#editcheckbox2").change(function () {
+        $("#editcheckbox2").change(function() {
             if ($(this).is(":checked")) {
                 // $("#otherCheckbox").show();
                 checkbox2 = true;
@@ -40,7 +52,7 @@ angular.module('newApp').controller('demographicslistCtrl', function($scope, $ht
                 checkbox2 = false;
             }
         });
-        $("#editcheckbox3").change(function () {
+        $("#editcheckbox3").change(function() {
             if ($(this).is(":checked")) {
                 // $("#otherCheckbox").show();
                 checkbox3 = true;
@@ -48,7 +60,7 @@ angular.module('newApp').controller('demographicslistCtrl', function($scope, $ht
                 checkbox3 = false;
             }
         });
-        $("#editcheckbox4").change(function () {
+        $("#editcheckbox4").change(function() {
             if ($(this).is(":checked")) {
                 // $("#otherCheckbox").show();
                 checkbox4 = true;
@@ -56,7 +68,7 @@ angular.module('newApp').controller('demographicslistCtrl', function($scope, $ht
                 checkbox4 = false;
             }
         });
-        $("#editcheckbox5").change(function () {
+        $("#editcheckbox5").change(function() {
             if ($(this).is(":checked")) {
                 // $("#otherCheckbox").show();
                 checkbox5 = true;
@@ -64,7 +76,7 @@ angular.module('newApp').controller('demographicslistCtrl', function($scope, $ht
                 checkbox5 = false;
             }
         });
-        $("#editcheckbox6").change(function () {
+        $("#editcheckbox6").change(function() {
             if ($(this).is(":checked")) {
                 // $("#otherCheckbox").show();
                 checkbox6 = true;
@@ -72,7 +84,7 @@ angular.module('newApp').controller('demographicslistCtrl', function($scope, $ht
                 checkbox6 = false;
             }
         });
-        $("#editcheckbox7").change(function () {
+        $("#editcheckbox7").change(function() {
             if ($(this).is(":checked")) {
                 // $("#otherCheckbox").show();
                 checkbox7 = true;
@@ -80,7 +92,7 @@ angular.module('newApp').controller('demographicslistCtrl', function($scope, $ht
                 checkbox7 = false;
             }
         });
-        $("#editcheckbox8").change(function () {
+        $("#editcheckbox8").change(function() {
             if ($(this).is(":checked")) {
                 // $("#otherCheckbox").show();
                 checkbox8 = true;
@@ -88,7 +100,7 @@ angular.module('newApp').controller('demographicslistCtrl', function($scope, $ht
                 checkbox8 = false;
             }
         });
-        $("#editcheckbox9").change(function () {
+        $("#editcheckbox9").change(function() {
             if ($(this).is(":checked")) {
                 // $("#otherCheckbox").show();
                 checkbox9 = true;
@@ -96,7 +108,7 @@ angular.module('newApp').controller('demographicslistCtrl', function($scope, $ht
                 checkbox9 = false;
             }
         });
-        $("#editcheckbox10").change(function () {
+        $("#editcheckbox10").change(function() {
             if ($(this).is(":checked")) {
                 // $("#otherCheckbox").show();
                 checkbox10 = true;
@@ -104,7 +116,7 @@ angular.module('newApp').controller('demographicslistCtrl', function($scope, $ht
                 checkbox10 = false;
             }
         });
-        $("#editcheckbox11").change(function () {
+        $("#editcheckbox11").change(function() {
             if ($(this).is(":checked")) {
                 // $("#otherCheckbox").show();
                 checkbox11 = true;
@@ -112,7 +124,7 @@ angular.module('newApp').controller('demographicslistCtrl', function($scope, $ht
                 checkbox11 = false;
             }
         });
-        $("#editcheckbox12").change(function () {
+        $("#editcheckbox12").change(function() {
             if ($(this).is(":checked")) {
                 // $("#otherCheckbox").show();
                 checkbox12 = true;
@@ -273,7 +285,7 @@ angular.module('newApp').controller('demographicslistCtrl', function($scope, $ht
 
         document.getElementById("editdate").value = users.date;
 
-        if(users.checkboxes.checkboxtwelve){
+        if (users.checkboxes.checkboxtwelve) {
             document.getElementById("editotherCheckbox").style.display = "block";
         }
 
@@ -281,15 +293,15 @@ angular.module('newApp').controller('demographicslistCtrl', function($scope, $ht
         for (let index = 0; index < $scope.cfs.length; index++) {
             // console.log($scope.cfs[index].key)
             // console.log(users.key)
-            if(users.key == $scope.cfs[index].key){
+            if (users.key == $scope.cfs[index].key) {
                 // console.log($scope.cfs[index])
                 $scope.usersClicked = $scope.cfs[index];
                 // console.log($scope.usersClicked.needs)
             }
-            
+
         }
-        
-        
+
+
         $scope.clickedUser = users;
         id = users;
         // console.log(users.rhatype);
@@ -301,6 +313,66 @@ angular.module('newApp').controller('demographicslistCtrl', function($scope, $ht
         $('#myModal2').modal('show');
     };
 
+    $scope.printit = function(users) {
+
+
+        for (let index = 0; index < $scope.cfs.length; index++) {
+            // console.log($scope.cfs[index].key)
+            // console.log(users.key)
+            if (users.key == $scope.cfs[index].key) {
+                // console.log($scope.cfs[index])
+                $scope.usersClicked = $scope.cfs[index];
+                // console.log($scope.usersClicked.needs)
+            }
+
+        }
+
+
+        $scope.clickedUser = users;
+        id = users;
+        // document.getElementById("editDateOfDecampment").value = users.dateOfDecampment;
+        // document.getElementById("editDateOfEvacuation").value = users.dateOfEvacuation;
+
+        console.log($scope.clickedUser.operationfor)
+
+
+        $('#printit').modal('show');
+        setTimeout(function() {
+            printElement(document.getElementById("printThis"));
+
+            var modThis = document.querySelector("#printSection .modifyMe");
+            modThis.appendChild(document.createTextNode(""));
+
+            window.print();
+
+
+
+            function printElement(elem) {
+
+
+                var domClone = elem.cloneNode(true);
+
+                var $printSection = document.getElementById("printSection");
+
+                if (!$printSection) {
+                    var $printSection = document.createElement("div");
+                    $printSection.id = "printSection";
+                    document.body.appendChild($printSection);
+                }
+
+                $printSection.innerHTML = "";
+
+                $printSection.appendChild(domClone);
+
+                $('#printit').modal('hide');
+
+            }
+
+
+        }, 100);
+
+    };
+
     $scope.selectUser2 = function(users) {
         // console.log(users);
         $scope.clickedUser = users;
@@ -310,7 +382,7 @@ angular.module('newApp').controller('demographicslistCtrl', function($scope, $ht
     };
 
     $scope.selectUser3 = function(users) {
-        
+
         $("#checkbox1").attr("checked", users.checkboxes.checkboxone);
         $("#checkbox2").attr("checked", users.checkboxes.checkboxtwo);
         $("#checkbox3").attr("checked", users.checkboxes.checkboxthree);
@@ -324,7 +396,7 @@ angular.module('newApp').controller('demographicslistCtrl', function($scope, $ht
         $("#checkbox11").attr("checked", users.checkboxes.checkboxeleven);
         $("#checkbox12").attr("checked", users.checkboxes.checkboxtwelve);
 
-        if(users.checkboxes.checkboxtwelve){
+        if (users.checkboxes.checkboxtwelve) {
             document.getElementById("otherCheckbox").style.display = "block";
         }
         // console.log(users);
@@ -336,14 +408,14 @@ angular.module('newApp').controller('demographicslistCtrl', function($scope, $ht
     $scope.deleteUser = function() {
         var ref = firebase.database().ref("/cho/demographics/" + id.key);
         ref.remove()
-        .catch(function(error) {
-            console.log("Login Failed!", error.message);
-            $("#notif").append('<div class="alert alert-danger fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Error</strong> ' + error.message + '</div>');
-            setTimeout(function() {
-                $("#notif").hide()
-            }, 1500);
+            .catch(function(error) {
+                console.log("Login Failed!", error.message);
+                $("#notif").append('<div class="alert alert-danger fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Error</strong> ' + error.message + '</div>');
+                setTimeout(function() {
+                    $("#notif").hide()
+                }, 1500);
 
-        });;
+            });;
 
         // $("#notif").show();
         // window.location.href = "#ecdlist";
@@ -370,7 +442,7 @@ angular.module('newApp').controller('demographicslistCtrl', function($scope, $ht
 
     var datetoday = month + ":" + day + ":" + year;
 
-    $('#savedemo').on('submit', function (e) {
+    $('#savedemo').on('submit', function(e) {
         e.preventDefault();
 
 
@@ -467,4 +539,9 @@ angular.module('newApp').controller('demographicslistCtrl', function($scope, $ht
 
 
 
-});
+}).filter('startFrom', function() {
+    return (input, start) => {
+        start = +start;
+        return input.slice(start);
+    }
+})

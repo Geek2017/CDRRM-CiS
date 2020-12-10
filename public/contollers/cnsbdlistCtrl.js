@@ -187,16 +187,39 @@ angular.module('newApp').controller('cnsbdlistCtrl', function($firebaseArray, $s
 
 
         setTimeout(function() {
+            // document.getElementById("btnPrint").onclick = function() {
+            printElement(document.getElementById("printThis"));
 
-            printJS({
-                printable: 'newcfp',
-                type: 'html',
-                targetStyles: ['*'],
-                maxWidth: 'auto'
-            })
+            var modThis = document.querySelector("#printSection .modifyMe");
+            modThis.appendChild(document.createTextNode(""));
 
-            $('#printit').modal('hide');
-        }, 1000);
+            window.print();
+
+
+
+            function printElement(elem) {
+
+
+                var domClone = elem.cloneNode(true);
+
+                var $printSection = document.getElementById("printSection");
+
+                if (!$printSection) {
+                    var $printSection = document.createElement("div");
+                    $printSection.id = "printSection";
+                    document.body.appendChild($printSection);
+                }
+
+                $printSection.innerHTML = "";
+
+                $printSection.appendChild(domClone);
+
+                $('#printit').modal('hide');
+
+            }
+
+
+        }, 100);
 
     };
 
