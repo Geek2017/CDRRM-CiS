@@ -54,8 +54,7 @@
 
                         <td class="col col-4"><button type="button" class="btn btn-success btn-block " ng-click="selectUser(cf)"><i class="icon-append fa fa-pencil"></i> Edit Data</button></td>
 
-                        <td class="col col-4"><button type="button" class="btn btn-info btn-block  " ng-click=""><i class="icon-append fa fa-print"></i> Print Data</button></td>
-
+                        <td class="col col-4"><button type="button" class="btn btn-info btn-block  " ng-click="printit(cf)"><i class="icon-append fa fa-print"></i> Print Data</button></td>
                         <td class="col col-4"><button type="button" class="btn btn-danger btn-block  " ng-click="selectUser2(cf)"><i class="icon-append fa fa-minus-circle"></i> Delete Data</button></td>
                     </tr>
 
@@ -64,11 +63,6 @@
 
 
             </table>
-
-
-
-
-
 
 
         </div>
@@ -87,8 +81,6 @@
 
 
 </article>
-
-
 
 
 <div id="myModal2" class="modal fade" role="dialog">
@@ -938,20 +930,21 @@
                                 <!-- <div style="float: right;"><img src="../assets/img/hems.png" height="auto" width="150px" alt="hems"></div> -->
                             </section>
                             <section>
-                                <strong style="font-size: 30px;"> <center> HEARS FIELD REPORT</center></strong>
-                                <p style="font-size: 9.5px;">(Upon learning about the occurrence of an event, htaht HEMS Coordinator shall immediately in form the DOH-HEMS Operation Center through the fastest communication means available. Then this Forms 1 shall be filled-out and
-                                    sent ASAP or within 24 upon occurrence of the event.)</p>
+                                <strong style="font-size: 30px;"> <center> RAPID HEALTH ASSESSMENT </center></strong>
+                                <strong style="font-size: 20px;"> <center> Event Title:_____________________________________</center></strong>
+                                <p style="font-size: 9.5px;">(This form shall be filled-out and submitted by the HEMS Coordinator to the DOH-HEMS within 24 hours upon occurrence of a major health emergency or disaster, except for mass casualty Incident and outbreaks. for which Form
+                                    3-B and Form3-C shall be used respectively.)</p>
                             </section>
                             <table id="table-example-1" width="100%">
 
                                 <tr class="pull-left">
-                                    <th colspan="6">A) Event Information</th>
+                                    <th colspan="7">A) Event Information</th>
                                 </tr>
 
                                 <tbody>
 
                                     <tr class="pull-left">
-                                        <td class="text-left ">
+                                        <td class="text-left " colspan="2">
                                             Type of Event:
                                         </td>
                                         <td class="pull-left">
@@ -994,7 +987,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td class="text-left">
+                                        <td class="text-left" colspan="2">
                                             Date of <br> Occurrence:
                                         </td>
                                         <td class="text-left">
@@ -1014,100 +1007,752 @@
                                             <br> Municipality/City:
                                         </td>
                                     </tr>
+
+                                    <tr class="pull-left">
+                                        <th colspan="7">B) Mgnitude of Event</th>
+                                    </tr>
                                     <tr>
-                                        <td colspan="6">Brief Description (How the even happened):<br> <textarea class="textarea" rows="20" style="border: none;
-                                            width: 100%;
-                                            -webkit-box-sizing: border-box; /* <=iOS4, <= Android  2.3 */
-                                            -moz-box-sizing: border-box; /* FF1+ */
-                                            box-sizing: border-box; /* Chrome, IE8, Opera, Safari 5.1*/"> </textarea> </i>
+                                        <th rowspan="2">Province</th>
+                                        <th rowspan="2">Municipality/ <br> City</th>
+                                        <th colspan="2">Number Affected</th>
+                                        <th colspan="3">Evacuation Centers</th>
+                                    </tr>
+                                    <tr>
+
+                                        <th>Families</th>
+                                        <th>Individuals</th>
+                                        <th>No. of EC</th>
+                                        <th>No. of Families in EC</th>
+                                        <th>No. of Indiv. in EC</th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
                                         </td>
                                     </tr>
                                     <tr class="pull-left">
-                                        <th colspan="6">B) Consequences</th>
+                                        <th colspan="7">C) Health Consecquences</th>
+                                    </tr>
+                                    <tr>
+                                        <th rowspan="2">Province</th>
+                                        <th rowspan="2">Municipality/ <br> City</th>
+                                        <th rowspan="2">Total No. of <br> Deaths</th>
+                                        <th colspan="3">Total no. of ill/injured <br>(excluding those whoe have died) </th>
+                                        <th rowspan="2">Total No. of <br>Missing</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Admitted</th>
+                                        <th>Admitted then <br> Discharge </th>
+                                        <th>Not <br> Admitted</th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td>
+                                            <span>&nbsp;</span>
+                                        </td>
+                                    </tr>
+                                    <tr class="pull-left">
+                                        <th colspan="7">D) Health Facilities in the Affected Areas</th>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <span>DOH Hospitals:</span>
+                                        </td>
+                                        <td colspan="3">
+                                            <span><input type="checkbox">Full Functional <input type="checkbox">Partly Functional <input type="checkbox">Totally Non-Functional</span>
+                                        </td>
+                                        <td colspan="3">
+                                            <span>Remarks</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <span>LGU Hospitals:</span>
+                                        </td>
+                                        <td colspan="3">
+                                            <span><input type="checkbox">Full Functional <input type="checkbox">Partly Functional <input type="checkbox">Totally Non-Functional</span>
+                                        </td>
+                                        <td colspan="3">
+                                            <span>Remarks</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <span>Pvt. Hospitals:</span>
+                                        </td>
+                                        <td colspan="3">
+                                            <span><input type="checkbox">Full Functional <input type="checkbox">Partly Functional <input type="checkbox">Totally Non-Functional</span>
+                                        </td>
+                                        <td colspan="3">
+                                            <span>Remarks</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <span>RHU/Health Ctr:</span>
+                                        </td>
+                                        <td colspan="3">
+                                            <span><input type="checkbox">Full Functional <input type="checkbox">Partly Functional <input type="checkbox">Totally Non-Functional</span>
+                                        </td>
+                                        <td colspan="3">
+                                            <span>Remarks</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <span>BHS:</span>
+                                        </td>
+                                        <td colspan="3">
+                                            <span><input type="checkbox">Full Functional <input type="checkbox">Partly Functional <input type="checkbox">Totally Non-Functional</span>
+                                        </td>
+                                        <td colspan="3">
+                                            <span>Remarks</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <span>Other:</span>
+                                        </td>
+                                        <td colspan="3">
+                                            <span><input type="checkbox">Full Functional <input type="checkbox">Partly Functional <input type="checkbox">Totally Non-Functional</span>
+                                        </td>
+                                        <td colspan="3">
+                                            <span>Remarks</span>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+
+                                <tbody>
+                                    <tr class="pull-left">
+                                        <th colspan="7">E) Lifelines in the Affected Areas</th>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <span>Communication:</span>
+                                        </td>
+                                        <td colspan="3">
+                                            <span><input type="checkbox">Full Functional <input type="checkbox">Partly Functional <input type="checkbox">Totally Non-Functional</span>
+                                        </td>
+                                        <td colspan="3">
+                                            <span>Remarks</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <span>Electric Power:</span>
+                                        </td>
+                                        <td colspan="3">
+                                            <span><input type="checkbox">Full Functional <input type="checkbox">Partly Functional <input type="checkbox">Totally Non-Functional</span>
+                                        </td>
+                                        <td colspan="3">
+                                            <span>Remarks</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <span>Water:</span>
+                                        </td>
+                                        <td colspan="3">
+                                            <span><input type="checkbox">Full Functional <input type="checkbox">Partly Functional <input type="checkbox">Totally Non-Functional</span>
+                                        </td>
+                                        <td colspan="3">
+                                            <span>Remarks</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <span>Roads/Bridges:</span>
+                                        </td>
+                                        <td colspan="3">
+                                            <span><input type="checkbox">Full Functional <input type="checkbox">Partly Functional <input type="checkbox">Totally Non-Functional</span>
+                                        </td>
+                                        <td colspan="3">
+                                            <span>Remarks</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <span>Other:________</span>
+                                        </td>
+                                        <td colspan="3">
+                                            <span><input type="checkbox">Full Functional <input type="checkbox">Partly Functional <input type="checkbox">Totally Non-Functional</span>
+                                        </td>
+                                        <td colspan="3">
+                                            <span>Remarks</span>
+                                        </td>
+                                    </tr>
+                                    <tr class="pull-left">
+                                        <th colspan="7">F) Status of Essential Drugs and Supplies in the Affected Areas</th>
+                                    </tr>
+                                    <tr class="pull-left">
+
+                                        <th colspan="2">No. of Cases</th>
+                                        <th colspan="3">No. of Days</th>
+                                        <th colspan="3">Remarks</th>
+                                    </tr>
 
                                     </tr>
                                     <tr>
-                                        <th colspan="2">HEALTH IMPACT</th>
-                                        <th colspan="2">POPULATION DISPLACEMENT</th>
-                                        <th colspan="2">HEALTH FACILITIES/ SERVICES</th>
-                                    </tr>
-                                    <tr class="pull-left">
-                                        <td class="text-left ">
-                                            No. of Deaths: ___<br> No. of Admitted Patients:___<br> No. of OutPatients: strong ___<br> No. Missing: ___
-                                        </td>
-                                        <td class="pull-left">
-                                            Population displace? <br>No. of Displ. Families:<br><br><br>No. of Disp. Individuals
-                                        </td>
-                                        <td class="text-left">
-                                            <input type="checkbox">Yes <input type="checkbox">No <br>
-                                            <input type="checkbox">Estimated <br><input type="checkbox">Actual<br>
-                                            <input type="checkbox">Estimated <br><input type="checkbox">Actual
-                                        </td>
-                                        <td class="text-left ">
-                                            <br><br> Public: <br> Hospitals: <br> RHUs:
-                                        </td>
-                                        <td class="text-left text-right">
-                                            Number <br> Available <br>
 
+                                        <td colspan="2">
+                                            <span>&nbsp;</span>
                                         </td>
-                                        <td class="text-left text-right">
-                                            Number <br> Functions
+                                        <td colspan="3">
+                                            <span>&nbsp;</span>
+                                        </td>
+                                        <td colspan="3">
+                                            <span>&nbsp;</span>
                                         </td>
                                     </tr>
                                     <tr class="pull-left">
-                                        <th colspan="6">C) Action Taken</th>
+                                        <th colspan="7">G) Action Taken</th>
                                     </tr>
                                     <tr class="pull-left">
                                         <td colspan="6 text-left">1.</td>
                                     </tr>
                                     <tr class="pull-left">
-                                        <td colspan="6">2.</td>
+                                        <td colspan="7">2.</td>
                                     </tr>
                                     <tr class="pull-left">
-                                        <td colspan="6">3.</td>
+                                        <td colspan="7">3.</td>
                                     </tr>
                                     <tr class="pull-left">
-                                        <td colspan="6">4.</td>
+                                        <td colspan="7">4.</td>
                                     </tr>
                                     <tr class="pull-left">
-                                        <td colspan="6">5.</td>
+                                        <td colspan="7">5.</td>
                                     </tr>
                                     <tr class="pull-left">
-                                        <th colspan="6">D) Assistance Needed</th>
+                                        <th colspan="7">H) Problem Encountered</th>
                                     </tr>
                                     <tr class="pull-left">
-                                        <td colspan="6">1.</td>
+                                        <td colspan="6 text-left">1.</td>
                                     </tr>
                                     <tr class="pull-left">
-                                        <td colspan="6">2.</td>
+                                        <td colspan="7">2.</td>
                                     </tr>
                                     <tr class="pull-left">
-                                        <td colspan="6">3.</td>
+                                        <td colspan="7">3.</td>
                                     </tr>
                                     <tr class="pull-left">
-                                        <td colspan="6">4.</td>
+                                        <td colspan="7">4.</td>
                                     </tr>
                                     <tr class="pull-left">
-                                        <td colspan="6">5.</td>
+                                        <td colspan="7">5.</td>
                                     </tr>
                                     <tr class="pull-left">
-                                        <td colspan="6">Prepared and Submitted by:</td>
+                                        <th colspan="7">I) Recommendations</th>
                                     </tr>
                                     <tr class="pull-left">
-                                        <td colspan="3">Date Prepared:</td>
-                                        <td colspan="3">Mobile No:</td>
+                                        <td colspan="6 text-left">1.</td>
                                     </tr>
                                     <tr class="pull-left">
-                                        <td colspan="3">Signature:</td>
-                                        <td colspan="3">Landline No:</td>
+                                        <td colspan="7">2.</td>
                                     </tr>
                                     <tr class="pull-left">
-                                        <td colspan="3">Printed Name:</td>
-                                        <td colspan="3">Fax No:</td>
+                                        <td colspan="7">3.</td>
                                     </tr>
                                     <tr class="pull-left">
-                                        <td colspan="3">Designation/Office:</td>
-                                        <td colspan="3">Email:</td>
+                                        <td colspan="7">4.</td>
+                                    </tr>
+                                    <tr class="pull-left">
+                                        <td colspan="7">5.</td>
                                     </tr>
                                 </tbody>
 
