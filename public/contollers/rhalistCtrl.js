@@ -2,7 +2,7 @@ angular.module('newApp').controller('rhalistCtrl', function($scope, $http, $time
 
     pageSetUp();
     var id;
-
+    console.log(jm)
 
     $scope.currentPage = 0;
     $scope.pageSize = 5;

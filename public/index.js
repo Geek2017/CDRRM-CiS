@@ -94,8 +94,6 @@ $(document).ready(function($http) {
                     $('.brgynav').show()
                 } else if (snapshot.val().role == 4) {
                     $('.cswdonav').show()
-                } else if (snapshot.val().role == 4) {
-                    $('.cdrrmonav').show()
                 }
 
             }

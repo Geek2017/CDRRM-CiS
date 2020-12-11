@@ -1,5 +1,6 @@
 angular.module('newApp').controller('hfrlistCtrl', function($firebaseArray, $scope, $http, $timeout) {
-
+    window.jm = 'JM';
+    console.log(window)
     $scope.currentPage = 0;
     $scope.pageSize = 5;
     $scope.data = [];
