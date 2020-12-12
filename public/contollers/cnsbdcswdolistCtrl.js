@@ -497,8 +497,9 @@ angular.module('newApp').controller('cnsbdcswdolistCtrl', function($firebaseArra
     });
 
 }).filter('startFrom', function() {
-    return (input, start) => {
-        start = +start;
+    return function(input, start) {
+        if (!input || !input.length) { return; }
+        start = +start; //parse to int
         return input.slice(start);
     }
 })
