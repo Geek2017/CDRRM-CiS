@@ -258,6 +258,12 @@ if (voice_command) {
         'm0': function() {
             $(".chonav a").click()
         },
+        'm01': function() {
+            window.location.href = '#/rhalist';
+        },
+        'm02': function() {
+            window.location.href = '#/rhanew';
+        },
         'm1': function() {
             $(".depednav a").click()
         },

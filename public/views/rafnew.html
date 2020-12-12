@@ -1,0 +1,116 @@
+<section id="widget-grid" class="">
+    <div class=" col-sm-12 col-md-12 col-lg-12">
+        <div id="notif"></div>
+        <!-- Widget ID (each widget will need unique ID)-->
+        <div class="jarviswidget " id="wid-id-2 " data-widget-colorbutton="false " data-widget-editbutton="false ">
+
+            <header>
+            </header>
+
+            <!-- widget div-->
+            <div>
+
+                <div class="widget-body no-padding">
+
+                    <form class="smart-form " id="newcf">
+                        <header>
+                            BARANGAY RAPID HEALTH ASSESSMENT
+                        </header>
+
+                        <fieldset>
+                            <div class="row">
+                                <section class="col col-4">
+                                    <label class="label">Full Name</label>
+                                    <label class="input ">
+                                        <input type="text" ng-model="fullname" required>
+                                    </label>
+                                </section>
+                                <section class="col col-4">
+                                    <label class="label">Sex</label>
+                                    <label class="select ">
+                                        <select ng-model="sex" required>
+                                            <option value="0" selected>Select</option>
+                                            <option value="Male">Male</option>
+                                            <option value="Female">Female</option>
+                                        </select>
+                                        <i></i>
+                                    </label>
+                                </section>
+                                <section class="col col-4">
+                                    <label class="label">Status </label>
+                                    <label class="input ">
+                                        <input type="text" ng-model="status" required>
+                                    </label>
+                                </section>
+                            </div>
+                            <div class="row">
+                                <section class="col col-4">
+                                    <label class="label">Date of Birth</label>
+                                    <label class="input ">
+                                        <input type="date" ng-model="dob" required>
+                                    </label>
+                                </section>
+                                <section class="col col-4">
+                                    <label class="label">Age</label>
+                                    <label class="input ">
+                                        <input type="text" ng-model="age" required>
+                                    </label>
+                                </section>
+                                <section class="col col-4">
+                                    <label class="label">Address</label>
+                                    <label class="input ">
+                                        <input type="text" ng-model="address" required>
+                                    </label>
+                                </section>
+                            </div>
+
+                            <section>
+                                <label class="label">Cause of Death/Injury (as officially reported from a health officer or authority)</label>
+                                <label class="input ">
+                                        <input type="text" ng-model="cdi" required>
+                                    </label>
+                            </section>
+                            <section>
+                                <label class="label">Designation of Person reporting/Relationship to the Casualty</label>
+                                <label class="input ">
+                                        <input type="text" ng-model="dpr" required>
+                                    </label>
+                            </section>
+                            <div class="row">
+                                <section class="col col-6">
+                                    <label class="label">Date and Time of Death/Injury</label>
+                                    <label class="input ">
+                                        <input type="datetime-local" ng-model="dnt" required>
+                                    </label>
+                                </section>
+
+                                <section class="col col-6">
+                                    <label class="label">Name of Person Reporting </label>
+                                    <label class="input ">
+                                        <input type="text" ng-model="npr" required>
+                                    </label>
+                                </section>
+                            </div>
+
+
+                        </fieldset>
+                        <br>
+                        <footer>
+                            <button type="submit " class="btn btn-primary ">Save</button>
+                            <button type="button " class="btn btn-default " onclick="window.location.href = '#rafnew'">Clear</button>
+
+                        </footer>
+                    </form>
+
+                </div>
+
+                <!-- end widget content -->
+
+            </div>
+            <!-- end widget div -->
+
+        </div>
+        <!-- end widget -->
+
+    </div>
+</section>
