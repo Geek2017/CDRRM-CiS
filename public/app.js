@@ -242,7 +242,8 @@ angular
             .when('/cnsbdcdrrmonew', {
                 templateUrl: 'views/cnsbdcdrrmonew.html',
                 controller: "cnsbdcdrrmonewCtrl"
-            });
+            })
+
 
 
 
