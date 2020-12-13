@@ -1,3 +1,71 @@
+<style>
+    #sig-canvas {
+        border: 2px dotted #CCCCCC;
+        border-radius: 15px;
+        cursor: crosshair;
+    }
+
+    #sig-canvas2 {
+        border: 2px dotted #CCCCCC;
+        border-radius: 15px;
+        cursor: crosshair;
+    }
+
+    #sig-canvas3 {
+        border: 2px dotted #CCCCCC;
+        border-radius: 15px;
+        cursor: crosshair;
+    }
+
+    @media screen and (min-width: 1076px) {
+        .modal-dialog {
+            max-width: 350px;
+            /* New width for default modal */
+        }
+    }
+
+    @media screen and (min-width: 1024px) {
+        .modal-dialog {
+            max-width: 350px;
+            /* New width for default modal */
+        }
+    }
+
+    @media screen and (min-width: 768px) {
+        .modal-dialog {
+            max-width: 350px;
+            /* New width for default modal */
+        }
+    }
+
+    @media screen and (min-width: 360px) {
+        .modal-dialog {
+            max-width: 350px;
+            /* New width for default modal */
+        }
+    }
+
+    @media screen and (min-width: 411px) {
+        .modal-dialog {
+            max-width: 350px;
+            /* New width for default modal */
+        }
+    }
+
+    @media screen and (min-width: 375px) {
+        .modal-dialog {
+            max-width: 350px;
+            /* New width for default modal */
+        }
+    }
+
+    @media screen and (min-width: 375px) {
+        .modal-dialog {
+            max-width: 350px;
+            /* New width for default modal */
+        }
+    }
+</style>
 <section id="widget-grid" class="">
     <div class=" col-sm-12 col-md-12 col-lg-12">
         <div id="notif"></div>
@@ -35,6 +103,23 @@
                                     <label class="label">Date of Occurance</label>
                                     <label class="input ">
                                         <input type="date" ng-model="dateOccurance" id="dateOccurance" required>
+                                    </label>
+                                </section>
+
+                            </div>
+
+                            <div class="row">
+                                <section class="col col-6">
+                                    <label class="label">From:</label>
+                                    <label class="input ">
+                                        <input type="text" ng-model="from" id="from" required>
+                                    </label>
+                                </section>
+
+                                <section class="col col-6">
+                                    <label class="label">Position</label>
+                                    <label class="input ">
+                                        <input type="text" ng-model="position" id="position" required>
                                     </label>
                                 </section>
 
@@ -155,18 +240,65 @@
                             <br><br>
 
                             <div class="row">
-                                <section class="col col-6">
-                                    <label class="label">From:</label>
+                                <!-- <section class="col col-4">
+                                    <label class="label">Date Prepared:</label>
                                     <label class="input ">
-                                        <input type="text" ng-model="from" id="from" required>
+                                        <input type="date" id="datep">
+                                    </label>
+                                </section> -->
+
+                                <section class="col col-6">
+                                    <label class="label">Noted:</label>
+                                    <label class="input ">
+                                        <input type="text" ng-model="noted" id="noted">
                                     </label>
                                 </section>
 
-                                <section class="col col-6">
-                                    <label class="label">Position</label>
+                                <section class="col col-6 sign">
+                                    <label class="label">Signature</label>
+
+                                    <button type="button" class="btn btn-info  btn-sm  btn-block"
+                                        data-toggle="modal" data-target="#exampleModal">
+                                        CLICK TO SIGN
+                                    </button>
+
+                                    <!-- Modal -->
+
+                                </section>
+                                <section class="col col-12 pull-right">
+                                    <img id="sig-image" src="" alt="Your signature will go here!" />
+                                </section>
+
+                            </div>
+
+                            <div class="row">
+                                <!-- <section class="col col-4">
+                                    <label class="label">Date Recommended:</label>
                                     <label class="input ">
-                                        <input type="text" ng-model="position" id="position" required>
+                                        <input type="date" id="dater">
                                     </label>
+                                </section> -->
+
+                                <section class="col col-6">
+                                    <label class="label">Approved:</label>
+                                    <label class="input ">
+                                        <input type="text"  ng-model="approved" id="approved">
+                                    </label>
+                                </section>
+
+                                <section class="col col-6 sign">
+                                    <label class="label">Signature</label>
+
+                                    <button type="button" class="btn btn-info  btn-sm  btn-block"
+                                        data-toggle="modal" data-target="#exampleModal2">
+                                        CLICK TO SIGN
+                                    </button>
+
+                                    <!-- Modal -->
+
+                                </section>
+                                <section class="col col-12 pull-right">
+                                    <img id="sig-image2" src="" alt="Your signature will go here!" />
                                 </section>
 
                             </div>
@@ -194,3 +326,39 @@
 
     </div>
 </section>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+    <div class="modal-dialog" role="document">
+
+        <div class="modal-content">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">X</button>
+            <div class="modal-body sign">
+
+                <canvas id="sig-canvas"> </canvas>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="sig-clearBtn">Reset</button>
+                <button type="button" class="btn btn-primary" id="sig-submitBtn">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+
+    <div class="modal-dialog" role="document">
+
+        <div class="modal-content">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">X</button>
+            <div class="modal-body sign">
+
+                <canvas id="sig-canvas2"> </canvas>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="sig-clearBtn2">Reset</button>
+                <button type="button" class="btn btn-primary" id="sig-submitBtn2">Save</button>
+            </div>
+        </div>
+    </div>
+</div>

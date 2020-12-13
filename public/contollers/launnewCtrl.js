@@ -1,10 +1,31 @@
-angular.module('newApp').controller('idrnewCtrl', function ($scope) {
+angular.module('newApp').controller('launnewCtrl', function ($scope) {
     pageSetUp();
+    var grandTotal = 0,
+    cost1 = 0,
+    cost2 = 0,
+    cost3 = 0,
+    cost4 = 0,
+    // fuelTotal = 0;
+    fuel1 = 0,
+    fuel2 = 0,
+    fuel3 = 0,
+    fuel4 = 0,
+    fuel5 = 0,
+    fuel6 = 0,
+    totalFuel = 0,
+    totalFuel2 = 0,
+    totalFuel3 = 0,
+    totalWater = 0,
+    totalWater2 = 0,
+    totalWater3 = 0,
+    totalElectric = 0;
+    totalElectric2 = 0;
+    totalElectric3 = 0;
 
     var cnt = 0;
     $("#addmeb").on("click", function () {
 
-        $("#appendhereb").append("<tr><td><label class='input'><input type='text' value='' autocomplete='off' /></label></td><td><label class='input'><input type='text' autocomplete='off' class='txt' /></label></td><td><label class='input'><input type='text' autocomplete='off' class='txt2' /></label></td></tr>");
+        $("#appendhereb").append("<tr><td><label class='input'><input type='input' name='' class='' value='' autocomplete='off' /></label></td><td><label class='input'><input type='number' name='' placeholder='' class=''></label></td><td><label class='input'><input type='number' autocomplete='off' class='' /></label></td><td><label class='input'><input type='number' autocomplete='off' class='' /></label></td><td><label class='input'><input type='number' autocomplete='off' class='' /></label></td><td><label class='input'><input type='number' autocomplete='off' class='' /></label></td><td><label class='input'><input type='number' autocomplete='off' class='txt' /></label></td><td><label class='input'><input type='number' autocomplete='off' class='txt2' /></label></td><td><label class='input'><input type='number' autocomplete='off' class='txt3' /></label></td></tr>");
         cnt++;
         $('table thead th').each(function (i) {
 
@@ -25,7 +46,7 @@ angular.module('newApp').controller('idrnewCtrl', function ($scope) {
     var cntc = 0;
     $("#addmec").on("click", function () {
 
-        $("#appendherec").append("<tr><td><label class='input'><input type='text' name='' class='' value=''autocomplete='off' /></label></td><td><label class='input'><input type='text' autocomplete='off' class='txt3' /></label></td><td><label class='input'><input type='number' autocomplete='off' class='txt4' /></label></td><td><label class='input'><input type='number' autocomplete='off' class='txt5' /></label></td></tr>");
+        $("#appendherec").append("<tr><td><label class='input'><input type='input' name='' class='' value='' autocomplete='off' /></label></td><td><label class='input'><input type='input' name='' class='' value='' autocomplete='off' /></label></td><td><label class='input'><input type='number' name='' placeholder='' class=''></label></td><td><label class='input'><input type='number' autocomplete='off' class='' /></label></td><td><label class='input'><input type='number' autocomplete='off' class='' /></label></td><td><label class='input'><input type='number' autocomplete='off' class='' /></label></td><td><label class='input'><input type='number' autocomplete='off' class='txt4' /></label></td><td><label class='input'><input type='number' autocomplete='off' class='txt5' /></label></td><td><label class='input'><input type='number' autocomplete='off' class='txt6' /></label></td></tr>");
         cntc++;
         $('table thead th').each(function (i) {
 
@@ -46,7 +67,7 @@ angular.module('newApp').controller('idrnewCtrl', function ($scope) {
     var cntd = 0;
     $("#addmed").on("click", function () {
 
-        $("#appendhered").append("<tr><td><label class='input'><input type='input' name='' class='' value='' autocomplete='off' /></label></td><td><label class='input'><input type='number' name='' placeholder='' class='txt6'></label></td><td><label class='input'><input type='number' autocomplete='off' class='txt7' /></label></td><td><label class='input'><input type='number'autocomplete='off' class='txt8' /></label></td></tr>");
+        $("#appendhered").append("<tr><td><label class='input'><input type='input' name='' class='' value='' autocomplete='off' /></label></td><td><label class='input'><input type='number' name='' placeholder='' class=''></label></td><td><label class='input'><input type='number' autocomplete='off' class='' /></label></td><td><label class='input'><input type='number' autocomplete='off' class='' /></label></td><td><label class='input'><input type='number' autocomplete='off' class='' /></label></td><td><label class='input'><input type='number' autocomplete='off' class='txt7' /></label></td><td><label class='input'><input type='number' autocomplete='off' class='txt8' /></label></td><td><label class='input'><input type='number' autocomplete='off' class='txt9' /></label></td></tr>");
         cntd++;
         $('table thead th').each(function (i) {
 
@@ -66,7 +87,7 @@ angular.module('newApp').controller('idrnewCtrl', function ($scope) {
     var cnte = 0;
     $("#addmee").on("click", function () {
 
-        $("#appendheree").append("<tr><td><label class='input'><input type='input' name='' class='' value='' autocomplete='off' /></label></td><td><label class='input'><input type='number' name='' placeholder='' class='txt9'></label></td><td><label class='input'><input type='number' autocomplete='off' class='txt10' /></label></td><td><label class='input'><input type='number' autocomplete='off' class='txt11' /></label></td><td><label class='input'><input type='number' autocomplete='off' class='txt12' /></label></td><td><label class='input'><input type='number' autocomplete='off' class='txt13' /></label></td></tr>");
+        $("#appendheree").append("<tr><td><label class='input'><input type='input' name='' class='' value='' autocomplete='off' /></label></td><td><label class='input'><input type='number' name='' placeholder='' class=''></label></td><td><label class='input'><input type='number' autocomplete='off' class='' /></label></td><td><label class='input'><input type='number' autocomplete='off' class='' /></label></td><td><label class='input'><input type='number' autocomplete='off' class='' /></label></td><td><label class='input'><input type='number' autocomplete='off' class='txt10' /></label></td><td><label class='input'><input type='number' autocomplete='off' class='txt11' /></label></td><td><label class='input'><input type='number' autocomplete='off' class='txt12' /></label></td></tr>");
         cnte++;
         $('table thead th').each(function (i) {
 
@@ -230,8 +251,13 @@ angular.module('newApp').controller('idrnewCtrl', function ($scope) {
 
     var datetoday = month + ":" + day + ":" + year;
 
-    $('#saveidr').on('submit', function (e) {
+    $('#savelaun').on('submit', function (e) {
         e.preventDefault();
+
+        var overAllFuel = totalFuel + totalFuel2 + totalFuel3;
+        var overAllWater = totalWater + totalWater2 + totalWater3;
+        var overAllElectric = totalElectric + totalElectric2 + totalElectric3;
+        var allTotal = overAllFuel + overAllWater + overAllElectric;
 
         console.log($scope.tojsonb(objb))
         console.log($scope.tojsonc(objc))
@@ -253,31 +279,19 @@ angular.module('newApp').controller('idrnewCtrl', function ($scope) {
             // console.log(withoutLast3)
 
 
-            var uid = firebase.database().ref().child('cdrmo/idr/').push().key;
+            var uid = firebase.database().ref().child('cdrmo/laun/').push().key;
 
             var data = {
                 "date": datetoday,
-
-                "operationName": $scope.operationName,
-                "dead_confirmed": $scope.deadConfirmed,
-                "dead_reported": $scope.deadReported,
-                "missing": $scope.missing,
-                "injured": $scope.injured,
-
-                "families": $scope.families,
-                "persons": $scope.persons,
-
-                "damage_agri_fishiries": $scope.tojsonb(objb),
-                "damage_livestocks_poultry": $scope.tojsonc(objc),
-                "damage_houses": $scope.tojsond(objd),
-                "damage_infra": $scope.tojsone(obje),
-
-                "preparedBy": $scope.preparedBy,
-                "signature": localStorage.getItem('sign'),
-                "recommending": $scope.recommending,
-                "signature2": localStorage.getItem('sign2'),
-                "approvedBy": $scope.approvedBy,
-                "signature3": localStorage.getItem('sign3'),
+                "fuelTotal": overAllFuel,
+                "waterTotal": overAllWater,
+                "electricTotal": overAllElectric,
+                "overAll": allTotal,
+                
+                "fuel_diesel": $scope.tojsonb(objb),
+                "fuel_gasoline": $scope.tojsonc(objc),
+                "water": $scope.tojsond(objd),
+                "electric": $scope.tojsone(obje),
 
 
 
@@ -285,7 +299,7 @@ angular.module('newApp').controller('idrnewCtrl', function ($scope) {
             }
 
             var updates = {};
-            updates['cdrmo/idr/' + uid] = data;
+            updates['cdrmo/laun/' + uid] = data;
             firebase.database().ref().update(updates);
             console.log(updates)
 
@@ -295,7 +309,7 @@ angular.module('newApp').controller('idrnewCtrl', function ($scope) {
                 $("#notif").append('<div class="alert alert-success fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Success</strong> Data had been save!.</div>');
                 setTimeout(function () {
                     window.location.href = "#/"
-                    window.location.href = "#idrnew"
+                    window.location.href = "#launnew"
                 }, 1500);
             } else {
                 $("#notif").append('<div class="alert alert-danger fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Error</strong> Check your Input !</div>');
@@ -310,11 +324,7 @@ angular.module('newApp').controller('idrnewCtrl', function ($scope) {
 
 
 
-    var grandTotal = 0,
-        cost1 = 0,
-        cost2 = 0,
-        cost3 = 0,
-        cost4 = 0;
+
 
     function calculateSum() {
         var sum = 0;
@@ -327,9 +337,12 @@ angular.module('newApp').controller('idrnewCtrl', function ($scope) {
             }
 
         });
+        fuel1 = sum;
+        var fuelTotal = fuel1 + fuel4;
+        totalFuel = fuel1 + fuel4;
         //.toFixed() method will roundoff the final sum to 2 decimal places
         // document.getElementById("sumNumber").textContent=sum.toFixed(2);
-        $("#sumNumber").html(sum.toFixed(2));
+        $("#sumFirstFuel").html(fuelTotal.toFixed(2));
         console.log(sum.toFixed(2));
     }
 
@@ -345,9 +358,10 @@ angular.module('newApp').controller('idrnewCtrl', function ($scope) {
 
         });
         //.toFixed() method will roundoff the final sum to 2 decimal places
-        cost1 = sum;
-        grandTotal = cost1 + cost2 + cost3 + cost4;
-        $("#sumCost").html(sum.toFixed(2));
+        fuel2 = sum;
+        var fuelTotal = fuel2 + fuel5;
+        totalFuel2 = fuel2 + fuel5;
+        $("#sumSecondFuel").html(fuelTotal.toFixed(2));
         $("#grandTotal").html(grandTotal.toFixed(2));
         console.log(sum.toFixed(2));
     }
@@ -363,8 +377,11 @@ angular.module('newApp').controller('idrnewCtrl', function ($scope) {
             }
 
         });
+        fuel3 = sum;
+        var fuelTotal = fuel3 + fuel6;
+        totalFuel3 = fuel3 + fuel6;
         //.toFixed() method will roundoff the final sum to 2 decimal places
-        $("#sumArea").html(sum.toFixed(2));
+        $("#sumThirdFuel").html(fuelTotal.toFixed(2));
         console.log(sum.toFixed(2));
     }
 
@@ -379,8 +396,11 @@ angular.module('newApp').controller('idrnewCtrl', function ($scope) {
             }
 
         });
+        fuel4 = sum;
+        var fuelTotal = fuel4 + fuel1;
+        totalFuel = fuel4 + fuel1;
         //.toFixed() method will roundoff the final sum to 2 decimal places
-        $("#sumFarmers").html(sum.toFixed(2));
+        $("#sumFirstFuel").html(fuelTotal.toFixed(2));
         console.log(sum.toFixed(2));
     }
 
@@ -396,9 +416,10 @@ angular.module('newApp').controller('idrnewCtrl', function ($scope) {
 
         });
         //.toFixed() method will roundoff the final sum to 2 decimal places
-        cost2 = sum;
-        grandTotal = cost1 + cost2 + cost3 + cost4;
-        $("#sumLoss").html(sum.toFixed(2));
+        fuel5 = sum;
+        var fuelTotal = fuel5 + fuel2;
+        totalFuel2 = fuel5 + fuel2;
+        $("#sumSecondFuel").html(fuelTotal.toFixed(2));
         $("#grandTotal").html(grandTotal.toFixed(2));
         console.log(sum.toFixed(2));
     }
@@ -414,8 +435,11 @@ angular.module('newApp').controller('idrnewCtrl', function ($scope) {
             }
 
         });
+        fuel6 = sum;
+        var fuelTotal = fuel6 + fuel3;
+        totalFuel3 = fuel6 + fuel3;
         //.toFixed() method will roundoff the final sum to 2 decimal places
-        $("#sumHeads").html(sum.toFixed(2));
+        $("#sumThirdFuel").html(fuelTotal.toFixed(2));
         console.log(sum.toFixed(2));
     }
 
@@ -430,8 +454,9 @@ angular.module('newApp').controller('idrnewCtrl', function ($scope) {
             }
 
         });
+        totalWater = sum;
         //.toFixed() method will roundoff the final sum to 2 decimal places
-        $("#sumFarmers2").html(sum.toFixed(2));
+        $("#sumFirstWater").html(sum.toFixed(2));
         console.log(sum.toFixed(2));
     }
 
@@ -449,7 +474,8 @@ angular.module('newApp').controller('idrnewCtrl', function ($scope) {
         //.toFixed() method will roundoff the final sum to 2 decimal places
         cost3 = sum;
         grandTotal = cost1 + cost2 + cost3 + cost4;
-        $("#sumLoss2").html(sum.toFixed(2));
+        totalWater2 = sum;
+        $("#sumSecondWater").html(sum.toFixed(2));
         $("#grandTotal").html(grandTotal.toFixed(2));
         console.log(sum.toFixed(2));
     }
@@ -466,7 +492,8 @@ angular.module('newApp').controller('idrnewCtrl', function ($scope) {
 
         });
         //.toFixed() method will roundoff the final sum to 2 decimal places
-        $("#sumNational").html(sum.toFixed(2));
+        totalWater3 = sum;
+        $("#sumThirdWater").html(sum.toFixed(2));
         console.log(sum.toFixed(2));
     }
 
@@ -482,7 +509,8 @@ angular.module('newApp').controller('idrnewCtrl', function ($scope) {
 
         });
         //.toFixed() method will roundoff the final sum to 2 decimal places
-        $("#sumProvincial").html(sum.toFixed(2));
+        totalElectric = sum;
+        $("#sumFirstElectric").html(sum.toFixed(2));
         console.log(sum.toFixed(2));
     }
 
@@ -498,7 +526,8 @@ angular.module('newApp').controller('idrnewCtrl', function ($scope) {
 
         });
         //.toFixed() method will roundoff the final sum to 2 decimal places
-        $("#sumCity").html(sum.toFixed(2));
+        totalElectric2 = sum;
+        $("#sumSecondElectric").html(sum.toFixed(2));
         console.log(sum.toFixed(2));
     }
 
@@ -514,7 +543,8 @@ angular.module('newApp').controller('idrnewCtrl', function ($scope) {
 
         });
         //.toFixed() method will roundoff the final sum to 2 decimal places
-        $("#sumPrivate").html(sum.toFixed(2));
+        totalElectric3 = sum;
+        $("#sumThirdElectric").html(sum.toFixed(2));
         console.log(sum.toFixed(2));
     }
 
@@ -545,7 +575,7 @@ angular.module('newApp').controller('idrnewCtrl', function ($scope) {
         calculateSum2();
     });
 
-    $("#table-c").on("keyup", ".txt3", function () {
+    $("#table-b").on("keyup", ".txt3", function () {
         calculateSum3();
     });
     $("#table-c").on("keyup", ".txt4", function () {
@@ -555,7 +585,7 @@ angular.module('newApp').controller('idrnewCtrl', function ($scope) {
         calculateSum5();
     });
 
-    $("#table-d").on("keyup", ".txt6", function () {
+    $("#table-c").on("keyup", ".txt6", function () {
         calculateSum6();
     });
     $("#table-d").on("keyup", ".txt7", function () {
@@ -565,7 +595,7 @@ angular.module('newApp').controller('idrnewCtrl', function ($scope) {
         calculateSum8();
     });
 
-    $("#table-e").on("keyup", ".txt9", function () {
+    $("#table-d").on("keyup", ".txt9", function () {
         calculateSum9();
     });
     $("#table-e").on("keyup", ".txt10", function () {

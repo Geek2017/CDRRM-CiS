@@ -1,3 +1,59 @@
+<style>
+    #sig-canvas {
+        border: 2px dotted #CCCCCC;
+        border-radius: 15px;
+        cursor: crosshair;
+    }
+    
+    @media screen and (min-width: 1076px) {
+        .modal-dialog {
+            max-width: 350px;
+            /* New width for default modal */
+        }
+    }
+    
+    @media screen and (min-width: 1024px) {
+        .modal-dialog {
+            max-width: 350px;
+            /* New width for default modal */
+        }
+    }
+    
+    @media screen and (min-width: 768px) {
+        .modal-dialog {
+            max-width: 350px;
+            /* New width for default modal */
+        }
+    }
+    
+    @media screen and (min-width: 360px) {
+        .modal-dialog {
+            max-width: 350px;
+            /* New width for default modal */
+        }
+    }
+    
+    @media screen and (min-width: 411px) {
+        .modal-dialog {
+            max-width: 350px;
+            /* New width for default modal */
+        }
+    }
+    
+    @media screen and (min-width: 375px) {
+        .modal-dialog {
+            max-width: 350px;
+            /* New width for default modal */
+        }
+    }
+    
+    @media screen and (min-width: 375px) {
+        .modal-dialog {
+            max-width: 350px;
+            /* New width for default modal */
+        }
+    }
+</style>
 <section id="widget-grid" class="">
     <div class=" col-sm-12 col-md-12 col-lg-12">
         <div id="notif"></div>
@@ -68,7 +124,8 @@
                                 </div>
                                 <br>
                                 <br>
-                                <table id="convert-table" class="table table-striped table-bordered table-hover" width="100%">
+                                <table id="convert-table" class="table table-striped table-bordered table-hover"
+                                    width="100%">
                                     <thead>
                                         <!-- <tr>
                                             <th colspan="1"></th>
@@ -91,12 +148,13 @@
                                     </thead>
                                     <tbody id="appendhere">
                                         <tr class="row_to_clone">
-                                            <td class="col-md-2"> <label class="input"> 
-                                                <input type="text" name="particulars"  placeholder="" required>
-                                            </label></td>
+                                            <td class="col-md-2"> <label class="input">
+                                                    <input type="text" name="particulars" placeholder="" required>
+                                                </label></td>
                                             <td class="col-md-1">
-                                                <select name="interested " id="type" required class="form-control btn-block">
-                                                    <option value="0 "  disabled=" ">Select</option>
+                                                <select name="interested " id="type" required
+                                                    class="form-control btn-block">
+                                                    <option value="0 " disabled=" ">Select</option>
                                                     <option value="Single" selected="true">Single</option>
                                                     <option value="Married">Married</option>
                                                     <option value="Widowed">Widowed</option>
@@ -106,37 +164,40 @@
                                             </td>
                                             <td class="col-md-1">
 
-                                                <label class="input"> 
-                                                    <input type="text" name="amount" value="" class="" autocomplete='off' />
-                                               </label>
+                                                <label class="input">
+                                                    <input type="text" name="amount" value="" class=""
+                                                        autocomplete='off' />
+                                                </label>
                                             </td>
 
-                                            <td class="col-md-2"><label class="input"> 
-                                                <input type="text" name="remarks" placeholder="">
-                                            </label></td>
+                                            <td class="col-md-2"><label class="input">
+                                                    <input type="text" name="remarks" placeholder="">
+                                                </label></td>
                                             </td>
                                             <td class="col-md-2">
 
-                                                <label class="input"> 
-                                                    <input type="text" name="amount" value="" class="" autocomplete='off' />
-                                               </label>
+                                                <label class="input">
+                                                    <input type="text" name="amount" value="" class=""
+                                                        autocomplete='off' />
+                                                </label>
                                             </td>
 
-                                            <td class="col-md-1"><label class="input"> 
-                                                <input type="text" name="remarks" placeholder="">
-                                            </label></td>
-                                            <td class="col-md-1"><label class="input"> 
-                                                <input type="text" name="remarks" placeholder="">
-                                            </label></td>
-                                            <td class="col-md-2"><label class="input"> 
-                                                <input type="text" name="remarks" placeholder="">
-                                            </label></td>
+                                            <td class="col-md-1"><label class="input">
+                                                    <input type="text" name="remarks" placeholder="">
+                                                </label></td>
+                                            <td class="col-md-1"><label class="input">
+                                                    <input type="text" name="remarks" placeholder="">
+                                                </label></td>
+                                            <td class="col-md-2"><label class="input">
+                                                    <input type="text" name="remarks" placeholder="">
+                                                </label></td>
                                             </td>
                                             <td class="col-md-1">
 
-                                                <label class="input col-md-10"> 
-                                                    <input type="text" name="amount" value="" class="" autocomplete='off' />
-                                               </label>
+                                                <label class="input col-md-10">
+                                                    <input type="text" name="amount" value="" class=""
+                                                        autocomplete='off' />
+                                                </label>
 
                                                 <!-- <label class="input col-md-1"> 
                                                 <button class="btn btn-danger btn-sm deleteb">X</button>
@@ -173,6 +234,43 @@
                                 </table>
                             </div>
 
+                            <br>
+                            <section>
+
+                                <div class="row">
+                                    <!-- <section class="col col-4">
+                                        <label class="label">Date Prepared:</label>
+                                        <label class="input ">
+                                            <input type="date" id="datep">
+                                        </label>
+                                    </section> -->
+
+                                    <section class="col col-6">
+                                        <label class="label">Prepared By:</label>
+                                        <label class="input ">
+                                            <input type="text" id="preparedBy">
+                                        </label>
+                                    </section>
+
+                                    <section class="col col-6 sign">
+                                        <label class="label">Signature</label>
+
+                                        <button type="button" class="btn btn-info  btn-sm  btn-block"
+                                            data-toggle="modal" data-target="#exampleModal">
+                                            CLICK TO SIGN
+                                        </button>
+
+                                        <!-- Modal -->
+
+                                    </section>
+                                    <section class="col col-12 pull-right">
+                                        <img id="sig-image" src="" alt="Your signature will go here!" />
+                                    </section>
+
+                                </div>
+
+                            </section>
+
 
                         </fieldset>
                         <br>
@@ -196,3 +294,21 @@
 
     </div>
 </section>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+    <div class="modal-dialog" role="document">
+
+        <div class="modal-content">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">X</button>
+            <div class="modal-body sign">
+
+                <canvas id="sig-canvas"> </canvas>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="sig-clearBtn">Reset</button>
+                <button type="button" class="btn btn-primary" id="sig-submitBtn">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
