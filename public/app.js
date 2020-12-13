@@ -274,7 +274,16 @@ angular
             .when('/cnsbdcdrrmonew', {
                 templateUrl: 'views/cnsbdcdrrmonew.html',
                 controller: "cnsbdcdrrmonewCtrl"
-            });
+            })
+            .when('/rafnew', {
+                templateUrl: 'views/rafnew.html',
+                controller: "rafnewCtrl"
+            })
+            .when('/raflist', {
+                templateUrl: 'views/raflist.html',
+                controller: "raflistCtrl"
+            })
+
 
 
 

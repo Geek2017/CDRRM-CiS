@@ -79,6 +79,65 @@ angular.module('newApp').controller('rhalistCtrl', function($scope, $http, $time
 
     });
 
+    $scope.printit = function(users) {
+
+
+        for (let index = 0; index < $scope.cfs.length; index++) {
+            // console.log($scope.cfs[index].key)
+            // console.log(users.key)
+            if (users.key == $scope.cfs[index].key) {
+                // console.log($scope.cfs[index])
+                $scope.usersClicked = $scope.cfs[index];
+                // console.log($scope.usersClicked.needs)
+            }
+
+        }
+
+
+        $scope.clickedUser = users;
+        id = users;
+        // document.getElementById("editDateOfDecampment").value = users.dateOfDecampment;
+        // document.getElementById("editDateOfEvacuation").value = users.dateOfEvacuation;
+
+        console.log($scope.clickedUser.operationfor)
+
+
+        $('#printit').modal('show');
+        setTimeout(function() {
+            printElement(document.getElementById("printThis"));
+
+            var modThis = document.querySelector("#printSection .modifyMe");
+            modThis.appendChild(document.createTextNode(""));
+
+            window.print();
+
+
+
+            function printElement(elem) {
+
+
+                var domClone = elem.cloneNode(true);
+
+                var $printSection = document.getElementById("printSection");
+
+                if (!$printSection) {
+                    var $printSection = document.createElement("div");
+                    $printSection.id = "printSection";
+                    document.body.appendChild($printSection);
+                }
+
+                $printSection.innerHTML = "";
+
+                $printSection.appendChild(domClone);
+
+                $('#printit').modal('hide');
+
+            }
+
+
+        }, 100);
+
+    };
 
     $scope.selectUser = function(users) {
         // document.getElementById("sum").innerHTML=users.total;
@@ -619,17 +678,18 @@ angular.module('newApp').controller('rhalistCtrl', function($scope, $http, $time
             canvas.width = canvas.width;
         }
 
-        // Set up the UI
-
         var sigImage = document.getElementById("sig-image");
         var clearBtn = document.getElementById("sig-clearBtn");
         var submitBtn = document.getElementById("sig-submitBtn");
         clearBtn.addEventListener("click", function(e) {
             clearCanvas();
-
+            $('#sig-image').hide();
+            $('#sig-canvas').show();
             sigImage.setAttribute("src", "");
         }, false);
         submitBtn.addEventListener("click", function(e) {
+            $('#sig-image').show();
+            $('#sig-canvas').hide();
             var dataUrl = canvas.toDataURL();
 
             localStorage.setItem('sign', dataUrl)
@@ -637,7 +697,7 @@ angular.module('newApp').controller('rhalistCtrl', function($scope, $http, $time
         }, false);
 
     })();
-
+    $('#sig-canvas').hide();
 }).filter('startFrom', function() {
     return (input, start) => {
         start = +start; //parse to int

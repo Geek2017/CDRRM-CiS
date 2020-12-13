@@ -140,7 +140,7 @@
             <div id="logo-group">
 
                 <!-- PLACE YOUR LOGO HERE -->
-                <span id="logo"> <img src="./assets/img/logo.png" alt="SmartAdmin"> </span>
+                <span id="logo"> <img src="./assets/img/drms.png" alt="SmartAdmin"> </span>
                 <!-- END LOGO PLACEHOLDER -->
 
                 <!-- Note: The activity badge color changes when clicked and resets the number to 0
@@ -352,6 +352,12 @@
                         <a href="#"><i class="fa  fa-bank "></i> <span class="menu-item-parent">Barangay</span></a>
                         <ul>
                             <li>
+                                <a href="#/raflist"><i class="fa fa-file-text-o"></i>R.A.F LIST</a>
+                            </li>
+                            <li>
+                                <a href="#/rafnew"><i class="fa  fa-list-ul"></i>NEW R.A.F</a>
+                            </li>
+                            <li>
                                 <a href="#/intakesheetlist"><i class="fa fa-file-text-o"></i>INTAKE SHEETS LIST</a>
                             </li>
                             <li>
@@ -452,7 +458,7 @@
                         </ul>
                     </li>
 
-                    <li class="chonav cdrrmonav"><a href='#'><i class='fa  fa-cloud'></i> <span class='menu-item-parent'>CDRRMO</span></a>
+                    <li class="cdrrmonav"><a href='#'><i class='fa  fa-cloud'></i> <span class='menu-item-parent'>CDRRMO</span></a>
                         <ul>
                             <li> <a href='#/ecllist'><i class='fa fa-file-text-o'></i>E.C.L LIST</a></li>
                             <li> <a href='#/eclnew'><i class='fa fa-file-text-o'></i>NEW E.C.L</a></li>
@@ -482,6 +488,96 @@
 
                             <li> <a href='#/cnsbdcdrrmolist'><i class='fa fa-list-ul'></i>CNSBD-LGU LIST</a></li>
                             <li> <a href='#/cnsbdcdrrmonew'><i class='fa fa-list-ul'></i>NEW CNSBD-LGU</a></li>
+
+                        </ul>
+                    </li>
+                    <li class="chat-users top-menu-invisible">
+                        <a href="#"><i class="fa fa-lg fa-fw fa-comment-o"><em class="bg-color-pink flash animated">!</em></i> <span class="menu-item-parent">OpCen <sup>beta</sup></span></a>
+                        <ul>
+                            <li>
+                                <!-- DISPLAY USERS -->
+                                <div class="display-users">
+
+                                    <input class="form-control chat-user-filter" placeholder="Filter" type="text">
+
+                                    <a href="#" class="usr" data-chat-id="cha1" data-chat-fname="Bgy. 16 - Kawit-East" data-chat-lname="Washington Drive (Pob.)" data-chat-status="busy" data-chat-alertmsg="Sadi Orlaf is in a meeting. Please do not disturb!" data-chat-alertshow="true" data-rel="popover-hover"
+                                        data-placement="right" data-html="true" data-content="
+                                            <div class='usr-card'>
+                                                <img src='./assets/img/lgu-lc.png' alt='Sadi Orlaf' height='auto' width='100px'>
+                                                <div class='usr-card-content'>
+                                                    <h3>Roland Bongais</h3>
+                                                    <p>Kagawad</p>
+                                                </div>
+                                            </div>
+                                        ">
+                                        <i></i>Bgy. 16 - Kawit-East Washington Drive (Pob.)
+                                    </a>
+
+                                    <a href="#" class="usr" data-chat-id="cha2" data-chat-fname="BFP" data-chat-lname="Legazpi City" data-chat-status="online" data-chat-alertmsg="" data-chat-alertshow="false" data-rel="popover-hover" data-placement="right" data-html="true" data-content="
+                                            <div class='usr-card'>
+                                                <img src='./assets/img/lgu-lc.png' alt='Sadi Orlaf' height='auto' width='100px'>
+                                                <div class='usr-card-content'>
+                                                    <h3>Jessica Dolof</h3>
+                                                    <p>FO1</p>
+                                                </div>
+                                            </div>
+                                        ">
+                                        <i></i>BFP Legazpi City
+                                    </a>
+
+                                    <a href="#" class="usr" data-chat-id="cha3" data-chat-fname="CHO" data-chat-lname="" data-chat-status="online" data-rel="popover-hover" data-placement="right" data-html="true" data-content="
+                                            <div class='usr-card'>
+                                                <img src='./assets/img/lgu-lc.png' alt='Sadi Orlaf' height='auto' width='100px'>
+                                                <div class='usr-card-content'>
+                                                    <h3>Zekarburg Almandalie</h3>
+                                                    <p>Chief</p>
+                                                </div>
+                                            </div>
+                                        ">
+                                        <i></i>CHO
+                                    </a>
+
+                                    <a href="#" class="usr" data-chat-id="cha4" data-chat-fname="Bgy. 19 - " data-chat-lname="Cabagñan" data-chat-status="away" data-rel="popover-hover" data-placement="right" data-html="true" data-content="
+                                            <div class='usr-card'>
+                                                <img src='./assets/img/lgu-lc.png' alt='Sadi Orlaf' height='auto' width='100px'>
+                                                <div class='usr-card-content'>
+                                                    <h3>Barley Krazurkth</h3>
+                                                    <p>Punung Barangay</p>
+                                                </div>
+                                            </div>
+                                        ">
+                                        <i></i>Bgy. 19 - Cabagñan
+                                    </a>
+
+                                    <a href="" class="usr offline" data-chat-id="cha5" data-chat-fname="Bgy. 25 -" data-chat-lname="Lapu-lapu (Pob.)" data-chat-status="incognito" data-rel="popover-hover" data-placement="right" data-html="true" data-content="
+                                            <div class='usr-card'>
+                                                <img src='./assets/img/lgu-lc.png' alt='Sadi Orlaf' height='auto' width='100px'>
+                                                <div class='usr-card-content'>
+                                                    <h3>Farhana Amrin</h3>
+                                                    <p>Punung Barangay<small><i class='fa fa-music'></i> Playing Beethoven Classics</small></p>
+                                                </div>
+                                            </div>
+                                        ">
+                                        <i></i>Bgy. 25 - Lapu-lapu (Pob.)
+                                    </a>
+
+                                    <a href="" class="usr offline" data-chat-id="cha6" data-chat-fname="Bgy. 18 -" data-chat-lname="Cabagñan West (Pob.)" data-chat-status="incognito" data-rel="popover-hover" data-placement="right" data-html="true" data-content="
+                                            <div class='usr-card'>
+                                                <img src='./assets/img/lgu-lc.png' alt='Sadi Orlaf' height='auto' width='100px'>
+                                                <div class='usr-card-content'>
+                                                    <h3>Lezley Jacob</h3>
+                                                    <p>Punung Barangay</p>
+                                                </div>
+                                            </div>
+                                        ">
+                                        <i></i>Bgy. 18 - Cabagñan West (Pob.)
+                                    </a>
+
+                                    <a href="" class="btn btn-xs btn-default btn-block sa-chat-learnmore-btn">Settings</a>
+
+                                </div>
+                                <!-- END DISPLAY USERS -->
+                            </li>
                         </ul>
                     </li>
                 </ul>
@@ -509,7 +605,7 @@
 
                 <!-- breadcrumb -->
                 <ol class="breadcrumb">
-                    <span><strong>TYPHOON : NONE</strong> </span>
+
                     <li>
 
                         <MARQUEE DIRECTION=LEFT>
@@ -547,26 +643,36 @@
             </div>
             <!-- END RIBBON -->
 
-            <div class="row-fluid pull-center">
+            <div class="row-fluid ">
 
                 <!-- <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <h1 class="page-title txt-color-blueDark"><i class="fa-fw fa fa-home"></i> Dashboard <span>>Analytics Insight</span></h1>
                 </div> -->
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <ul id="sparks" class="">
-                        <li class="sparks-info">
+
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+
+                    <ul id="sparks" class="pull-center">
+
+                        <li class="sparks-info pull-center">
+                            <h5> Current Typhoon <span class="txt-color-red"><i class="fa fa-sun-o"></i>&nbsp;NONE</span></h5>
+                            <div class="sparkline txt-color-red hidden-mobile hidden-md hidden-sm">
+                                1
+                            </div>
+                        </li>
+
+                        <li class="sparks-info pull-center">
                             <h5> Total Casualties <span class="txt-color-red"><i class="fa fa-arrow-circle-up"></i>&nbsp;97.6%</span></h5>
                             <div class="sparkline txt-color-red hidden-mobile hidden-md hidden-sm">
                                 110,150,300
                             </div>
                         </li>
-                        <li class="sparks-info">
+                        <li class="sparks-info pull-center">
                             <h5> Total Evacuees <span class="txt-color-blue"><i class="fa fa-arrow-circle-up"></i>&nbsp;94.8%</span></h5>
                             <div class="sparkline txt-color-blue hidden-mobile hidden-md hidden-sm">
                                 1300, 1877, 2500, 2577, 2000, 2100, 3000, 2700, 3631, 2471, 2700, 3631, 2471
                             </div>
                         </li>
-                        <li class="sparks-info">
+                        <li class="sparks-info pull-center">
                             <h5> Affected Barangays <span class="txt-color-purple"><i class="fa fa-arrow-circle-up"></i>&nbsp;94.8%</span></h5>
                             <div class="sparkline txt-color-purple hidden-mobile hidden-md hidden-sm">
                                 110,150,300,130,400,240,220,310,220,300, 270, 210
@@ -785,6 +891,9 @@
 
     <script src="./contollers/cnsbdcdrrmolistCtrl.js"></script>
     <script src="./contollers/cnsbdcdrrmonewCtrl.js"></script>
+
+    <script src="./contollers/raflistCtrl.js"></script>
+    <script src="./contollers/rafnewCtrl.js"></script>
 
 
 

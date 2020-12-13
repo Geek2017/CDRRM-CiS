@@ -4,7 +4,7 @@ $.navAsAjax = false;
 /*
  * GLOBAL: Sound Config (define sound path, enable or disable all sounds)
  */
-$.sound_path = "sound/";
+$.sound_path = "./assets/sound/";
 $.sound_on = true;
 /*
  * SAVE INSTANCE REFERENCE (DO NOT CHANGE)
@@ -236,45 +236,45 @@ if (voice_command) {
                 $('#speech-btn .popover').fadeOut(250);
             }
         },
-        'help': function() {
-            $('#voiceModal').removeData('modal').modal({ remote: "ajax/modal-content/modal-voicecommand.html", show: true });
-            if ($('#speech-btn .popover').is(':visible')) {
-                $('#speech-btn .popover').fadeOut(250);
-            }
-        },
+        // 'help': function() {
+        //     $('#voiceModal').removeData('modal').modal({ remote: "ajax/modal-content/modal-voicecommand.html", show: true });
+        //     if ($('#speech-btn .popover').is(':visible')) {
+        //         $('#speech-btn .popover').fadeOut(250);
+        //     }
+        // },
         'got it': function() {
             $('#voiceModal').modal('hide');
         },
         'logout': function() {
             $.speechApp.stop();
-            window.location = $('#logout > span > a').attr("href");
+            firebase.auth().signOut();
         },
-        'view dashboard': function() {
+        'login': function() {
+            $(".login").click()
+        },
+        'dashboard': function() {
             window.location.href = '#/';
         },
-        'new coa': function() {
-            window.location.href = '#/coanew';
+        'm0': function() {
+            $(".chonav a").click()
         },
-        'coa list': function() {
-            window.location.href = '#/coalist';
+        'm01': function() {
+            window.location.href = '#/rhalist';
         },
-        'new cf': function() {
-            window.location.href = '#/cfnew';
+        'm02': function() {
+            window.location.href = '#/rhanew';
         },
-        'cf list': function() {
-            window.location.href = '#/cflist';
+        'm1': function() {
+            $(".depednav a").click()
         },
-        'new cr': function() {
-            window.location.href = '#/crnew';
+        'm2': function() {
+            $(".brgynav a").click()
         },
-        'cr list': function() {
-            window.location.href = '#/crlist';
+        'm3': function() {
+            $(".cswdonav a").click()
         },
-        'new cd': function() {
-            window.location.href = '#/cdnew';
-        },
-        'cd list': function() {
-            window.location.href = '#/cdlist';
+        'm4': function() {
+            $(".cdrrmonav a").click()
         }
     };
 

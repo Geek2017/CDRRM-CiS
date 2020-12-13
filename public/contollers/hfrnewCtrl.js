@@ -247,7 +247,7 @@ angular.module('newApp').controller('hfrnewCtrl', function($scope) {
             publicFunc: $("#publicFunc").val(),
             hospitalsFunc: $("#hospitalsFunc").val(),
             RHUFunc: $("#RHUFunc").val(),
-        
+
 
             atn: $scope.tojsone(obje),
 
@@ -409,17 +409,18 @@ angular.module('newApp').controller('hfrnewCtrl', function($scope) {
             canvas.width = canvas.width;
         }
 
-        // Set up the UI
-
         var sigImage = document.getElementById("sig-image");
         var clearBtn = document.getElementById("sig-clearBtn");
         var submitBtn = document.getElementById("sig-submitBtn");
         clearBtn.addEventListener("click", function(e) {
             clearCanvas();
-
+            $('#sig-image').hide();
+            $('#sig-canvas').show();
             sigImage.setAttribute("src", "");
         }, false);
         submitBtn.addEventListener("click", function(e) {
+            $('#sig-image').show();
+            $('#sig-canvas').hide();
             var dataUrl = canvas.toDataURL();
 
             localStorage.setItem('sign', dataUrl)
@@ -427,6 +428,7 @@ angular.module('newApp').controller('hfrnewCtrl', function($scope) {
         }, false);
 
     })();
+    $('#sig-image').hide();
 
 
 });

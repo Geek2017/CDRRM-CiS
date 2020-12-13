@@ -1,59 +1,3 @@
-<style>
-    #sig-canvas {
-        border: 2px dotted #CCCCCC;
-        border-radius: 15px;
-        cursor: crosshair;
-    }
-    
-    @media screen and (min-width: 1076px) {
-        .modal-dialog {
-            max-width: 350px;
-            /* New width for default modal */
-        }
-    }
-    
-    @media screen and (min-width: 1024px) {
-        .modal-dialog {
-            max-width: 350px;
-            /* New width for default modal */
-        }
-    }
-    
-    @media screen and (min-width: 768px) {
-        .modal-dialog {
-            max-width: 350px;
-            /* New width for default modal */
-        }
-    }
-    
-    @media screen and (min-width: 360px) {
-        .modal-dialog {
-            max-width: 350px;
-            /* New width for default modal */
-        }
-    }
-    
-    @media screen and (min-width: 411px) {
-        .modal-dialog {
-            max-width: 350px;
-            /* New width for default modal */
-        }
-    }
-    
-    @media screen and (min-width: 375px) {
-        .modal-dialog {
-            max-width: 350px;
-            /* New width for default modal */
-        }
-    }
-    
-    @media screen and (min-width: 375px) {
-        .modal-dialog {
-            max-width: 350px;
-            /* New width for default modal */
-        }
-    }
-</style>
 <section id="widget-grid" class="" style="margin: 0.5%;">
     <div class="row">
         <article class="col-sm-12 col-md-12 col-lg-12">
@@ -405,15 +349,20 @@
                                         <section class="col col-6 sign">
                                             <label class="label">Signature</label>
 
-                                            <button type="button" class="btn btn-info  btn-sm  btn-block" data-toggle="modal" data-target="#exampleModal">
-												CLICK TO SIGN
-											  </button>
-
-                                            <!-- Modal -->
+                                            <div class="btn-group btn-group-justified btn-group-sm">
+                                                <a href="javascript:void(0);" class="btn btn-danger" id="sig-clearBtn">Reset Sign</a>
+                                                <a href="javascript:void(0);" class="btn  btn-primary" id="sig-submitBtn">Save Sign</a>
+                                            </div>
 
                                         </section>
-                                        <section class="col col-12 pull-right">
-                                            <img id="sig-image" src="" alt="Your signature will go here!" />
+                                        <section></section>
+                                        <!-- signature -->
+                                        <section class="col col-4 pull-right">
+                                            <img id="sig-image" src="{{clickedUser.signature}}" alt="Your signature will go here!" />
+
+                                            <canvas id="sig-canvas"> </canvas>
+
+
                                         </section>
 
                                     </div>

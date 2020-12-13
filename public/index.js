@@ -61,6 +61,8 @@ $(document).ready(function($http) {
     $('.cswdonav').hide()
     $('.cdrrmonav').hide()
     $('.breadcrumb').hide()
+    $('.cdrrmonav').hide()
+
 
     $("ul.li").find(".chonav").css("background-color", "red");
 
@@ -86,6 +88,7 @@ $(document).ready(function($http) {
                     $('.brgynav').show()
                     $('.cswdonav').show()
                     $('.cdrrmonav').show()
+
                 } else if (snapshot.val().role == 1) {
                     $('.chonav').show()
                 } else if (snapshot.val().role == 2) {
@@ -94,8 +97,6 @@ $(document).ready(function($http) {
                     $('.brgynav').show()
                 } else if (snapshot.val().role == 4) {
                     $('.cswdonav').show()
-                } else if (snapshot.val().role == 4) {
-                    $('.cdrrmonav').show()
                 }
 
             }

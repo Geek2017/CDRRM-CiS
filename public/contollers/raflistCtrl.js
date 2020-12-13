@@ -1,4 +1,4 @@
-angular.module('newApp').controller('cnsbdcswdolistCtrl', function($firebaseArray, $scope, $http, $timeout) {
+angular.module('newApp').controller('raflistCtrl', function($firebaseArray, $scope, $http, $timeout) {
 
     pageSetUp();
 
@@ -18,7 +18,7 @@ angular.module('newApp').controller('cnsbdcswdolistCtrl', function($firebaseArra
         $scope.data.push(`Question number ${i}`);
     }
 
-    firebase.database().ref('/cswdo/cnsbd/').orderByChild('uid').on("value", function(snapshot) {
+    firebase.database().ref('/barangay/raf/').orderByChild('uid').on("value", function(snapshot) {
 
         console.log(snapshot.val())
         if (!localStorage.getItem('pf')) {
@@ -45,13 +45,9 @@ angular.module('newApp').controller('cnsbdcswdolistCtrl', function($firebaseArra
                     let item = childSnapshot.val();
                     item.key = childSnapshot.key;
                     returnArr.push(item);
-                    if (datetoday === item.date) {
-
-                        tcol += 1 * item.total;
-                    }
                 });
                 $scope.cfs = returnArr;
-                $scope.tcol = tcol;
+
                 console.log(returnArr)
             });
             $('#here').after(' <ul style="margin:0!important;margin-top:4px" class="pagination pagination-sm pull-right"  ><li ><a href="#cflist" rel="0" id="backward"> < </a></li> <li id="nav"></li>   <li><a href="#cflist" rel="0" id="forward"> > </a></li></ul>');
@@ -65,73 +61,19 @@ angular.module('newApp').controller('cnsbdcswdolistCtrl', function($firebaseArra
                 localStorage.setItem('pf', $("#pfilter option:selected").text())
 
                 window.location.href = "#"
-                window.location.href = "#cnsbdcholist"
+                window.location.href = "#raflist"
             });
 
-            var rowsTotal = $('#data tbody tr').length;
-            var numPages = rowsTotal / rowsShown;
-            for (i = 0; i < numPages; i++) {
-                var pageNum = i + 1;
-                $('#nav').append('<a href="#cnsbdcholist" rel="' + i + '">' + pageNum + '</a>');
-            }
-
-            $('#data tbody tr').hide();
-            $('#data tbody tr').slice(0, rowsShown).show();
-            $('#nav a:first').addClass('active');
-            $('#nav a ').bind('click', function() {
-
-                $('#nav a').removeClass('active');
-                $(this).addClass('active');
-                var currPage = $(this).attr('rel');
-                localStorage.setItem('curp', currPage)
-                var startItem = currPage * rowsShown;
-                var endItem = startItem + rowsShown;
-                $('#data tbody tr').css('opacity', '0.0').hide().slice(startItem, endItem).
-                css('display', 'table-row').animate({ opacity: 1 }, 300);
-                console.log($(this).attr('rel'))
 
 
-            });
+        });
 
-            $("#backward").click(function() {
-
-                var cp = localStorage.getItem('curp');
-                if (cp >= 1) {
-                    cp = cp - 1;
-                    localStorage.setItem('curp', cp)
-                    var startItem = cp * rowsShown;
-                    var endItem = startItem + rowsShown;
-                    $('#data tbody tr').css('opacity', '0.0').hide().slice(startItem, endItem).
-                    css('display', 'table-row').animate({ opacity: 1 }, 300);
-                }
-            });
-
-            $("#forward").click(function() {
-
-                var tp = $('#data tbody tr').length - 1;
-
-                var cp = localStorage.getItem('curp');
-                if (cp < tp) {
-                    cp = cp * 1 + 1;
-                    localStorage.setItem('curp', cp)
-                    var startItem = cp * rowsShown;
-                    var endItem = startItem + rowsShown;
-                    $('#data tbody tr').css('opacity', '0.0').hide().slice(startItem, endItem).
-                    css('display', 'table-row').animate({ opacity: 1 }, 300);
-                }
-            });
-
-        }, 100);
 
 
     });
 
 
     $scope.selectUser = function(users) {
-        document.getElementById("sum").innerHTML = users.total;
-        document.getElementById("sum2").innerHTML = users.total2;
-        document.getElementById("sum3").innerHTML = users.total3;
-
 
         for (let index = 0; index < $scope.cfs.length; index++) {
             // console.log($scope.cfs[index].key)
@@ -152,10 +94,20 @@ angular.module('newApp').controller('cnsbdcswdolistCtrl', function($firebaseArra
 
         console.log($scope.clickedUser)
 
+        $scope.fullname = $scope.clickedUser.fullname
+        $scope.sex = $scope.clickedUser.sex
+        $scope.status = $scope.clickedUser.status
+        $scope.dob = new Date($scope.clickedUser.dob)
+        $scope.age = $scope.clickedUser.age
+
+        $scope.cdi = $scope.clickedUser.cdi
+        $scope.dpr = $scope.clickedUser.dpr
+        $scope.dnt = new Date($scope.clickedUser.dnt)
+        $scope.npr = $scope.clickedUser.npr
+        $scope.address = $scope.clickedUser.address
 
         $('#myModal').modal('show');
     };
-
 
     $scope.printit = function(users) {
         document.getElementById("sum").innerHTML = users.total;
@@ -288,7 +240,7 @@ angular.module('newApp').controller('cnsbdcswdolistCtrl', function($firebaseArra
     };
 
     $scope.deleteUser = function() {
-        var ref = firebase.database().ref("/cswdo/cnsbd/" + id.key);
+        var ref = firebase.database().ref("/deped/cnsbd/" + id.key);
         ref.remove()
             .catch(function(error) {
                 console.log("Login Failed!", error.message);
@@ -305,31 +257,12 @@ angular.module('newApp').controller('cnsbdcswdolistCtrl', function($firebaseArra
         $("#notif").append('<div class="alert alert-success fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Success</strong> Deleted !</div>');
         setTimeout(function() {
             window.location.href = "#/"
-            window.location.href = "#cnsbdcswdolist"
+            window.location.href = "#cnsbdlist"
         }, 1500);
         $('#myModal2').modal('hide');
     };
 
-    $scope.close = function() {
-        $('#myModal').modal('hide');
-        $('#myModal2').modal('hide');
-        $('#myModal3').modal('hide');
-    };
 
-    var obj;
-    $scope.tojson = function(obj) {
-
-        var table = $('#convert-table').tableToJSON({
-
-            extractor: function(cellIndex, $cell) {
-                return $cell.find('input').val() || $cell.find("#type option:selected").text();
-            }
-
-
-        })
-        return table;
-
-    }
 
     var dateObj = new Date();
     var month = dateObj.getUTCMonth() + 1; //months from 1-12
@@ -343,13 +276,6 @@ angular.module('newApp').controller('cnsbdcswdolistCtrl', function($firebaseArra
 
         e.preventDefault();
 
-        console.log($scope.tojson(obj))
-
-        var newobj = $scope.tojson(obj);
-
-        const [, ...rest] = newobj.reverse();
-        const withoutLast = rest.reverse();
-        console.log(withoutLast)
         var data = {
             date: datetoday,
             sector: $scope.clickedUser.operation,
@@ -373,7 +299,7 @@ angular.module('newApp').controller('cnsbdcswdolistCtrl', function($firebaseArra
 
         var updates = {};
         // console.log(id.key);
-        updates['/cswdo/cnsbd/' + id.key] = data;
+        updates['/barangay/raf/' + id.key] = data;
         firebase.database().ref().update(updates);
         console.log(updates)
 
@@ -383,7 +309,7 @@ angular.module('newApp').controller('cnsbdcswdolistCtrl', function($firebaseArra
             $("#notif").append('<div class="alert alert-success fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Success</strong> Data had been save!.</div>');
             setTimeout(function() {
                 window.location.href = "#/"
-                window.location.href = "#cnsbdcswdolist"
+                window.location.href = "#raflist"
             }, 1500);
         } else {
             $("#notif").append('<div class="alert alert-danger fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Error</strong> Check your Input !</div>');
@@ -391,110 +317,6 @@ angular.module('newApp').controller('cnsbdcswdolistCtrl', function($firebaseArra
 
     });
 
-
-    var cnt = 0;
-    $scope.addtr = function() {
-        $("#appendhere").append('<tr class="row_to_clone"> <td class="col-md-6"><label class="input"> <input type="text" placeholder="Description"> </label></td></td><td class="col-md-1"><label class="input"> <input type="text" placeholder="Qty"> </label></td></td><td class="col-md-1"> <label class="input "> <input type="number" class="txt" autocomplete="off" placeholder="0.00"/> </label> </td><td class="col-md-1"><label class="input"> <input type="text" autocomplete="off" placeholder="Qty"> </label></td></td><td class="col-md-1"> <label class="input "> <input type="number" class="txt2" autocomplete="off" placeholder="0.00"/> </label> </td><td class="col-md-1"><label class="input"> <input type="text" placeholder="Qty"> </label></td></td><td class="col-md-1"> <label class="input "> <input type="number" class="txt3" autocomplete="off" placeholder="0.00"/> </label> </td></tr>');
-        cnt++;
-        $('table thead th').each(function(i) {
-
-        });
-
-    }
-    $scope.removetr = function() {
-
-        $('#appendhere tr:last').remove();
-        $('table thead th').each(function(i) {
-
-        });
-        calculateSum();
-        calculateSum2();
-        calculateSum3();
-    }
-
-    $scope.delAppend = function() {
-        console.log("Del")
-        $(this).closest("tr").remove();
-        $('table thead th').each(function(i) {
-
-        });
-        calculateSum();
-        calculateSum2();
-        calculateSum3();
-
-        $('#myModal').modal('hide');
-    };
-
-    $("#appendhere").on('click', '.deleteb', function() {
-        $(this).closest("tr").remove();
-        $('table thead th').each(function(i) {
-
-        });
-        calculateSum();
-        calculateSum2();
-        calculateSum3();
-    });
-
-
-    function calculateSum() {
-        var sum = 0;
-        //iterate through each textboxes and add the values
-        $(".txt").each(function() {
-
-            //add only if the value is number
-            if (!isNaN(this.value) && this.value.length != 0) {
-                sum += parseFloat(this.value);
-            }
-
-        });
-        //.toFixed() method will roundoff the final sum to 2 decimal places
-        $("#sum").html(sum.toFixed(2));
-        console.log(sum.toFixed(2));
-    }
-
-    function calculateSum2() {
-        var sum = 0;
-        //iterate through each textboxes and add the values
-        $(".txt2").each(function() {
-
-            //add only if the value is number
-            if (!isNaN(this.value) && this.value.length != 0) {
-                sum += parseFloat(this.value);
-            }
-
-        });
-        //.toFixed() method will roundoff the final sum to 2 decimal places
-        $("#sum2").html(sum.toFixed(2));
-        console.log(sum.toFixed(2));
-    }
-
-    function calculateSum3() {
-        var sum = 0;
-        //iterate through each textboxes and add the values
-        $(".txt3").each(function() {
-
-            //add only if the value is number
-            if (!isNaN(this.value) && this.value.length != 0) {
-                sum += parseFloat(this.value);
-            }
-
-        });
-        //.toFixed() method will roundoff the final sum to 2 decimal places
-        $("#sum3").html(sum.toFixed(2));
-        console.log(sum.toFixed(2));
-    }
-
-    $("#convert-table").on("keyup", ".txt", function() {
-        calculateSum();
-    });
-
-    $("#convert-table").on("keyup", ".txt2", function() {
-        calculateSum2();
-    });
-
-    $("#convert-table").on("keyup", ".txt3", function() {
-        calculateSum3();
-    });
 
 }).filter('startFrom', function() {
     return function(input, start) {

@@ -1,4 +1,21 @@
 angular.module('newApp').controller('hfrlistCtrl', function($firebaseArray, $scope, $http, $timeout) {
+    window.jm = 'JM';
+    console.log(window)
+    $scope.currentPage = 0;
+    $scope.pageSize = 5;
+    $scope.data = [];
+
+    $scope.numberOfPages = () => {
+        return Math.ceil(
+            $scope.data.length / $scope.pageSize
+        );
+    }
+
+    for (var i = 0; i < 10; i++) {
+        $scope.data.push(`Question number ${i}`);
+    }
+
+
     var acc = document.getElementsByClassName("accordion");
     var i;
 
@@ -125,7 +142,65 @@ angular.module('newApp').controller('hfrlistCtrl', function($firebaseArray, $sco
 
 
     });
+    $scope.printit = function(users) {
 
+
+        for (let index = 0; index < $scope.cfs.length; index++) {
+            // console.log($scope.cfs[index].key)
+            // console.log(users.key)
+            if (users.key == $scope.cfs[index].key) {
+                // console.log($scope.cfs[index])
+                $scope.usersClicked = $scope.cfs[index];
+                // console.log($scope.usersClicked.needs)
+            }
+
+        }
+
+
+        $scope.clickedUser = users;
+        id = users;
+        // document.getElementById("editDateOfDecampment").value = users.dateOfDecampment;
+        // document.getElementById("editDateOfEvacuation").value = users.dateOfEvacuation;
+
+        console.log($scope.clickedUser.operationfor)
+
+
+        $('#printit').modal('show');
+        setTimeout(function() {
+            printElement(document.getElementById("printThis"));
+
+            var modThis = document.querySelector("#printSection .modifyMe");
+            modThis.appendChild(document.createTextNode(""));
+
+            window.print();
+
+
+
+            function printElement(elem) {
+
+
+                var domClone = elem.cloneNode(true);
+
+                var $printSection = document.getElementById("printSection");
+
+                if (!$printSection) {
+                    var $printSection = document.createElement("div");
+                    $printSection.id = "printSection";
+                    document.body.appendChild($printSection);
+                }
+
+                $printSection.innerHTML = "";
+
+                $printSection.appendChild(domClone);
+
+                $('#printit').modal('hide');
+
+            }
+
+
+        }, 100);
+
+    };
 
     $scope.selectUser = function(users) {
         // document.getElementById("sum").innerHTML=users.total;
@@ -137,15 +212,15 @@ angular.module('newApp').controller('hfrlistCtrl', function($firebaseArray, $sco
         for (let index = 0; index < $scope.cfs.length; index++) {
             // console.log($scope.cfs[index].key)
             // console.log(users.key)
-            if(users.key == $scope.cfs[index].key){
+            if (users.key == $scope.cfs[index].key) {
                 // console.log($scope.cfs[index])
                 $scope.usersClicked = $scope.cfs[index];
                 // console.log($scope.usersClicked.needs)
             }
-            
+
         }
-        
-        
+
+
         $scope.clickedUser = users;
         id = users;
         // console.log(users.rhatype);
@@ -175,14 +250,14 @@ angular.module('newApp').controller('hfrlistCtrl', function($firebaseArray, $sco
     $scope.deleteUser = function() {
         var ref = firebase.database().ref("/cho/hfr/" + id.key);
         ref.remove()
-        .catch(function(error) {
-            console.log("Login Failed!", error.message);
-            $("#notif").append('<div class="alert alert-danger fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Error</strong> ' + error.message + '</div>');
-            setTimeout(function() {
-                $("#notif").hide()
-            }, 1500);
+            .catch(function(error) {
+                console.log("Login Failed!", error.message);
+                $("#notif").append('<div class="alert alert-danger fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Error</strong> ' + error.message + '</div>');
+                setTimeout(function() {
+                    $("#notif").hide()
+                }, 1500);
 
-        });;
+            });;
 
         // $("#notif").show();
         // window.location.href = "#ecdlist";
@@ -491,7 +566,7 @@ angular.module('newApp').controller('hfrlistCtrl', function($firebaseArray, $sco
             publicFunc: $("#publicFunc").val(),
             hospitalsFunc: $("#hospitalsFunc").val(),
             RHUFunc: $("#RHUFunc").val(),
-        
+
 
             atn: $scope.tojsone(obje),
 
@@ -658,10 +733,13 @@ angular.module('newApp').controller('hfrlistCtrl', function($firebaseArray, $sco
         var submitBtn = document.getElementById("sig-submitBtn");
         clearBtn.addEventListener("click", function(e) {
             clearCanvas();
-
+            $('#sig-image').hide();
+            $('#sig-canvas').show();
             sigImage.setAttribute("src", "");
         }, false);
         submitBtn.addEventListener("click", function(e) {
+            $('#sig-image').show();
+            $('#sig-canvas').hide();
             var dataUrl = canvas.toDataURL();
 
             localStorage.setItem('sign', dataUrl)
@@ -669,6 +747,12 @@ angular.module('newApp').controller('hfrlistCtrl', function($firebaseArray, $sco
         }, false);
 
     })();
+    $('#sig-canvas').hide();
 
-
-});
+}).filter('startFrom', function() {
+    return function(input, start) {
+        if (!input || !input.length) { return; }
+        start = +start; //parse to int
+        return input.slice(start);
+    }
+})

@@ -61,10 +61,12 @@
     <header id="header">
 
         <div id="logo-group">
-            <span id="logo"> <img src="./assets/img/logo.png" alt="smartadmin"> </span>
+            <span id="logo"> <img src="./assets/img/drms.png" alt="smartadmin"> </span>
         </div>
 
-        <span id="extr-page-header-space"> <span class="hidden-mobile hiddex-xs">Need an account?</span> <a href="register.html" class="btn btn-danger">Create account</a> </span>
+        <span id="extr-page-header-space">
+           
+            <span class="hidden-mobile hiddex-xs">Need an account?</span> <a href="register.html" class="btn btn-danger">Create account</a> </span>
 
     </header>
 
@@ -79,7 +81,7 @@
                     <div class="hero">
 
                         <div class="pull-left login-desc-box-l">
-                            <h4 class="paragraph-header">Experience the simplicity of D.R.M.S, everywhere you go! no more data mumboo jumbo and ponting fingers, it aggreagates all Cluster and Agency Info. + data in a click of a button, giving accelerated time & Ai Data driven decision.</h4>
+                            <h4 class="paragraph-header">Experience the simplicity of D.R.M.S, everywhere you go! no more data mumbo jumbo and pointing fingers, it aggreagates all Cluster and Agency Info. + data in a click of a button, giving accelerated time & Ai data driven decision.</h4>
                             <div class="login-app-icons">
 
                                 <a href="javascript:void(0);" class="btn btn-danger btn-sm btn-block">Find out more</a>
@@ -87,31 +89,58 @@
                         </div>
 
                         <img src="./assets/img/cdrrmo.png" class="pull-right display-image" alt="" style="width:50%; margin-top: 0!important;margin-right: 0!important;">
-
                     </div>
 
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                             <h5 class="about-heading">About D.R.M.S - Are you up to date?</h5>
                             <p>
-                                D.R.M.S aka "DARNA" provides decision-support technologies for situational awareness, operational coordination, and planning before, during, and after disasters
+                                D.R.M.S provides decision-support technologies for situational awareness, operational coordination, and planning before, during, and after disasters
                             </p>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                            <h5 class="about-heading">DARNA is Not just your average Software!</h5>
+                            <h5 class="about-heading">DRMS is Not just your average Software!</h5>
                             <p>
-                                DARNA, unprecedented capability is next to non! its an A.i driven cloud App. than can operate even w/o internet using O2O tech. then sync. the data ones con. is achieve, furthermore data can also be sent via drone relay network so even after disaster
-                                where most con. our down decision maker can access there constituent needs in real time.
+                                DRMS, unprecedented capability is next to non! its an A.i driven cloud application that can operate even without internet using O2O technology then syncronizes the data once communication is achieved. Furthermore data can also be sent via drone relay
+                                network when most connections are down, decision makers can access there constituent's needs in real time.
                             </p>
                         </div>
                     </div>
 
                 </div>
+
                 <div class="col-xs-12 col-sm-12 col-md-5 col-lg-4">
+
+
+                    <!-- <div id="speech-btn" class="btn-header transparent pull-right hidden-sm hidden-xs">
+                        <div>
+                            <a href="javascript:void(0)" title="Voice Command" data-action="voiceCommand"><i class="fa fa-microphone"></i></a>
+                            <div class="popover bottom">
+                                <div class="arrow"></div>
+                                <div class="popover-content">
+                                    <h4 class="vc-title">Voice command activated <br><small>Please speak clearly into the mic</small></h4>
+                                    <h4 class="vc-title-error text-center">
+                                        <i class="fa fa-microphone-slash"></i> Voice command failed
+                                        <br><small class="txt-color-red">Must <strong>"Allow"</strong> Microphone</small>
+                                        <br><small class="txt-color-red">Must have <strong>Internet Connection</strong></small>
+                                    </h4>
+                                    <a href="javascript:void(0);" class="btn btn-success" onclick="commands.help()">See Commands</a>
+                                    <a href="javascript:void(0);" class="btn bg-color-purple txt-color-white" onclick="$('#speech-btn .popover').fadeOut(50);">Close Popup</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+
+
+
                     <div class="well no-padding">
+
                         <form action="" id="login-form" class="smart-form client-form">
                             <header>
                                 Sign In
+
+                                <button class="btn btn-primary btn-sm" style="float: right;" href="javascript:void(0)" title="Voice Command" data-action="voiceCommand"><i class="fa fa-microphone"></i></button>
+
                             </header>
 
                             <fieldset>
@@ -140,7 +169,7 @@
                                 </section>
                             </fieldset>
                             <footer>
-                                <button type="submit" class="btn btn-primary btn-block">
+                                <button type="submit" class="btn btn-primary btn-block login">
 										Authenticate
                                     </button>
 
@@ -203,7 +232,6 @@
 			
 		<![endif]-->
 
-    <!-- MAIN APP JS FILE -->
 
 
 
@@ -214,6 +242,11 @@
     <script src="./fb.js"></script>
     <script src="./login.js"></script>
 
+    <!-- CUSTOM NOTIFICATION -->
+    <script src="./assets/js/notification/SmartNotification.min.js"></script>
+    <!-- ENHANCEMENT PLUGINS : NOT A REQUIREMENT -->
+    <!-- Voice command : plugin -->
+    <script src="./assets/js/speech/voicecommand.min.js"></script>
 </body>
 
 </html>
