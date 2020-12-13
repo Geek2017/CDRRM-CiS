@@ -44,15 +44,15 @@
 
                     </tr>
                 </thead>
-                <tbody>
+                <tbody ng-repeat="cf in data">
 
-                    <tr class="text-center" ng-repeat="data in data">
+                    <tr class="text-center" ng-repeat="ncf in cf.center">
                         <td>{{$index + 1}}</td>
-                        <td>{{data.municipality}}</td>
-                        <td>{{data.host}}</td>
-                        <td>{{data.accomodated}}</td>
-                        <td>{{data.families}}</td>
-                        <td>{{data.individuals}}</td>
+                        <td>{{ncf['Municipality']}}</td>
+                        <td>{{ncf['List of Schools used as Evacuation Centers or Host Schools']}}</td>
+                        <td>{{ncf['Barangays Accomodated']}}</td>
+                        <td>{{ncf['Number of families']}}</td>
+                        <td>{{ncf['Number  of individuals']}}</td>
 
                         <td class="col col-4 "><button type="button" class="btn btn-success btn-block " ng-click="selectUser(data)"><i class="icon-append fa fa-pencil"></i> Edit Data</button></td>
 
@@ -339,13 +339,13 @@
                                             </td>
                                             <td></td>
                                             <td>
-                                                {{clickedUser.total1}}
+                                                {{usersClicked.total1}}
                                             </td>
                                             <td>
-                                                {{clickedUser.total2}}
+                                                {{usersClicked.total2}}
                                             </td>
                                             <td>
-                                                {{clickedUser.total3}}
+                                                {{usersClicked.total3}}
                                             </td>
                                             <td></td>
                                             <td></td>
