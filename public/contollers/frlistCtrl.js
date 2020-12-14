@@ -161,6 +161,26 @@ angular.module('newApp').controller('frlistCtrl', function($firebaseArray, $scop
         // document.getElementById("sum").innerHTML = users.total;
         // document.getElementById("sum2").innerHTML = users.total2;
         // document.getElementById("sum3").innerHTML = users.total3;
+        var dateObj = new Date();
+        var month = dateObj.getUTCMonth() + 1; //months from 1-12
+        var day = dateObj.getUTCDate();
+        var year = dateObj.getUTCFullYear();
+
+        var hr = dateObj.getHours();
+        // var hr = (hr + 24 - 2) % 24;
+        $scope.mid = 'am';
+        if (hr == 0) { //At 00 hours we need to show 12 am
+            hr = 12;
+        } else if (hr > 12) {
+            hr = hr % 12;
+            $scope.mid = 'pm';
+        }
+        var mins = dateObj.getMinutes();
+        var time = dateObj.getTime();
+
+        $scope.datetoday = month + "/" + day + "/" + year;
+        $scope.time = hr;
+        $scope.time2 = time;
 
 
         for (let index = 0; index < $scope.cfs.length; index++) {

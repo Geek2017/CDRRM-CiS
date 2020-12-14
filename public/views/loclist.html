@@ -623,22 +623,25 @@
 
                         <center>
                             <section>
-                                <h4> <strong> Republic of the Philipines <br> CITY GOVERNMENT OF LEGAZPI <strong> </h4>
+                                <h4> <strong> SITUATION REPORT
+                                        <br> Division: Albay <strong> </h4>
                             </section>
+
                             <section>
-                            <h3>
-                                <strong>{{clickedUser.operation}} <br> CLUSTER NEEDS THAT SHOULD TO BE DOWNLOADED TO THE LOCAL UNIT</strong>
-                                    </h3>
+                                <h3>
+                                    <strong> As of
+                                        {{time}}{{mid}}, {{datetoday}}</strong>
+                                </h3>
                             </section>
                         </center>
 
 
                         <div>
 
-                            <div class="panel-body ">
+                            <!-- <div class="panel-body ">
                                 <caption> SECTOR/CLUSTER: <u>{{clickedUser.sector}} </u> </caption> <br>
                                 <caption> CLUSTER LEAD AGENCY: <u>{{clickedUser.leadAgency}}</u> </caption><br><br>
-                            </div>
+                            </div> -->
 
                             <div class="panel-body ">
 
@@ -646,67 +649,102 @@
 
                                     <thead>
                                         <tr>
-                                            <th rowspan="2">Description of Needs</th>
+                                            <th rowspan="2">Municipality </th>
+                                            <th rowspan="2">#</th>
+                                            <th rowspan="2">List of Schools used as Evacuation Centers (Names of schools) </th>
+                                            <th rowspan="2">#</th>
+                                            <th rowspan="2"># of classrooms used as Evacuation Centers</th>
+                                            <th rowspan="2">No. of families </th>
+                                            <th rowspan="2">No. of individuals </th>
+                                            <th rowspan="2">No. of teaching and non-teaching personnel (resident of the EC) </th>
+                                            <th rowspan="2">No. of resident learners/Enrolment of the school used as EC  </th>
+                                            <th rowspan="2">No. of evacuee-learners</th>
+                                            <th rowspan="2">List of Affected Schools (Floods and Landslides) (Names of schools) </th>
+                                            <th rowspan="2">No. of affected learners </th>
+                                            <th rowspan="2">No. of learner casualties </th>
+                                            <!-- <th rowspan="2">Displaced Learners</th>
+                                            <th rowspan="2">TOTAL Affected Learners</th>
+                                            <th rowspan="2">Resident personnel</th>
 
-                                            <th class="text-center " colspan="2">On The First 30 Days</th>
-                                            <th class="text-center " colspan="2">On The Second Days</th>
-                                            <th class="text-center " colspan="2">On The Third 30 Days</th>
+                                            <th class="text-center " colspan="2">Affected Personnel: Displaced 
+                                            <th rowspan="2">Total affected personnel</th>
+                                            <th rowspan="2">Total number of classrooms</th>
+                                            <th rowspan="2">No. of classrooms used</th>
+                                            <th rowspan="2">No. of needed TLS </th>
+                                            <th rowspan="2">TOTAL approved TLS</th>
+                                            <th rowspan="2">Additional TLS Needed</th> -->
+                                            </th>
                                         </tr>
-                                        <tr>
-
-                                            <th class="text-center">First 30 Days Quantity</th>
-                                            <th class="text-center">First 30 Days Total Cost</th>
-                                            <th class="text-center">Second 30 Days Quantity</th>
-                                            <th class="text-center">Second 30 Days Total Cost</th>
-                                            <th class="text-center">Third 30 Days Quantity</th>
-                                            <th class="text-center ">Third 30 Days Total Cost</th>
-                                        </tr>
+                                        <!-- <tr>
+                                            <th class="text-center">Displaced Personnel</th>
+                                            <th class="text-center">Evacuee</th>
+                                            <th class="text-center">Municipality</th>
+                                            <th class="text-center">#</th>
+                                            <th class="text-center">Schools used as Evacuation Centers</th>
+                                            <th class="text-center">#</th>
+                                            <th class="text-center">Affected Schools within the Permanent Danger Zone
+                                            </th>
+                                            <th class="text-center">No. of families </th>
+                                            <th class="text-center">No. of individuals </th>
+                                            <th class="text-center">Resident Learners</th>
+                                            <th class="text-center">Number of classrooms used</th>
+                                            <th class="text-center">Date of Evacuation</th>
+                                            <th class="text-center">Date of Decampment</th>
+                                            <th class="text-center">Remarks</th>
+                                        </tr> -->
 
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td class="text-left no-bottom-border ">
-                                                <strong> {{clickedUser.operationfor}}</strong>
-                                            </td>
-                                            <td class="text-left no-bottom-border">
-                                            </td>
-                                            <td class="text-left no-bottom-border">
-                                            </td>
-                                            <td class="text-left no-bottom-border">
-                                            </td>
-                                            <td class="text-left no-bottom-border">
-                                            </td>
-                                            <td class="text-left no-bottom-border">
-                                            </td>
-                                            <td class="text-left no-bottom-border">
-                                            </td>
-                                        </tr>
 
-                                        <tr ng-repeat="ncf in usersClicked.needs">
+                                        <tr ng-repeat="ncf in usersClicked.center">
 
                                             <td class="text-left col-md-3 no-bottom-border">
-                                                &nbsp; &nbsp;&nbsp;&nbsp; {{ncf['Description of Needs']}}
+                                                {{ncf['Division']}}
                                             </td>
                                             <td class=" ">
-                                                {{ncf['First 30 Days Quantity']}}
+                                                {{ncf['Number (Division)']}}
                                             </td>
                                             <td class=" ">
-                                                {{ncf['First 30 Days Total Cost'] | currency:"₱ " :2}}
+                                                {{ncf['Municipality']}}
                                             </td>
 
                                             <td class=" ">
-                                                {{ncf['Second 30 Days Quantity']}}
+                                                {{ncf['Number (Municipality)']}}
                                             </td>
                                             <td class=" ">
-                                                {{ncf['Second 30 Days Total Cost'] | currency:"₱ " :2}}
+                                                {{ncf['Schools used as Evacuation Centers']}}
                                             </td>
 
                                             <td class=" ">
-                                                {{ncf['Third 30 Days Quantity']}}
+                                                {{ncf['Number (Schools)']}}
                                             </td>
                                             <td class=" ">
-                                                {{ncf['Third 30 Days Total Cost'] | currency:"₱ ": 2}}
+                                                {{ncf['Affected Schools within the Permanent Danger Zone']}}
                                             </td>
+                                            <td class=" ">
+                                                {{ncf['Number of families']}}
+                                            </td>
+                                            <td class=" ">
+                                                {{ncf['Number of individuals']}}
+                                            </td>
+                                            <td class=" ">
+                                                {{ncf['Resident Learners']}}
+                                            </td>
+                                            <td class=" ">
+                                                {{ncf['Resident Learners']}}
+                                            </td>
+                                            <td class=" ">
+                                                {{ncf['Resident Learners']}}
+                                            </td>
+                                            <td class=" ">
+                                                {{ncf['Resident Learners']}}
+                                            </td>
+                                            <!-- <td class=" ">
+                                                {{ncf['Remarks']}}
+                                            </td>
+                                            <td class=" ">
+                                                {{ncf['Remarks']}}
+                                            </td> -->
 
                                         </tr>
 
@@ -716,17 +754,189 @@
                                             <td class="text-right">
                                                 Total
                                             </td>
-                                            <td></td>
                                             <td>
-                                                {{clickedUser.total | currency:"₱ ": 2}}
+                                                {{clickedUser.total1}}
                                             </td>
                                             <td></td>
                                             <td>
-                                                {{clickedUser.total2 | currency:"₱ ": 2}}
+                                                {{clickedUser.total2}}
                                             </td>
                                             <td></td>
                                             <td>
-                                                {{clickedUser.total3 | currency:"₱ ": 2}}
+                                                {{clickedUser.total3}}
+                                            </td>
+                                            <td></td>
+                                            <td>
+                                                {{clickedUser.total4}}
+                                            </td>
+                                            <td>
+                                                {{clickedUser.total5}}
+                                            </td>
+                                            <td>
+                                                {{clickedUser.total6}}
+                                            </td>
+                                            <td>
+                                                {{clickedUser.total6}}
+                                            </td>
+                                            <td>
+                                                {{clickedUser.total6}}
+                                            </td>
+                                            <td>
+                                                {{clickedUser.total6}}
+                                            </td>
+
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+
+                                <br>
+
+                                <table id="table-example-1" width="100%">
+
+                                    <thead>
+                                        <tr>
+                                            <!-- <th rowspan="2">Division</th>
+                                            <th rowspan="2">#</th>
+                                            <th rowspan="2">Municipality</th>
+                                            <th rowspan="2">#</th>
+                                            <th rowspan="2">Schools used as Evacuation Centers</th>
+                                            <th rowspan="2">#</th>
+                                            <th rowspan="2">Affected Schools within the Permanent Danger Zone</th>
+                                            <th rowspan="2">No. of families </th>
+                                            <th rowspan="2">No. of individuals </th>
+                                            <th rowspan="2">Resident Learners</th> -->
+                                            <th rowspan="2">Cause of death </th>
+                                            <th rowspan="2">No. of affected teaching personnel </th>
+                                            <th rowspan="2">No. of affected non-teaching personnel </th>
+
+                                            <th class="text-center " colspan="4">Total number of damaged classrooms (indicate the total number of classrooms damaged per school) 
+                                            <th class="text-center " colspan="4">Non-Infra Damage 
+                                            <th rowspan="2">Need for Clean-Up 20 thou
+                                                *tick 1 per school)</th>
+                                            <th rowspan="2">Need for Psychological First Aid (PFA) 
+                                                *tick 1 per school </th>
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <th class="text-center">Totally damaged (1.5 M)</th>
+                                            <th class="text-center">Partially-Major Damaged (500 thou)</th>
+                                            <th class="text-center">Partially Minor Damaged (20 thou) </th>
+                                            <th class="text-center">No. of TLS units needed  (85,300)</th>
+                                            <th class="text-center">No. of Furniture (Armchairs) Damaged *per unit</th>
+                                            <th class="text-center">No. of Furniture (Desks/Tables and chairs) Damaged*per unit</th>
+                                            <th class="text-center">No. of damaged LMs (per unit) </th>
+                                            <th class="text-center">No. of damaged computers </th>
+                                            <!-- <th class="text-center">Municipality</th>
+                                            <th class="text-center">#</th>
+                                            <th class="text-center">Schools used as Evacuation Centers</th>
+                                            <th class="text-center">#</th>
+                                            <th class="text-center">Affected Schools within the Permanent Danger Zone
+                                            </th>
+                                            <th class="text-center">No. of families </th>
+                                            <th class="text-center">No. of individuals </th>
+                                            <th class="text-center">Resident Learners</th>
+                                            <th class="text-center">Number of classrooms used</th>
+                                            <th class="text-center">Date of Evacuation</th>
+                                            <th class="text-center">Date of Decampment</th>
+                                            <th class="text-center">Remarks</th> -->
+                                        </tr>
+
+                                    </thead>
+                                    <tbody>
+
+                                        <tr ng-repeat="ncf in usersClicked.center">
+
+                                            <td class="text-left col-md-3 no-bottom-border">
+                                                {{ncf['Displaced Learners']}}
+                                            </td>
+                                            <td class=" ">
+                                                {{ncf['TOTAL Affected Learners']}}
+                                            </td>
+                                            <td class=" ">
+                                                {{ncf['Resident personnel']}}
+                                            </td>
+
+                                            <td class=" ">
+                                                {{ncf['Affected Personnel (Displaced)']}}
+                                            </td>
+                                            <td class=" ">
+                                                {{ncf['Affected Personnel (Evacuee)']}}
+                                            </td>
+
+                                            <td class=" ">
+                                                {{ncf['Total affected personnel']}}
+                                            </td>
+                                            <td class=" ">
+                                                {{ncf['Total number of classrooms']}}
+                                            </td>
+                                            <td class=" ">
+                                                {{ncf['Number of classrooms used']}}
+                                            </td>
+                                            <td class=" ">
+                                                {{ncf['Number of needed TLS']}}
+                                            </td>
+                                            <td class=" ">
+                                                {{ncf['TOTAL approved TLS']}}
+                                            </td>
+                                            <td class=" ">
+                                                {{ncf['Additional TLS Needed']}}
+                                            </td>
+                                            <td class=" ">
+                                                {{ncf['Additional TLS Needed']}}
+                                            </td>
+                                            <td class=" ">
+                                                {{ncf['Additional TLS Needed']}}
+                                            </td>
+
+                                        </tr>
+
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <!-- <td></td> -->
+                                            <!-- <td class="text-right">
+                                                Total
+                                            </td> -->
+                                            <!-- <td></td> -->
+                                            <td>
+                                                {{clickedUser.total7}}
+                                            </td>
+                                            <td>
+                                                {{clickedUser.total8}}
+                                            </td>
+                                            <td>
+                                                {{clickedUser.total9}}
+                                            </td>
+                                            <td>
+                                                {{clickedUser.total10}}
+                                            </td>
+                                            <td>
+                                                {{clickedUser.total11}}
+                                            </td>
+                                            <td>
+                                                {{clickedUser.total12}}
+                                            </td>
+                                            <td>
+                                                {{clickedUser.total13}}
+                                            </td>
+                                            <td>
+                                                {{clickedUser.total14}}
+                                            </td>
+                                            <td>
+                                                {{clickedUser.total15}}
+                                            </td>
+                                            <td>
+                                                {{clickedUser.total16}}
+                                            </td>
+                                            <td>
+                                                {{clickedUser.total17}}
+                                            </td>
+                                            <td>
+                                                {{clickedUser.total17}}
+                                            </td>
+                                            <td>
+                                                {{clickedUser.total17}}
                                             </td>
                                         </tr>
 
@@ -734,22 +944,54 @@
                                 </table>
 
                             </div>
+                            <br>
                             <div class="panel-body">
 
                                 <section id="spansigr">
-                                    <strong style="float: right;">Submitted By: <br><h4>{{clickedUser.sb1}} <br>{{clickedUser.sb1d}} </h4></strong>
+
+                                    <strong style="float: right;"> Noted By: <br> <img src="{{clickedUser.signature2}}"
+                                            alt="" width="100" height="100">
+                                        <h4> &emsp;&emsp;&emsp;&emsp;{{clickedUser.noted}} </h4>
+                                    </strong>
+                                </section>
+
+
+                                <section id="spansigl">
+                                    <strong>Consolidated by:</strong><br>
+                                    <!-- <strong><h4>{{clickedUser.pban1}} <br>{{clickedUser.pban1d}} </h4></strong> -->
+                                    <img src="{{clickedUser.signature}}" alt="" width="100" height="100">
+                                    <strong>
+                                        <h4>&emsp;&emsp;&emsp;&emsp;{{clickedUser.preparedBy}} </h4>
+                                    </strong>
+
+                                </section>
+
+                                <section id="spansigr">
+
+                                    <strong style="float: right;"> Approved By: <br> <img src="{{clickedUser.signature2}}"
+                                            alt="" width="100" height="100">
+                                        <h4> &emsp;&emsp;&emsp;&emsp;{{clickedUser.noted}} </h4>
+                                    </strong>
                                 </section>
 
                                 <section id="spansigl">
-                                    <strong>Prepared By:</strong>
-                                    <strong><h4>{{clickedUser.pban1}} <br>{{clickedUser.pban1d}} </h4></strong>
-                                    <strong><h4>{{clickedUser.pban2}} <br>{{clickedUser.pban2d}} </h4></strong>
+                                    <strong>Recommending Approval:</strong><br>
+                                    <!-- <strong><h4>{{clickedUser.pban1}} <br>{{clickedUser.pban1d}} </h4></strong> -->
+                                    <img src="{{clickedUser.signature3}}" alt="" width="100" height="100">
+                                    <strong>
+                                        <h4>&emsp;&emsp;&emsp;&emsp;{{clickedUser.approvedBy}} </h4>
+                                    </strong>
 
                                 </section>
-                                <section>
-                                    <strong>NOTE:</strong><br>
-                                    <caption>&nbsp;&nbsp; Description of needs/Item are made to the request of the camp head</caption>
-                                </section>
+                                <!-- <section>
+                                    <strong>LEGEND:</strong><br>
+                                    <caption>&emsp;&emsp;&emsp;&emsp; M - Male</caption><br>
+                                    <caption>&emsp;&emsp;&emsp;&emsp; F - Female</caption><br>
+                                    <caption>&emsp;&emsp;&emsp;&emsp; FM - Family Member</caption><br>
+                                    <caption>&emsp;&emsp;&emsp;&emsp; L/P - Lactating/Pregnant</caption><br>
+                                    <caption>&emsp;&emsp;&emsp;&emsp; PWDs - Persons with Disabilities</caption><br>
+                                    <caption>&emsp;&emsp;&emsp;&emsp; SP - Solo Parent</caption><br>
+                                </section> -->
                             </div>
                         </div>
                     </div>
