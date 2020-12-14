@@ -6,7 +6,7 @@
 
         <header>
             <span class="widget-icon"> <i class="fa fa-table"></i> </span>
-            <h2>Accounts</h2>
+            <h2>Evacuation Center</h2>
 
         </header>
 
@@ -29,7 +29,7 @@
                 <div id="notif"></div>
                 <thead>
                     <tr>
-                        <th colspan="14 pull-center" class="text-center th">List of Schools Used as Evacuation Centers due to TD Usman</th>
+                        <th colspan="14 pull-center" class="text-center th">List of Schools Used as Evacuation Centers</th>
                     </tr>
 
                     <tr>
@@ -44,15 +44,15 @@
 
                     </tr>
                 </thead>
-                <tbody>
+                <tbody ng-repeat="cf in data">
 
-                    <tr class="text-center" ng-repeat="data in data">
+                    <tr class="text-center" ng-repeat="ncf in cf.center">
                         <td>{{$index + 1}}</td>
-                        <td>{{data.municipality}}</td>
-                        <td>{{data.host}}</td>
-                        <td>{{data.accomodated}}</td>
-                        <td>{{data.families}}</td>
-                        <td>{{data.individuals}}</td>
+                        <td>{{ncf['Municipality']}}</td>
+                        <td>{{ncf['List of Schools used as Evacuation Centers or Host Schools']}}</td>
+                        <td>{{ncf['Barangays Accomodated']}}</td>
+                        <td>{{ncf['Number of families']}}</td>
+                        <td>{{ncf['Number  of individuals']}}</td>
 
                         <td class="col col-4 "><button type="button" class="btn btn-success btn-block " ng-click="selectUser(data)"><i class="icon-append fa fa-pencil"></i> Edit Data</button></td>
 
@@ -233,5 +233,135 @@
 
     </div>
 </div>
-<script>
-</script>
+<div id="printit" class="modal fade" role="dialog">
+    <div class="modal-dialog" style="width: 100%;height: 100%; ">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Preview</h4>
+            </div>
+            <div id="printThis">
+                <div class="modifyMe">
+                    <div class="modal-body">
+
+                        <center>
+                            <section>
+                                <h4> <strong> List of School Used as Evacuation Centers
+                                        <br>  As of {{time}}{{mid}}, {{datetoday}} <strong> </h4>
+                            </section>
+
+                            <!-- <section>
+                            <h3>
+                                <strong>{{clickedUser.operation}} <br> CLUSTER NEEDS THAT SHOULD TO BE DOWNLOADED TO THE LOCAL UNIT</strong>
+                                    </h3>
+                            </section> -->
+                        </center>
+
+
+                        <div>
+
+                            <!-- <div class="panel-body ">
+                                <caption> SECTOR/CLUSTER: <u>{{clickedUser.sector}} </u> </caption> <br>
+                                <caption> CLUSTER LEAD AGENCY: <u>{{clickedUser.leadAgency}}</u> </caption><br><br>
+                            </div> -->
+
+                            <div class="panel-body ">
+
+                                <table id="table-example-1" width="100%">
+
+                                    <thead>
+                                        <!-- <tr>
+                                            <th rowspan="2">Name of Donor</th>
+                                            <th rowspan="2">Address</th>
+                                            <th rowspan="2">Items Donated</th>
+
+                                            <th class="text-center " colspan="7">No. of Recipients in Evacuation Center
+                                            </th>
+                                        </tr> -->
+                                        <tr>
+                                            <th class="text-center">Municipality</th>
+                                            <th class="text-center">List of Schools used as Evacuation Centers or Host Schools</th>
+                                            <th class="text-center">Barangays Accomodated</th>
+                                            <th class="text-center">Number of families</th>
+                                            <th class="text-center">Number  of individuals</th>
+                                            <th class="text-center">Number of classrooms used</th>
+                                            <th class="text-center">Date of Evacuation</th>
+                                            <th class="text-center">Date of Decampment</th>
+                                            <th class="text-center">Remarks</th>
+                                        </tr>
+
+                                    </thead>
+                                    <tbody>
+
+                                        <tr ng-repeat="ncf in usersClicked.center">
+
+                                            <td class="text-left col-md-3 no-bottom-border">
+                                                {{ncf['Municipality']}}
+                                            </td>
+                                            <td class=" ">
+                                                {{ncf['List of Schools used as Evacuation Centers or Host Schools']}}
+                                            </td>
+                                            <td class=" ">
+                                                {{ncf['Barangays Accomodated']}}
+                                            </td>
+
+                                            <td class=" ">
+                                                {{ncf['Number of families']}}
+                                            </td>
+                                            <td class=" ">
+                                                {{ncf['Number  of individuals']}}
+                                            </td>
+
+                                            <td class=" ">
+                                                {{ncf['Number of classrooms used']}}
+                                            </td>
+                                            <td class=" ">
+                                                {{ncf['Date of Evacuation']}}
+                                            </td>
+                                            <td class=" ">
+                                                {{ncf['Date of Decampment']}}
+                                            </td>
+                                            <td class=" ">
+                                                {{ncf['Remarks']}}
+                                            </td>
+
+                                        </tr>
+
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td></td>
+                                            <td class="text-right">
+                                                Total
+                                            </td>
+                                            <td></td>
+                                            <td>
+                                                {{usersClicked.total1}}
+                                            </td>
+                                            <td>
+                                                {{usersClicked.total2}}
+                                            </td>
+                                            <td>
+                                                {{usersClicked.total3}}
+                                            </td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

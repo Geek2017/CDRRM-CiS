@@ -1,0 +1,381 @@
+<style>
+    #sig-canvas {
+        border: 2px dotted #CCCCCC;
+        border-radius: 15px;
+        cursor: crosshair;
+    }
+
+    #sig-canvas2 {
+        border: 2px dotted #CCCCCC;
+        border-radius: 15px;
+        cursor: crosshair;
+    }
+
+    #sig-canvas3 {
+        border: 2px dotted #CCCCCC;
+        border-radius: 15px;
+        cursor: crosshair;
+    }
+
+    @media screen and (min-width: 1076px) {
+        .modal-dialog {
+            max-width: 350px;
+            /* New width for default modal */
+        }
+    }
+
+    @media screen and (min-width: 1024px) {
+        .modal-dialog {
+            max-width: 350px;
+            /* New width for default modal */
+        }
+    }
+
+    @media screen and (min-width: 768px) {
+        .modal-dialog {
+            max-width: 350px;
+            /* New width for default modal */
+        }
+    }
+
+    @media screen and (min-width: 360px) {
+        .modal-dialog {
+            max-width: 350px;
+            /* New width for default modal */
+        }
+    }
+
+    @media screen and (min-width: 411px) {
+        .modal-dialog {
+            max-width: 350px;
+            /* New width for default modal */
+        }
+    }
+
+    @media screen and (min-width: 375px) {
+        .modal-dialog {
+            max-width: 350px;
+            /* New width for default modal */
+        }
+    }
+
+    @media screen and (min-width: 375px) {
+        .modal-dialog {
+            max-width: 350px;
+            /* New width for default modal */
+        }
+    }
+</style>
+
+<section id="widget-grid" class="" style="margin: 0.5%;">
+    <div class="row">
+        <article class="col-sm-12 col-md-12 col-lg-12">
+
+            <!-- Widget ID (each widget will need unique ID)-->
+            <div class="jarviswidget" id="wid-id-2" data-widget-colorbutton="false" data-widget-editbutton="false">
+                <!-- widget options:
+            usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+            
+            data-widget-colorbutton="false"	
+            data-widget-editbutton="false"
+            data-widget-togglebutton="false"
+            data-widget-deletebutton="false"
+            data-widget-fullscreenbutton="false"
+            data-widget-custombutton="false"
+            data-widget-collapsed="true" 
+            data-widget-sortable="false"
+            
+        -->
+                <header>
+                    <!-- <span class="widget-icon"> <i class="fa fa-check txt-color-green"></i> </span> -->
+                    <span class="widget-icon"></span>
+                    <h2>Final Report </h2>
+
+                </header>
+
+                <!-- widget div-->
+                <div>
+
+                    <!-- widget edit box -->
+                    <div class="jarviswidget-editbox">
+                        <!-- This area used as dropdown edit box -->
+
+                    </div>
+                    <!-- end widget edit box -->
+
+                    <!-- widget content -->
+                    <div class="widget-body no-padding">
+
+                        <!-- Success states for elements -->
+                        <form class="smart-form" id="saverha">
+
+
+                            <header>Final Report</header>
+
+                            <fieldset>
+                                <div class="panel-body ">
+
+                                    <div class="btn-group btn-group-sm pull-right">
+                                        <button type="button" class="btn btn-success " id="addmeb"><i class="fa fa-plus-circle"></i></button>
+                                        <button type="button" class="btn btn-danger" id="minmeb"><i class="fa fa-minus-circle"></i></button>
+                                    </div>
+                                    <br>
+                                    <br>
+
+                                    <table id="table-b" class="table table-striped table-bordered table-hover" width="100%">
+                                        <thead>
+                                            <tr>
+                                                <th colspan="2">Background Infromation</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody id="appendhereb">
+                                            <tr>
+                                                <td class='col-md-10'><label class='textarea'><textarea rows='5' ></textarea></label></td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+
+
+                            </fieldset>
+                            <!--Start of Status of Essential Drugs and Supplies in the Affected Ares-->
+                            <header>Emergency Response Activities Undertaken</header>
+                            <fieldset>
+                                <div class="panel-body ">
+
+                                    <div class="btn-group btn-group-sm pull-right">
+                                        <button type="button" class="btn btn-success " id="addmec"><i class="fa fa-plus-circle"></i></button>
+                                        <button type="button" class="btn btn-danger" id="minmec"><i class="fa fa-minus-circle"></i></button>
+                                    </div>
+                                    <br>
+                                    <br>
+                                    <table id="table-c" class="table table-striped table-bordered table-hover" width="100%">
+                                        <thead>
+                                            <!-- <tr>
+                                                <th colspan="2">Emergency Response Activities Undertaken</th>
+                                            </tr> -->
+                                            <tr>
+                                                <th>Version</th>
+                                                <th>Description</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="appendherec">
+                                            <tr>
+                                                <td class="col-md-2"><label class="input"> 
+                                                    <input type="text" name="Number_of_Cases" placeholder="2.1">
+                                                </label>
+                                                </td>
+                                                <td class='col-md-10'><label class='textarea'><textarea rows='5' ></textarea></label></td>
+                                            </tr>
+                                        </tbody>
+
+                                    </table>
+                                </div>
+
+
+                            </fieldset>
+
+                            <fieldset>
+                                <div class="panel-body ">
+
+                                    <div class="btn-group btn-group-sm pull-right">
+                                        <button type="button" class="btn btn-success " id="addmed"><i class="fa fa-plus-circle"></i></button>
+                                        <button type="button" class="btn btn-danger" id="minmed"><i class="fa fa-minus-circle"></i></button>
+                                    </div>
+                                    <br>
+                                    <br>
+                                    <table id="table-d" class="table table-striped table-bordered table-hover" width="100%">
+                                        <thead>
+                                            <tr>
+                                                <th colspan="2">Problems, Issues and Concerns</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="appendhered">
+                                            <tr>
+                                                <td class='col-md-10'><label class='textarea'><textarea rows='5' ></textarea></label></td>
+                                            </tr>
+                                        </tbody>
+
+                                    </table>
+                                </div>
+
+
+                            </fieldset>
+
+                            <!--Start of Status of Essential Drugs and Supplies in the Affected Ares-->
+
+                            <fieldset>
+                                <div class="panel-body ">
+
+                                    <div class="btn-group btn-group-sm pull-right">
+                                        <button type="button" class="btn btn-success " id="addmee"><i class="fa fa-plus-circle"></i></button>
+                                        <button type="button" class="btn btn-danger" id="minmee"><i class="fa fa-minus-circle"></i></button>
+                                    </div>
+                                    <br>
+                                    <br>
+                                    <table id="table-e" class="table table-striped table-bordered table-hover" width="100%">
+                                        <thead>
+                                            <tr>
+                                                <th colspan="2">Other Reports</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="appendheree">
+                                            <tr>
+                                                <td class='col-md-10'><label class='textarea'><textarea rows='5' ></textarea></label></td>
+                                            </tr>
+                                        </tbody>
+
+                                    </table>
+                                </div>
+
+
+                            </fieldset>
+
+                            <fieldset>
+                                <div class="panel-body ">
+
+                                    <div class="btn-group btn-group-sm pull-right">
+                                        <button type="button" class="btn btn-success " id="addmef"><i class="fa fa-plus-circle"></i></button>
+                                        <button type="button" class="btn btn-danger" id="minmef"><i class="fa fa-minus-circle"></i></button>
+                                    </div>
+                                    <br>
+                                    <br>
+                                    <table id="table-f" class="table table-striped table-bordered table-hover" width="100%">
+                                        <thead>
+                                            <tr>
+                                                <th colspan="2">Suggestion and Recommendations</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="appendheref">
+                                            <tr>
+                                                <td class='col-md-10'><label class='textarea'><textarea rows='5' ></textarea></label></td>
+                                            </tr>
+                                        </tbody>
+
+                                    </table>
+                                </div>
+
+
+                            </fieldset>
+
+
+                            <div class="row">
+                                <!-- <section class="col col-4">
+                                    <label class="label">Date Prepared:</label>
+                                    <label class="input ">
+                                        <input type="date" id="datep">
+                                    </label>
+                                </section> -->
+
+                                <section class="col col-6">
+                                    <label class="label">Prepared by:</label>
+                                    <label class="input ">
+                                        <input type="text" ng-model="preparedBy" id="preparedBy">
+                                    </label>
+                                </section>
+
+                                <section class="col col-6 sign">
+                                    <label class="label">Signature</label>
+
+                                    <button type="button" class="btn btn-info  btn-sm  btn-block"
+                                        data-toggle="modal" data-target="#exampleModal">
+                                        CLICK TO SIGN
+                                    </button>
+
+                                    <!-- Modal -->
+
+                                </section>
+                                <section class="col col-12 pull-right">
+                                    <img id="sig-image" src="" alt="Your signature will go here!" />
+                                </section>
+
+                            </div>
+
+                            <div class="row">
+                                <!-- <section class="col col-4">
+                                    <label class="label">Date Recommended:</label>
+                                    <label class="input ">
+                                        <input type="date" id="dater">
+                                    </label>
+                                </section> -->
+
+                                <section class="col col-6">
+                                    <label class="label">Approved By:</label>
+                                    <label class="input ">
+                                        <input type="text"  ng-model="approved" id="approved">
+                                    </label>
+                                </section>
+
+                                <section class="col col-6 sign">
+                                    <label class="label">Signature</label>
+
+                                    <button type="button" class="btn btn-info  btn-sm  btn-block"
+                                        data-toggle="modal" data-target="#exampleModal2">
+                                        CLICK TO SIGN
+                                    </button>
+
+                                    <!-- Modal -->
+
+                                </section>
+                                <section class="col col-12 pull-right">
+                                    <img id="sig-image2" src="" alt="Your signature will go here!" />
+                                </section>
+
+                            </div>
+
+                            <footer>
+                                <button type="submit" class="btn btn-primary ">Submit</button>
+                            </footer>
+                        </form>
+                        <!--/ Success states for elements -->
+
+                    </div>
+                    <!-- end widget content -->
+
+                </div>
+                <!-- end widget div -->
+
+            </div>
+            <!-- end widget -->
+
+        </article>
+    </div>
+
+</section>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+    <div class="modal-dialog" role="document">
+
+        <div class="modal-content">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">X</button>
+            <div class="modal-body sign">
+
+                <canvas id="sig-canvas"> </canvas>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="sig-clearBtn">Reset</button>
+                <button type="button" class="btn btn-primary" id="sig-submitBtn">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+
+    <div class="modal-dialog" role="document">
+
+        <div class="modal-content">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">X</button>
+            <div class="modal-body sign">
+
+                <canvas id="sig-canvas2"> </canvas>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="sig-clearBtn2">Reset</button>
+                <button type="button" class="btn btn-primary" id="sig-submitBtn2">Save</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -239,6 +239,38 @@ angular
                 templateUrl: 'views/cnsbdcdrrmolist.html',
                 controller: "cnsbdcdrrmolistCtrl"
             })
+            .when('/idrnew', {
+                templateUrl: 'views/idrnew.html',
+                controller: "idrnewCtrl"
+            })
+            .when('/idrlist', {
+                templateUrl: 'views/idrlist.html',
+                controller: "idrlistCtrl"
+            })
+            .when('/frnew', {
+                templateUrl: 'views/frnew.html',
+                controller: "frnewCtrl"
+            })
+            .when('/frlist', {
+                templateUrl: 'views/frlist.html',
+                controller: "frlistCtrl"
+            })
+            .when('/masrnew', {
+                templateUrl: 'views/masrnew.html',
+                controller: "masrnewCtrl"
+            })
+            .when('/masrlist', {
+                templateUrl: 'views/masrlist.html',
+                controller: "masrlistCtrl"
+            })
+            .when('/launnew', {
+                templateUrl: 'views/launnew.html',
+                controller: "launnewCtrl"
+            })
+            .when('/launlist', {
+                templateUrl: 'views/launlist.html',
+                controller: "launlistCtrl"
+            })
             .when('/cnsbdcdrrmonew', {
                 templateUrl: 'views/cnsbdcdrrmonew.html',
                 controller: "cnsbdcdrrmonewCtrl"

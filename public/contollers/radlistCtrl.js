@@ -41,6 +41,8 @@ angular.module('newApp').controller('radlistCtrl', function ($firebaseArray, $sc
         })
     });
 
+
+
     $scope.selectUser = function (users) {
         // console.log(users);
 
@@ -108,7 +110,7 @@ angular.module('newApp').controller('radlistCtrl', function ($firebaseArray, $sc
         // window.location.href = "#ecdlist";
 
         $("#notif").append('<div class="alert alert-success fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Success</strong> Deleted !</div>');
-        setTimeout(function() {
+        setTimeout(function () {
             window.location.href = "#/"
             window.location.href = "#radlist"
         }, 1500);
@@ -166,6 +168,70 @@ angular.module('newApp').controller('radlistCtrl', function ($firebaseArray, $sc
     // $scope.camalig = test;
     // $scope.guinobatan = test2;
     // console.log($scope.camalig)
+
+    $scope.printit = function (users) {
+        // document.getElementById("sum").innerHTML = users.total;
+        // document.getElementById("sum2").innerHTML = users.total2;
+        // document.getElementById("sum3").innerHTML = users.total3;
+
+
+        for (let index = 0; index < $scope.data.length; index++) {
+            // console.log($scope.cfs[index].key)
+            // console.log(users.key)
+            if (users.key == $scope.data[index].key) {
+                // console.log($scope.cfs[index])
+                $scope.usersClicked = $scope.data[index];
+                // console.log($scope.usersClicked.needs)
+            }
+
+        }
+
+
+        $scope.clickedUser = users;
+        id = users;
+        // document.getElementById("editDateOfDecampment").value = users.dateOfDecampment;
+        // document.getElementById("editDateOfEvacuation").value = users.dateOfEvacuation;
+
+        console.log($scope.clickedUser.operationfor)
+
+
+        $('#printit').modal('show');
+        setTimeout(function () {
+            // document.getElementById("btnPrint").onclick = function() {
+            printElement(document.getElementById("printThis"));
+
+            var modThis = document.querySelector("#printSection .modifyMe");
+            modThis.appendChild(document.createTextNode(""));
+
+            window.print();
+
+
+
+            function printElement(elem) {
+
+
+                var domClone = elem.cloneNode(true);
+
+                var $printSection = document.getElementById("printSection");
+
+                if (!$printSection) {
+                    var $printSection = document.createElement("div");
+                    $printSection.id = "printSection";
+                    document.body.appendChild($printSection);
+                }
+
+                $printSection.innerHTML = "";
+
+                $printSection.appendChild(domClone);
+
+                $('#printit').modal('hide');
+
+            }
+
+
+        }, 100);
+    };
+
 
 
 });

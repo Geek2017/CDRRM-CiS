@@ -57,6 +57,89 @@ angular.module('newApp').controller('ecdlistCtrl', function($firebaseArray, $sco
         })
     });
 
+    $scope.printit = function(users) {
+        // document.getElementById("sum").innerHTML = users.total;
+        // document.getElementById("sum2").innerHTML = users.total2;
+        // document.getElementById("sum3").innerHTML = users.total3;
+
+        var dateObj = new Date();
+        var month = dateObj.getUTCMonth() + 1; //months from 1-12
+        var day = dateObj.getUTCDate();
+        var year = dateObj.getUTCFullYear();
+
+        var hr = dateObj.getHours();
+        // var hr = (hr + 24 - 2) % 24;
+        $scope.mid = 'am';
+        if (hr == 0) { //At 00 hours we need to show 12 am
+            hr = 12;
+        } else if (hr > 12) {
+            hr = hr % 12;
+            $scope.mid = 'pm';
+        }
+        var mins = dateObj.getMinutes();
+        var time = dateObj.getTime();
+
+        $scope.datetoday = month + "/" + day + "/" + year;
+        $scope.time = hr;
+        $scope.time2 = time;
+        for (let index = 0; index < $scope.data.length; index++) {
+            // console.log($scope.cfs[index].key)
+            // console.log(users.key)
+            if (users.key == $scope.data[index].key) {
+                // console.log($scope.cfs[index])
+                $scope.usersClicked = $scope.data[index];
+                // console.log($scope.usersClicked.needs)
+            }
+
+        }
+
+
+        $scope.clickedUser = users;
+        id = users;
+        // document.getElementById("editDateOfDecampment").value = users.dateOfDecampment;
+        // document.getElementById("editDateOfEvacuation").value = users.dateOfEvacuation;
+
+        console.log($scope.clickedUser)
+
+
+        $('#printit').modal('show');
+        setTimeout(function() {
+            // document.getElementById("btnPrint").onclick = function() {
+            printElement(document.getElementById("printThis"));
+
+            var modThis = document.querySelector("#printSection .modifyMe");
+            modThis.appendChild(document.createTextNode(""));
+
+            window.print();
+
+
+
+            function printElement(elem) {
+
+
+                var domClone = elem.cloneNode(true);
+
+                var $printSection = document.getElementById("printSection");
+
+                if (!$printSection) {
+                    var $printSection = document.createElement("div");
+                    $printSection.id = "printSection";
+                    document.body.appendChild($printSection);
+                }
+
+                $printSection.innerHTML = "";
+
+                $printSection.appendChild(domClone);
+
+                $('#printit').modal('hide');
+
+            }
+
+
+        }, 100);
+    };
+
+
     $scope.selectUser = function(users) {
         // console.log(users);
 

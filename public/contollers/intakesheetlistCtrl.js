@@ -4,6 +4,20 @@ angular.module('newApp').controller('intakesheetlistCtrl', function($firebaseArr
 
     var id;
 
+    // $scope.currentPage = 0;
+    // $scope.pageSize = 5;
+    // $scope.data = [];
+
+    // $scope.numberOfPages = () => {
+    //     return Math.ceil(
+    //         $scope.data.length / $scope.pageSize
+    //     );
+    // }
+
+    // for (var i = 0; i < 10; i++) {
+    //     $scope.data.push(`Question number ${i}`);
+    // }
+
 
     firebase.database().ref('/barangay/intakesheet/').orderByChild('uid').on("value", function(snapshot) {
 
@@ -112,6 +126,69 @@ angular.module('newApp').controller('intakesheetlistCtrl', function($firebaseArr
 
 
     });
+
+    $scope.printit = function(users) {
+        // document.getElementById("sum").innerHTML = users.total;
+        // document.getElementById("sum2").innerHTML = users.total2;
+        // document.getElementById("sum3").innerHTML = users.total3;
+
+
+        for (let index = 0; index < $scope.cfs.length; index++) {
+            // console.log($scope.cfs[index].key)
+            // console.log(users.key)
+            if (users.key == $scope.cfs[index].key) {
+                // console.log($scope.cfs[index])
+                $scope.usersClicked = $scope.cfs[index];
+                // console.log($scope.usersClicked.needs)
+            }
+
+        }
+
+
+        $scope.clickedUser = users;
+        id = users;
+        // document.getElementById("editDateOfDecampment").value = users.dateOfDecampment;
+        // document.getElementById("editDateOfEvacuation").value = users.dateOfEvacuation;
+
+        console.log($scope.clickedUser.operationfor)
+
+
+        $('#printit').modal('show');
+        setTimeout(function() {
+            // document.getElementById("btnPrint").onclick = function() {
+            printElement(document.getElementById("printThis"));
+
+            var modThis = document.querySelector("#printSection .modifyMe");
+            modThis.appendChild(document.createTextNode(""));
+
+            window.print();
+
+
+
+            function printElement(elem) {
+
+
+                var domClone = elem.cloneNode(true);
+
+                var $printSection = document.getElementById("printSection");
+
+                if (!$printSection) {
+                    var $printSection = document.createElement("div");
+                    $printSection.id = "printSection";
+                    document.body.appendChild($printSection);
+                }
+
+                $printSection.innerHTML = "";
+
+                $printSection.appendChild(domClone);
+
+                $('#printit').modal('hide');
+
+            }
+
+
+        }, 100);
+    };
 
 
     $scope.selectUser = function(users) {
@@ -420,4 +497,9 @@ angular.module('newApp').controller('intakesheetlistCtrl', function($firebaseArr
     //     calculateSum3();
     // });
 
-});
+}).filter('startFrom', function() {
+    return (input, start) => {
+        start = +start;
+        return input.slice(start);
+    }
+})

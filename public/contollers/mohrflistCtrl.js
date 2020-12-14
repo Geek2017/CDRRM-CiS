@@ -1,11 +1,11 @@
-angular.module('newApp').controller('mohrflistCtrl', function($firebaseArray, $scope, $http, $timeout) {
+angular.module('newApp').controller('mohrflistCtrl', function ($firebaseArray, $scope, $http, $timeout) {
 
     pageSetUp();
 
     var id;
 
 
-    firebase.database().ref('/barangay/mohrf/').orderByChild('uid').on("value", function(snapshot) {
+    firebase.database().ref('/barangay/mohrf/').orderByChild('uid').on("value", function (snapshot) {
 
         console.log(snapshot.val())
         if (!localStorage.getItem('pf')) {
@@ -23,8 +23,8 @@ angular.module('newApp').controller('mohrflistCtrl', function($firebaseArray, $s
         // '10:18:2020';
         // month + ":" + day + ":" + year;
 
-        $timeout(function() {
-            $scope.$apply(function() {
+        $timeout(function () {
+            $scope.$apply(function () {
 
                 var tcol = 0;
                 let returnArr = [];
@@ -44,7 +44,7 @@ angular.module('newApp').controller('mohrflistCtrl', function($firebaseArray, $s
             $('#here').after(' <ul style="margin:0!important;margin-top:4px" class="pagination pagination-sm pull-right"  ><li ><a href="#cflist" rel="0" id="backward"> < </a></li> <li id="nav"></li>   <li><a href="#cflist" rel="0" id="forward"> > </a></li></ul>');
             var rowsShown = localStorage.getItem('pf')
 
-            $("#pfilter").change(function() {
+            $("#pfilter").change(function () {
 
                 rowsShown = localStorage.getItem('pf')
 
@@ -65,7 +65,7 @@ angular.module('newApp').controller('mohrflistCtrl', function($firebaseArray, $s
             $('#data tbody tr').hide();
             $('#data tbody tr').slice(0, rowsShown).show();
             $('#nav a:first').addClass('active');
-            $('#nav a ').bind('click', function() {
+            $('#nav a ').bind('click', function () {
 
                 $('#nav a').removeClass('active');
                 $(this).addClass('active');
@@ -74,13 +74,15 @@ angular.module('newApp').controller('mohrflistCtrl', function($firebaseArray, $s
                 var startItem = currPage * rowsShown;
                 var endItem = startItem + rowsShown;
                 $('#data tbody tr').css('opacity', '0.0').hide().slice(startItem, endItem).
-                css('display', 'table-row').animate({ opacity: 1 }, 300);
+                css('display', 'table-row').animate({
+                    opacity: 1
+                }, 300);
                 console.log($(this).attr('rel'))
 
 
             });
 
-            $("#backward").click(function() {
+            $("#backward").click(function () {
 
                 var cp = localStorage.getItem('curp');
                 if (cp >= 1) {
@@ -89,11 +91,13 @@ angular.module('newApp').controller('mohrflistCtrl', function($firebaseArray, $s
                     var startItem = cp * rowsShown;
                     var endItem = startItem + rowsShown;
                     $('#data tbody tr').css('opacity', '0.0').hide().slice(startItem, endItem).
-                    css('display', 'table-row').animate({ opacity: 1 }, 300);
+                    css('display', 'table-row').animate({
+                        opacity: 1
+                    }, 300);
                 }
             });
 
-            $("#forward").click(function() {
+            $("#forward").click(function () {
 
                 var tp = $('#data tbody tr').length - 1;
 
@@ -104,7 +108,9 @@ angular.module('newApp').controller('mohrflistCtrl', function($firebaseArray, $s
                     var startItem = cp * rowsShown;
                     var endItem = startItem + rowsShown;
                     $('#data tbody tr').css('opacity', '0.0').hide().slice(startItem, endItem).
-                    css('display', 'table-row').animate({ opacity: 1 }, 300);
+                    css('display', 'table-row').animate({
+                        opacity: 1
+                    }, 300);
                 }
             });
 
@@ -114,7 +120,94 @@ angular.module('newApp').controller('mohrflistCtrl', function($firebaseArray, $s
     });
 
 
-    $scope.selectUser = function(users) {
+
+    $scope.printit = function (users) {
+        // document.getElementById("sum").innerHTML = users.total;
+        // document.getElementById("sum2").innerHTML = users.total2;
+        // document.getElementById("sum3").innerHTML = users.total3;
+
+        var dateObj = new Date();
+        var month = dateObj.getUTCMonth() + 1; //months from 1-12
+        var day = dateObj.getUTCDate();
+        var year = dateObj.getUTCFullYear();
+
+        var hr = dateObj.getHours();
+        // var hr = (hr + 24 - 2) % 24;
+        $scope.mid = 'am';
+        if (hr == 0) { //At 00 hours we need to show 12 am
+            hr = 12;
+        } else if (hr > 12) {
+            hr = hr % 12;
+            $scope.mid = 'pm';
+        }
+        var mins = dateObj.getMinutes();
+        var time = dateObj.getTime();
+
+        $scope.datetoday = month + "/" + day + "/" + year;
+        $scope.time = hr;
+        $scope.time2 = time;
+
+
+
+        for (let index = 0; index < $scope.cfs.length; index++) {
+            // console.log($scope.cfs[index].key)
+            // console.log(users.key)
+            if (users.key == $scope.cfs[index].key) {
+                // console.log($scope.cfs[index])
+                $scope.usersClicked = $scope.cfs[index];
+                // console.log($scope.usersClicked.needs)
+            }
+
+        }
+
+
+        $scope.clickedUser = users;
+        id = users;
+        // document.getElementById("editDateOfDecampment").value = users.dateOfDecampment;
+        // document.getElementById("editDateOfEvacuation").value = users.dateOfEvacuation;
+
+        console.log($scope.clickedUser.operationfor)
+
+
+        $('#printit').modal('show');
+        setTimeout(function () {
+            // document.getElementById("btnPrint").onclick = function() {
+            printElement(document.getElementById("printThis"));
+
+            var modThis = document.querySelector("#printSection .modifyMe");
+            modThis.appendChild(document.createTextNode(""));
+
+            window.print();
+
+
+
+            function printElement(elem) {
+
+
+                var domClone = elem.cloneNode(true);
+
+                var $printSection = document.getElementById("printSection");
+
+                if (!$printSection) {
+                    var $printSection = document.createElement("div");
+                    $printSection.id = "printSection";
+                    document.body.appendChild($printSection);
+                }
+
+                $printSection.innerHTML = "";
+
+                $printSection.appendChild(domClone);
+
+                $('#printit').modal('hide');
+
+            }
+
+
+        }, 100);
+    };
+
+
+    $scope.selectUser = function (users) {
         // document.getElementById("sum").innerHTML=users.total;
         // document.getElementById("sum2").innerHTML=users.total2;
         // document.getElementById("sum3").innerHTML=users.total3;
@@ -124,15 +217,15 @@ angular.module('newApp').controller('mohrflistCtrl', function($firebaseArray, $s
         for (let index = 0; index < $scope.cfs.length; index++) {
             // console.log($scope.cfs[index].key)
             // console.log(users.key)
-            if(users.key == $scope.cfs[index].key){
+            if (users.key == $scope.cfs[index].key) {
                 // console.log($scope.cfs[index])
                 $scope.usersClicked = $scope.cfs[index];
                 // console.log($scope.usersClicked.needs)
             }
-            
+
         }
-        
-        
+
+
         $scope.clickedUser = users;
         id = users;
         // document.getElementById("editDateOfDecampment").value = users.dateOfDecampment;
@@ -141,7 +234,7 @@ angular.module('newApp').controller('mohrflistCtrl', function($firebaseArray, $s
         $('#myModal').modal('show');
     };
 
-    $scope.selectUser2 = function(users) {
+    $scope.selectUser2 = function (users) {
         // console.log(users);
         $scope.clickedUser = users;
         id = users;
@@ -149,17 +242,17 @@ angular.module('newApp').controller('mohrflistCtrl', function($firebaseArray, $s
         $('#myModal2').modal('show');
     };
 
-    $scope.selectUser3 = function(users) {
+    $scope.selectUser3 = function (users) {
         // console.log(users);
         $scope.clickedUser = users;
         id = users;
         $('#myModal3').modal('show');
     };
 
-    $scope.updateUser = function() {
+    $scope.updateUser = function () {
         var ref2 = firebase.database().ref("/barangay/mohrf/" + id.$id);
         ref2.update({
-            schoolID: $('#schoolID').val(),
+                schoolID: $('#schoolID').val(),
                 school: $('#school').val(),
                 region: $('#region').val(),
                 division: $('#division').val(),
@@ -183,21 +276,21 @@ angular.module('newApp').controller('mohrflistCtrl', function($firebaseArray, $s
                 damagedSchoolFurnitures: $('#damagedSchoolFurnitures').val(),
                 damagedLearningMaterials: $('#damagedLearningMaterials').val(),
                 damagedComputerEquipment: $('#damagedComputerEquipment').val()
-        })
+            })
 
-        .catch(function(error) {
-            console.log("Login Failed!", error.message);
-            $("#notif").append('<div class="alert alert-danger fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Error</strong> ' + error.message + '</div>');
-            setTimeout(function() {
-                $("#notif").hide()
-            }, 10000);
+            .catch(function (error) {
+                console.log("Login Failed!", error.message);
+                $("#notif").append('<div class="alert alert-danger fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Error</strong> ' + error.message + '</div>');
+                setTimeout(function () {
+                    $("#notif").hide()
+                }, 10000);
 
-        });
+            });
 
         // window.location.href = "#ecdlist";
 
         $("#notif").append('<div class="alert alert-success fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Success</strong> Updated !</div>');
-        setTimeout(function() {
+        setTimeout(function () {
             $("#notif").hide()
         }, 10000);
 
@@ -205,30 +298,30 @@ angular.module('newApp').controller('mohrflistCtrl', function($firebaseArray, $s
 
     };
 
-    $scope.deleteUser = function() {
+    $scope.deleteUser = function () {
         var ref = firebase.database().ref("/barangay/mohrf/" + id.key);
         ref.remove()
-        .catch(function(error) {
-            console.log("Login Failed!", error.message);
-            $("#notif").append('<div class="alert alert-danger fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Error</strong> ' + error.message + '</div>');
-            setTimeout(function() {
-                $("#notif").hide()
-            }, 1500);
+            .catch(function (error) {
+                console.log("Login Failed!", error.message);
+                $("#notif").append('<div class="alert alert-danger fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Error</strong> ' + error.message + '</div>');
+                setTimeout(function () {
+                    $("#notif").hide()
+                }, 1500);
 
-        });;
+            });;
 
         // $("#notif").show();
         // window.location.href = "#ecdlist";
 
         $("#notif").append('<div class="alert alert-success fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Success</strong> Deleted !</div>');
-        setTimeout(function() {
+        setTimeout(function () {
             window.location.href = "#/"
             window.location.href = "#mohrflist"
         }, 1500);
         $('#myModal2').modal('hide');
     };
 
-    $scope.close = function() {
+    $scope.close = function () {
         $('#myModal').modal('hide');
         $('#myModal2').modal('hide');
         $('#myModal3').modal('hide');
@@ -238,11 +331,11 @@ angular.module('newApp').controller('mohrflistCtrl', function($firebaseArray, $s
 
     var obj;
     var obj2;
-    $scope.tojson = function(obj) {
+    $scope.tojson = function (obj) {
 
         var table = $('#convert-table').tableToJSON({
 
-            extractor: function(cellIndex, $cell) {
+            extractor: function (cellIndex, $cell) {
                 return $cell.find('input').val() || $cell.find("#type option:selected").text();
             }
 
@@ -251,11 +344,11 @@ angular.module('newApp').controller('mohrflistCtrl', function($firebaseArray, $s
         return table;
 
     }
-    $scope.tojson2 = function(obj2) {
+    $scope.tojson2 = function (obj2) {
 
         var table2 = $('#convert-table2').tableToJSON({
 
-            extractor: function(cellIndex, $cell) {
+            extractor: function (cellIndex, $cell) {
                 return $cell.find('input').val() || $cell.find("#type option:selected").text();
             }
 
@@ -273,7 +366,7 @@ angular.module('newApp').controller('mohrflistCtrl', function($firebaseArray, $s
 
     var datetoday = month + ":" + day + ":" + year;
 
-    $('#newcf').on('submit', function(e) {
+    $('#newcf').on('submit', function (e) {
         $scope.tojson();
         $scope.tojson2();
 
@@ -309,7 +402,7 @@ angular.module('newApp').controller('mohrflistCtrl', function($firebaseArray, $s
 
         var updates = {};
         // console.log(id.key);
-        updates['/barangay/mohrf/'  + id.key] = data;
+        updates['/barangay/mohrf/' + id.key] = data;
         firebase.database().ref().update(updates);
         console.log(updates)
 
@@ -317,7 +410,7 @@ angular.module('newApp').controller('mohrflistCtrl', function($firebaseArray, $s
             $('#myModal').modal('hide');
 
             $("#notif").append('<div class="alert alert-success fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Success</strong> Data had been save!.</div>');
-            setTimeout(function() {
+            setTimeout(function () {
                 window.location.href = "#/"
                 window.location.href = "#mohrflist"
             }, 1500);
@@ -328,21 +421,21 @@ angular.module('newApp').controller('mohrflistCtrl', function($firebaseArray, $s
     });
 
 
-        var cnt = 0;
-    $scope.addtr = function() {
+    var cnt = 0;
+    $scope.addtr = function () {
         $("#appendhere").append(' <tr><td class="col-md-2"> <label class="input"> <input type="text" name="particulars"  placeholder="" required></label></td><td  class="col-md-2"><label class="input"> <input type="text" name="particulars"  placeholder="" required></label></td></td><td><label class="input"> <input type="text" name="amount" value="" class="" autocomplete="off" /></label></td><td><label class="input"> <input type="text" name="remarks" placeholder=""></label></td></td><td><label class="input"> <input type="text" name="amount" value="" class="" autocomplete="off" /></label></td><td><label class="input"> <input type="text" name="amount" value="" class="" autocomplete="off" /></label></td><td><label class="input"> <input type="text" name="amount" value="" class="" autocomplete="off" /></label></td><td><label class="input"> <input type="text" name="amount" value="" class="" autocomplete="off" /></label></td><td><label class="input"> <input type="text" name="amount" value="" class="" autocomplete="off" /></label></td><td><label class="input"> <input type="text" name="amount" value="" class="" autocomplete="off" /></label></td><td><label class="input"> <input type="text" name="amount" value="" class="" autocomplete="off" /></label></td><td><label class="input"> <input type="text" name="remarks" placeholder=""></label></td><td><label class="input"> <input type="text" name="remarks" placeholder=""></label></td><td ><label class="input"> <input type="text" name="remarks" placeholder=""></label></td></td><td><label class="input col-md-10"> <input type="text" name="amount" value="" class="" autocomplete="off" /></label> <label class="input col-md-1"> <button class="btn btn-danger btn-sm deleteb">X</button></label></td></tr>');
         $("#appendhere2").append(' <tr><td> <label class="input"> <input type="text" name="particulars"  placeholder="" required></label></td><td><label class="input"> <input type="text" name="particulars"  placeholder="" required></label></td></td><td><label class="input"> <input type="text" name="amount" value="" class="" autocomplete="off" /></label></td><td><label class="input"> <input type="text" name="remarks" placeholder=""></label></td></td><td><label class="input"> <input type="text" name="amount" value="" class="" autocomplete="off" /></label></td><td><label class="input"> <input type="text" name="amount" value="" class="" autocomplete="off" /></label></td><td><label class="input"> <input type="text" name="amount" value="" class="" autocomplete="off" /></label></td><td><label class="input"> <input type="text" name="amount" value="" class="" autocomplete="off" /></label></td><td><label class="input"> <input type="text" name="amount" value="" class="" autocomplete="off" /></label></td><td><label class="input"> <input type="text" name="amount" value="" class="" autocomplete="off" /></label></td><td><label class="input"> <input type="text" name="amount" value="" class="" autocomplete="off" /></label></td><td><label class="input"> <input type="text" name="remarks" placeholder=""></label></td><td><label class="input"> <input type="text" name="remarks" placeholder=""></label></td><td ><label class="input"> <input type="text" name="remarks" placeholder=""></label></td></td><td><label class="input col-md-10"> <input type="text" name="amount" value="" class="" autocomplete="off" /></label> <label class="input col-md-1"> <button class="btn btn-danger btn-sm deleteb">X</button></label></td></tr>');
         cnt++;
-        $('table thead th').each(function(i) {
+        $('table thead th').each(function (i) {
 
         });
 
     }
-    $scope.removetr = function() {
+    $scope.removetr = function () {
 
         $('#appendhere tr:last').remove();
         $('#appendhere2 tr:last').remove();
-        $('table thead th').each(function(i) {
+        $('table thead th').each(function (i) {
 
         });
         // calculateSum();
@@ -350,10 +443,10 @@ angular.module('newApp').controller('mohrflistCtrl', function($firebaseArray, $s
         // calculateSum3();
     }
 
-    $scope.delAppend = function() {
+    $scope.delAppend = function () {
         console.log("Del")
         $(this).closest("tr").remove();
-        $('table thead th').each(function(i) {
+        $('table thead th').each(function (i) {
 
         });
         // calculateSum();
@@ -363,18 +456,18 @@ angular.module('newApp').controller('mohrflistCtrl', function($firebaseArray, $s
         $('#myModal').modal('hide');
     };
 
-    $("#appendhere").on('click', '.deleteb', function() {
+    $("#appendhere").on('click', '.deleteb', function () {
         $(this).closest("tr").remove();
-        $('table thead th').each(function(i) {
+        $('table thead th').each(function (i) {
 
         });
         // calculateSum();
         // calculateSum2();
         // calculateSum3();
     });
-    $("#appendhere2").on('click', '.deleteb', function() {
+    $("#appendhere2").on('click', '.deleteb', function () {
         $(this).closest("tr").remove();
-        $('table thead th').each(function(i) {
+        $('table thead th').each(function (i) {
 
         });
         // calculateSum();

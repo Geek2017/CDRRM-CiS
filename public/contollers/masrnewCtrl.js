@@ -1,14 +1,217 @@
-angular.module('newApp').controller('rdsnewCtrl', function($scope) {
+angular.module('newApp').controller('masrnewCtrl', function($scope) {
     pageSetUp();
-    var obj;
-    $scope.tojson = function(obj) {
 
-        var table = $('#convert-table').tableToJSON({
+    var cnt = 0;
+    $("#addmeb").on("click", function() {
+
+        $("#appendhereb").append("<tr><td class='col-md-10'><label class='textarea'><textarea rows='5' ></textarea></label></td></tr>");
+        cnt++;
+        $('table thead th').each(function(i) {
+
+        });
+
+    });
+
+    $("#minmeb").on("click", function() {
+
+        $('#appendhereb tr:last').remove();
+        $('table thead th').each(function(i) {
+
+        });
+
+    });
+
+
+    var cntc = 0;
+    $("#addmec").on("click", function() {
+
+        $("#appendherec").append('<tr><td class="col-md-2"><label class="input"> <input type="text" name="Number_of_Cases" placeholder="2.1"></label></td><td class="col-md-10"><label class="textarea"><textarea rows="5" ></textarea></label></td></tr>');
+        cntc++;
+        $('table thead th').each(function(i) {
+
+        });
+
+    });
+
+    $("#minmec").on("click", function() {
+
+        $('#appendherec tr:last').remove();
+        $('table thead th').each(function(i) {
+
+        });
+
+    });
+
+
+    var cntd = 0;
+    $("#addmed").on("click", function() {
+
+        $("#appendhered").append('<tr><td class="col-md-2"><label class="input"> <input type="text" name="Number_of_Cases" placeholder="2.1"></label></td><td class="col-md-10"><label class="textarea"><textarea rows="5" ></textarea></label></td></tr>');
+        cntd++;
+        $('table thead th').each(function(i) {
+
+        });
+
+    });
+
+    $("#minmed").on("click", function() {
+
+        $('#appendhered tr:last').remove();
+        $('table thead th').each(function(i) {
+
+        });
+
+    });
+
+    var cnte = 0;
+    $("#addmee").on("click", function() {
+
+        $("#appendheree").append('<tr><td class="col-md-2"><label class="input"> <input type="text" name="Number_of_Cases" placeholder="2.1"></label></td><td class="col-md-10"><label class="textarea"><textarea rows="5" ></textarea></label></td></tr>');
+        cnte++;
+        $('table thead th').each(function(i) {
+
+        });
+
+    });
+
+    $("#minmee").on("click", function() {
+
+        $('#appendheree tr:last').remove();
+        $('table thead th').each(function(i) {
+
+        });
+
+    });
+
+    var cntf = 0;
+    $("#addmef").on("click", function() {
+
+        $("#appendheref").append('<tr><td class="col-md-2"><label class="input"> <input type="text" name="Number_of_Cases" placeholder="2.1"></label></td><td class="col-md-10"><label class="textarea"><textarea rows="5" ></textarea></label></td></tr>');
+        cntf++;
+        $('table thead th').each(function(i) {
+
+        });
+
+    });
+
+    $("#minmef").on("click", function() {
+
+        $('#appendheref tr:last').remove();
+        $('table thead th').each(function(i) {
+
+        });
+
+    });
+
+    var cntg = 0;
+    $("#addmeg").on("click", function() {
+
+        $("#appendhereg").append("<tr><td class='col-md-10'><label class='textarea'><textarea rows='5' ></textarea></label></td></tr>");
+        cntg++;
+        $('table thead th').each(function(i) {
+
+        });
+
+    });
+
+    $("#minmeg").on("click", function() {
+
+        $('#appendhereg tr:last').remove();
+        $('table thead th').each(function(i) {
+
+        });
+
+    });
+
+
+
+
+    var objb;
+    $scope.tojsonb = function(objb) {
+
+        var table = $('#table-b').tableToJSON({
 
             extractor: function(cellIndex, $cell) {
-                return $cell.find('input').val() || $cell.find("#type option:selected").text();
+                return $cell.find('input').val() || $cell.find('textarea').val() || $cell.find("#type option:selected").text();
             }
 
+        })
+        return table;
+
+    }
+
+    var objc;
+    $scope.tojsonc = function(objc) {
+
+        var table = $('#table-c').tableToJSON({
+
+            extractor: function(cellIndex, $cell) {
+                return $cell.find('input').val() || $cell.find('textarea').val() || $cell.find("#type option:selected").text();
+            }
+
+        })
+        return table;
+
+    }
+
+    var objd;
+    $scope.tojsond = function(objd) {
+
+        var table = $('#table-d').tableToJSON({
+
+            extractor: function(cellIndex, $cell) {
+                return $cell.find('input').val() || $cell.find('textarea').val() || $cell.find("#type option:selected").text();
+            }
+
+        })
+        return table;
+
+    }
+
+    $('#run').click(function() {
+        var table = $('#table-e').tableToJSON({
+            extractor: function(cellIndex, $cell) {
+                // get text from the span inside table cells;
+                // if empty or non-existant, get the cell text
+                return $cell.find('input').val() || $cell.text() || $cell.find('textarea').val();
+            }
+        });
+        alert(JSON.stringify(table));
+    });
+
+    var obje;
+    $scope.tojsone = function(obje) {
+
+        var table = $('#table-e').tableToJSON({
+            extractor: function(cellIndex, $cell) {
+                return $cell.find('input').val() || $cell.text() || $cell.find('textarea').val();
+            }
+        });
+        return table;
+    }
+
+    var objf;
+    $scope.tojsonf = function(objf) {
+
+        var table = $('#table-f').tableToJSON({
+
+            extractor: function(cellIndex, $cell) {
+                return $cell.find('input').val() || $cell.find('textarea').val();
+            }
+
+        })
+        return table;
+
+    }
+
+    var objg;
+    $scope.tojsong = function(objg) {
+
+        var table = $('#table-g').tableToJSON({
+
+            extractor: function(cellIndex, $cell) {
+                return $cell.find('input').val() || $cell.find('textarea').val();
+            }
 
         })
         return table;
@@ -22,50 +225,41 @@ angular.module('newApp').controller('rdsnewCtrl', function($scope) {
 
     var datetoday = month + ":" + day + ":" + year;
 
-    $('#newrds').on('submit', function(e) {
-        $scope.tojson();
-
+    $('#saverha').on('submit', function(e) {
         e.preventDefault();
 
-        console.log($scope.tojson(obj))
+        console.log($scope.tojsonb(objb))
+        console.log($scope.tojsonc(objc))
+        console.log($scope.tojsond(objd))
+        console.log($scope.tojsone(obje))
+        console.log($scope.tojsonf(objf))
+        console.log($scope.tojsong(objg))
 
-        var newobj = $scope.tojson(obj);
-        // [$scope.tojson(obj)];
+        var uid = firebase.database().ref().child('cdrmo/masr/').push().key;
 
-        var uid = firebase.database().ref().child('/cswdo/rds/').push().key;
-        var orno = $scope.ornum;
-        var sector = $scope.sector;
-        var disaster = $scope.disaster;
-        var placeOccurance = $scope.placeOccurance;
-
-        var from = $scope.from;
-        var position = $scope.position;
-
-        var noted = $scope.noted;
-        var approved = $scope.approved;
-
-
-
-        const [, ...rest] = newobj.reverse();
-        const withoutLast = rest.reverse();
-        const withoutLast2 = $scope.tojson(obj);
-        // console.log(withoutLast)
         var data = {
+
             date: datetoday,
-            disaster: disaster,
-            placeOccurance: placeOccurance,
-            dateOccurance: $('#dateOccurance').val(),
-            from: from,
-            position: position,
-            noted: noted,
+            background: $scope.tojsonb(objb),
+
+            ercu: $scope.tojsonc(objc),
+
+            pic: $scope.tojsond(objd),
+
+            atn: $scope.tojsone(obje),
+            
+            or: $scope.tojsonf(objf),
+
+            preparedBy: $scope.preparedBy,
             signature: localStorage.getItem('sign'),
-            approved: approved,
+            submitted: $scope.submitted,
             signature2: localStorage.getItem('sign2'),
-            relief: withoutLast2,
+
+
         }
 
         var updates = {};
-        updates['/cswdo/rds/'  + uid] = data;
+        updates['cdrmo/masr/' + uid] = data;
         firebase.database().ref().update(updates);
         console.log(updates)
 
@@ -75,59 +269,19 @@ angular.module('newApp').controller('rdsnewCtrl', function($scope) {
             $("#notif").append('<div class="alert alert-success fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Success</strong> Data had been save!.</div>');
             setTimeout(function() {
                 window.location.href = "#/"
-                window.location.href = "#rdsnew"
+                window.location.href = "#masrnew"
             }, 1500);
         } else {
             $("#notif").append('<div class="alert alert-danger fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Error</strong> Check your Input !</div>');
         }
 
-    });
-    var cnt = 0;
-    $scope.addtr = function() {
-        $("#appendhere").append('<tr class="row_to_clone"><td class="col-md-1"> <label class="input"> <input type="date" name="particulars"  placeholder="" required></label></td><td ><label class="input"> <input type="text" name="amount" value="" class="" autocomplete="off" /></label></td></td><td class="col-md-2"><label class="input"> <input type="text" name="amount" value="" class="" autocomplete="off" /></label></td><td class="col-md-2"><label class="input"> <input type="text" name="remarks" placeholder=""></label></td></td><td><label class="input"> <input type="number" name="amount" value="" class="" autocomplete="off" /></label></td><td class="col-md-2"><label class="input"> <input type="text" name="remarks" placeholder=""></label></td><td class="col-md-1"><label class="input"> <input type="text" name="remarks" placeholder=""></label></td></td><td class="col-md-1"><label class="input col-md-10"> <input type="text" name="amount" value="" class="" autocomplete="off" /></label></td></tr>');
-        cnt++;
-        $('table thead th').each(function(i) {
 
-        });
-
-    }
-    $scope.removetr = function() {
-
-        $('#appendhere tr:last').remove();
-        $('table thead th').each(function(i) {
-
-        });
-        // calculateSum();
-    }
-
-    $("#appendhere").on('click', '.deleteb', function() {
-        $(this).closest("tr").remove();
-        $('table thead th').each(function(i) {
-
-        });
-        // calculateSum();
     });
 
 
-    // function calculateSum() {
-    //     var sum = 0;
-    //     //iterate through each textboxes and add the values
-    //     $(".txt").each(function() {
 
-    //         //add only if the value is number
-    //         if (!isNaN(this.value) && this.value.length != 0) {
-    //             sum += parseFloat(this.value);
-    //         }
 
-    //     });
-    //     //.toFixed() method will roundoff the final sum to 2 decimal places
-    //     $("#sum").html(sum.toFixed(2));
-    //     console.log(sum.toFixed(2));
-    // }
 
-    // $("#convert-table").on("keyup", ".txt", function() {
-    //     calculateSum();
-    // });
 
     (function () {
         window.requestAnimFrame = (function (callback) {
@@ -401,7 +555,5 @@ angular.module('newApp').controller('rdsnewCtrl', function($scope) {
 
     })();
 
-    
 
-   
 });

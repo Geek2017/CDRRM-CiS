@@ -41,6 +41,69 @@ angular.module('newApp').controller('loclistCtrl', function($firebaseArray, $sco
         })
     });
 
+    $scope.printit = function(users) {
+        // document.getElementById("sum").innerHTML = users.total;
+        // document.getElementById("sum2").innerHTML = users.total2;
+        // document.getElementById("sum3").innerHTML = users.total3;
+
+
+        for (let index = 0; index < $scope.data.length; index++) {
+            // console.log($scope.cfs[index].key)
+            // console.log(users.key)
+            if (users.key == $scope.data[index].key) {
+                // console.log($scope.cfs[index])
+                $scope.usersClicked = $scope.data[index];
+                // console.log($scope.usersClicked.needs)
+            }
+
+        }
+
+
+        $scope.clickedUser = users;
+        id = users;
+        // document.getElementById("editDateOfDecampment").value = users.dateOfDecampment;
+        // document.getElementById("editDateOfEvacuation").value = users.dateOfEvacuation;
+
+        console.log($scope.clickedUser.operationfor)
+
+
+        $('#printit').modal('show');
+        setTimeout(function() {
+            // document.getElementById("btnPrint").onclick = function() {
+            printElement(document.getElementById("printThis"));
+
+            var modThis = document.querySelector("#printSection .modifyMe");
+            modThis.appendChild(document.createTextNode(""));
+
+            window.print();
+
+
+
+            function printElement(elem) {
+
+
+                var domClone = elem.cloneNode(true);
+
+                var $printSection = document.getElementById("printSection");
+
+                if (!$printSection) {
+                    var $printSection = document.createElement("div");
+                    $printSection.id = "printSection";
+                    document.body.appendChild($printSection);
+                }
+
+                $printSection.innerHTML = "";
+
+                $printSection.appendChild(domClone);
+
+                $('#printit').modal('hide');
+
+            }
+
+
+        }, 100);
+    };
+
     $scope.selectUser = function(users) {
         // console.log(users.$id);
         

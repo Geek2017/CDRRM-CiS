@@ -1,19 +1,53 @@
-angular.module('newApp').controller('donationnewCtrl', function($scope) {
+angular.module('newApp').controller('donationnewCtrl', function ($scope) {
     pageSetUp();
-    var obj;
-    $scope.tojson = function(obj) {
 
-        var table = $('#convert-table').tableToJSON({
+    var obj0, obj1, obj2;
 
-            extractor: function(cellIndex, $cell) {
+    $scope.tojson0 = function (obj0) {
+
+        var table0 = $('#table0').tableToJSON({
+
+            extractor: function (cellIndex, $cell) {
                 return $cell.find('input').val() || $cell.find("#type option:selected").text();
             }
 
 
         })
-        return table;
+        return table0;
 
     }
+
+    $scope.tojson1 = function (obj1) {
+
+        var table1 = $('#table1').tableToJSON({
+
+            extractor: function (cellIndex, $cell) {
+                return $cell.find('input').val() || $cell.find("#type option:selected").text();
+            }
+
+
+        })
+        return table1;
+
+    }
+
+    $scope.tojson2 = function (obj2) {
+
+        var table2 = $('#table2').tableToJSON({
+
+            extractor: function (cellIndex, $cell) {
+                return $cell.find('input').val() || $cell.find("#type option:selected").text();
+            }
+
+
+        })
+        return table2;
+
+    }
+
+    const withoutLast0 = $scope.tojson0(obj0);
+    const withoutLast1 = $scope.tojson1(obj1);
+    const withoutLast2 = $scope.tojson2(obj2);
 
     var dateObj = new Date();
     var month = dateObj.getUTCMonth() + 1; //months from 1-12
@@ -22,104 +56,152 @@ angular.module('newApp').controller('donationnewCtrl', function($scope) {
 
     var datetoday = month + ":" + day + ":" + year;
 
-    $('#newcf').on('submit', function(e) {
-        $scope.tojson();
+    $('#newdonation').on('submit', function (e) {
 
+        e.preventDefault($(".step-1").trigger("click"));
+
+        setTimeout(function () {
+            console.log('done')
+            $scope.tojson0();
+            $scope.tojson1();
+            $scope.tojson2();
+
+            console.log($scope.tojson0(obj0))
+            console.log($scope.tojson1(obj1))
+            console.log($scope.tojson2(obj2))
+
+            var evacCenter = $scope.evacCenter;
+            var roomNo = $scope.roomNo;
+            var teacher = $scope.teacher;
+            var cardColor = $scope.cardColor;
+            var roomLeader = $scope.roomLeader;
+
+
+            var uid = firebase.database().ref().child('cswdo/donations/').push().key;
+
+            var data = {
+                date: datetoday,
+
+
+
+                "donation": $.extend(true,
+                    JSON.parse(localStorage.getItem('i0')),
+                    JSON.parse(localStorage.getItem('i1')),
+                    JSON.parse(localStorage.getItem('i2')))
+
+
+
+
+            }
+
+            var updates = {};
+            updates['cswdo/donations/' + uid] = data;
+            firebase.database().ref().update(updates);
+            console.log(updates)
+
+            if (updates) {
+
+
+                $("#notif").append('<div class="alert alert-success fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Success</strong> Data had been save!.</div>');
+                setTimeout(function () {
+                    window.location.href = "#/"
+                    window.location.href = "#donationnew"
+                }, 1500);
+            } else {
+                $("#notif").append('<div class="alert alert-danger fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Error</strong> Check your Input !</div>');
+            }
+
+
+        }, 2000);
+
+
+
+
+
+    });
+
+
+
+    var navListItems = $('ul.setup-panel li a'),
+        allWells = $('.setup-content');
+
+    navListItems.click(function (e) {
         e.preventDefault();
+        var $target = $($(this).attr('href')),
+            $item = $(this).closest('li');
 
-        console.log($scope.tojson(obj))
-
-        var newobj = $scope.tojson(obj);
-        // [$scope.tojson(obj)];
-
-        var uid = firebase.database().ref().child('/cswdo/donations/').push().key;
-        var orno = $scope.ornum;
-        var sector = $scope.sector;
-        var name = $scope.name;
-        var address = $scope.address;
-        var familyHead = $scope.familyHead;
-        var roomAssignment = $scope.roomAssignment;
-        var teacherIncharge = $scope.teacherIncharge;
-
-
-
-        const [, ...rest] = newobj.reverse();
-        const withoutLast = rest.reverse();
-        const withoutLast2 = $scope.tojson(obj);
-        // console.log(withoutLast)
-        var data = {
-            date: datetoday,
-            name: name,
-            address: address,
-            donations: withoutLast2,
+        if (!$item.hasClass('disabled')) {
+            navListItems.closest('li').removeClass('active');
+            $item.addClass('active');
+            allWells.hide();
+            $target.show();
         }
-
-        var updates = {};
-        updates['/cswdo/donations/'  + uid] = data;
-        firebase.database().ref().update(updates);
-        console.log(updates)
-
-        if (updates) {
-
-
-            $("#notif").append('<div class="alert alert-success fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Success</strong> Data had been save!.</div>');
-            setTimeout(function() {
-                window.location.href = "#/"
-                window.location.href = "#donationnew"
-            }, 1500);
-        } else {
-            $("#notif").append('<div class="alert alert-danger fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Error</strong> Check your Input !</div>');
-        }
-
     });
+
+    $('ul.setup-panel li.active a').trigger('click');
+
+
+    $('.step-2').click(function () {
+        $scope.tojson0();
+
+        console.log($scope.tojson0(obj0))
+
+        localStorage.setItem('i0', JSON.stringify($scope.tojson0(obj0)))
+        $('ul.setup-panel li:eq(1)').removeClass('disabled');
+
+        $('ul.setup-panel li a[href="#step-2"]').trigger('click');
+    });
+
+
+    $('.step-3').click(function () {
+        $scope.tojson1();
+
+        console.log($scope.tojson1(obj1))
+
+        localStorage.setItem('i1', JSON.stringify($scope.tojson1(obj1)))
+        $('ul.setup-panel li:eq(2)').removeClass('disabled');
+
+        $('ul.setup-panel li a[href="#step-3"]').trigger('click');
+    });
+
+
+    $('.step-1').click(function () {
+        $scope.tojson2();
+
+        console.log($scope.tojson2(obj2))
+
+        localStorage.setItem('i2', JSON.stringify($scope.tojson2(obj2)))
+        $('ul.setup-panel li:eq(0)').removeClass('disabled');
+
+        $('ul.setup-panel li a[href="#step-1"]').trigger('click');
+    });
+
+
     var cnt = 0;
-    $scope.addtr = function() {
-        $("#appendhere").append('<tr class="row_to_clone"><td class="col-md-2"> <label class="input"> <input type="text" name="particulars"  placeholder="" required></label></td><td ><label class="input"> <input type="number" name="amount" value="" class="" autocomplete="off" /></label></td><td ><label class="input"> <input type="number" name="remarks" placeholder=""></label></td></td><td ><label class="input"> <input type="number" name="amount" value="" class="" autocomplete="off" /></label></td><td ><label class="input"> <input type="number" name="remarks" placeholder=""></label></td><td ><label class="input"> <input type="number" name="remarks" placeholder=""></label></td><td ><label class="input"> <input type="number" name="remarks" placeholder=""></label></td></td><td ><label class="input col-md-10"> <input type="number" name="amount" value="" class="" autocomplete="off" /></label></td></tr>');
+    $scope.addtr = function () {
+        $("#appendhere0").append("<tr class='row_to_clone '> <td> <label class='input '> <input type='text' name='' class=' ' autocomplete='off'/> </label> </td><td> <label class='input '> <input type='text' name='' class=' ' autocomplete='off'/> </label> </td> </tr>")
+
+
+        $("#appendhere1").append("<tr class='row_to_clone '> <td> <label class='input '> <input type='text' name='' class=' ' autocomplete='off'/> </label> </td><td> <label class='input '> <input type='text' name='' class=' ' autocomplete='off'/> </label> </td><td> <label class='input '> <input type='text' name='' class=' ' autocomplete='off'/> </label> </td><td> <label class='input '> <input type='text' name='' class=' ' autocomplete='off'/> </label> </td></tr>")
+
+        $("#appendhere2").append("<tr class='row_to_clone '> <td> <label class='input '> <input type='text' name='' class=' ' autocomplete='off'/> </label> </td><td> <label class='input '> <input type='text' name='' class=' ' autocomplete='off'/> </label> </td><td> <label class='input '> <input type='text' name='' class=' ' autocomplete='off'/> </label> </td><td> <label class='input '> <input type='text' name='' class=' ' autocomplete='off'/> </label> </td></tr>")
+
+
+
         cnt++;
-        $('table thead th').each(function(i) {
 
-        });
 
     }
-    $scope.removetr = function() {
 
-        $('#appendhere tr:last').remove();
-        $('table thead th').each(function(i) {
-
-        });
-        // calculateSum();
+    $scope.removetr = function () {
+        $('#appendhere0 tr:last').remove();
+        $('#appendhere1 tr:last').remove();
+        $('#appendhere2 tr:last').remove();
     }
 
-    $("#appendhere").on('click', '.deleteb', function() {
-        $(this).closest("tr").remove();
-        $('table thead th').each(function(i) {
-
-        });
-        // calculateSum();
-    });
 
 
-    // function calculateSum() {
-    //     var sum = 0;
-    //     //iterate through each textboxes and add the values
-    //     $(".txt").each(function() {
 
-    //         //add only if the value is number
-    //         if (!isNaN(this.value) && this.value.length != 0) {
-    //             sum += parseFloat(this.value);
-    //         }
 
-    //     });
-    //     //.toFixed() method will roundoff the final sum to 2 decimal places
-    //     $("#sum").html(sum.toFixed(2));
-    //     console.log(sum.toFixed(2));
-    // }
 
-    // $("#convert-table").on("keyup", ".txt", function() {
-    //     calculateSum();
-    // });
-
-    
-
-   
 });
