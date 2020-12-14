@@ -16,18 +16,20 @@
 
         <header>
             <span class="widget-icon"> <i class="fa fa-table"></i> </span>
-            <h2>Accounts</h2>
-
+            <h2>DEMOGRAPHICS</h2>
         </header>
 
         <!-- widget div-->
         <div style="overflow-x:auto;overflow-y:auto;">
 
-
+            <label class="input">
+               
+                <input type="text" name="name" ng-model="findcf" class="form-control">
+            </label>
 
             <label class="input pull-right">
-                <label class="select ">Page Filter
-                    <select ng-model="pageSize" ng-options="num for num in [5, 10, 15,20]" ></select> <i></i> </label>
+                <label class="select ">
+                    <select class="form-control" ng-model="pageSize" ng-options="num for num in [5, 10, 15,20]" ></select> <i></i> </label>
             </label>
 
 

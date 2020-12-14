@@ -5,19 +5,18 @@
 
         <header>
             <span class="widget-icon"> <i class="fa fa-table"></i> </span>
-            <h2>Accounts</h2>
-
+            <h2>RAPID HEALTH ASSESSMENT</h2>
         </header>
 
         <!-- widget div-->
         <div>
-            <label class="input">
-                <input type="text" name="name" ng-model="findcf"> <i class="icon-append fa fa-search"></i>
+             <label class="input">
+                <input type="text" name="name" ng-model="findcf" class="form-control">
             </label>
 
             <label class="input pull-right">
-                <label class="select ">Page Filter
-                    <select ng-model="pageSize" ng-options="num for num in [5, 10, 15,20]" ></select> <i></i> </label>
+                <label class="select ">
+                    <select class="form-control" ng-model="pageSize" ng-options="num for num in [5, 10, 15,20]" ></select> <i></i> </label>
             </label>
 
             <table class="table table-striped table-bordered table-hover" width="100%">
