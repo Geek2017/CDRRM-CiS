@@ -5,7 +5,7 @@ angular.module('newApp').controller('frlistCtrl', function($firebaseArray, $scop
     var id;
 
     $scope.currentPage = 0;
-    $scope.pageSize = 5;
+    $scope.pageSize = 10;
     $scope.data = [];
 
     $scope.numberOfPages = () => {

@@ -1,5 +1,19 @@
 angular.module('newApp').controller('flaslistCtrl', function($firebaseArray, $scope, $http, $timeout) {
+    var id;
 
+    $scope.currentPage = 0;
+    $scope.pageSize = 10;
+    $scope.data = [];
+
+    $scope.numberOfPages = () => {
+        return Math.ceil(
+            $scope.data.length / $scope.pageSize
+        );
+    }
+
+    for (var i = 0; i < 10; i++) {
+        $scope.data.push(`Question number ${i}`);
+    }
     var ref = firebase.database().ref('/deped/flas');
     var ref2 = firebase.database().ref('/deped/flas');
 
@@ -124,7 +138,7 @@ angular.module('newApp').controller('flaslistCtrl', function($firebaseArray, $sc
 
     $scope.selectUser = function(users) {
         // console.log(users.$id);
-        
+
         $scope.clickedUser = users;
         id = users;
         // document.getElementById("editDateOfDecampment").value = users.dateOfDecampment;
@@ -150,36 +164,36 @@ angular.module('newApp').controller('flaslistCtrl', function($firebaseArray, $sc
     $scope.updateUser = function() {
         var ref2 = firebase.database().ref("/deped/flas/" + id.$id);
         ref2.update({
-                    division: $('#division2').val(),
-                    municipality: $('#municipality2').val(),
-                    divisionNo: $('#divisionNo2').val(),
-                    municipalityNo: $('#municipalityNo2').val(),
-                    schoolNo: $('#schoolNo2').val(),
-                    evacCenter: $('#evacCenter2').val(),
-                    affectedSchool: $('#affectedSchool2').val(),
-                    families: $('#families2').val(),
-                    individuals: $('#individuals2').val(),
-                    residentLearners: $('#residentLearners2').val(),
-                    displacedLearners: $('#displacedLearners2').val(),
-                    totalLearners: $('#totalLearners2').val(),
-                    residentPersonnel: $('#residentPersonnel2').val(),
-                    displacedPersonnel: $('#displacedPersonnel2').val(),
-                    evacueePersonnel: $('#evacueePersonnel2').val(),
-                    totalPersonnel: $('#totalPersonnel2').val(),
-                    totalClassrooms: $('#totalClassrooms2').val(),
-                    numClassroom: $('#numClassroom2').val(),
-                    neededTLS: $('#neededTLS2').val(),
-                    totalTLS: $('#totalTLS2').val(),
-                    additionalTLS: $('#additionalTLS2').val()
-        })
-        .catch(function(error) {
-            console.log("Login Failed!", error.message);
-            $("#notif").append('<div class="alert alert-danger fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Error</strong> ' + error.message + '</div>');
-            setTimeout(function() {
-                $("#notif").hide()
-            }, 10000);
+                division: $('#division2').val(),
+                municipality: $('#municipality2').val(),
+                divisionNo: $('#divisionNo2').val(),
+                municipalityNo: $('#municipalityNo2').val(),
+                schoolNo: $('#schoolNo2').val(),
+                evacCenter: $('#evacCenter2').val(),
+                affectedSchool: $('#affectedSchool2').val(),
+                families: $('#families2').val(),
+                individuals: $('#individuals2').val(),
+                residentLearners: $('#residentLearners2').val(),
+                displacedLearners: $('#displacedLearners2').val(),
+                totalLearners: $('#totalLearners2').val(),
+                residentPersonnel: $('#residentPersonnel2').val(),
+                displacedPersonnel: $('#displacedPersonnel2').val(),
+                evacueePersonnel: $('#evacueePersonnel2').val(),
+                totalPersonnel: $('#totalPersonnel2').val(),
+                totalClassrooms: $('#totalClassrooms2').val(),
+                numClassroom: $('#numClassroom2').val(),
+                neededTLS: $('#neededTLS2').val(),
+                totalTLS: $('#totalTLS2').val(),
+                additionalTLS: $('#additionalTLS2').val()
+            })
+            .catch(function(error) {
+                console.log("Login Failed!", error.message);
+                $("#notif").append('<div class="alert alert-danger fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Error</strong> ' + error.message + '</div>');
+                setTimeout(function() {
+                    $("#notif").hide()
+                }, 10000);
 
-        });
+            });
 
         // window.location.href = "#ecdlist";
 
@@ -195,14 +209,14 @@ angular.module('newApp').controller('flaslistCtrl', function($firebaseArray, $sc
     $scope.deleteUser = function() {
         var ref = firebase.database().ref("/deped/flas/" + id.$id);
         ref.remove()
-        .catch(function(error) {
-            console.log("Login Failed!", error.message);
-            $("#notif").append('<div class="alert alert-danger fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Error</strong> ' + error.message + '</div>');
-            setTimeout(function() {
-                $("#notif").hide()
-            }, 10000);
+            .catch(function(error) {
+                console.log("Login Failed!", error.message);
+                $("#notif").append('<div class="alert alert-danger fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Error</strong> ' + error.message + '</div>');
+                setTimeout(function() {
+                    $("#notif").hide()
+                }, 10000);
 
-        });;
+            });;
 
         // $("#notif").show();
         // window.location.href = "#ecdlist";
@@ -248,7 +262,7 @@ angular.module('newApp').controller('flaslistCtrl', function($firebaseArray, $sc
     //         test2.push(childSnapshot2.val());
     //         // console.log(test.length)
     //         totalIndex = test.length;
-        
+
 
     //     })
 
@@ -266,4 +280,10 @@ angular.module('newApp').controller('flaslistCtrl', function($firebaseArray, $sc
     // console.log($scope.camalig)
 
 
-});
+}).filter('startFrom', function() {
+    return function(input, start) {
+        if (!input || !input.length) { return; }
+        start = +start; //parse to int
+        return input.slice(start);
+    }
+})

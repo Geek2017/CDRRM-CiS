@@ -5,7 +5,7 @@ angular.module('newApp').controller('rhalistCtrl', function($scope, $http, $time
 
 
     $scope.currentPage = 0;
-    $scope.pageSize = 5;
+    $scope.pageSize = 10;
     $scope.data = [];
 
     $scope.numberOfPages = () => {

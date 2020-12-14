@@ -7,6 +7,7 @@
         width: 50%;
         float: left;
     }
+    
     th {
         background-color: #57889c !important;
         color: white;
@@ -15,8 +16,7 @@
 <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
 
     <!-- Widget ID (each widget will need unique ID)-->
-    <div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-editbutton="true"
-        style="margin-bottom: 3px!important;">
+    <div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-editbutton="true" style="margin-bottom: 3px!important;">
         <!-- widget options:
         usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
         data-widget-colorbutton="false"
@@ -40,21 +40,12 @@
 
 
             <label class="input">
-                <input type="text" name="name" ng-model="findcf"> <i class="icon-append fa fa-search"></i>
+                <input type="text" name="name" ng-model="findcf" class="form-control">
             </label>
 
             <label class="input pull-right">
-                <label class="select ">Page Filter
-                    <select ng-model="pageSize" ng-options="num for num in [5, 10, 15,20]"></select> <i></i>
-                    <!-- <select name="options" id="pfilter">
-
-                        <option value="10">10</option>
-                        <option value="30">30</option>
-                        <option value="50">50</option>
-                        <option value="100">100</option>
-
-                    </select> <i></i> -->
-                </label>
+                <label class="select ">
+                    <select class="form-control" ng-model="pageSize" ng-options="num for num in [5, 10, 15,20]" ></select> <i></i> </label>
             </label>
 
             <table id="data" class="table table-striped table-bordered table-hover" width="100%">
@@ -256,8 +247,7 @@
                             </div>
                             <br>
                             <br>
-                            <table id="convert-table" class="table table-striped table-bordered table-hover"
-                                width="100%">
+                            <table id="convert-table" class="table table-striped table-bordered table-hover" width="100%">
                                 <thead>
                                     <!-- <tr>
                                         <th colspan="1"></th>
@@ -285,8 +275,7 @@
                                                     ng-model="ncf['Name of Family Member']" placeholder="" required>
                                             </label></td>
                                         <td class="col-md-1">
-                                            <select name="interested " ng-model="ncf['Marital Status']" id="marital"
-                                                required class="form-control btn-block">
+                                            <select name="interested " ng-model="ncf['Marital Status']" id="marital" required class="form-control btn-block">
                                                 <option value="0 " selected="true" disabled=" ">Select</option>
                                                 <option value="Single">Single</option>
                                                 <option value="Married">Married</option>
@@ -444,8 +433,7 @@
 
 
                 <!-- Widget ID (each widget will need unique ID)-->
-                <div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-editbutton="true"
-                    style="margin-bottom: 5px!important;margin-top: 5px!important;margin-left: -11px!important;margin-right: -11px!important;">
+                <div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-editbutton="true" style="margin-bottom: 5px!important;margin-top: 5px!important;margin-left: -11px!important;margin-right: -11px!important;">
                     <!-- widget options:
     usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
 
@@ -624,44 +612,44 @@
                                 <section>
                                     <caption> <strong style="float: right;">ROOM ASSIGNMENT:
                                         <u>{{clickedUser.roomAssignment}} </u>  </strong> </caption>
-                                </section>
-                                <br>
-                                <section>
-                                    <caption> <strong style="float: right;">TEACHER-IN-CHARGE:
+                            </section>
+                            <br>
+                            <section>
+                                <caption> <strong style="float: right;">TEACHER-IN-CHARGE:
                                         <u>{{clickedUser.teacherIncharge}} </u>  </strong> </caption>
-                                </section>
-                                <caption> EVACUATION CENTER: <u>{{clickedUser.evacCenter}} </u> </caption> <br>
-                                <caption> PUROK: <u>{{clickedUser.purok}}</u> </caption><br>
-                                <caption> FAMILY HEAD: <u>{{clickedUser.familyHead}}</u> </caption><br><br>
-                            </div>
+                            </section>
+                            <caption> EVACUATION CENTER: <u>{{clickedUser.evacCenter}} </u> </caption> <br>
+                            <caption> PUROK: <u>{{clickedUser.purok}}</u> </caption><br>
+                            <caption> FAMILY HEAD: <u>{{clickedUser.familyHead}}</u> </caption><br><br>
+                    </div>
 
-                            <div class="panel-body ">
+                    <div class="panel-body ">
 
-                                <table id="table-example-1" width="100%">
+                        <table id="table-example-1" width="100%">
 
-                                    <thead>
-                                        <!-- <tr>
+                            <thead>
+                                <!-- <tr>
                                             <th rowspan="2">Description of Needs</th>
 
                                             <th class="text-center " colspan="2">On The First 30 Days</th>
                                             <th class="text-center " colspan="2">On The Second Days</th>
                                             <th class="text-center " colspan="2">On The Third 30 Days</th>
                                         </tr> -->
-                                        <tr>
-                                            <th class="text-center">Name of Family Member</th>
-                                            <th class="text-center">Marital Status</th>
-                                            <th class="text-center">Age</th>
-                                            <th class="text-center">Relationship to Family Member</th>
-                                            <th class="text-center">Educational Attainment</th>
-                                            <th class="text-center">Occupation</th>
-                                            <th class="text-center ">Income</th>
-                                            <th class="text-center ">Disability(Specify)</th>
-                                            <th class="text-center ">Pregnant(P)/Lactating(L)</th>
-                                        </tr>
+                                <tr>
+                                    <th class="text-center">Name of Family Member</th>
+                                    <th class="text-center">Marital Status</th>
+                                    <th class="text-center">Age</th>
+                                    <th class="text-center">Relationship to Family Member</th>
+                                    <th class="text-center">Educational Attainment</th>
+                                    <th class="text-center">Occupation</th>
+                                    <th class="text-center ">Income</th>
+                                    <th class="text-center ">Disability(Specify)</th>
+                                    <th class="text-center ">Pregnant(P)/Lactating(L)</th>
+                                </tr>
 
-                                    </thead>
-                                    <tbody>
-                                        <!-- <tr>
+                            </thead>
+                            <tbody>
+                                <!-- <tr>
                                             <td class="text-left no-bottom-border ">
                                                 <strong> {{clickedUser.operationfor}}</strong>
                                             </td>
@@ -679,42 +667,42 @@
                                             </td>
                                         </tr> -->
 
-                                        <tr ng-repeat="ncf in usersClicked.family">
+                                <tr ng-repeat="ncf in usersClicked.family">
 
-                                            <td class="text-left col-md-3 no-bottom-border">
-                                                &nbsp; &nbsp;&nbsp;&nbsp; {{ncf['Name of Family Member']}}
-                                            </td>
-                                            <td class=" ">
-                                                {{ncf['Marital Status']}}
-                                            </td>
-                                            <td class=" ">
-                                                {{ncf['Age']}}
-                                            </td>
+                                    <td class="text-left col-md-3 no-bottom-border">
+                                        &nbsp; &nbsp;&nbsp;&nbsp; {{ncf['Name of Family Member']}}
+                                    </td>
+                                    <td class=" ">
+                                        {{ncf['Marital Status']}}
+                                    </td>
+                                    <td class=" ">
+                                        {{ncf['Age']}}
+                                    </td>
 
-                                            <td class=" ">
-                                                {{ncf['Name of Family Member']}}
-                                            </td>
-                                            <td class=" ">
-                                                {{ncf['Educational Attainment']}}
-                                            </td>
+                                    <td class=" ">
+                                        {{ncf['Name of Family Member']}}
+                                    </td>
+                                    <td class=" ">
+                                        {{ncf['Educational Attainment']}}
+                                    </td>
 
-                                            <td class=" ">
-                                                {{ncf['Occupation']}}
-                                            </td>
-                                            <td class=" ">
-                                                {{ncf['Income']}}
-                                            </td>
-                                            <td class=" ">
-                                                {{ncf['Disability (Specify)']}}
-                                            </td>
-                                            <td class=" ">
-                                                {{ncf['Pregnant(P) or Lactating(L)']}}
-                                            </td>
+                                    <td class=" ">
+                                        {{ncf['Occupation']}}
+                                    </td>
+                                    <td class=" ">
+                                        {{ncf['Income']}}
+                                    </td>
+                                    <td class=" ">
+                                        {{ncf['Disability (Specify)']}}
+                                    </td>
+                                    <td class=" ">
+                                        {{ncf['Pregnant(P) or Lactating(L)']}}
+                                    </td>
 
-                                        </tr>
+                                </tr>
 
-                                    </tbody>
-                                    <!-- <tbody>
+                            </tbody>
+                            <!-- <tbody>
                                         <tr>
                                             <td class="text-right">
                                                 Total
@@ -734,23 +722,23 @@
                                         </tr>
 
                                     </tbody> -->
-                                </table>
+                        </table>
 
-                            </div>
-                            <div class="panel-body">
-                                <section>
-                                    <!-- <strong>NOTE:</strong><br> -->
-                                    <caption> <i>(Use back page if necessary)</i> </caption>
-                                </section>
+                    </div>
+                    <div class="panel-body">
+                        <section>
+                            <!-- <strong>NOTE:</strong><br> -->
+                            <caption> <i>(Use back page if necessary)</i> </caption>
+                        </section>
 
-                                <section id="spansigr">
-                                    <strong style="float: right;">Prepared By: <br>
+                        <section id="spansigr">
+                            <strong style="float: right;">Prepared By: <br>
                                         <img src="{{clickedUser.signature}}" alt="">
                                         <h4>{{clickedUser.preparedBy}} </h4>
                                     </strong>
-                                </section>
+                        </section>
 
-                                <!-- <section id="spansigl">
+                        <!-- <section id="spansigl">
                                     <strong>Prepared By:</strong>
                                     <strong>
                                         <h4>{{clickedUser.pban1}} <br>{{clickedUser.pban1d}} </h4>
@@ -760,13 +748,13 @@
                                     </strong>
 
                                 </section> -->
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
-
         </div>
-
     </div>
+
+</div>
+
+</div>
 </div>
