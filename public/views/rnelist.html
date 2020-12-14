@@ -3,12 +3,12 @@
         background-color: #57889c !important;
         color: white;
     }
-    
+
     .th {
         background-color: #383838 !important;
         color: white;
     }
-    
+
     .accordion {
         background-color: #eee;
         color: white;
@@ -21,12 +21,12 @@
         font-size: 15px;
         transition: 0.4s;
     }
-    
+
     .active,
     .accordion:hover {
         background-color: #ccc;
     }
-    
+
     .panel {
         padding: 0 18px;
         display: none;
@@ -56,7 +56,7 @@
 
             <label class="input pull-right">
                 <label class="select ">Page Filter
-                    <select ng-model="pageSize" ng-options="num for num in [5, 10, 15,20]" ></select> <i></i>
+                    <select ng-model="pageSize" ng-options="num for num in [5, 10, 15,20]"></select> <i></i>
                     <!-- <select name="options" id="pfilter">
 
                         <option value="10">10</option>
@@ -74,7 +74,8 @@
 
                 <thead>
                     <tr>
-                        <th colspan="16 pull-center" class="text-center th">Report on the Number of Evacuation Centers and other Details (Disaster) </th>
+                        <th colspan="16 pull-center" class="text-center th">Report on the Number of Evacuation Centers
+                            and other Details (Disaster) </th>
                     </tr>
                     <!-- <tr>
                         <th colspan="3" class="text-center">Occurrence</th>
@@ -115,20 +116,20 @@
                         <td>{{cf.minicipality}}</td>
                         <td>{{cf.enrollment}}</td>
                         <td class="col col-4">
-    
+
                             <button type="button" class="btn  btn-block btn-success " ng-click="selectUser(cf)"><i
-                    class="fa fa-pencil"></i> Edit Data</button>
+                                    class="fa fa-pencil"></i> Edit Data</button>
                         </td>
                         <td class="col col-4">
-    
+
                             <button type="button" class="btn btn-block btn-info" ng-click="printit(cf)"><i
-                        class="fa fa-print"></i> Print Data</button>
+                                    class="fa fa-print"></i> Print Data</button>
                         </td>
                         <td class="col col-4">
-    
+
                             <button type="button" class="btn btn-block btn-danger" ng-click="selectUser2(cf)"><i
-                    class="fa fa-minus-circle"></i> Delete Data</button>
-    
+                                    class="fa fa-minus-circle"></i> Delete Data</button>
+
                         </td>
                         <!-- <td>{{data.totalSchool}}</td>
                         <td>{{data.schoolWithInfraDamage}}</td>
@@ -281,13 +282,15 @@
                                 <section class="col col-3">
                                     <label class="label">Schools with Reported Infra Damages</label>
                                     <label class="input ">
-                                        <input type="text" id="schoolWithInfraDamage" ng-model="clickedUser.schoolWithInfraDamage">
+                                        <input type="text" id="schoolWithInfraDamage"
+                                            ng-model="clickedUser.schoolWithInfraDamage">
                                     </label>
                                 </section>
                                 <section class="col col-3">
                                     <label class="label">Totally Damaged Classrooms</label>
                                     <label class="input ">
-                                        <input type="text" id="totalDamageClassroom" ng-model="clickedUser.totalDamageClassroom">
+                                        <input type="text" id="totalDamageClassroom"
+                                            ng-model="clickedUser.totalDamageClassroom">
                                     </label>
                                 </section>
 
@@ -297,25 +300,29 @@
                                 <section class="col col-3">
                                     <label class="label">Partially Damaged Classrooms (Major)</label>
                                     <label class="input ">
-                                        <input type="text" id="partialDamageClassMajor" ng-model="clickedUser.partialDamageClassMajor">
+                                        <input type="text" id="partialDamageClassMajor"
+                                            ng-model="clickedUser.partialDamageClassMajor">
                                     </label>
                                 </section>
                                 <section class="col col-3">
                                     <label class="label">Partially Damaged Classrooms (Minor)</label>
                                     <label class="input ">
-                                        <input type="text" id="partialDamageClassMinor" ng-model="clickedUser.partialDamageClassMinor">
+                                        <input type="text" id="partialDamageClassMinor"
+                                            ng-model="clickedUser.partialDamageClassMinor">
                                     </label>
                                 </section>
                                 <section class="col col-3">
                                     <label class="label">Temporary Learning Spaces needed</label>
                                     <label class="input ">
-                                        <input type="text" id="temporaryLearning" ng-model="clickedUser.temporaryLearning">
+                                        <input type="text" id="temporaryLearning"
+                                            ng-model="clickedUser.temporaryLearning">
                                     </label>
                                 </section>
                                 <section class="col col-3">
                                     <label class="label">Number of Deceased DepEd Personnel</label>
                                     <label class="input ">
-                                        <input type="text" id="deceasedPersonnel" ng-model="clickedUser.deceasedPersonnel">
+                                        <input type="text" id="deceasedPersonnel"
+                                            ng-model="clickedUser.deceasedPersonnel">
                                     </label>
                                 </section>
 
@@ -325,19 +332,22 @@
                                 <section class="col col-3">
                                     <label class="label">Number of Injured DepEd Personnel</label>
                                     <label class="input ">
-                                        <input type="text" id="injuredPersonnel" ng-model="clickedUser.injuredPersonnel">
+                                        <input type="text" id="injuredPersonnel"
+                                            ng-model="clickedUser.injuredPersonnel">
                                     </label>
                                 </section>
                                 <section class="col col-3">
                                     <label class="label">Number of Missing DepEd Personnel</label>
                                     <label class="input ">
-                                        <input type="text" id="missingPersonnel" ng-model="clickedUser.missingPersonnel">
+                                        <input type="text" id="missingPersonnel"
+                                            ng-model="clickedUser.missingPersonnel">
                                     </label>
                                 </section>
                                 <section class="col col-3">
                                     <label class="label">Number of Displaced DepEd Personnel</label>
                                     <label class="input ">
-                                        <input type="text" id="displacedPersonnel" ng-model="clickedUser.displacedPersonnel">
+                                        <input type="text" id="displacedPersonnel"
+                                            ng-model="clickedUser.displacedPersonnel">
                                     </label>
                                 </section>
                                 <section class="col col-3">
@@ -364,19 +374,22 @@
                                 <section class="col col-3">
                                     <label class="label">Total Schools with Report</label>
                                     <label class="input ">
-                                        <input type="text" id="totalSchoolReport" ng-model="clickedUser.totalSchoolReport">
+                                        <input type="text" id="totalSchoolReport"
+                                            ng-model="clickedUser.totalSchoolReport">
                                     </label>
                                 </section>
                                 <section class="col col-3">
                                     <label class="label">Schools with Reported Non-Infra Damages</label>
                                     <label class="input ">
-                                        <input type="text" id="schoolWithNonInfraDamage" ng-model="clickedUser.schoolWithNonInfraDamage">
+                                        <input type="text" id="schoolWithNonInfraDamage"
+                                            ng-model="clickedUser.schoolWithNonInfraDamage">
                                     </label>
                                 </section>
                                 <section class="col col-3">
                                     <label class="label">Number of damaged school furnitures</label>
                                     <label class="input ">
-                                        <input type="text" id="damagedSchoolFurnitures" ng-model="clickedUser.damagedSchoolFurnitures">
+                                        <input type="text" id="damagedSchoolFurnitures"
+                                            ng-model="clickedUser.damagedSchoolFurnitures">
                                     </label>
                                 </section>
 
@@ -386,14 +399,16 @@
                                 <section class="col col-6">
                                     <label class="label">Number of damaged learning materials </label>
                                     <label class="input ">
-                                        <input type="text" id="damagedLearningMaterials" ng-model="clickedUser.damagedLearningMaterials">
+                                        <input type="text" id="damagedLearningMaterials"
+                                            ng-model="clickedUser.damagedLearningMaterials">
                                     </label>
                                 </section>
 
                                 <section class="col col-6">
                                     <label class="label">Number of damaged computer equipment </label>
                                     <label class="input ">
-                                        <input type="text" id="damagedComputerEquipment" ng-model="clickedUser.damagedComputerEquipment">
+                                        <input type="text" id="damagedComputerEquipment"
+                                            ng-model="clickedUser.damagedComputerEquipment">
                                     </label>
                                 </section>
 
@@ -431,7 +446,8 @@
             <div class="modal-body">
 
 
-                <p>You want to delete <strong style="color: red;">{{clickedUser.school}}</strong> from <strong style="color: red;">{{clickedUser.municipality}} {{clickedUser.division}}</strong>?</p>
+                <p>You want to delete <strong style="color: red;">{{clickedUser.school}}</strong> from <strong
+                        style="color: red;">{{clickedUser.municipality}} {{clickedUser.division}}</strong>?</p>
 
             </div>
 
@@ -469,7 +485,8 @@
 
 
                 <!-- Widget ID (each widget will need unique ID)-->
-                <div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-editbutton="true" style="margin-bottom: 5px!important;margin-top: 5px!important;margin-left: -11px!important;margin-right: -11px!important;">
+                <div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-editbutton="true"
+                    style="margin-bottom: 5px!important;margin-top: 5px!important;margin-left: -11px!important;margin-right: -11px!important;">
                     <!-- widget options:
     usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
 
@@ -513,7 +530,8 @@
                             <thead>
 
                                 <tr>
-                                    <th colspan="16 pull-center" class="text-center th">Report on the Number of Evacuation Centers and other Details (Disaster)</th>
+                                    <th colspan="16 pull-center" class="text-center th">Report on the Number of
+                                        Evacuation Centers and other Details (Disaster)</th>
                                 </tr>
 
                                 <tr>
@@ -597,22 +615,25 @@
 
                         <center>
                             <section>
-                                <h4> <strong> Republic of the Philipines <br> CITY GOVERNMENT OF LEGAZPI <strong> </h4>
+                                <h4> <strong> RAPID ASSESSMENT OF DAMAGES REPORT(RADaR)
+                                        <br> SDO ALBAY <strong> </h4>
                             </section>
-                            <section>
-                            <h3>
-                                <strong>{{clickedUser.operation}} <br> CLUSTER NEEDS THAT SHOULD TO BE DOWNLOADED TO THE LOCAL UNIT</strong>
-                                    </h3>
-                            </section>
+
+                            <!-- <section>
+                                <h3>
+                                    <strong> REPORT ON THE NUMBER OF EVACUATION CENTERS AND OTHER DETAILS <br> As of
+                                        {{time}}{{mid}}, {{datetoday}}</strong>
+                                </h3>
+                            </section> -->
                         </center>
 
 
                         <div>
 
-                            <div class="panel-body ">
+                            <!-- <div class="panel-body ">
                                 <caption> SECTOR/CLUSTER: <u>{{clickedUser.sector}} </u> </caption> <br>
                                 <caption> CLUSTER LEAD AGENCY: <u>{{clickedUser.leadAgency}}</u> </caption><br><br>
-                            </div>
+                            </div> -->
 
                             <div class="panel-body ">
 
@@ -620,67 +641,81 @@
 
                                     <thead>
                                         <tr>
-                                            <th rowspan="2">Description of Needs</th>
+                                            <th>School ID</th>
+                                            <th>Name of School</th>
+                                            <th>Region</th>
+                                            <th>Division</th>
+                                            <th>District</th>
+                                            <th>Municipality</th>
+                                            <th>Enrollment</th>
+                                            <th>Total Schools with Report</th>
+                                            <th>Schools with Reported Infra Damages </th>
+                                            <th>Totally Damaged Classrooms</th>
+                                            <th>Partially Damaged Classrooms (Major)</th>
+                                            <th>Partially Damaged Classrooms (Minor)</th>
+                                            <!-- <th rowspan="2">Displaced Learners</th>
+                                            <th rowspan="2">TOTAL Affected Learners</th>
+                                            <th rowspan="2">Resident personnel</th>
 
-                                            <th class="text-center " colspan="2">On The First 30 Days</th>
-                                            <th class="text-center " colspan="2">On The Second Days</th>
-                                            <th class="text-center " colspan="2">On The Third 30 Days</th>
-                                        </tr>
-                                        <tr>
-
-                                            <th class="text-center">First 30 Days Quantity</th>
-                                            <th class="text-center">First 30 Days Total Cost</th>
-                                            <th class="text-center">Second 30 Days Quantity</th>
-                                            <th class="text-center">Second 30 Days Total Cost</th>
-                                            <th class="text-center">Third 30 Days Quantity</th>
-                                            <th class="text-center ">Third 30 Days Total Cost</th>
+                                            <th class="text-center " colspan="2">Affected Personnel: Displaced 
+                                            <th rowspan="2">Total affected personnel</th>
+                                            <th rowspan="2">Total number of classrooms</th>
+                                            <th rowspan="2">No. of classrooms used</th>
+                                            <th rowspan="2">No. of needed TLS </th>
+                                            <th rowspan="2">TOTAL approved TLS</th>
+                                            <th rowspan="2">Additional TLS Needed</th> -->
+                                            </th>
                                         </tr>
 
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td class="text-left no-bottom-border ">
-                                                <strong> {{clickedUser.operationfor}}</strong>
-                                            </td>
-                                            <td class="text-left no-bottom-border">
-                                            </td>
-                                            <td class="text-left no-bottom-border">
-                                            </td>
-                                            <td class="text-left no-bottom-border">
-                                            </td>
-                                            <td class="text-left no-bottom-border">
-                                            </td>
-                                            <td class="text-left no-bottom-border">
-                                            </td>
-                                            <td class="text-left no-bottom-border">
-                                            </td>
-                                        </tr>
 
-                                        <tr ng-repeat="ncf in usersClicked.needs">
+                                        <tr ng-repeat="ncf in usersClicked.center">
 
                                             <td class="text-left col-md-3 no-bottom-border">
-                                                &nbsp; &nbsp;&nbsp;&nbsp; {{ncf['Description of Needs']}}
+                                                {{ncf['Division']}}
                                             </td>
                                             <td class=" ">
-                                                {{ncf['First 30 Days Quantity']}}
+                                                {{ncf['Number (Division)']}}
                                             </td>
                                             <td class=" ">
-                                                {{ncf['First 30 Days Total Cost'] | currency:"₱ " :2}}
+                                                {{ncf['Municipality']}}
                                             </td>
 
                                             <td class=" ">
-                                                {{ncf['Second 30 Days Quantity']}}
+                                                {{ncf['Number (Municipality)']}}
                                             </td>
                                             <td class=" ">
-                                                {{ncf['Second 30 Days Total Cost'] | currency:"₱ " :2}}
+                                                {{ncf['Schools used as Evacuation Centers']}}
                                             </td>
 
                                             <td class=" ">
-                                                {{ncf['Third 30 Days Quantity']}}
+                                                {{ncf['Number (Schools)']}}
                                             </td>
                                             <td class=" ">
-                                                {{ncf['Third 30 Days Total Cost'] | currency:"₱ ": 2}}
+                                                {{ncf['Affected Schools within the Permanent Danger Zone']}}
                                             </td>
+                                            <td class=" ">
+                                                {{ncf['Number of families']}}
+                                            </td>
+                                            <td class=" ">
+                                                {{ncf['Number of individuals']}}
+                                            </td>
+                                            <td class=" ">
+                                                {{ncf['Resident Learners']}}
+                                            </td>
+                                            <td class=" ">
+                                                {{ncf['Resident Learners']}}
+                                            </td>
+                                            <td class=" ">
+                                                {{ncf['Resident Learners']}}
+                                            </td>
+                                            <!-- <td class=" ">
+                                                {{ncf['Remarks']}}
+                                            </td>
+                                            <td class=" ">
+                                                {{ncf['Remarks']}}
+                                            </td> -->
 
                                         </tr>
 
@@ -690,17 +725,152 @@
                                             <td class="text-right">
                                                 Total
                                             </td>
-                                            <td></td>
                                             <td>
-                                                {{clickedUser.total | currency:"₱ ": 2}}
+                                                {{clickedUser.total1}}
                                             </td>
                                             <td></td>
                                             <td>
-                                                {{clickedUser.total2 | currency:"₱ ": 2}}
+                                                {{clickedUser.total2}}
                                             </td>
                                             <td></td>
                                             <td>
-                                                {{clickedUser.total3 | currency:"₱ ": 2}}
+                                                {{clickedUser.total3}}
+                                            </td>
+                                            <td></td>
+                                            <td>
+                                                {{clickedUser.total4}}
+                                            </td>
+                                            <td>
+                                                {{clickedUser.total5}}
+                                            </td>
+                                            <td>
+                                                {{clickedUser.total6}}
+                                            </td>
+                                            <td>
+                                                {{clickedUser.total6}}
+                                            </td>
+                                            <td>
+                                                {{clickedUser.total6}}
+                                            </td>
+
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+
+                                <br>
+
+                                <table id="table-example-1" width="100%">
+
+                                    <thead>
+                                        <tr>
+                                            <th>Temporary Learning Spaces needed</th>
+                                            <th>Number of Deceased DepEd Personnel</th>
+                                            <th>Number of Injured DepEd Personnel</th>
+                                            <th>Number of Missing DepEd Personnel</th>
+                                            <th>Number of Displaced DepEd Personnel</th>
+                                            <th>Total Classrooms used as Evacuation Center</th>
+                                            <th>School as EC lasted for 3 days or more (YES/NO)</th>
+                                            <th>Total Schools with Report</th>
+                                            <th>Schools with Reported Non-Infra Damages</th>
+                                            <th>Number of damaged school furnitures</th>
+                                            <th>Number of damaged learning materials</th>
+                                            <th>Number of damaged computer equipment</th>
+                                            </th>
+                                        </tr>
+
+                                    </thead>
+                                    <tbody>
+
+                                        <tr ng-repeat="ncf in usersClicked.center">
+
+                                            <td class="text-left col-md-3 no-bottom-border">
+                                                {{ncf['Displaced Learners']}}
+                                            </td>
+                                            <td class=" ">
+                                                {{ncf['TOTAL Affected Learners']}}
+                                            </td>
+                                            <td class=" ">
+                                                {{ncf['Resident personnel']}}
+                                            </td>
+
+                                            <td class=" ">
+                                                {{ncf['Affected Personnel (Displaced)']}}
+                                            </td>
+                                            <td class=" ">
+                                                {{ncf['Affected Personnel (Evacuee)']}}
+                                            </td>
+
+                                            <td class=" ">
+                                                {{ncf['Total affected personnel']}}
+                                            </td>
+                                            <td class=" ">
+                                                {{ncf['Total number of classrooms']}}
+                                            </td>
+                                            <td class=" ">
+                                                {{ncf['Number of classrooms used']}}
+                                            </td>
+                                            <td class=" ">
+                                                {{ncf['Number of needed TLS']}}
+                                            </td>
+                                            <td class=" ">
+                                                {{ncf['TOTAL approved TLS']}}
+                                            </td>
+                                            <td class=" ">
+                                                {{ncf['Additional TLS Needed']}}
+                                            </td>
+                                            <td class=" ">
+                                                {{ncf['Additional TLS Needed']}}
+                                            </td>
+                                            <td class=" ">
+                                                {{ncf['Additional TLS Needed']}}
+                                            </td>
+
+                                        </tr>
+
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <!-- <td></td> -->
+                                            <!-- <td class="text-right">
+                                                Total
+                                            </td> -->
+                                            <!-- <td></td> -->
+                                            <td>
+                                                {{clickedUser.total7}}
+                                            </td>
+                                            <td>
+                                                {{clickedUser.total8}}
+                                            </td>
+                                            <td>
+                                                {{clickedUser.total9}}
+                                            </td>
+                                            <td>
+                                                {{clickedUser.total10}}
+                                            </td>
+                                            <td>
+                                                {{clickedUser.total11}}
+                                            </td>
+                                            <td>
+                                                {{clickedUser.total12}}
+                                            </td>
+                                            <td>
+                                                {{clickedUser.total13}}
+                                            </td>
+                                            <td>
+                                                {{clickedUser.total14}}
+                                            </td>
+                                            <td>
+                                                {{clickedUser.total15}}
+                                            </td>
+                                            <td>
+                                                {{clickedUser.total16}}
+                                            </td>
+                                            <td>
+                                                {{clickedUser.total17}}
+                                            </td>
+                                            <td>
+                                                {{clickedUser.total17}}
                                             </td>
                                         </tr>
 
@@ -708,22 +878,54 @@
                                 </table>
 
                             </div>
+                            <br>
                             <div class="panel-body">
 
                                 <section id="spansigr">
-                                    <strong style="float: right;">Submitted By: <br><h4>{{clickedUser.sb1}} <br>{{clickedUser.sb1d}} </h4></strong>
+
+                                    <strong style="float: right;"> Noted By: <br> <img src="{{clickedUser.signature2}}"
+                                            alt="" width="100" height="100">
+                                        <h4> &emsp;&emsp;&emsp;&emsp;{{clickedUser.noted}} </h4>
+                                    </strong>
+                                </section>
+
+
+                                <section id="spansigl">
+                                    <strong>Prepared and Consolidated by:</strong><br>
+                                    <!-- <strong><h4>{{clickedUser.pban1}} <br>{{clickedUser.pban1d}} </h4></strong> -->
+                                    <img src="{{clickedUser.signature}}" alt="" width="100" height="100">
+                                    <strong>
+                                        <h4>&emsp;&emsp;&emsp;&emsp;{{clickedUser.preparedBy}} </h4>
+                                    </strong>
+
+                                </section>
+
+                                <section id="spansigr">
+
+                                    <strong style="float: right;"> Approved By: <br> <img src="{{clickedUser.signature2}}"
+                                            alt="" width="100" height="100">
+                                        <h4> &emsp;&emsp;&emsp;&emsp;{{clickedUser.noted}} </h4>
+                                    </strong>
                                 </section>
 
                                 <section id="spansigl">
-                                    <strong>Prepared By:</strong>
-                                    <strong><h4>{{clickedUser.pban1}} <br>{{clickedUser.pban1d}} </h4></strong>
-                                    <strong><h4>{{clickedUser.pban2}} <br>{{clickedUser.pban2d}} </h4></strong>
+                                    <strong>Recommending Approval:</strong><br>
+                                    <!-- <strong><h4>{{clickedUser.pban1}} <br>{{clickedUser.pban1d}} </h4></strong> -->
+                                    <img src="{{clickedUser.signature3}}" alt="" width="100" height="100">
+                                    <strong>
+                                        <h4>&emsp;&emsp;&emsp;&emsp;{{clickedUser.approvedBy}} </h4>
+                                    </strong>
 
                                 </section>
-                                <section>
-                                    <strong>NOTE:</strong><br>
-                                    <caption>&nbsp;&nbsp; Description of needs/Item are made to the request of the camp head</caption>
-                                </section>
+                                <!-- <section>
+                                    <strong>LEGEND:</strong><br>
+                                    <caption>&emsp;&emsp;&emsp;&emsp; M - Male</caption><br>
+                                    <caption>&emsp;&emsp;&emsp;&emsp; F - Female</caption><br>
+                                    <caption>&emsp;&emsp;&emsp;&emsp; FM - Family Member</caption><br>
+                                    <caption>&emsp;&emsp;&emsp;&emsp; L/P - Lactating/Pregnant</caption><br>
+                                    <caption>&emsp;&emsp;&emsp;&emsp; PWDs - Persons with Disabilities</caption><br>
+                                    <caption>&emsp;&emsp;&emsp;&emsp; SP - Solo Parent</caption><br>
+                                </section> -->
                             </div>
                         </div>
                     </div>
