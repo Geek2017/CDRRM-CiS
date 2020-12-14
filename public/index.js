@@ -3,11 +3,15 @@ $(document).ready(function($http) {
 
 
 
-    // $http.get("http://api.weatherapi.com/v1/forecast.json?key=ed9905c895ea49fa93c73936201711&q=legaspi albay&days=1")
-    //     .then(function(response) {
-    //         console.log(response.data);
-    //     });
+    $('#missing').val(12)
+    $('#injured').val(2)
+    $('#mortality').val(3)
 
+    $('.totalc').text("12");
+    $('.totala').text("5");
+    $('.totale').text("3");
+
+    $('.totalcd').text("");
 
     $.get("https://api.weatherapi.com/v1/forecast.json?key=ed9905c895ea49fa93c73936201711&q=legaspi albay&days=1", function(data, status) {
         console.log(data);
