@@ -1,5 +1,20 @@
 angular.module('newApp').controller('rnelistCtrl', function($firebaseArray, $scope, $http, $timeout) {
 
+    $scope.currentPage = 0;
+    $scope.pageSize = 10;
+    $scope.data = [];
+
+    $scope.numberOfPages = () => {
+        return Math.ceil(
+            $scope.data.length / $scope.pageSize
+        );
+    }
+
+    for (var i = 0; i < 10; i++) {
+        $scope.data.push(`Question number ${i}`);
+    }
+
+
     var ref = firebase.database().ref('/deped/rne');
     var ref2 = firebase.database().ref('/deped/rne');
 
@@ -116,7 +131,7 @@ angular.module('newApp').controller('rnelistCtrl', function($firebaseArray, $sco
 
     $scope.selectUser = function(users) {
         // console.log(users.$id);
-        
+
         $scope.clickedUser = users;
         id = users;
         // document.getElementById("editDateOfDecampment").value = users.dateOfDecampment;
@@ -143,29 +158,29 @@ angular.module('newApp').controller('rnelistCtrl', function($firebaseArray, $sco
         var ref2 = firebase.database().ref("/deped/rne/" + id.$id);
         ref2.update({
             schoolID: $('#schoolID').val(),
-                school: $('#school').val(),
-                region: $('#region').val(),
-                division: $('#division').val(),
-                district: $('#district').val(),
-                municipality: $('#municipality').val(),
-                enrollment: $('#enrollment').val(),
-                totalSchool: $('#totalSchool').val(),
-                schoolWithInfraDamage: $('#schoolWithInfraDamage').val(),
-                totalDamageClassroom: $('#totalDamageClassroom').val(),
-                partialDamageClassMajor: $('#partialDamageClassMajor').val(),
-                partialDamageClassMinor: $('#partialDamageClassMinor').val(),
-                temporaryLearning: $('#temporaryLearning').val(),
-                deceasedPersonnel: $('#deceasedPersonnel').val(),
-                injuredPersonnel: $('#injuredPersonnel').val(),
-                missingPersonnel: $('#missingPersonnel').val(),
-                displacedPersonnel: $('#displacedPersonnel').val(),
-                totalEvacSchool: $('#totalEvacSchool').val(),
-                ECLasted: $('#ECLasted').val(),
-                totalSchoolReport: $('#totalSchoolReport').val(),
-                schoolWithNonInfraDamage: $('#schoolWithNonInfraDamage').val(),
-                damagedSchoolFurnitures: $('#damagedSchoolFurnitures').val(),
-                damagedLearningMaterials: $('#damagedLearningMaterials').val(),
-                damagedComputerEquipment: $('#damagedComputerEquipment').val()
+            school: $('#school').val(),
+            region: $('#region').val(),
+            division: $('#division').val(),
+            district: $('#district').val(),
+            municipality: $('#municipality').val(),
+            enrollment: $('#enrollment').val(),
+            totalSchool: $('#totalSchool').val(),
+            schoolWithInfraDamage: $('#schoolWithInfraDamage').val(),
+            totalDamageClassroom: $('#totalDamageClassroom').val(),
+            partialDamageClassMajor: $('#partialDamageClassMajor').val(),
+            partialDamageClassMinor: $('#partialDamageClassMinor').val(),
+            temporaryLearning: $('#temporaryLearning').val(),
+            deceasedPersonnel: $('#deceasedPersonnel').val(),
+            injuredPersonnel: $('#injuredPersonnel').val(),
+            missingPersonnel: $('#missingPersonnel').val(),
+            displacedPersonnel: $('#displacedPersonnel').val(),
+            totalEvacSchool: $('#totalEvacSchool').val(),
+            ECLasted: $('#ECLasted').val(),
+            totalSchoolReport: $('#totalSchoolReport').val(),
+            schoolWithNonInfraDamage: $('#schoolWithNonInfraDamage').val(),
+            damagedSchoolFurnitures: $('#damagedSchoolFurnitures').val(),
+            damagedLearningMaterials: $('#damagedLearningMaterials').val(),
+            damagedComputerEquipment: $('#damagedComputerEquipment').val()
         })
 
         .catch(function(error) {
@@ -191,14 +206,14 @@ angular.module('newApp').controller('rnelistCtrl', function($firebaseArray, $sco
     $scope.deleteUser = function() {
         var ref = firebase.database().ref("/deped/rne/" + id.$id);
         ref.remove()
-        .catch(function(error) {
-            console.log("Login Failed!", error.message);
-            $("#notif").append('<div class="alert alert-danger fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Error</strong> ' + error.message + '</div>');
-            setTimeout(function() {
-                $("#notif").hide()
-            }, 10000);
+            .catch(function(error) {
+                console.log("Login Failed!", error.message);
+                $("#notif").append('<div class="alert alert-danger fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Error</strong> ' + error.message + '</div>');
+                setTimeout(function() {
+                    $("#notif").hide()
+                }, 10000);
 
-        });;
+            });;
 
         // $("#notif").show();
         // window.location.href = "#ecdlist";
@@ -244,7 +259,7 @@ angular.module('newApp').controller('rnelistCtrl', function($firebaseArray, $sco
     //         test2.push(childSnapshot2.val());
     //         // console.log(test.length)
     //         totalIndex = test.length;
-        
+
 
     //     })
 
@@ -264,7 +279,11 @@ angular.module('newApp').controller('rnelistCtrl', function($firebaseArray, $sco
 
 }).filter('startFrom', function() {
     return (input, start) => {
+<<<<<<< HEAD
         start = +start;
+=======
+        start = +start; //parse to int
+>>>>>>> 23383a302683b8fa5ffa9d69cfa694ad601971b0
         return input.slice(start);
     }
 })

@@ -37,7 +37,7 @@
 <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
 
     <!-- Widget ID (each widget will need unique ID)-->
-    <div class="jarviswidget jarviswidget-color-darken">
+    <div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-editbutton="true" style="margin-bottom: 3px!important;">
 
         <header>
             <span class="widget-icon"> <i class="fa fa-table"></i> </span>
@@ -115,20 +115,20 @@
                         <td>{{cf.familiesNo}}</td>
                         <td>{{cf.individualNo}}</td>
                         <td class="col col-4">
-    
+
                             <button type="button" class="btn  btn-block btn-success " ng-click="selectUser(cf)"><i
                     class="fa fa-pencil"></i> Edit Data</button>
                         </td>
                         <td class="col col-4">
-    
+
                             <button type="button" class="btn btn-block btn-info" ng-click="printit(cf)"><i
                         class="fa fa-print"></i> Print Data</button>
                         </td>
                         <td class="col col-4">
-    
+
                             <button type="button" class="btn btn-block btn-danger" ng-click="selectUser2(cf)"><i
                     class="fa fa-minus-circle"></i> Delete Data</button>
-    
+
                         </td>
                         <!-- <td>{{data.personnel}}</td>
                         <td>{{data.residentLearners}}</td>
@@ -193,8 +193,6 @@
         </div>
 
     </div>
-
-    <!-- <span id="here"></span> -->
 
     <div class="btn-group btn-group-xs pull-right">
         <button class="btn btn-primary" ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
@@ -605,7 +603,15 @@
 
                 </div>
 
-                <span id="here"></span>
+                <div class="btn-group btn-group-xs pull-right">
+        <button class="btn btn-primary" ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
+       Back
+      </button>
+        <button class="btn btn-primary">{{currentPage+1}} of {{numberOfPages()}}</button>
+        <button class="btn btn-primary" ng-disabled="currentPage >= data.length/pageSize - 1" ng-click="currentPage=currentPage+1">
+        Next
+      </button>
+    </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" ng-click="close()">Close</button>
                     <!-- <button type="button" class="btn btn-danger" ng-click="deleteUser()">Yes</button> -->
@@ -641,7 +647,7 @@
                                 <h3>
                                     <strong> As of
                                         {{time}}{{mid}}, {{datetoday}}</strong>
-                                </h3>
+                                    </h3>
                             </section>
                         </center>
 
@@ -667,7 +673,7 @@
                                             <th rowspan="2">No. of families </th>
                                             <th rowspan="2">No. of individuals </th>
                                             <th rowspan="2">No. of teaching and non-teaching personnel (resident of the EC) </th>
-                                            <th rowspan="2">No. of resident learners/Enrolment of the school used as EC  </th>
+                                            <th rowspan="2">No. of resident learners/Enrolment of the school used as EC </th>
                                             <th rowspan="2">No. of evacuee-learners</th>
                                             <th rowspan="2">List of Affected Schools (Floods and Landslides) (Names of schools) </th>
                                             <th rowspan="2">No. of affected learners </th>
@@ -820,19 +826,17 @@
                                             <th rowspan="2">No. of affected teaching personnel </th>
                                             <th rowspan="2">No. of affected non-teaching personnel </th>
 
-                                            <th class="text-center " colspan="4">Total number of damaged classrooms (indicate the total number of classrooms damaged per school) 
-                                            <th class="text-center " colspan="4">Non-Infra Damage 
-                                            <th rowspan="2">Need for Clean-Up 20 thou
-                                                *tick 1 per school)</th>
-                                            <th rowspan="2">Need for Psychological First Aid (PFA) 
-                                                *tick 1 per school </th>
-                                            </th>
+                                            <th class="text-center " colspan="4">Total number of damaged classrooms (indicate the total number of classrooms damaged per school)
+                                                <th class="text-center " colspan="4">Non-Infra Damage
+                                                    <th rowspan="2">Need for Clean-Up 20 thou *tick 1 per school)</th>
+                                                    <th rowspan="2">Need for Psychological First Aid (PFA) *tick 1 per school </th>
+                                                </th>
                                         </tr>
                                         <tr>
                                             <th class="text-center">Totally damaged (1.5 M)</th>
                                             <th class="text-center">Partially-Major Damaged (500 thou)</th>
                                             <th class="text-center">Partially Minor Damaged (20 thou) </th>
-                                            <th class="text-center">No. of TLS units needed  (85,300)</th>
+                                            <th class="text-center">No. of TLS units needed (85,300)</th>
                                             <th class="text-center">No. of Furniture (Armchairs) Damaged *per unit</th>
                                             <th class="text-center">No. of Furniture (Desks/Tables and chairs) Damaged*per unit</th>
                                             <th class="text-center">No. of damaged LMs (per unit) </th>

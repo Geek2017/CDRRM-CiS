@@ -1,7 +1,7 @@
 <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
 
     <!-- Widget ID (each widget will need unique ID)-->
-    <div class="jarviswidget jarviswidget-color-darken">
+    <div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-editbutton="true" style="margin-bottom: 3px!important;">
 
 
         <header>
@@ -16,12 +16,12 @@
 
 
             <label class="input">
-                <input type="text" name="name" ng-model="findcf"> <i class="icon-append fa fa-search"></i>
+                <input type="text" name="name" ng-model="findcf" class="form-control">
             </label>
 
             <label class="input pull-right">
-                <label class="select ">Page Filter
-                    <select ng-model="pageSize" ng-options="num for num in [5, 10, 15,20]" ></select> <i></i> </label>
+                <label class="select ">
+                    <select class="form-control" ng-model="pageSize" ng-options="num for num in [5, 10, 15,20]" ></select> <i></i> </label>
             </label>
 
             <table id="data" class="table table-striped table-bordered table-hover" width="100%">
@@ -52,7 +52,7 @@
                         <td>{{ncf['List of Schools used as Evacuation Centers or Host Schools']}}</td>
                         <td>{{ncf['Barangays Accomodated']}}</td>
                         <td>{{ncf['Number of families']}}</td>
-                        <td>{{ncf['Number  of individuals']}}</td>
+                        <td>{{ncf['Number of individuals']}}</td>
 
                         <td class="col col-4 "><button type="button" class="btn btn-success btn-block " ng-click="selectUser(data)"><i class="icon-append fa fa-pencil"></i> Edit Data</button></td>
 
@@ -286,7 +286,7 @@
                                             <th class="text-center">List of Schools used as Evacuation Centers or Host Schools</th>
                                             <th class="text-center">Barangays Accomodated</th>
                                             <th class="text-center">Number of families</th>
-                                            <th class="text-center">Number  of individuals</th>
+                                            <th class="text-center">Number of individuals</th>
                                             <th class="text-center">Number of classrooms used</th>
                                             <th class="text-center">Date of Evacuation</th>
                                             <th class="text-center">Date of Decampment</th>
@@ -312,7 +312,7 @@
                                                 {{ncf['Number of families']}}
                                             </td>
                                             <td class=" ">
-                                                {{ncf['Number  of individuals']}}
+                                                {{ncf['Number of individuals']}}
                                             </td>
 
                                             <td class=" ">

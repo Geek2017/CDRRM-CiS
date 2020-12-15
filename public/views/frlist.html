@@ -34,12 +34,12 @@
         <div>
 
             <label class="input">
-                <input type="text" name="name" ng-model="findcf"> <i class="icon-append fa fa-search"></i>
+                <input type="text" name="name" ng-model="findcf" class="form-control">
             </label>
 
             <label class="input pull-right">
-                <label class="select ">Page Filter
-                    <select ng-model="pageSize" ng-options="num for num in [5, 10, 15,20]" ></select> <i></i> </label>
+                <label class="select ">
+                    <select class="form-control" ng-model="pageSize" ng-options="num for num in [5, 10, 15,20]" ></select> <i></i> </label>
             </label>
 
             <table id="data" class="table table-striped table-bordered table-hover" width="100%">
@@ -73,24 +73,24 @@
                         <td>{{cf.families}}</td>
                         <td>{{cf.persons}}</td> -->
                         <td class="col col-4">
-    
+
                             <button type="button" class="btn  btn-block btn-success " ng-click="selectUser(cf)"><i
                     class="fa fa-pencil"></i> Edit Data</button>
                         </td>
                         <td class="col col-4">
-    
+
                             <button type="button" class="btn btn-block btn-info" ng-click="printit(cf)"><i
                         class="fa fa-print"></i> Print Data</button>
                         </td>
                         <td class="col col-4">
-    
+
                             <button type="button" class="btn btn-block btn-danger" ng-click="selectUser2(cf)"><i
                     class="fa fa-minus-circle"></i> Delete Data</button>
-    
+
                         </td>
                     </tr>
 
-               
+
 
 
 
@@ -308,8 +308,7 @@
                         <section class="col col-6 sign">
                             <label class="label">Signature</label>
 
-                            <button type="button" class="btn btn-info  btn-sm  btn-block"
-                                data-toggle="modal" data-target="#exampleModal">
+                            <button type="button" class="btn btn-info  btn-sm  btn-block" data-toggle="modal" data-target="#exampleModal">
                                 CLICK TO SIGN
                             </button>
 
@@ -340,8 +339,7 @@
                         <section class="col col-6 sign">
                             <label class="label">Signature</label>
 
-                            <button type="button" class="btn btn-info  btn-sm  btn-block"
-                                data-toggle="modal" data-target="#exampleModal2">
+                            <button type="button" class="btn btn-info  btn-sm  btn-block" data-toggle="modal" data-target="#exampleModal2">
                                 CLICK TO SIGN
                             </button>
 
@@ -355,7 +353,7 @@
                     </div>
 
                     <footer>
-                        <button type="submit" class="btn btn-primary ">Submit</button>
+                        <button type="submit" class="btn btn-primary ">Save</button>
                     </footer>
                 </form>
 

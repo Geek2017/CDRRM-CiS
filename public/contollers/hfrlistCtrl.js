@@ -2,7 +2,7 @@ angular.module('newApp').controller('hfrlistCtrl', function($firebaseArray, $sco
     window.jm = 'JM';
     console.log(window)
     $scope.currentPage = 0;
-    $scope.pageSize = 5;
+    $scope.pageSize = 10;
     $scope.data = [];
 
     $scope.numberOfPages = () => {

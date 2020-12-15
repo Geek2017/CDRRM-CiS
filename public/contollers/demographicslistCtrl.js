@@ -1,6 +1,6 @@
 angular.module('newApp').controller('demographicslistCtrl', function($scope, $http, $timeout) {
     $scope.currentPage = 0;
-    $scope.pageSize = 5;
+    $scope.pageSize = 10;
     $scope.data = [];
 
     $scope.numberOfPages = () => {

@@ -1,6 +1,19 @@
 angular.module('newApp').controller('soclistCtrl', function($firebaseArray, $scope, $http, $timeout) {
 
     pageSetUp();
+    $scope.currentPage = 0;
+    $scope.pageSize = 10;
+    $scope.data = [];
+
+    $scope.numberOfPages = () => {
+        return Math.ceil(
+            $scope.data.length / $scope.pageSize
+        );
+    }
+
+    for (var i = 0; i < 10; i++) {
+        $scope.data.push(`Question number ${i}`);
+    }
 
 
     firebase.database().ref('/cswdo/soec/').orderByChild('uid').on("value", function(snapshot) {
@@ -361,4 +374,9 @@ angular.module('newApp').controller('soclistCtrl', function($firebaseArray, $sco
                 console.log("Remove failed: " + error.message)
             });
     }
-});
+}).filter('startFrom', function() {
+    return (input, start) => {
+        start = +start; //parse to int
+        return input.slice(start);
+    }
+})

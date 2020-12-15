@@ -4,6 +4,7 @@ angular.module('newApp').controller('intakesheetlistCtrl', function($firebaseArr
 
     var id;
 
+<<<<<<< HEAD
     $scope.currentPage = 0;
     $scope.pageSize = 5;
     $scope.data = [];
@@ -13,6 +14,17 @@ angular.module('newApp').controller('intakesheetlistCtrl', function($firebaseArr
             $scope.data.length / $scope.pageSize
         );
     }
+=======
+    // $scope.currentPage = 0;
+    // $scope.pageSize = 10;
+    // $scope.data = [];
+
+    // $scope.numberOfPages = () => {
+    //     return Math.ceil(
+    //         $scope.data.length / $scope.pageSize
+    //     );
+    // }
+>>>>>>> 23383a302683b8fa5ffa9d69cfa694ad601971b0
 
     for (var i = 0; i < 10; i++) {
         $scope.data.push(`Question number ${i}`);
@@ -201,15 +213,15 @@ angular.module('newApp').controller('intakesheetlistCtrl', function($firebaseArr
         for (let index = 0; index < $scope.cfs.length; index++) {
             // console.log($scope.cfs[index].key)
             // console.log(users.key)
-            if(users.key == $scope.cfs[index].key){
+            if (users.key == $scope.cfs[index].key) {
                 // console.log($scope.cfs[index])
                 $scope.usersClicked = $scope.cfs[index];
                 // console.log($scope.usersClicked.needs)
             }
-            
+
         }
-        
-        
+
+
         $scope.clickedUser = users;
         id = users;
         // document.getElementById("editDateOfDecampment").value = users.dateOfDecampment;
@@ -237,29 +249,29 @@ angular.module('newApp').controller('intakesheetlistCtrl', function($firebaseArr
         var ref2 = firebase.database().ref("/barangay/intakesheet/" + id.$id);
         ref2.update({
             schoolID: $('#schoolID').val(),
-                school: $('#school').val(),
-                region: $('#region').val(),
-                division: $('#division').val(),
-                district: $('#district').val(),
-                municipality: $('#municipality').val(),
-                enrollment: $('#enrollment').val(),
-                totalSchool: $('#totalSchool').val(),
-                schoolWithInfraDamage: $('#schoolWithInfraDamage').val(),
-                totalDamageClassroom: $('#totalDamageClassroom').val(),
-                partialDamageClassMajor: $('#partialDamageClassMajor').val(),
-                partialDamageClassMinor: $('#partialDamageClassMinor').val(),
-                temporaryLearning: $('#temporaryLearning').val(),
-                deceasedPersonnel: $('#deceasedPersonnel').val(),
-                injuredPersonnel: $('#injuredPersonnel').val(),
-                missingPersonnel: $('#missingPersonnel').val(),
-                displacedPersonnel: $('#displacedPersonnel').val(),
-                totalEvacSchool: $('#totalEvacSchool').val(),
-                ECLasted: $('#ECLasted').val(),
-                totalSchoolReport: $('#totalSchoolReport').val(),
-                schoolWithNonInfraDamage: $('#schoolWithNonInfraDamage').val(),
-                damagedSchoolFurnitures: $('#damagedSchoolFurnitures').val(),
-                damagedLearningMaterials: $('#damagedLearningMaterials').val(),
-                damagedComputerEquipment: $('#damagedComputerEquipment').val()
+            school: $('#school').val(),
+            region: $('#region').val(),
+            division: $('#division').val(),
+            district: $('#district').val(),
+            municipality: $('#municipality').val(),
+            enrollment: $('#enrollment').val(),
+            totalSchool: $('#totalSchool').val(),
+            schoolWithInfraDamage: $('#schoolWithInfraDamage').val(),
+            totalDamageClassroom: $('#totalDamageClassroom').val(),
+            partialDamageClassMajor: $('#partialDamageClassMajor').val(),
+            partialDamageClassMinor: $('#partialDamageClassMinor').val(),
+            temporaryLearning: $('#temporaryLearning').val(),
+            deceasedPersonnel: $('#deceasedPersonnel').val(),
+            injuredPersonnel: $('#injuredPersonnel').val(),
+            missingPersonnel: $('#missingPersonnel').val(),
+            displacedPersonnel: $('#displacedPersonnel').val(),
+            totalEvacSchool: $('#totalEvacSchool').val(),
+            ECLasted: $('#ECLasted').val(),
+            totalSchoolReport: $('#totalSchoolReport').val(),
+            schoolWithNonInfraDamage: $('#schoolWithNonInfraDamage').val(),
+            damagedSchoolFurnitures: $('#damagedSchoolFurnitures').val(),
+            damagedLearningMaterials: $('#damagedLearningMaterials').val(),
+            damagedComputerEquipment: $('#damagedComputerEquipment').val()
         })
 
         .catch(function(error) {
@@ -285,14 +297,14 @@ angular.module('newApp').controller('intakesheetlistCtrl', function($firebaseArr
     $scope.deleteUser = function() {
         var ref = firebase.database().ref("/barangay/intakesheet/" + id.key);
         ref.remove()
-        .catch(function(error) {
-            console.log("Login Failed!", error.message);
-            $("#notif").append('<div class="alert alert-danger fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Error</strong> ' + error.message + '</div>');
-            setTimeout(function() {
-                $("#notif").hide()
-            }, 1500);
+            .catch(function(error) {
+                console.log("Login Failed!", error.message);
+                $("#notif").append('<div class="alert alert-danger fade in"><button class="close" data-dismiss="alert">×</button><i class="fa-fw fa fa-check"></i><strong>Error</strong> ' + error.message + '</div>');
+                setTimeout(function() {
+                    $("#notif").hide()
+                }, 1500);
 
-        });;
+            });;
 
         // $("#notif").show();
         // window.location.href = "#ecdlist";
@@ -374,7 +386,7 @@ angular.module('newApp').controller('intakesheetlistCtrl', function($firebaseArr
 
         var updates = {};
         // console.log(id.key);
-        updates['/barangay/intakesheet/'  + id.key] = data;
+        updates['/barangay/intakesheet/' + id.key] = data;
         firebase.database().ref().update(updates);
         console.log(updates)
 
@@ -393,7 +405,7 @@ angular.module('newApp').controller('intakesheetlistCtrl', function($firebaseArr
     });
 
 
-        var cnt = 0;
+    var cnt = 0;
     $scope.addtr = function() {
         $("#appendhere").append('<tr><td class="col-md-2"> <label class="input"><input type="text" name="particulars"  placeholder="" required></label></td><td  class="col-md-1"><select name="interested " id="type" required class="form-control btn-block"><option value="0 " selected="true" disabled=" ">Select</option><option value="1" >Single</option><option value="2">Married</option><option value="3">Widowed</option><option value="4">Separated</option></select></td></td><td class="col-md-1"><label class="input"> <input type="text" name="amount" value="" class="" autocomplete="off" /></label></td><td class="col-md-2"><label class="input"> <input type="text" name="remarks" placeholder=""></label></td></td><td class="col-md-2"><label class="input"> <input type="text" name="amount" value="" class="" autocomplete="off" /></label></td><td class="col-md-1"><label class="input"> <input type="text" name="remarks" placeholder=""></label></td><td class="col-md-1"><label class="input"> <input type="text" name="remarks" placeholder=""></label></td><td class="col-md-2"><label class="input"> <input type="text" name="remarks" placeholder=""></label></td></td><td class="col-md-1"><label class="input col-md-10"> <input type="text" name="amount" value="" class="" autocomplete="off" /></label><label class="input col-md-1"> <button class="btn btn-danger btn-sm deleteb">X</button></label></td></tr>');
         cnt++;

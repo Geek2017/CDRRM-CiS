@@ -7,8 +7,7 @@
 <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
 
     <!-- Widget ID (each widget will need unique ID)-->
-    <div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-editbutton="true"
-        style="margin-bottom: 3px!important;">
+    <div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-editbutton="true" style="margin-bottom: 3px!important;">
         <!-- widget options:
         usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
         data-widget-colorbutton="false"
@@ -32,21 +31,12 @@
 
 
             <label class="input">
-                <input type="text" name="name" ng-model="findcf"> <i class="icon-append fa fa-search"></i>
+                <input type="text" name="name" ng-model="findcf" class="form-control">
             </label>
 
             <label class="input pull-right">
-                <label class="select ">Page Filter
-                    <select ng-model="pageSize" ng-options="num for num in [5, 10, 15,20]"></select> <i></i>
-                    <!-- <select name="options" id="pfilter">
-
-                        <option value="10">10</option>
-                        <option value="30">30</option>
-                        <option value="50">50</option>
-                        <option value="100">100</option>
-
-                    </select> <i></i> -->
-                </label>
+                <label class="select ">
+                    <select class="form-control" ng-model="pageSize" ng-options="num for num in [5, 10, 15,20]" ></select> <i></i> </label>
             </label>
 
             <table id="data" class="table table-striped table-bordered table-hover" width="100%">
@@ -177,9 +167,13 @@
 
     </div>
 
+<<<<<<< HEAD
     <!-- <span id="here"></span>
      -->
      <div class="btn-group btn-group-xs pull-right">
+=======
+    <div class="btn-group btn-group-xs pull-right">
+>>>>>>> 23383a302683b8fa5ffa9d69cfa694ad601971b0
         <button class="btn btn-primary" ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
        Back
       </button>
@@ -261,8 +255,7 @@
                             </div>
                             <br>
                             <br>
-                            <table id="convert-table" class="table table-striped table-bordered table-hover"
-                                width="100%">
+                            <table id="convert-table" class="table table-striped table-bordered table-hover" width="100%">
                                 <thead>
                                     <!-- <tr>
                                         <th colspan="1"></th>
@@ -273,16 +266,11 @@
                                     </tr> -->
                                     <tr>
                                         <th class="text-center th">Items</th>
-                                        <th class="text-center th">Number of Recipients in Albay Central School
-                                            Evacuation Center</th>
-                                        <th class="text-center th">Number of Recipients in Bagumbayan Central School
-                                            Evacuation Center</th>
-                                        <th class="text-center th">Number of Recipients in Cabagnan Elementary School
-                                            Evacuation Center</th>
-                                        <th class="text-center th">Number of Recipients in Gogon Central School and
-                                            Gogon High School Evacuation Center</th>
-                                        <th class="text-center th">Number of Recipients in Bitano Elementary School and
-                                            Legazpi City Science High School Evacuation Center</th>
+                                        <th class="text-center th">Number of Recipients in Albay Central School Evacuation Center</th>
+                                        <th class="text-center th">Number of Recipients in Bagumbayan Central School Evacuation Center</th>
+                                        <th class="text-center th">Number of Recipients in Cabagnan Elementary School Evacuation Center</th>
+                                        <th class="text-center th">Number of Recipients in Gogon Central School and Gogon High School Evacuation Center</th>
+                                        <th class="text-center th">Number of Recipients in Bitano Elementary School and Legazpi City Science High School Evacuation Center</th>
                                         <th class="text-center th">Number of Recipients in Buraguis Evacuation Center
                                         </th>
                                         <th class="text-center th">Others (CDRRMO, CHO, Operations Center)</th>
@@ -448,8 +436,7 @@
 
 
                 <!-- Widget ID (each widget will need unique ID)-->
-                <div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-editbutton="true"
-                    style="margin-bottom: 5px!important;margin-top: 5px!important;margin-left: -11px!important;margin-right: -11px!important;">
+                <div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-editbutton="true" style="margin-bottom: 5px!important;margin-top: 5px!important;margin-left: -11px!important;margin-right: -11px!important;">
                     <!-- widget options:
     usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
 
@@ -505,16 +492,12 @@
                                     <th>Marital Status</th>
                                     <th>Age</th> -->
                                     <th class="text-center th">Items</th>
-                                    <th class="text-center th">Number of Recipients in Albay Central School Evacuation
-                                        Center</th>
-                                    <th class="text-center th">Number of Recipients in Bagumbayan Central School
-                                        Evacuation Center</th>
-                                    <th class="text-center th">Number of Recipients in Cabagnan Elementary School
-                                        Evacuation Center</th>
-                                    <th class="text-center th">Number of Recipients in Gogon Central School and Gogon
-                                        High School Evacuation Center</th>
-                                    <th class="text-center th">Number of Recipients in Bitano Elementary School and
-                                        Legazpi City Science High School Evacuation Center</th>
+                                    <th class="text-center th">Number of Recipients in Albay Central School Evacuation Center
+                                    </th>
+                                    <th class="text-center th">Number of Recipients in Bagumbayan Central School Evacuation Center</th>
+                                    <th class="text-center th">Number of Recipients in Cabagnan Elementary School Evacuation Center</th>
+                                    <th class="text-center th">Number of Recipients in Gogon Central School and Gogon High School Evacuation Center</th>
+                                    <th class="text-center th">Number of Recipients in Bitano Elementary School and Legazpi City Science High School Evacuation Center</th>
                                     <th class="text-center th">Number of Recipients in Buraguis Evacuation Center</th>
                                     <th class="text-center th">Others (CDRRMO, CHO, Operations Center)</th>
                                     <!-- <th>Action</th> -->
@@ -596,7 +579,15 @@
 
                 </div>
 
-                <span id="here"></span>
+                <div class="btn-group btn-group-xs pull-right">
+        <button class="btn btn-primary" ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
+       Back
+      </button>
+        <button class="btn btn-primary">{{currentPage+1}} of {{numberOfPages()}}</button>
+        <button class="btn btn-primary" ng-disabled="currentPage >= data.length/pageSize - 1" ng-click="currentPage=currentPage+1">
+        Next
+      </button>
+    </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" ng-click="close()">Close</button>
                     <!-- <button type="button" class="btn btn-danger" ng-click="deleteUser()">Yes</button> -->
@@ -632,7 +623,7 @@
                             <section>
                                 <h3>
                                     <strong>{{clickedUser.operation}} <br> As of {{time}}{{mid}}, {{datetoday}}</strong>
-                                </h3>
+                                    </h3>
                             </section>
                             <!-- <section>
                             <h3>
@@ -663,18 +654,13 @@
                                             </th>
                                         </tr>
                                         <tr>
-                                            <th class="text-center">Number of Recipients in Albay Central School
-                                                Evacuation Center</th>
-                                            <th class="text-center">Number of Recipients in Bagumbayan Central School
-                                                Evacuation Center</th>
-                                            <th class="text-center">Number of Recipients in Cabagnan Elementary
-                                                School Evacuation Center</th>
-                                            <th class="text-center">Number of Recipients in Gogon Central School and
-                                                Gogon High School Evacuation Center</th>
-                                            <th class="text-center">Number of Recipients in Bitano Elementary School
-                                                and Legazpi City Science High School Evacuation Center</th>
-                                            <th class="text-center">Number of Recipients in Buraguis Evacuation
-                                                Center</th>
+                                            <th class="text-center">Number of Recipients in Albay Central School Evacuation Center</th>
+                                            <th class="text-center">Number of Recipients in Bagumbayan Central School Evacuation Center</th>
+                                            <th class="text-center">Number of Recipients in Cabagnan Elementary School Evacuation Center</th>
+                                            <th class="text-center">Number of Recipients in Gogon Central School and Gogon High School Evacuation Center</th>
+                                            <th class="text-center">Number of Recipients in Bitano Elementary School and Legazpi City Science High School Evacuation Center</th>
+                                            <th class="text-center">Number of Recipients in Buraguis Evacuation Center
+                                            </th>
                                             <th class="text-center">Others (CDRRMO, CHO, Operations Center)</th>
                                         </tr>
 
