@@ -279,11 +279,8 @@ angular.module('newApp').controller('rnelistCtrl', function($firebaseArray, $sco
 
 }).filter('startFrom', function() {
     return (input, start) => {
-<<<<<<< HEAD
         start = +start;
-=======
         start = +start; //parse to int
->>>>>>> 23383a302683b8fa5ffa9d69cfa694ad601971b0
         return input.slice(start);
     }
 })

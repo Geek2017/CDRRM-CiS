@@ -4,7 +4,6 @@ angular.module('newApp').controller('intakesheetlistCtrl', function($firebaseArr
 
     var id;
 
-<<<<<<< HEAD
     $scope.currentPage = 0;
     $scope.pageSize = 5;
     $scope.data = [];
@@ -14,7 +13,6 @@ angular.module('newApp').controller('intakesheetlistCtrl', function($firebaseArr
             $scope.data.length / $scope.pageSize
         );
     }
-=======
     // $scope.currentPage = 0;
     // $scope.pageSize = 10;
     // $scope.data = [];
@@ -24,7 +22,6 @@ angular.module('newApp').controller('intakesheetlistCtrl', function($firebaseArr
     //         $scope.data.length / $scope.pageSize
     //     );
     // }
->>>>>>> 23383a302683b8fa5ffa9d69cfa694ad601971b0
 
     for (var i = 0; i < 10; i++) {
         $scope.data.push(`Question number ${i}`);

@@ -291,14 +291,9 @@ angular.module('newApp').controller('flaslistCtrl', function($firebaseArray, $sc
 
 
 }).filter('startFrom', function() {
-<<<<<<< HEAD
-    return (input, start) => {
-        start = +start;
-=======
     return function(input, start) {
         if (!input || !input.length) { return; }
         start = +start; //parse to int
->>>>>>> 23383a302683b8fa5ffa9d69cfa694ad601971b0
         return input.slice(start);
     }
 })
