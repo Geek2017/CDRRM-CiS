@@ -7,8 +7,7 @@
 <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
 
     <!-- Widget ID (each widget will need unique ID)-->
-    <div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-editbutton="true"
-        style="margin-bottom: 3px!important;">
+    <div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-editbutton="true" style="margin-bottom: 3px!important;">
         <!-- widget options:
         usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
         data-widget-colorbutton="false"
@@ -51,7 +50,7 @@
 
             <table id="data" class="table table-striped table-bordered table-hover" width="100%">
 
-                <div id="notif"></div> 
+                <div id="notif"></div>
                 <thead>
                     <tr>
 
@@ -100,11 +99,11 @@
                         <td>{{cf.incharge}}</td>
                         <td>{{ncf['Donors']}}</td>
                         <td> {{ncf['Date Received']}}</td>
-                        <td > {{ncf['Items']}}</td>
-                        <td > {{ncf['Quantity']}}</td>
-                        <td > {{ncf['Unit']}}</td>
-                        <td > {{ncf['Unit Cost']}}</td>
-                        <td > {{ncf['Total Cost']}}</td>
+                        <td> {{ncf['Items']}}</td>
+                        <td> {{ncf['Quantity']}}</td>
+                        <td> {{ncf['Unit']}}</td>
+                        <td> {{ncf['Unit Cost']}}</td>
+                        <td> {{ncf['Total Cost']}}</td>
                         <td> {{ncf['Remarks']}}</td>
                         <td class="col col-4">
 
@@ -237,8 +236,7 @@
                             </div>
                             <br>
                             <br>
-                            <table id="convert-table" class="table table-striped table-bordered table-hover"
-                                width="100%">
+                            <table id="convert-table" class="table table-striped table-bordered table-hover" width="100%">
                                 <thead>
                                     <!-- <tr>
                                         <th colspan="1"></th>
@@ -400,7 +398,7 @@
                     </fieldset>
                     <br>
                     <footer>
-                        <button type="submit " class="btn btn-primary ">Submit</button>
+                        <button type="submit " class="btn btn-primary ">Save</button>
                         <button type="button " class="btn btn-default " onclick="  window.location.href = '#'
                         window.location.href = '#cnsbdnew' ">Clear</button>
 
@@ -509,10 +507,10 @@
 
                         <table id="data" class="table table-striped table-bordered table-hover" width="100%">
 
-                            <div id="notif"></div> 
+                            <div id="notif"></div>
                             <thead>
                                 <tr>
-            
+
                                     <!-- <th>Date</th>
                                     <th>Evacuation Center</th>
                                     <th>Purok</th>
@@ -532,7 +530,7 @@
                                 </tr>
                             </thead>
                             <tbody ng-repeat="cf in cfs  | filter: findcf">
-            
+
                                 <!-- <th colspan="6" class=""></th>
                                 <th colspan="4">Action</th> -->
                                 <!-- <th colspan="9"></th> -->
@@ -547,7 +545,7 @@
                                                 class="fa fa-minus-circle"></i></button>
                                     </div>
                                 </th> -->
-            
+
                                 <tr>
                                     <!-- <td>{{cf.date}}</td>
                                     <td>{{cf.evacCenter}}</td>
@@ -586,10 +584,10 @@
                                     <td></td>
             
                                 </tr> -->
-            
+
                             </tbody>
-            
-            
+
+
                         </table>
 
 
@@ -646,59 +644,59 @@
                                 <!-- <section>
                                     <caption> <strong style="float: right;">ROOM ASSIGNMENT:
                                         <u>{{clickedUser.roomAssignment}} </u>  </strong> </caption>
-                                </section>
-                                <br>
-                                <section>
-                                    <caption> <strong style="float: right;">TEACHER-IN-CHARGE:
+                            </section>
+                            <br>
+                            <section>
+                                <caption> <strong style="float: right;">TEACHER-IN-CHARGE:
                                         <u>{{clickedUser.teacherIncharge}} </u>  </strong> </caption>
-                                </section> -->
-                                <caption> EVACUATION CENTER: <u>{{clickedUser.evacCenter}} </u> </caption> <br>
-                                <caption> IN-CHARGE: <u>{{clickedUser.incharge}}</u> </caption><br>
-                                <!-- <caption> FAMILY HEAD: <u>{{clickedUser.familyHead}}</u> </caption><br><br> -->
-                            </div>
+                            </section> -->
+                            <caption> EVACUATION CENTER: <u>{{clickedUser.evacCenter}} </u> </caption> <br>
+                            <caption> IN-CHARGE: <u>{{clickedUser.incharge}}</u> </caption><br>
+                            <!-- <caption> FAMILY HEAD: <u>{{clickedUser.familyHead}}</u> </caption><br><br> -->
+                    </div>
 
-                            <center>
-                                <!-- <section>
+                    <center>
+                        <!-- <section>
                                     <h4> <strong> APPENDIX O <strong> </h4>
                                 </section> -->
-                                <section>
-                                    <h3>
-                                        COMMODITY DONATION MONITORING REPORT-(ROC) <br>  <strong>{{clickedUser.operation}} <br> As of {{time}}{{mid}}, {{datetoday}}</strong>
-                                    </h3>
-                                </section>
-                                <!-- <section>
+                        <section>
+                            <h3>
+                                COMMODITY DONATION MONITORING REPORT-(ROC) <br> <strong>{{clickedUser.operation}} <br> As of {{time}}{{mid}}, {{datetoday}}</strong>
+                            </h3>
+                        </section>
+                        <!-- <section>
                                     <h3>
                                         <strong>{{clickedUser.operation}} <br> As of {{time}}{{mid}}, {{datetoday}}</strong>
                                             </h3>
                                     </section> -->
-                            </center>
+                    </center>
 
-                            <div class="panel-body ">
+                    <div class="panel-body ">
 
-                                <table id="table-example-1" width="100%">
+                        <table id="table-example-1" width="100%">
 
-                                    <thead>
-                                        <!-- <tr>
+                            <thead>
+                                <!-- <tr>
                                             <th rowspan="2">Description of Needs</th>
 
                                             <th class="text-center " colspan="2">On The First 30 Days</th>
                                             <th class="text-center " colspan="2">On The Second Days</th>
                                             <th class="text-center " colspan="2">On The Third 30 Days</th>
                                         </tr> -->
-                                        <tr>
-                                            <th class="text-center">Donors</th>
-                                            <th class="text-center">Date Received</th>
-                                            <th class="text-center">Items</th>
-                                            <th class="text-center">Quantity</th>
-                                            <th class="text-center">Unit</th>
-                                            <th class="text-center">Unit Cost</th>
-                                            <th class="text-center ">Total Cost</th>
-                                            <th class="text-center ">Remarks</th>
-                                        </tr>
+                                <tr>
+                                    <th class="text-center">Donors</th>
+                                    <th class="text-center">Date Received</th>
+                                    <th class="text-center">Items</th>
+                                    <th class="text-center">Quantity</th>
+                                    <th class="text-center">Unit</th>
+                                    <th class="text-center">Unit Cost</th>
+                                    <th class="text-center ">Total Cost</th>
+                                    <th class="text-center ">Remarks</th>
+                                </tr>
 
-                                    </thead>
-                                    <tbody>
-                                        <!-- <tr>
+                            </thead>
+                            <tbody>
+                                <!-- <tr>
                                             <td class="text-left no-bottom-border ">
                                                 <strong> {{clickedUser.operationfor}}</strong>
                                             </td>
@@ -716,39 +714,39 @@
                                             </td>
                                         </tr> -->
 
-                                        <tr ng-repeat="ncf in usersClicked.donors">
+                                <tr ng-repeat="ncf in usersClicked.donors">
 
-                                            <td class="text-left col-md-3 no-bottom-border">
-                                                &nbsp; &nbsp;&nbsp;&nbsp; {{ncf['Donors']}}
-                                            </td>
-                                            <td class=" ">
-                                                {{ncf['Date Received']}}
-                                            </td>
-                                            <td class=" ">
-                                                {{ncf['Items']}}
-                                            </td>
+                                    <td class="text-left col-md-3 no-bottom-border">
+                                        &nbsp; &nbsp;&nbsp;&nbsp; {{ncf['Donors']}}
+                                    </td>
+                                    <td class=" ">
+                                        {{ncf['Date Received']}}
+                                    </td>
+                                    <td class=" ">
+                                        {{ncf['Items']}}
+                                    </td>
 
-                                            <td class=" ">
-                                                {{ncf['Quantity']}}
-                                            </td>
-                                            <td class=" ">
-                                                {{ncf['Unit']}}
-                                            </td>
+                                    <td class=" ">
+                                        {{ncf['Quantity']}}
+                                    </td>
+                                    <td class=" ">
+                                        {{ncf['Unit']}}
+                                    </td>
 
-                                            <td class=" ">
-                                                {{ncf['Unit Cost']}}
-                                            </td>
-                                            <td class=" ">
-                                                {{ncf['Total Cost']}}
-                                            </td>
-                                            <td class=" ">
-                                                {{ncf['Remarks']}}
-                                            </td>
+                                    <td class=" ">
+                                        {{ncf['Unit Cost']}}
+                                    </td>
+                                    <td class=" ">
+                                        {{ncf['Total Cost']}}
+                                    </td>
+                                    <td class=" ">
+                                        {{ncf['Remarks']}}
+                                    </td>
 
-                                        </tr>
+                                </tr>
 
-                                    </tbody>
-                                    <!-- <tbody>
+                            </tbody>
+                            <!-- <tbody>
                                         <tr>
                                             <td class="text-right">
                                                 Total
@@ -768,39 +766,39 @@
                                         </tr>
 
                                     </tbody> -->
-                                </table>
+                        </table>
 
-                            </div>
-                            <br>
-                            <div class="panel-body">
-                                <!-- <section>
+                    </div>
+                    <br>
+                    <div class="panel-body">
+                        <!-- <section>
                                     <strong>NOTE:</strong><br>
                                     <caption> <i>(Use back page if necessary)</i> </caption>
                                 </section> -->
 
-                                <section id="spansigr">
-                                    <strong style="float: right;">Released By: <u>{{clickedUser.releasedBy}}</u><br>
+                        <section id="spansigr">
+                            <strong style="float: right;">Released By: <u>{{clickedUser.releasedBy}}</u><br>
                                         <caption> Designation: <u>{{clickedUser.releasedDesignation}} </u> </caption> <br>
                                         <caption> Date: <u>{{clickedUser.date2}} </u> </caption> <br>
                                         <!-- <img src="{{clickedUser.signature}}" alt=""> -->
                                         <!-- <h4>{{clickedUser.preparedBy}} </h4> -->
                                     </strong>
-                                </section>
+                        </section>
 
-                                <section id="spansigl">
-                                    <strong>Prepared By:<u>{{clickedUser.recievedBy}}</u><br>
+                        <section id="spansigl">
+                            <strong>Prepared By:<u>{{clickedUser.recievedBy}}</u><br>
                                         <caption> Designation: <u>{{clickedUser.receivedDesignation}} </u> </caption> <br>
                                         <caption> Date: <u>{{clickedUser.date1}} </u> </caption> <br>
                                     </strong>
 
-                                </section>
-                            </div>
-                        </div>
+                        </section>
                     </div>
                 </div>
             </div>
-
         </div>
-
     </div>
+
+</div>
+
+</div>
 </div>
