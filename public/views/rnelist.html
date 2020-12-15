@@ -194,7 +194,15 @@
 
     </div>
 
-    <span id="here"></span>
+    <div class="btn-group btn-group-xs pull-right">
+        <button class="btn btn-primary" ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
+       Back
+      </button>
+        <button class="btn btn-primary">{{currentPage+1}} of {{numberOfPages()}}</button>
+        <button class="btn btn-primary" ng-disabled="currentPage >= data.length/pageSize - 1" ng-click="currentPage=currentPage+1">
+        Next
+      </button>
+    </div>
 
 
 </article>
@@ -583,7 +591,15 @@
 
                 </div>
 
-                <span id="here"></span>
+                <div class="btn-group btn-group-xs pull-right">
+        <button class="btn btn-primary" ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
+       Back
+      </button>
+        <button class="btn btn-primary">{{currentPage+1}} of {{numberOfPages()}}</button>
+        <button class="btn btn-primary" ng-disabled="currentPage >= data.length/pageSize - 1" ng-click="currentPage=currentPage+1">
+        Next
+      </button>
+    </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" ng-click="close()">Close</button>
                     <!-- <button type="button" class="btn btn-danger" ng-click="deleteUser()">Yes</button> -->
