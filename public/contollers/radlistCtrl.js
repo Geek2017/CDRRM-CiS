@@ -11,6 +11,19 @@ angular.module('newApp').controller('radlistCtrl', function ($firebaseArray, $sc
 
     var accomodated2, host2, role, id;
     var totalIndex;
+    $scope.currentPage = 0;
+    $scope.pageSize = 5;
+    $scope.data = [];
+
+    $scope.numberOfPages = () => {
+        return Math.ceil(
+            $scope.data.length / $scope.pageSize
+        );
+    }
+
+    for (var i = 0; i < 10; i++) {
+        $scope.data.push(`Question number ${i}`);
+    }
 
     for (i = 0; i < acc.length; i++) {
         acc[i].addEventListener("click", function () {
@@ -234,4 +247,9 @@ angular.module('newApp').controller('radlistCtrl', function ($firebaseArray, $sc
 
 
 
-});
+}).filter('startFrom', function() {
+    return (input, start) => {
+        start = +start;
+        return input.slice(start);
+    }
+})

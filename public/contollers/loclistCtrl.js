@@ -12,6 +12,16 @@ angular.module('newApp').controller('loclistCtrl', function($firebaseArray, $sco
     var accomodated2, host2, role, id;
     var totalIndex;
 
+    $scope.currentPage = 0;
+    $scope.pageSize = 5;
+    $scope.data = [];
+
+    $scope.numberOfPages = () => {
+        return Math.ceil(
+            $scope.data.length / $scope.pageSize
+        );
+    }
+
     for (i = 0; i < acc.length; i++) {
         acc[i].addEventListener("click", function() {
             this.classList.toggle("active");
@@ -275,4 +285,9 @@ angular.module('newApp').controller('loclistCtrl', function($firebaseArray, $sco
     // console.log($scope.camalig)
 
 
-});
+}).filter('startFrom', function() {
+    return (input, start) => {
+        start = +start;
+        return input.slice(start);
+    }
+})

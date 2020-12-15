@@ -44,7 +44,7 @@
 
                     </tr>
                 </thead>
-                <tbody ng-repeat="cf in data">
+                <tbody ng-repeat="cf in data | startFrom:currentPage*pageSize | limitTo:pageSize |filter:findcf">
 
                     <tr class="text-center" ng-repeat="ncf in cf.center">
                         <td>{{$index + 1}}</td>

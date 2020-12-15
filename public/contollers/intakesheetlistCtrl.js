@@ -4,19 +4,19 @@ angular.module('newApp').controller('intakesheetlistCtrl', function($firebaseArr
 
     var id;
 
-    // $scope.currentPage = 0;
-    // $scope.pageSize = 5;
-    // $scope.data = [];
+    $scope.currentPage = 0;
+    $scope.pageSize = 5;
+    $scope.data = [];
 
-    // $scope.numberOfPages = () => {
-    //     return Math.ceil(
-    //         $scope.data.length / $scope.pageSize
-    //     );
-    // }
+    $scope.numberOfPages = () => {
+        return Math.ceil(
+            $scope.data.length / $scope.pageSize
+        );
+    }
 
-    // for (var i = 0; i < 10; i++) {
-    //     $scope.data.push(`Question number ${i}`);
-    // }
+    for (var i = 0; i < 10; i++) {
+        $scope.data.push(`Question number ${i}`);
+    }
 
 
     firebase.database().ref('/barangay/intakesheet/').orderByChild('uid').on("value", function(snapshot) {

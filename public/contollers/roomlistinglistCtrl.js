@@ -3,6 +3,20 @@ angular.module('newApp').controller('roomlistinglistCtrl', function($firebaseArr
     pageSetUp();
 
     var id;
+    
+    $scope.currentPage = 0;
+    $scope.pageSize = 5;
+    $scope.data = [];
+
+    $scope.numberOfPages = () => {
+        return Math.ceil(
+            $scope.data.length / $scope.pageSize
+        );
+    }
+
+    for (var i = 0; i < 10; i++) {
+        $scope.data.push(`Question number ${i}`);
+    }
 
 
     firebase.database().ref('/barangay/roomListing/').orderByChild('uid').on("value", function(snapshot) {
@@ -510,4 +524,9 @@ angular.module('newApp').controller('roomlistinglistCtrl', function($firebaseArr
     //     calculateSum3();
     // });
 
-});
+}).filter('startFrom', function() {
+    return (input, start) => {
+        start = +start;
+        return input.slice(start);
+    }
+})

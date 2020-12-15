@@ -4,6 +4,20 @@ angular.module('newApp').controller('rocrlistCtrl', function($firebaseArray, $sc
 
     var id;
 
+    $scope.currentPage = 0;
+    $scope.pageSize = 5;
+    $scope.data = [];
+
+    $scope.numberOfPages = () => {
+        return Math.ceil(
+            $scope.data.length / $scope.pageSize
+        );
+    }
+
+    for (var i = 0; i < 10; i++) {
+        $scope.data.push(`Question number ${i}`);
+    }
+
 
     firebase.database().ref('/cswdo/rocr/').orderByChild('uid').on("value", function(snapshot) {
 
@@ -513,4 +527,9 @@ angular.module('newApp').controller('rocrlistCtrl', function($firebaseArray, $sc
     //     calculateSum3();
     // });
 
-});
+}).filter('startFrom', function() {
+    return (input, start) => {
+        start = +start;
+        return input.slice(start);
+    }
+})

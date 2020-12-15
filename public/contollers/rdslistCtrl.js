@@ -3,6 +3,15 @@ angular.module('newApp').controller('rdslistCtrl', function($firebaseArray, $sco
     pageSetUp();
 
     var id;
+    $scope.currentPage = 0;
+    $scope.pageSize = 5;
+    $scope.data = [];
+
+    $scope.numberOfPages = () => {
+        return Math.ceil(
+            $scope.data.length / $scope.pageSize
+        );
+    }
 
 
     firebase.database().ref('/cswdo/rds/').orderByChild('uid').on("value", function(snapshot) {
@@ -485,4 +494,9 @@ angular.module('newApp').controller('rdslistCtrl', function($firebaseArray, $sco
     //     calculateSum3();
     // });
 
-});
+}).filter('startFrom', function() {
+    return (input, start) => {
+        start = +start;
+        return input.slice(start);
+    }
+})
