@@ -25,7 +25,7 @@ angular.module('newApp').controller('launnewCtrl', function ($scope) {
     var cnt = 0;
     $("#addmeb").on("click", function () {
 
-        $("#appendhereb").append("<tr><td><label class='input'><input type='input' name='' class='' value='' autocomplete='off' /></label></td><td><label class='input'><input type='number' name='' placeholder='' class=''></label></td><td><label class='input'><input type='number' autocomplete='off' class='' /></label></td><td><label class='input'><input type='number' autocomplete='off' class='' /></label></td><td><label class='input'><input type='number' autocomplete='off' class='' /></label></td><td><label class='input'><input type='number' autocomplete='off' class='' /></label></td><td><label class='input'><input type='number' autocomplete='off' class='txt' /></label></td><td><label class='input'><input type='number' autocomplete='off' class='txt2' /></label></td><td><label class='input'><input type='number' autocomplete='off' class='txt3' /></label></td></tr>");
+        $("#appendhereb").append("<tr><td><label class='input'><input type='input' name='' class='' value='' autocomplete='off' /></label></td><td><label class='input'><input type='input' name='' class='' value='' autocomplete='off' /></label></td><td><label class='input'><input type='number' name='' placeholder='' class=''></label></td><td><label class='input'><input type='number' autocomplete='off' class='' /></label></td><td><label class='input'><input type='number' autocomplete='off' class='' /></label></td><td><label class='input'><input type='number' autocomplete='off' class='' /></label></td><td><label class='input'><input type='number' autocomplete='off' class='' /></label></td><td><label class='input'><input type='number' autocomplete='off' class='txt' /></label></td><td><label class='input'><input type='number' autocomplete='off' class='txt2' /></label></td><td><label class='input'><input type='number' autocomplete='off' class='txt3' /></label></td></tr>");
         cnt++;
         $('table thead th').each(function (i) {
 
@@ -46,7 +46,7 @@ angular.module('newApp').controller('launnewCtrl', function ($scope) {
     var cntc = 0;
     $("#addmec").on("click", function () {
 
-        $("#appendherec").append("<tr><td><label class='input'><input type='input' name='' class='' value='' autocomplete='off' /></label></td><td><label class='input'><input type='input' name='' class='' value='' autocomplete='off' /></label></td><td><label class='input'><input type='number' name='' placeholder='' class=''></label></td><td><label class='input'><input type='number' autocomplete='off' class='' /></label></td><td><label class='input'><input type='number' autocomplete='off' class='' /></label></td><td><label class='input'><input type='number' autocomplete='off' class='' /></label></td><td><label class='input'><input type='number' autocomplete='off' class='txt4' /></label></td><td><label class='input'><input type='number' autocomplete='off' class='txt5' /></label></td><td><label class='input'><input type='number' autocomplete='off' class='txt6' /></label></td></tr>");
+        $("#appendherec").append("<tr><td><label class='input'><input type='input' name='' class='' value='' autocomplete='off' /></label></td><td><label class='input'><input type='input' name='' class='' value='' autocomplete='off' /></label></td><td><label class='input'><input type='input' name='' class='' value='' autocomplete='off' /></label></td><td><label class='input'><input type='number' name='' placeholder='' class=''></label></td><td><label class='input'><input type='number' autocomplete='off' class='' /></label></td><td><label class='input'><input type='number' autocomplete='off' class='' /></label></td><td><label class='input'><input type='number' autocomplete='off' class='' /></label></td><td><label class='input'><input type='number' autocomplete='off' class='txt4' /></label></td><td><label class='input'><input type='number' autocomplete='off' class='txt5' /></label></td><td><label class='input'><input type='number' autocomplete='off' class='txt6' /></label></td></tr>");
         cntc++;
         $('table thead th').each(function (i) {
 
@@ -67,7 +67,7 @@ angular.module('newApp').controller('launnewCtrl', function ($scope) {
     var cntd = 0;
     $("#addmed").on("click", function () {
 
-        $("#appendhered").append("<tr><td><label class='input'><input type='input' name='' class='' value='' autocomplete='off' /></label></td><td><label class='input'><input type='number' name='' placeholder='' class=''></label></td><td><label class='input'><input type='number' autocomplete='off' class='' /></label></td><td><label class='input'><input type='number' autocomplete='off' class='' /></label></td><td><label class='input'><input type='number' autocomplete='off' class='' /></label></td><td><label class='input'><input type='number' autocomplete='off' class='txt7' /></label></td><td><label class='input'><input type='number' autocomplete='off' class='txt8' /></label></td><td><label class='input'><input type='number' autocomplete='off' class='txt9' /></label></td></tr>");
+        $("#appendhered").append("<tr><td><label class='input'><input type='input' name='' class='' value='' autocomplete='off' /></label></td><td><label class='input'><input type='input' name='' class='' value='' autocomplete='off' /></label></td><td><label class='input'><input type='number' name='' placeholder='' class=''></label></td><td><label class='input'><input type='number' autocomplete='off' class='' /></label></td><td><label class='input'><input type='number' autocomplete='off' class='' /></label></td><td><label class='input'><input type='number' autocomplete='off' class='' /></label></td><td><label class='input'><input type='number' autocomplete='off' class='txt7' /></label></td><td><label class='input'><input type='number' autocomplete='off' class='txt8' /></label></td><td><label class='input'><input type='number' autocomplete='off' class='txt9' /></label></td></tr>");
         cntd++;
         $('table thead th').each(function (i) {
 
@@ -87,7 +87,7 @@ angular.module('newApp').controller('launnewCtrl', function ($scope) {
     var cnte = 0;
     $("#addmee").on("click", function () {
 
-        $("#appendheree").append("<tr><td><label class='input'><input type='input' name='' class='' value='' autocomplete='off' /></label></td><td><label class='input'><input type='number' name='' placeholder='' class=''></label></td><td><label class='input'><input type='number' autocomplete='off' class='' /></label></td><td><label class='input'><input type='number' autocomplete='off' class='' /></label></td><td><label class='input'><input type='number' autocomplete='off' class='' /></label></td><td><label class='input'><input type='number' autocomplete='off' class='txt10' /></label></td><td><label class='input'><input type='number' autocomplete='off' class='txt11' /></label></td><td><label class='input'><input type='number' autocomplete='off' class='txt12' /></label></td></tr>");
+        $("#appendheree").append("<tr><td><label class='input'><input type='input' name='' class='' value='' autocomplete='off' /></label></td><td><label class='input'><input type='input' name='' class='' value='' autocomplete='off' /></label></td><td><label class='input'><input type='number' name='' placeholder='' class=''></label></td><td><label class='input'><input type='number' autocomplete='off' class='' /></label></td><td><label class='input'><input type='number' autocomplete='off' class='' /></label></td><td><label class='input'><input type='number' autocomplete='off' class='' /></label></td><td><label class='input'><input type='number' autocomplete='off' class='txt10' /></label></td><td><label class='input'><input type='number' autocomplete='off' class='txt11' /></label></td><td><label class='input'><input type='number' autocomplete='off' class='txt12' /></label></td></tr>");
         cnte++;
         $('table thead th').each(function (i) {
 
@@ -283,9 +283,18 @@ angular.module('newApp').controller('launnewCtrl', function ($scope) {
 
             var data = {
                 "date": datetoday,
+                "totalFuel": totalFuel,
+                "totalFuel2": totalFuel2,
+                "totalFuel3": totalFuel3,
                 "fuelTotal": overAllFuel,
                 "waterTotal": overAllWater,
+                "totalWater": totalWater,
+                "totalWater2": totalWater2,
+                "totalWater3": totalWater3,
                 "electricTotal": overAllElectric,
+                "totalElectric": totalElectric,
+                "totalElectric2": totalElectric2,
+                "totalElectric3": totalElectric3,
                 "overAll": allTotal,
                 
                 "fuel_diesel": $scope.tojsonb(objb),

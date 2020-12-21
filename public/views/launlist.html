@@ -47,7 +47,7 @@
                 <div id="notif"></div>
                 <thead>
                     <tr>
-                        <!-- <th>#</th> -->
+                        <th>#</th>
                         <th>Date</th>
                         <th>Fuel Total</th>
                         <th>Water Bill Total</th>
@@ -58,8 +58,8 @@
                 </thead>
                 <tbody ng-repeat="cf in cfs  | startFrom:currentPage*pageSize | limitTo:pageSize |filter:findcf">
 
-                    <!-- <td>{{$index+1}}</td> -->
                     <tr>
+                        <td>{{$index+1}}</td>
 
                         <td>{{cf.date}}</td>
                         <td>{{cf.fuelTotal}}</td>
@@ -177,6 +177,7 @@
                                         <th>Price</th>
                                         <th>Number of Vehicles</th>
                                         <th>To be Consumed</th>
+                                        <th>Total Quantity</th>
                                         <th>Total Cost for 1st 30 days</th>
                                         <th>Total Cost for 2nd 30 days</th>
                                         <th>Total Cost for 3rd 30 days</th>
@@ -184,7 +185,7 @@
                                     </tr>
                                 </thead>
                                 <tbody id="appendhereb">
-                                    <tr class="row_to_clone">
+                                    <tr class="row_to_clone" ng-repeat="ncf in usersClicked.fuel_diesel">
 
 
                                         <!-- <td>
@@ -192,58 +193,64 @@
                                                 <input type="text" value="Totally Damaged" autocomplete='off' />
                                             </label>
                                         </td> -->
-
+                                        
                                         <td>
                                             <label class="input">
-                                                <input type="text" autocomplete='off' />
+                                                <input type="text" autocomplete='off' ng-model="ncf['For']"/>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="input">
+                                                <input type="text" autocomplete='off' ng-model="ncf['Particular Item']"/>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="input">
+                                                <input type="text" autocomplete='off' ng-model="ncf['Unit']" />
                                             </label>
                                         </td>
 
                                         <td>
                                             <label class="input">
-                                                <input type="text" autocomplete='off' />
+                                                <input type="text" autocomplete='off' ng-model="ncf['Price']"/>
                                             </label>
                                         </td>
 
                                         <td>
                                             <label class="input">
-                                                <input type="text" autocomplete='off' />
+                                                <input type="text" autocomplete='off' ng-model="ncf['Number of Vehicles']" />
+                                            </label>
+                                        </td>
+
+
+                                        <td>
+                                            <label class="input">
+                                                <input type="text" autocomplete='off' ng-model="ncf['To be Consumed']"/>
+                                            </label>
+                                        </td>
+
+
+                                        <td>
+                                            <label class="input">
+                                                <input type="text" autocomplete='off' ng-model="ncf['Total Quantity']"/>
                                             </label>
                                         </td>
 
                                         <td>
                                             <label class="input">
-                                                <input type="text" autocomplete='off' />
+                                                <input type="text" autocomplete='off' class="txt" ng-model="ncf['Total Cost for 1st 30 days']"/>
                                             </label>
                                         </td>
 
                                         <td>
                                             <label class="input">
-                                                <input type="text" autocomplete='off' />
+                                                <input type="text" autocomplete='off' class="txt2" ng-model="ncf['Total Cost for 2nd 30 days']"/>
                                             </label>
                                         </td>
 
                                         <td>
                                             <label class="input">
-                                                <input type="text" autocomplete='off' />
-                                            </label>
-                                        </td>
-
-                                        <td>
-                                            <label class="input">
-                                                <input type="text" autocomplete='off' class="txt" />
-                                            </label>
-                                        </td>
-
-                                        <td>
-                                            <label class="input">
-                                                <input type="text" autocomplete='off' class="txt2" />
-                                            </label>
-                                        </td>
-
-                                        <td>
-                                            <label class="input">
-                                                <input type="text" autocomplete='off' class="txt3" />
+                                                <input type="text" autocomplete='off' class="txt3" ng-model="ncf['Total Cost for 3rd 30 days']"/>
                                             </label>
                                         </td>
 
@@ -341,6 +348,7 @@
                                         <th>Price</th>
                                         <th>Number of Vehicles</th>
                                         <th>To be Consumed</th>
+                                        <th>Total Quantity</th>
                                         <th>Total Cost for 1st 30 days</th>
                                         <th>Total Cost for 2nd 30 days</th>
                                         <th>Total Cost for 3rd 30 days</th>
@@ -348,7 +356,7 @@
                                     </tr>
                                 </thead>
                                 <tbody id="appendherec">
-                                    <tr class="row_to_clone">
+                                    <tr class="row_to_clone" ng-repeat="ncf in usersClicked.fuel_gasoline">
 
 
                                         <!-- <td>
@@ -359,55 +367,61 @@
 
                                         <td>
                                             <label class="input">
-                                                <input type="text" autocomplete='off' />
+                                                <input type="text" autocomplete='off' ng-model="ncf['For']"/>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="input">
+                                                <input type="text" autocomplete='off' ng-model="ncf['Particular Item']"/>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="input">
+                                                <input type="text" autocomplete='off' ng-model="ncf['Unit']" />
                                             </label>
                                         </td>
 
                                         <td>
                                             <label class="input">
-                                                <input type="text" autocomplete='off'  />
+                                                <input type="text" autocomplete='off' ng-model="ncf['Price']"/>
                                             </label>
                                         </td>
 
                                         <td>
                                             <label class="input">
-                                                <input type="text" autocomplete='off'  />
+                                                <input type="text" autocomplete='off' ng-model="ncf['Number of Vehicles']" />
+                                            </label>
+                                        </td>
+
+
+                                        <td>
+                                            <label class="input">
+                                                <input type="text" autocomplete='off' ng-model="ncf['To be Consumed']"/>
+                                            </label>
+                                        </td>
+
+
+                                        <td>
+                                            <label class="input">
+                                                <input type="text" autocomplete='off' class="txt" ng-model="ncf['Total Quantity']"/>
                                             </label>
                                         </td>
 
                                         <td>
                                             <label class="input">
-                                                <input type="text" autocomplete='off'  />
+                                                <input type="text" autocomplete='off' class="txt4" ng-model="ncf['Total Cost for 1st 30 days']"/>
                                             </label>
                                         </td>
 
                                         <td>
                                             <label class="input">
-                                                <input type="text" autocomplete='off'  />
+                                                <input type="text" autocomplete='off' class="txt5" ng-model="ncf['Total Cost for 2nd 30 days']" />
                                             </label>
                                         </td>
 
                                         <td>
                                             <label class="input">
-                                                <input type="text" autocomplete='off'  />
-                                            </label>
-                                        </td>
-
-                                        <td>
-                                            <label class="input">
-                                                <input type="text" autocomplete='off' class="txt4" />
-                                            </label>
-                                        </td>
-
-                                        <td>
-                                            <label class="input">
-                                                <input type="text" autocomplete='off' class="txt5" />
-                                            </label>
-                                        </td>
-
-                                        <td>
-                                            <label class="input">
-                                                <input type="text" autocomplete='off' class="txt6" />
+                                                <input type="text" autocomplete='off' class="txt6" ng-model="ncf['Total Cost for 3rd 30 days']"/>
                                             </label>
                                         </td>
 
@@ -440,7 +454,7 @@
                             </table>
                             <br>
                             <div style="overflow-x:auto;">
-                                <h4>&emsp; Fuels Needed Cost &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                                <h4>&emsp; Fuels Needed Cost &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
                                     <span id="sumFirstFuel">0.00</span> &emsp;&emsp;&emsp;&emsp;&emsp;
                                     <span id="sumSecondFuel">0.00</span> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
                                     <span id="sumThirdFuel">0.00</span>
@@ -494,6 +508,7 @@
                                         <th>Price</th>
                                         <th>Number of Vehicles</th>
                                         <th>To be Consumed</th>
+                                        <th>Total Quantity</th>
                                         <th>Total Cost for 1st 30 days</th>
                                         <th>Total Cost for 2nd 30 days</th>
                                         <th>Total Cost for 3rd 30 days</th>
@@ -501,7 +516,7 @@
                                     </tr>
                                 </thead>
                                 <tbody id="appendhered">
-                                    <tr class="row_to_clone">
+                                    <tr class="row_to_clone" ng-repeat="ncf in usersClicked.water">
 
 
                                         <!-- <td>
@@ -512,49 +527,56 @@
 
                                         <td>
                                             <label class="input">
-                                                <input type="text" autocomplete='off'  />
+                                                <input type="text" autocomplete='off' ng-model="ncf['Particular Item']"/>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="input">
+                                                <input type="text" autocomplete='off' ng-model="ncf['Unit']" />
                                             </label>
                                         </td>
 
                                         <td>
                                             <label class="input">
-                                                <input type="text" autocomplete='off'  />
+                                                <input type="text" autocomplete='off' ng-model="ncf['Price']"/>
                                             </label>
                                         </td>
 
                                         <td>
                                             <label class="input">
-                                                <input type="text" autocomplete='off' />
+                                                <input type="text" autocomplete='off' ng-model="ncf['Number of Vehicles']" />
+                                            </label>
+                                        </td>
+
+
+                                        <td>
+                                            <label class="input">
+                                                <input type="text" autocomplete='off' ng-model="ncf['To be Consumed']"/>
+                                            </label>
+                                        </td>
+
+
+                                        <td>
+                                            <label class="input">
+                                                <input type="text" autocomplete='off' class="txt" ng-model="ncf['Total Quantity']"/>
                                             </label>
                                         </td>
 
                                         <td>
                                             <label class="input">
-                                                <input type="text" autocomplete='off'  />
+                                                <input type="text" autocomplete='off' class="txt7" ng-model="ncf['Total Cost for 1st 30 days']"/>
                                             </label>
                                         </td>
 
                                         <td>
                                             <label class="input">
-                                                <input type="text" autocomplete='off' />
+                                                <input type="text" autocomplete='off' class="txt8" ng-model="ncf['Total Cost for 2nd 30 days']"/>
                                             </label>
                                         </td>
 
                                         <td>
                                             <label class="input">
-                                                <input type="text" autocomplete='off' class="txt7" />
-                                            </label>
-                                        </td>
-
-                                        <td>
-                                            <label class="input">
-                                                <input type="text" autocomplete='off' class="txt8" />
-                                            </label>
-                                        </td>
-
-                                        <td>
-                                            <label class="input">
-                                                <input type="text" autocomplete='off' class="txt9" />
+                                                <input type="text" autocomplete='off' class="txt9" ng-model="ncf['Total Cost for 3rd 30 days']"/>
                                             </label>
                                         </td>
 
@@ -587,7 +609,7 @@
                             </table>
                             <br>
                             <div style="overflow-x:auto;">
-                                <h4>&emsp; Fuels Needed Cost &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                                <h4>&emsp; Fuels Needed Cost &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
                                     <span id="sumFirstWater">0.00</span> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
                                     <span id="sumSecondWater">0.00</span> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
                                     <span id="sumThirdWater">0.00</span>
@@ -640,6 +662,7 @@
                                         <th>Price</th>
                                         <th>Number of Vehicles</th>
                                         <th>To be Consumed</th>
+                                        <th>Total Quantity</th>
                                         <th>Total Cost for 1st 30 days</th>
                                         <th>Total Cost for 2nd 30 days</th>
                                         <th>Total Cost for 3rd 30 days</th>
@@ -647,7 +670,7 @@
                                     </tr>
                                 </thead>
                                 <tbody id="appendheree">
-                                    <tr class="row_to_clone">
+                                    <tr class="row_to_clone" ng-repeat="ncf in usersClicked.electric">
 
 
                                         <!-- <td>
@@ -658,49 +681,56 @@
 
                                         <td>
                                             <label class="input">
-                                                <input type="text" autocomplete='off' />
+                                                <input type="text" autocomplete='off' ng-model="ncf['Particular Item']"/>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="input">
+                                                <input type="text" autocomplete='off' ng-model="ncf['Unit']" />
                                             </label>
                                         </td>
 
                                         <td>
                                             <label class="input">
-                                                <input type="text" autocomplete='off'  />
+                                                <input type="text" autocomplete='off' ng-model="ncf['Price']"/>
                                             </label>
                                         </td>
 
                                         <td>
                                             <label class="input">
-                                                <input type="text" autocomplete='off'  />
+                                                <input type="text" autocomplete='off' ng-model="ncf['Number of Vehicles']" />
+                                            </label>
+                                        </td>
+
+
+                                        <td>
+                                            <label class="input">
+                                                <input type="text" autocomplete='off' ng-model="ncf['To be Consumed']"/>
+                                            </label>
+                                        </td>
+
+
+                                        <td>
+                                            <label class="input">
+                                                <input type="text" autocomplete='off' class="txt" ng-model="ncf['Total Quantity']"/>
                                             </label>
                                         </td>
 
                                         <td>
                                             <label class="input">
-                                                <input type="text" autocomplete='off'  />
+                                                <input type="text" autocomplete='off' class="txt10" ng-model="ncf['Total Cost for 1st 30 days']"/>
                                             </label>
                                         </td>
 
                                         <td>
                                             <label class="input">
-                                                <input type="text" autocomplete='off' />
+                                                <input type="text" autocomplete='off' class="txt11" ng-model="ncf['Total Cost for 2nd 30 days']"/>
                                             </label>
                                         </td>
 
                                         <td>
                                             <label class="input">
-                                                <input type="text" autocomplete='off' class="txt10" />
-                                            </label>
-                                        </td>
-
-                                        <td>
-                                            <label class="input">
-                                                <input type="text" autocomplete='off' class="txt11" />
-                                            </label>
-                                        </td>
-
-                                        <td>
-                                            <label class="input">
-                                                <input type="text" autocomplete='off' class="txt12" />
+                                                <input type="text" autocomplete='off' class="txt12" ng-model="ncf['Total Cost for 3rd 30 days']"/>
                                             </label>
                                         </td>
 
@@ -733,7 +763,7 @@
                             </table>
                             <br>
                             <div style="overflow-x:auto;">
-                                <h4>&emsp; Fuels Needed Cost &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                                <h4>&emsp; Fuels Needed Cost &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
                                     <span id="sumFirstElectric">0.00</span> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
                                     <span id="sumSecondElectric">0.00</span> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
                                     <span id="sumThirdElectric">0.00</span>

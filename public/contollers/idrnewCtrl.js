@@ -259,8 +259,8 @@ angular.module('newApp').controller('idrnewCtrl', function ($scope) {
                 "date": datetoday,
 
                 "operationName": $scope.operationName,
-                "dead_confirmed": $scope.deadConfirmed,
-                "dead_reported": $scope.deadReported,
+                "deadConfirmed": $scope.deadConfirmed,
+                "deadReported": $scope.deadReported,
                 "missing": $scope.missing,
                 "injured": $scope.injured,
 

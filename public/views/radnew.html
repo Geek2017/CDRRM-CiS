@@ -40,7 +40,7 @@
                         <div id="notif"></div>
 
                         <!-- Success states for elements -->
-                        <form class="smart-form">
+                        <form class="smart-form" id="newrad">
                             <header>Relief Assistance Details (RAD) </header>
 
                             <fieldset>
@@ -49,13 +49,13 @@
                                         <section class="col col-6">
                                             <label class="label">Date</label>
                                             <label class="input ">
-                                                <input type="date" id="date">
+                                                <input type="date" id="date" required>
                                             </label>
                                         </section>
                                         <section class="col col-6">
                                             <label class="label">Evacuation Centers</label>
                                             <label class="input ">
-                                                <input type="text" id="evacCenter">
+                                                <input type="text" id="evacCenter" required>
                                             </label>
                                         </section>
                                     </div>
@@ -64,20 +64,20 @@
                                         <section class="col col-4">
                                             <label class="label">Items</label>
                                             <label class="textarea ">
-                                                <textarea rows="3" id="items"></textarea>
+                                                <textarea rows="3" id="items" required></textarea>
                                             </label>
                                         </section>
 
                                         <section class="col col-4">
                                             <label class="label">Number of Evacuees</label>
                                             <label class="input ">
-                                                <input type="number" id="noOfEvacuess">
+                                                <input type="number" id="noOfEvacuess" required>
                                             </label>
                                         </section>
                                         <section class="col col-4">
                                             <label class="label">Quantity per Item</label>
                                             <label class="input ">
-                                                <input type="number" id="quantity1">
+                                                <input type="number" id="quantity1" required>
                                             </label>
                                         </section>
                                     </div>
@@ -86,19 +86,19 @@
                                         <section class="col col-4">
                                             <label class="label">Number of Volunteers/Extra</label>
                                             <label class="input ">
-                                                <input type="number" id="noOfVolunteers">
+                                                <input type="number" id="noOfVolunteers" required>
                                             </label>
                                         </section>
                                         <section class="col col-4">
                                             <label class="label">Quantity per Item</label>
                                             <label class="input ">
-                                                <input type="number" id="quantity2">
+                                                <input type="number" id="quantity2" required>
                                             </label>
                                         </section>
                                         <section class="col col-4">
                                             <label class="label">Total Per Itam</label>
                                             <label class="input ">
-                                                <input type="number" id="total">
+                                                <input type="number" id="total" required>
                                             </label>
                                         </section>
                                     </div>
@@ -107,7 +107,7 @@
                                         <section class="col col-4">
                                             <label class="label">Delivered by: </label>
                                             <label class="input ">
-                                                <input type="text" id="delivered">
+                                                <input type="text" id="delivered" required>
                                             </label>
                                         </section>
                                         <!-- <section class="col col-4">
@@ -129,7 +129,7 @@
                             </fieldset>
 
                             <footer>
-                                <button type="button" id="submit" class="btn btn-primary">Save</button>
+                                <button type="submit" id="submit" class="btn btn-primary">Save</button>
                                 <button type="button" class="btn btn-default" onclick="window.history.back();">Back</button>
                             </footer>
                         </form>

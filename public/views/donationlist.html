@@ -49,6 +49,10 @@
                         <th>Date</th>
                         <th>Name of Donor</th>
                         <th>Address</th>
+                        <th>Items</th>
+                        <th>Number of Recipients in Albay Central School Evacuation Center</th>
+                        <!-- <th>Number of Recipients in Bagumbayan Central School Evacuation Center</th> -->
+                        <th>Number of Recipients in Buraguis Evacuation Center</th>
                         <!-- <th>Items</th>
                         <th>Number of Recipients in Albay Central School Evacuation Center</th>
                         <th>Number of Recipients in Bagumbayan Central School Evacuation Center</th>
@@ -88,6 +92,9 @@
                         <td>{{cf.date}}</td>
                         <td>{{ncf['Name of Donor']}}</td>
                         <td>{{ncf['Address']}}</td>
+                        <td>{{ncf['Items']}}</td>
+                        <td>{{ncf['Number of Recipients in Albay Central School Evacuation Center']}}</td>
+                        <td>{{ncf['Number of Recipients in Buraguis Evacuation Center']}}</td>
                         <td class="col col-4">
 
                             <button type="button" class="btn  btn-block btn-success " ng-click="selectUser(cf)"><i
@@ -167,13 +174,7 @@
 
     </div>
 
-<<<<<<< HEAD
-    <!-- <span id="here"></span>
-     -->
-     <div class="btn-group btn-group-xs pull-right">
-=======
     <div class="btn-group btn-group-xs pull-right">
->>>>>>> 23383a302683b8fa5ffa9d69cfa694ad601971b0
         <button class="btn btn-primary" ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
        Back
       </button>

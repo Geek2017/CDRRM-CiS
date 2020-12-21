@@ -12,8 +12,10 @@ angular.module('newApp').controller('radnewCtrl', function($scope) {
     var dateOfEvacuation = $('#dateOfEvacuation').val();
     var dateOfDecampment = $('#dateOfDecampment').val();
     var remarks = $('#remarks').val();
+
+    $('#newrad').on('submit', function (e) {
     
-    $("#submit").click(function() {
+    // $("#submit").click(function() {
             // console.log(municipality);
             // console.log(host);
             // console.log(accomodated);

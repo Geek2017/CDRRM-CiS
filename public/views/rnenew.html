@@ -40,7 +40,7 @@
                         <div id="notif"></div>
 
                         <!-- Success states for elements -->
-                        <form class="smart-form">
+                        <form class="smart-form"  id="newrne">
                             <header>Report on the Number of Evacuation Centers and other Details (Disaster)</header>
 
                             <fieldset>
@@ -50,14 +50,14 @@
                                         <section class="col col-6">
                                             <label class="label">School ID </label>
                                             <label class="input ">
-                                                <input type="text" id="schoolID">
+                                                <input type="text" id="schoolID" required>
                                             </label>
                                         </section>
 
                                         <section class="col col-6">
                                             <label class="label">Name of School </label>
                                             <label class="input ">
-                                                <input type="text" id="school">
+                                                <input type="text" id="school" required>
                                             </label>
                                         </section>
 
@@ -67,25 +67,25 @@
                                         <section class="col col-3">
                                             <label class="label">Region</label>
                                             <label class="input ">
-                                                <input type="text" id="region">
+                                                <input type="text" id="region" required>
                                             </label>
                                         </section>
                                         <section class="col col-3">
                                             <label class="label">Division</label>
                                             <label class="input ">
-                                                <input type="text" id="division">
+                                                <input type="text" id="division" required>
                                             </label>
                                         </section>
                                         <section class="col col-3">
                                             <label class="label">District </label>
                                             <label class="input ">
-                                                <input type="text" id="district">
+                                                <input type="text" id="district" required>
                                             </label>
                                         </section>
                                         <section class="col col-3">
                                             <label class="label">Municipality</label>
                                             <label class="input ">
-                                                <input type="text" id="municipality">
+                                                <input type="text" id="municipality" required>
                                             </label>
                                         </section>
 
@@ -95,25 +95,25 @@
                                         <section class="col col-3">
                                             <label class="label">Enrollment</label>
                                             <label class="input ">
-                                                <input type="number" id="enrollment">
+                                                <input type="number" id="enrollment" required>
                                             </label>
                                         </section>
                                         <section class="col col-3">
                                             <label class="label">Total Schools with Report</label>
                                             <label class="input ">
-                                                <input type="number" id="totalSchool">
+                                                <input type="number" id="totalSchool" required>
                                             </label>
                                         </section>
                                         <section class="col col-3">
                                             <label class="label">Schools with Reported Infra Damages</label>
                                             <label class="input ">
-                                                <input type="number" id="schoolWithInfraDamage">
+                                                <input type="number" id="schoolWithInfraDamage" required>
                                             </label>
                                         </section>
                                         <section class="col col-3">
                                             <label class="label">Totally Damaged Classrooms</label>
                                             <label class="input ">
-                                                <input type="number" id="totalDamageClassroom">
+                                                <input type="number" id="totalDamageClassroom" required>
                                             </label>
                                         </section>
 
@@ -123,25 +123,25 @@
                                         <section class="col col-3">
                                             <label class="label">Partially Damaged Classrooms (Major)</label>
                                             <label class="input ">
-                                                <input type="number" id="partialDamageClassMajor">
+                                                <input type="number" id="partialDamageClassMajor" required>
                                             </label>
                                         </section>
                                         <section class="col col-3">
                                             <label class="label">Partially Damaged Classrooms (Minor)</label>
                                             <label class="input ">
-                                                <input type="number" id="partialDamageClassMinor">
+                                                <input type="number" id="partialDamageClassMinor" required>
                                             </label>
                                         </section>
                                         <section class="col col-3">
                                             <label class="label">Temporary Learning Spaces needed</label>
                                             <label class="input ">
-                                                <input type="number" id="temporaryLearning">
+                                                <input type="number" id="temporaryLearning" required>
                                             </label>
                                         </section>
                                         <section class="col col-3">
                                             <label class="label">Number of Deceased DepEd Personnel</label>
                                             <label class="input ">
-                                                <input type="number" id="deceasedPersonnel">
+                                                <input type="number" id="deceasedPersonnel" required>
                                             </label>
                                         </section>
 
@@ -151,25 +151,25 @@
                                         <section class="col col-3">
                                             <label class="label">Number of Injured DepEd Personnel</label>
                                             <label class="input ">
-                                                <input type="number" id="injuredPersonnel">
+                                                <input type="number" id="injuredPersonnel" required>
                                             </label>
                                         </section>
                                         <section class="col col-3">
                                             <label class="label">Number of Missing DepEd Personnel</label>
                                             <label class="input ">
-                                                <input type="number" id="missingPersonnel">
+                                                <input type="number" id="missingPersonnel" required>
                                             </label>
                                         </section>
                                         <section class="col col-3">
                                             <label class="label">Number of Displaced DepEd Personnel</label>
                                             <label class="input ">
-                                                <input type="number" id="displacedPersonnel">
+                                                <input type="number" id="displacedPersonnel" required>
                                             </label>
                                         </section>
                                         <section class="col col-3">
                                             <label class="label">Total Classrooms used as Evacuation Center</label>
                                             <label class="input ">
-                                                <input type="number" id="totalEvacSchool">
+                                                <input type="number" id="totalEvacSchool" required>
                                             </label>
                                         </section>
 
@@ -179,7 +179,7 @@
                                         <section class="col col-3">
                                             <label class="label">School as EC lasted for 3 days or more</label>
                                             <label class="select ">
-                                                <select id="ECLasted">
+                                                <select id="ECLasted" required>
                                                     <!-- <option value="0">Choose Municipality</option> -->
                                                     <option value="Yes" selected>Yes</option>
                                                     <option value="No">No</option>
@@ -190,19 +190,19 @@
                                         <section class="col col-3">
                                             <label class="label">Total Schools with Report</label>
                                             <label class="input ">
-                                                <input type="number" id="totalSchoolReport">
+                                                <input type="number" id="totalSchoolReport" required>
                                             </label>
                                         </section>
                                         <section class="col col-3">
                                             <label class="label">Schools with Reported Non-Infra Damages</label>
                                             <label class="input ">
-                                                <input type="number" id="schoolWithNonInfraDamage">
+                                                <input type="number" id="schoolWithNonInfraDamage" required>
                                             </label>
                                         </section>
                                         <section class="col col-3">
                                             <label class="label">Number of damaged school furnitures</label>
                                             <label class="input ">
-                                                <input type="number" id="damagedSchoolFurnitures">
+                                                <input type="number" id="damagedSchoolFurnitures" required>
                                             </label>
                                         </section>
 
@@ -212,14 +212,14 @@
                                         <section class="col col-6">
                                             <label class="label">Number of damaged learning materials </label>
                                             <label class="input ">
-                                                <input type="number" id="damagedLearningMaterials">
+                                                <input type="number" id="damagedLearningMaterials" required>
                                             </label>
                                         </section>
 
                                         <section class="col col-6">
                                             <label class="label">Number of damaged computer equipment </label>
                                             <label class="input ">
-                                                <input type="number" id="damagedComputerEquipment">
+                                                <input type="number" id="damagedComputerEquipment" required>
                                             </label>
                                         </section>
 
@@ -230,7 +230,7 @@
                             </fieldset>
 
                             <footer>
-                                <button type="button" id="submit" class="btn btn-primary">Save</button>
+                                <button type="submit" id="submit" class="btn btn-primary">Save</button>
                                 <button type="button" class="btn btn-default" onclick="window.history.back();">Back</button>
                             </footer>
                         </form>

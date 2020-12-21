@@ -86,9 +86,9 @@
                     <tr>
                         <th class="text-center th">#</th>
                         <th class="text-center th">Municipality </th>
-                        <th class="text-center th">#</th>
+                        <!-- <th class="text-center th">#</th> -->
                         <th class="text-center th">List of Schools used as Evacuation Centers</th>
-                        <th class="text-center th">#</th>
+                        <!-- <th class="text-center th">#</th> -->
                         <th class="text-center th">No. of classrooms used as Evacuation Centers</th>
                         <th class="text-center th">No. of families </th>
                         <th class="text-center th">No. of individuals </th>
@@ -108,9 +108,9 @@
                     <tr class="text-center" ng-repeat="cf in data | startFrom:currentPage*pageSize | limitTo:pageSize |filter:findcf">
                         <td>{{$index + 1}}</td>
                         <td>{{cf.municipality}}</td>
-                        <td>{{cf.municipalityNo}}</td>
+                        <!-- <td>{{cf.municipalityNo}}</td> -->
                         <td>{{cf.evacCenter}}</td>
-                        <td>{{cf.evacCenterNo}}</td>
+                        <!-- <td>{{cf.evacCenterNo}}</td> -->
                         <td>{{cf.classroomNo}}</td>
                         <td>{{cf.familiesNo}}</td>
                         <td>{{cf.individualNo}}</td>

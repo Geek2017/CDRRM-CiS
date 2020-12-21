@@ -19,9 +19,10 @@ angular.module('newApp').controller('locnewCtrl', function($scope) {
     // var division = $('#division').val()
     // console.log(division);
 
+    $('#newloc').on('submit', function (e) {
+        e.preventDefault();
     
-    
-    $("#submit").click(function() {
+    // $("#submit").click(function() {
             // console.log(municipality);
             // console.log(host);
             // console.log(accomodated);

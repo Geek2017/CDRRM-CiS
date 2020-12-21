@@ -32,6 +32,7 @@
 
                     <tr>
                         <!-- <th class="text-center th">#</th> -->
+                        <th>Date</th>
                         <th>Division</th>
                         <!-- <th class="text-center th">#</th> -->
                         <th>Municipality</th>
@@ -40,7 +41,7 @@
                         <!-- <th class="text-center th">#</th> -->
                         <th>Affected Schools</th>
                         <th>No. of families</th>
-                        <th>No. of individuals </th>
+                        <!-- <th>No. of individuals </th> -->
                         <!-- <th class="text-center th">Resident Learners</th>
                         <th class="text-center th">Displaced Learners</th>
                         <th class="text-center th">TOTAL Affected Learners</th> -->
@@ -53,6 +54,7 @@
 
                     <tr class="text-center" ng-repeat="ncf in cf.center ">
                         <!-- <td>{{$index + 1}}</td> -->
+                        <td>{{cf.date}}</td>
                         <td>{{ncf['Division']}}</td>
                         <!-- <td>{{ncf['Number (Division)']}}</td> -->
                         <td>{{ncf['Municipality']}}</td>
@@ -61,7 +63,7 @@
                         <!-- <td>{{ncf['Number (Schools)']}}</td> -->
                         <td>{{ncf['Affected Schools within the Permanent Danger Zone']}}</td>
                         <td>{{ncf['Number of families']}}</td>
-                        <td>{{ncf['Number of individuals']}}</td>
+                        <!-- <td>{{ncf['Number of individuals']}}</td> -->
                         <td class="col col-4">
 
                             <button type="button" class="btn  btn-block btn-success " ng-click="selectUser(cf)"><i

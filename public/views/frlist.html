@@ -2,17 +2,36 @@
     .indent-1 {
         float: left;
     }
-    
+
     .indent-1 section {
         width: 50%;
         float: left;
+    }
+
+    #sig-canvas {
+        border: 2px dotted #CCCCCC;
+        border-radius: 15px;
+        cursor: crosshair;
+    }
+
+    #sig-canvas2 {
+        border: 2px dotted #CCCCCC;
+        border-radius: 15px;
+        cursor: crosshair;
+    }
+
+    #sig-canvas3 {
+        border: 2px dotted #CCCCCC;
+        border-radius: 15px;
+        cursor: crosshair;
     }
 </style>
 
 <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
 
     <!-- Widget ID (each widget will need unique ID)-->
-    <div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-editbutton="true" style="margin-bottom: 3px!important;">
+    <div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-editbutton="true"
+        style="margin-bottom: 3px!important;">
         <!-- widget options:
         usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
         data-widget-colorbutton="false"
@@ -39,7 +58,8 @@
 
             <label class="input pull-right">
                 <label class="select ">
-                    <select class="form-control" ng-model="pageSize" ng-options="num for num in [5, 10, 15,20]" ></select> <i></i> </label>
+                    <select class="form-control" ng-model="pageSize"
+                        ng-options="num for num in [5, 10, 15,20]"></select> <i></i> </label>
             </label>
 
             <table id="data" class="table table-striped table-bordered table-hover" width="100%">
@@ -50,6 +70,10 @@
                         <!-- <th>#</th> -->
                         <th>Date</th>
                         <th>Background Information</th>
+                        <th>Emergency Reponse Activities Undertaken</th>
+                        <th>Problems, Issues and Concerns</th>
+                        <th>Other Reports</th>
+                        <th>Suggestions and Recommendations</th>
                         <!-- <th>Dead (Confirmed)</th>
                         <th>Dead (Reported)</th>
                         <th>Missing</th>
@@ -66,6 +90,10 @@
                     <tr ng-repeat="ncf in cf.background ">
                         <td>{{cf.date}}</td>
                         <td>{{ncf['Background Infromation']}}</td>
+                        <td>{{cf.ercu[0]['Description']}}</td>
+                        <td>{{cf.pic[0]['Problems, Issues and Concerns']}}</td>
+                        <td>{{cf.or[0]['Other Reports']}}</td>
+                        <td>{{cf.sr[0]['Suggestion and Recommendations']}}</td>
                         <!-- <td>{{cf.dead_confirmed}}</td>
                         <td>{{cf.dead_reported}}</td>
                         <td>{{cf.missing}}</td>
@@ -75,17 +103,17 @@
                         <td class="col col-4">
 
                             <button type="button" class="btn  btn-block btn-success " ng-click="selectUser(cf)"><i
-                    class="fa fa-pencil"></i> Edit Data</button>
+                                    class="fa fa-pencil"></i> Edit Data</button>
                         </td>
                         <td class="col col-4">
 
                             <button type="button" class="btn btn-block btn-info" ng-click="printit(cf)"><i
-                        class="fa fa-print"></i> Print Data</button>
+                                    class="fa fa-print"></i> Print Data</button>
                         </td>
                         <td class="col col-4">
 
                             <button type="button" class="btn btn-block btn-danger" ng-click="selectUser2(cf)"><i
-                    class="fa fa-minus-circle"></i> Delete Data</button>
+                                    class="fa fa-minus-circle"></i> Delete Data</button>
 
                         </td>
                     </tr>
@@ -111,12 +139,13 @@
 
     <div class="btn-group btn-group-xs pull-right">
         <button class="btn btn-primary" ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
-       Back
-      </button>
+            Back
+        </button>
         <button class="btn btn-primary">{{currentPage+1}} of {{numberOfPages()}}</button>
-        <button class="btn btn-primary" ng-disabled="currentPage >= data.length/pageSize - 1" ng-click="currentPage=currentPage+1">
-        Next
-      </button>
+        <button class="btn btn-primary" ng-disabled="currentPage >= data.length/pageSize - 1"
+            ng-click="currentPage=currentPage+1">
+            Next
+        </button>
     </div>
 </article>
 
@@ -145,8 +174,10 @@
                         <div class="panel-body ">
 
                             <div class="btn-group btn-group-sm pull-right">
-                                <button type="button" class="btn btn-success " id="addmeb"><i class="fa fa-plus-circle"></i></button>
-                                <button type="button" class="btn btn-danger" id="minmeb"><i class="fa fa-minus-circle"></i></button>
+                                <button type="button" class="btn btn-success " id="addmeb"><i
+                                        class="fa fa-plus-circle"></i></button>
+                                <button type="button" class="btn btn-danger" id="minmeb"><i
+                                        class="fa fa-minus-circle"></i></button>
                             </div>
                             <br>
                             <br>
@@ -158,9 +189,10 @@
 
                                     </tr>
                                 </thead>
-                                <tbody id="appendhereb">
+                                <tbody id="appendhereb" ng-repeat="ncf in usersClicked.background">
                                     <tr>
-                                        <td class='col-md-10'><label class='textarea'><textarea rows='5' ></textarea></label></td>
+                                        <td class='col-md-10'><label class='textarea'><textarea rows='5'
+                                                    ng-model="ncf['Background Infromation']"></textarea></label></td>
                                     </tr>
 
                                 </tbody>
@@ -175,8 +207,10 @@
                         <div class="panel-body ">
 
                             <div class="btn-group btn-group-sm pull-right">
-                                <button type="button" class="btn btn-success " id="addmec"><i class="fa fa-plus-circle"></i></button>
-                                <button type="button" class="btn btn-danger" id="minmec"><i class="fa fa-minus-circle"></i></button>
+                                <button type="button" class="btn btn-success " id="addmec"><i
+                                        class="fa fa-plus-circle"></i></button>
+                                <button type="button" class="btn btn-danger" id="minmec"><i
+                                        class="fa fa-minus-circle"></i></button>
                             </div>
                             <br>
                             <br>
@@ -190,13 +224,15 @@
                                         <th>Description</th>
                                     </tr>
                                 </thead>
-                                <tbody id="appendherec">
+                                <tbody id="appendherec" ng-repeat="ncf in usersClicked.ercu">
                                     <tr>
-                                        <td class="col-md-2"><label class="input"> 
-                                            <input type="text" name="Number_of_Cases" placeholder="2.1">
-                                        </label>
+                                        <td class="col-md-2"><label class="input">
+                                                <input type="text" name="Number_of_Cases" placeholder="2.1"
+                                                    ng-model="ncf['Version']">
+                                            </label>
                                         </td>
-                                        <td class='col-md-10'><label class='textarea'><textarea rows='5' ></textarea></label></td>
+                                        <td class='col-md-10'><label class='textarea'><textarea rows='5'
+                                                    ng-model="ncf['Description']"></textarea></label></td>
                                     </tr>
                                 </tbody>
 
@@ -210,8 +246,10 @@
                         <div class="panel-body ">
 
                             <div class="btn-group btn-group-sm pull-right">
-                                <button type="button" class="btn btn-success " id="addmed"><i class="fa fa-plus-circle"></i></button>
-                                <button type="button" class="btn btn-danger" id="minmed"><i class="fa fa-minus-circle"></i></button>
+                                <button type="button" class="btn btn-success " id="addmed"><i
+                                        class="fa fa-plus-circle"></i></button>
+                                <button type="button" class="btn btn-danger" id="minmed"><i
+                                        class="fa fa-minus-circle"></i></button>
                             </div>
                             <br>
                             <br>
@@ -221,9 +259,11 @@
                                         <th colspan="2">Problems, Issues and Concerns</th>
                                     </tr>
                                 </thead>
-                                <tbody id="appendhered">
+                                <tbody id="appendhered" ng-repeat="ncf in usersClicked.pic">
                                     <tr>
-                                        <td class='col-md-10'><label class='textarea'><textarea rows='5' ></textarea></label></td>
+                                        <td class='col-md-10'><label class='textarea'><textarea rows='5'
+                                                    ng-model="ncf['Problems, Issues and Concerns']"></textarea></label>
+                                        </td>
                                     </tr>
                                 </tbody>
 
@@ -239,8 +279,10 @@
                         <div class="panel-body ">
 
                             <div class="btn-group btn-group-sm pull-right">
-                                <button type="button" class="btn btn-success " id="addmee"><i class="fa fa-plus-circle"></i></button>
-                                <button type="button" class="btn btn-danger" id="minmee"><i class="fa fa-minus-circle"></i></button>
+                                <button type="button" class="btn btn-success " id="addmee"><i
+                                        class="fa fa-plus-circle"></i></button>
+                                <button type="button" class="btn btn-danger" id="minmee"><i
+                                        class="fa fa-minus-circle"></i></button>
                             </div>
                             <br>
                             <br>
@@ -250,9 +292,10 @@
                                         <th colspan="2">Other Reports</th>
                                     </tr>
                                 </thead>
-                                <tbody id="appendheree">
+                                <tbody id="appendheree" ng-repeat="ncf in usersClicked.or">
                                     <tr>
-                                        <td class='col-md-10'><label class='textarea'><textarea rows='5' ></textarea></label></td>
+                                        <td class='col-md-10'><label class='textarea'><textarea rows='5'
+                                                    ng-model="ncf['Other Reports']"></textarea></label></td>
                                     </tr>
                                 </tbody>
 
@@ -266,8 +309,10 @@
                         <div class="panel-body ">
 
                             <div class="btn-group btn-group-sm pull-right">
-                                <button type="button" class="btn btn-success " id="addmef"><i class="fa fa-plus-circle"></i></button>
-                                <button type="button" class="btn btn-danger" id="minmef"><i class="fa fa-minus-circle"></i></button>
+                                <button type="button" class="btn btn-success " id="addmef"><i
+                                        class="fa fa-plus-circle"></i></button>
+                                <button type="button" class="btn btn-danger" id="minmef"><i
+                                        class="fa fa-minus-circle"></i></button>
                             </div>
                             <br>
                             <br>
@@ -277,9 +322,11 @@
                                         <th colspan="2">Suggestion and Recommendations</th>
                                     </tr>
                                 </thead>
-                                <tbody id="appendheref">
+                                <tbody id="appendheref" ng-repeat="ncf in usersClicked.sr">
                                     <tr>
-                                        <td class='col-md-10'><label class='textarea'><textarea rows='5' ></textarea></label></td>
+                                        <td class='col-md-10'><label class='textarea'><textarea rows='5'
+                                                    ng-model="ncf['Suggestion and Recommendations']"></textarea></label>
+                                        </td>
                                     </tr>
                                 </tbody>
 
@@ -301,14 +348,15 @@
                         <section class="col col-6">
                             <label class="label">Prepared by:</label>
                             <label class="input ">
-                                <input type="text" ng-model="preparedBy" id="preparedBy">
+                                <input type="text" ng-model="clickedUser.preparedBy" id="preparedBy">
                             </label>
                         </section>
 
                         <section class="col col-6 sign">
                             <label class="label">Signature</label>
 
-                            <button type="button" class="btn btn-info  btn-sm  btn-block" data-toggle="modal" data-target="#exampleModal">
+                            <button type="button" class="btn btn-info  btn-sm  btn-block" data-toggle="modal"
+                                data-target="#exampleModal">
                                 CLICK TO SIGN
                             </button>
 
@@ -316,7 +364,7 @@
 
                         </section>
                         <section class="col col-12 pull-right">
-                            <img id="sig-image" src="" alt="Your signature will go here!" />
+                            <img id="sig-image" src="{{clickedUser.signature}}" alt="Your signature will go here!" />
                         </section>
 
                     </div>
@@ -332,14 +380,15 @@
                         <section class="col col-6">
                             <label class="label">Approved By:</label>
                             <label class="input ">
-                                <input type="text"  ng-model="approved" id="approved">
+                                <input type="text" ng-model="clickedUser.approved" id="approved">
                             </label>
                         </section>
 
                         <section class="col col-6 sign">
                             <label class="label">Signature</label>
 
-                            <button type="button" class="btn btn-info  btn-sm  btn-block" data-toggle="modal" data-target="#exampleModal2">
+                            <button type="button" class="btn btn-info  btn-sm  btn-block" data-toggle="modal"
+                                data-target="#exampleModal2">
                                 CLICK TO SIGN
                             </button>
 
@@ -347,7 +396,7 @@
 
                         </section>
                         <section class="col col-12 pull-right">
-                            <img id="sig-image2" src="" alt="Your signature will go here!" />
+                            <img id="sig-image2" src="{{clickedUser.signature2}}" alt="Your signature will go here!" />
                         </section>
 
                     </div>
@@ -380,7 +429,8 @@
 
 
                 <p>You want to delete <strong style="color: red;">{{clickedUser.leadAgency}}</strong>'s infomation?
-                    <strong style="color: red;">{{clickedUser.municipality}} {{clickedUser.division}}</strong>?</p>
+                    <strong style="color: red;">{{clickedUser.municipality}} {{clickedUser.division}}</strong>?
+                </p>
 
             </div>
 
@@ -411,16 +461,18 @@
 
                         <center>
                             <section>
-                                <h4> <strong> Republic of the Philipines <br> CITY GOVERNMENT OF LEGAZPI <br> CITY MAYOR'S OFFICE <br> Legazpi City <strong> </h4>
+                                <h4> <strong> Republic of the Philipines <br> CITY GOVERNMENT OF LEGAZPI <br> CITY
+                                        MAYOR'S OFFICE <br> Legazpi City <strong> </h4>
                             </section>
                             <section>
-                                <h4> <strong> CITY DISASTER RISK REDUCTION & MANAGEMENT DIVISION <br> Legazpi City DRR Operations/Climate Change Center<strong> </h4>
+                                <h4> <strong> CITY DISASTER RISK REDUCTION & MANAGEMENT DIVISION <br> Legazpi City DRR
+                                        Operations/Climate Change Center<strong> </h4>
                             </section>
                             <section>
-                            <h3>
-                                <strong> FINAL REPORT <br>  As of
-                                    {{time}}{{mid}}, {{datetoday}}</strong>
-                                    </h3>
+                                <h3>
+                                    <strong> FINAL REPORT <br> As of
+                                        {{time}}{{mid}}, {{datetoday}}</strong>
+                                </h3>
                             </section>
                         </center>
 
@@ -428,22 +480,32 @@
                         <div>
 
                             <div class="panel-body ">
-                                <caption> 1. BACKGROUND INFORMATION <br> <u>{{clickedUser.leadAgency}} </u> </caption> <br><br>
-                                <caption> 2. EMERGENCY RESPONSE ACTIVITIES UNDERTAKEN <br> <u>{{clickedUser.leadAgency}}</u> </caption><br><br>
-                                <caption> 3. PROBLEMS, ISSUES AND CONCERNS <br> <u>{{clickedUser.leadAgency}}</u> </caption><br><br>
+                                <caption> 1. BACKGROUND INFORMATION <br> <u>{{clickedUser.leadAgency}} </u> </caption>
+                                <br><br>
+                                <caption> 2. EMERGENCY RESPONSE ACTIVITIES UNDERTAKEN <br>
+                                    <u>{{clickedUser.leadAgency}}</u> </caption><br><br>
+                                <caption> 3. PROBLEMS, ISSUES AND CONCERNS <br> <u>{{clickedUser.leadAgency}}</u>
+                                </caption><br><br>
                                 <caption> 4. OTHER REPORTS <br> <u>{{clickedUser.leadAgency}}</u> </caption><br><br>
-                                <caption> 5. SUGGESTIONS AND RECOMMENDATIONS <br> <u>{{clickedUser.leadAgency}}</u> </caption><br><br>
+                                <caption> 5. SUGGESTIONS AND RECOMMENDATIONS <br> <u>{{clickedUser.leadAgency}}</u>
+                                </caption><br><br>
                             </div>
                             <div class="panel-body">
 
                                 <section id="spansigr">
-                                    <strong style="float: right;">Submitted By: <br><h4>{{clickedUser.sb1}} <br>{{clickedUser.sb1d}} </h4></strong>
+                                    <strong style="float: right;">Submitted By: <br>
+                                        <h4>{{clickedUser.sb1}} <br>{{clickedUser.sb1d}} </h4>
+                                    </strong>
                                 </section>
 
                                 <section id="spansigl">
                                     <strong>Prepared By:</strong>
-                                    <strong><h4>{{clickedUser.pban1}} <br>{{clickedUser.pban1d}} </h4></strong>
-                                    <strong><h4>{{clickedUser.pban2}} <br>{{clickedUser.pban2d}} </h4></strong>
+                                    <strong>
+                                        <h4>{{clickedUser.pban1}} <br>{{clickedUser.pban1d}} </h4>
+                                    </strong>
+                                    <strong>
+                                        <h4>{{clickedUser.pban2}} <br>{{clickedUser.pban2d}} </h4>
+                                    </strong>
 
                                 </section>
                             </div>
@@ -454,5 +516,42 @@
 
         </div>
 
+    </div>
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+
+    <div class="modal-dialog" role="document">
+
+        <div class="modal-content">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">X</button>
+            <div class="modal-body sign">
+
+                <canvas id="sig-canvas"> </canvas>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="sig-clearBtn">Reset</button>
+                <button type="button" class="btn btn-primary" id="sig-submitBtn">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2"
+    aria-hidden="true">
+
+    <div class="modal-dialog" role="document">
+
+        <div class="modal-content">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">X</button>
+            <div class="modal-body sign">
+
+                <canvas id="sig-canvas2"> </canvas>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="sig-clearBtn2">Reset</button>
+                <button type="button" class="btn btn-primary" id="sig-submitBtn2">Save</button>
+            </div>
+        </div>
     </div>
 </div>

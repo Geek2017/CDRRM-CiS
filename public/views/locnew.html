@@ -40,7 +40,7 @@
                         <div id="notif"></div>
 
                         <!-- Success states for elements -->
-                        <form class="smart-form">
+                        <form class="smart-form" id="newloc">
                             <header>List of Casualties (Learners)</header>
 
                             <fieldset>
@@ -49,25 +49,25 @@
                                         <section class="col col-3">
                                             <label class="label">Municipality</label>
                                             <label class="input ">
-                                                <input type="text" id="municipality">
+                                                <input type="text" id="municipality" required>
                                             </label>
                                         </section>
                                         <section class="col col-3">
                                             <label class="label">#</label>
                                             <label class="input ">
-                                                <input type="text" id="municipalityNo">
+                                                <input type="text" id="municipalityNo" required>
                                             </label>
                                         </section>
                                         <section class="col col-3">
                                             <label class="label">Evacuation Center (Names of school) </label>
                                             <label class="input ">
-                                                <input type="text" id="evacCenter">
+                                                <input type="text" id="evacCenter" required>
                                             </label>
                                         </section>
                                         <section class="col col-3">
                                             <label class="label">#</label>
                                             <label class="input ">
-                                                <input type="text" id="evacCenterNo">
+                                                <input type="text" id="evacCenterNo" required>
                                             </label>
                                         </section>
 
@@ -77,25 +77,25 @@
                                         <section class="col col-3">
                                             <label class="label">No. of classrooms used as Evacuation Centers</label>
                                             <label class="input ">
-                                                <input type="number" id="classroomNo">
+                                                <input type="number" id="classroomNo" required>
                                             </label>
                                         </section>
                                         <section class="col col-3">
                                             <label class="label">No. of families </label>
                                             <label class="input ">
-                                                <input type="number" id="familiesNo">
+                                                <input type="number" id="familiesNo" required>
                                             </label>
                                         </section>
                                         <section class="col col-3">
                                             <label class="label">No. of individuals </label>
                                             <label class="input ">
-                                                <input type="number" id="individualNo">
+                                                <input type="number" id="individualNo" required>
                                             </label>
                                         </section>
                                         <section class="col col-3">
                                             <label class="label">No. of teaching and non-teaching personnel </label>
                                             <label class="input ">
-                                                <input type="number" id="personnel">
+                                                <input type="number" id="personnel" required>
                                             </label>
                                         </section>
 
@@ -105,14 +105,14 @@
                                         <section class="col col-6">
                                             <label class="label">No. of resident learners/Enrolment of the school used as EC  </label>
                                             <label class="input ">
-                                                <input type="number" id="residentLearners">
+                                                <input type="number" id="residentLearners" required>
                                             </label>
                                         </section>
 
                                         <section class="col col-6">
                                             <label class="label">No. of evacuee-learners </label>
                                             <label class="input ">
-                                                <input type="number" id="evacueeLearners">
+                                                <input type="number" id="evacueeLearners" required>
                                             </label>
                                         </section>
 
@@ -122,20 +122,20 @@
                                         <section class="col col-4">
                                             <label class="label">Affected Schools (Floods and Landslides) (Names of schools)</label>
                                             <label class="input ">
-                                                <input type="text" id="affectedSchool">
+                                                <input type="text" id="affectedSchool" required>
                                             </label>
                                         </section>
                                         <section class="col col-4">
                                             <label class="label">No. of affected learners </label>
                                             <label class="input ">
-                                                <input type="number" id="affectedLearners">
+                                                <input type="number" id="affectedLearners" required>
                                             </label>
                                         </section>
 
                                         <section class="col col-4">
                                             <label class="label">No. of learner casualties </label>
                                             <label class="input ">
-                                                <input type="number" id="learnerCasualties">
+                                                <input type="number" id="learnerCasualties" required>
                                             </label>
                                         </section>
 
@@ -146,19 +146,19 @@
                                         <section class="col col-4">
                                             <label class="label">Cause of death </label>
                                             <label class="input ">
-                                                <input type="number" id="causeOfDeath">
+                                                <input type="number" id="causeOfDeath" required>
                                             </label>
                                         </section>
                                         <section class="col col-4">
                                             <label class="label">No. of affected teaching personnel </label>
                                             <label class="input ">
-                                                <input type="number" id="affectedTPNum">
+                                                <input type="number" id="affectedTPNum" required>
                                             </label>
                                         </section>
                                         <section class="col col-4">
                                             <label class="label">No. of affected non-teaching personnel </label>
                                             <label class="input ">
-                                                <input type="number" id="affectedNTPNum">
+                                                <input type="number" id="affectedNTPNum" required>
                                             </label>
                                         </section>
                                     </div>
@@ -171,25 +171,25 @@
                                         <section class="col col-3">
                                             <label class="label">Totally damaged (1.5 M)</label>
                                             <label class="input ">
-                                                <input type="number" id="totalDamage">
+                                                <input type="number" id="totalDamage" required>
                                             </label>
                                         </section>
                                         <section class="col col-3">
                                             <label class="label">Partially-Major Damaged (500 thou)</label>
                                             <label class="input ">
-                                                <input type="number" id="partialMajorDamage">
+                                                <input type="number" id="partialMajorDamage" required>
                                             </label>
                                         </section>
                                         <section class="col col-3">
                                             <label class="label">Partially Minor Damaged (20 thou) </label>
                                             <label class="input ">
-                                                <input type="number" id="partialMinorDamage">
+                                                <input type="number" id="partialMinorDamage" required>
                                             </label>
                                         </section>
                                         <section class="col col-3">
                                             <label class="label">No. of TLS units needed  (85,300)</label>
                                             <label class="input ">
-                                                <input type="number" id="TLSNeededNum">
+                                                <input type="number" id="TLSNeededNum" required>
                                             </label>
                                         </section>
 
@@ -199,25 +199,25 @@
                                         <section class="col col-3">
                                             <label class="label">No. of Furniture (Armchairs) Damaged *per unit</label>
                                             <label class="input ">
-                                                <input type="number" id="armchairDamage">
+                                                <input type="number" id="armchairDamage" required>
                                             </label>
                                         </section>
                                         <section class="col col-3">
                                             <label class="label" style="font-size:80%">No. of Furniture (Desks/Tables & chairs) Damaged*per unit</label>
                                             <label class="input ">
-                                                <input type="number" id="tableChairDamage">
+                                                <input type="number" id="tableChairDamage" required>
                                             </label>
                                         </section>
                                         <section class="col col-3">
                                             <label class="label">No. of damaged LMs (per unit) </label>
                                             <label class="input ">
-                                                <input type="number" id="LMDamage">
+                                                <input type="number" id="LMDamage" required>
                                             </label>
                                         </section>
                                         <section class="col col-3">
                                             <label class="label">No. of damaged computers</label>
                                             <label class="input ">
-                                                <input type="number" id="computerDamage">
+                                                <input type="number" id="computerDamage" required>
                                             </label>
                                         </section>
 
@@ -226,14 +226,14 @@
                                         <section class="col col-6">
                                             <label class="label">Need for Clean-Up 20 thou *tick 1 per school</label>
                                             <label class="input ">
-                                                <input type="number" id="cleanUp">
+                                                <input type="number" id="cleanUp" required>
                                             </label>
                                         </section>
 
                                         <section class="col col-6">
                                             <label class="label">Need for Psychological First Aid (PFA) *tick 1 per school  </label>
                                             <label class="input ">
-                                                <input type="number" id="PFA">
+                                                <input type="number" id="PFA" required>
                                             </label>
                                         </section>
 
@@ -244,7 +244,7 @@
                             </fieldset>
 
                             <footer>
-                                <button type="button" id="submit" class="btn btn-primary">Save</button>
+                                <button type="submit" id="submit" class="btn btn-primary">Save</button>
                                 <button type="button" class="btn btn-default" onclick="window.history.back();">Back</button>
                             </footer>
                         </form>

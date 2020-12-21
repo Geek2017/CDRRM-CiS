@@ -54,6 +54,7 @@
                 <thead>
                     <tr>
 
+                        <th>#</th>
                         <th>Date</th>
                         <th>Number of Barangays Evacuated</th>
                         <th>Number of Evacuation Center</th>
@@ -90,6 +91,7 @@
                     </th> -->
 
                     <tr ng-repeat="ncf in cf.details ">
+                        <td>{{$index + 1}}</td>
                         <td>{{cf.date}}</td>
                         <td>{{cf.barangayEvacuated}}</td>
                         <td>{{cf.evacCenterNo}}</td>

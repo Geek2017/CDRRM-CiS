@@ -20,8 +20,9 @@ angular.module('newApp').controller('rnenewCtrl', function($scope) {
     // console.log(division);
 
     
-    
-    $("#submit").click(function() {
+    $('#newrne').on('submit', function (e) {
+        e.preventDefault();
+    // $("#submit").click(function() {
             // console.log(municipality);
             // console.log(host);
             // console.log(accomodated);

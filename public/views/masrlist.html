@@ -7,6 +7,24 @@
         width: 50%;
         float: left;
     }
+
+    #sig-canvas {
+        border: 2px dotted #CCCCCC;
+        border-radius: 15px;
+        cursor: crosshair;
+    }
+    
+    #sig-canvas2 {
+        border: 2px dotted #CCCCCC;
+        border-radius: 15px;
+        cursor: crosshair;
+    }
+    
+    #sig-canvas3 {
+        border: 2px dotted #CCCCCC;
+        border-radius: 15px;
+        cursor: crosshair;
+    }
 </style>
 
 <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
@@ -50,6 +68,10 @@
                         <!-- <th>#</th> -->
                         <th>Date</th>
                         <th>Background Information</th>
+                        <th>Emergency Response Activities Undertaken</th>
+                        <th>Problems, Issues and Concerns</th>
+                        <th>Action Taken and Recommendations/Suggestions</th>
+                        <th>Other Reports</th>
                         <!-- <th>Dead (Confirmed)</th>
                         <th>Dead (Reported)</th>
                         <th>Missing</th>
@@ -66,6 +88,10 @@
                     <tr ng-repeat="ncf in cf.background ">
                         <td>{{cf.date}}</td>
                         <td>{{ncf['Background Infromation']}}</td>
+                        <td>{{cf.ercu[0]['Description']}}</td>
+                        <td>{{cf.pic[0]['Description']}}</td>
+                        <td>{{cf.atn[0]['Description']}}</td>
+                        <td>{{cf.or[0]['Description']}}</td>
                         <!-- <td>{{cf.dead_confirmed}}</td>
                         <td>{{cf.dead_reported}}</td>
                         <td>{{cf.missing}}</td>
@@ -158,9 +184,9 @@
 
                                     </tr>
                                 </thead>
-                                <tbody id="appendhereb">
+                                <tbody id="appendhereb" ng-repeat="ncf in usersClicked.background">
                                     <tr>
-                                        <td class='col-md-10'><label class='textarea'><textarea rows='5' ></textarea></label></td>
+                                        <td class='col-md-10'><label class='textarea'><textarea rows='5' ng-model="ncf['Background Infromation']"></textarea></label></td>
                                     </tr>
 
                                 </tbody>
@@ -190,13 +216,13 @@
                                         <th>Description</th>
                                     </tr>
                                 </thead>
-                                <tbody id="appendherec">
+                                <tbody id="appendherec" ng-repeat="ncf in usersClicked.ercu">
                                     <tr>
                                         <td class="col-md-2"><label class="input"> 
-                                            <input type="text" name="Number_of_Cases" placeholder="2.1">
+                                            <input type="text" name="Number_of_Cases" placeholder="2.1" ng-model="ncf['Version']">
                                         </label>
                                         </td>
-                                        <td class='col-md-10'><label class='textarea'><textarea rows='5' ></textarea></label></td>
+                                        <td class='col-md-10'><label class='textarea'><textarea rows='5' ng-model="ncf['Description']"></textarea></label></td>
                                     </tr>
                                 </tbody>
 
@@ -223,13 +249,13 @@
                                         <th>Description</th>
                                     </tr>
                                 </thead>
-                                <tbody id="appendhered">
+                                <tbody id="appendhered" ng-repeat="ncf in usersClicked.pic">
                                     <tr>
                                         <td class="col-md-2"><label class="input"> 
-                                            <input type="text" name="Number_of_Cases" placeholder="2.1">
+                                            <input type="text" name="Number_of_Cases" placeholder="2.1" ng-model="ncf['Version']">
                                         </label>
                                         </td>
-                                        <td class='col-md-10'><label class='textarea'><textarea rows='5' ></textarea></label></td>
+                                        <td class='col-md-10'><label class='textarea'><textarea rows='5' ng-model="ncf['Description']"></textarea></label></td>
                                     </tr>
                                 </tbody>
 
@@ -258,12 +284,12 @@
                                         <th>Description</th>
                                     </tr>
                                 </thead>
-                                <tbody id="appendheree">
+                                <tbody id="appendheree" ng-repeat="ncf in usersClicked.atn">
                                     <tr>
                                         <td class="col-md-2"><label class="input"> 
-                                            <input type="text" name="Number_of_Cases" placeholder="2.1">
+                                            <input type="text" name="Number_of_Cases" placeholder="2.1" ng-model="ncf['Version']">
                                         </label>
-                                            <td class='col-md-10'><label class='textarea'><textarea rows='5' ></textarea></label></td>
+                                            <td class='col-md-10'><label class='textarea'><textarea rows='5' ng-model="ncf['Description']"></textarea></label></td>
                                     </tr>
                                 </tbody>
 
@@ -291,12 +317,12 @@
                                         <th>Description</th>
                                     </tr>
                                 </thead>
-                                <tbody id="appendheref">
+                                <tbody id="appendheref" ng-repeat="ncf in usersClicked.or">
                                     <tr>
                                         <td class="col-md-2"><label class="input"> 
-                                            <input type="text" name="Number_of_Cases" placeholder="2.1">
+                                            <input type="text" name="Number_of_Cases" placeholder="2.1" ng-model="ncf['Version']">
                                         </label>
-                                            <td class='col-md-10'><label class='textarea'><textarea rows='5' ></textarea></label></td>
+                                            <td class='col-md-10'><label class='textarea'><textarea rows='5' ng-model="ncf['Description']"></textarea></label></td>
                                     </tr>
                                 </tbody>
 
@@ -318,7 +344,7 @@
                         <section class="col col-6">
                             <label class="label">Prepared by:</label>
                             <label class="input ">
-                                <input type="text" ng-model="preparedBy" id="preparedBy">
+                                <input type="text" ng-model="clickedUser.preparedBy" id="preparedBy">
                             </label>
                         </section>
 
@@ -333,7 +359,7 @@
 
                         </section>
                         <section class="col col-12 pull-right">
-                            <img id="sig-image" src="" alt="Your signature will go here!" />
+                            <img id="sig-image" src="{{clickedUser.signature}}" alt="Your signature will go here!" />
                         </section>
 
                     </div>
@@ -349,7 +375,7 @@
                         <section class="col col-6">
                             <label class="label">Submmitted By:</label>
                             <label class="input ">
-                                <input type="text"  ng-model="submitted" id="submitted">
+                                <input type="text"  ng-model="clickedUser.submitted" id="submitted">
                             </label>
                         </section>
 
@@ -364,7 +390,7 @@
 
                         </section>
                         <section class="col col-12 pull-right">
-                            <img id="sig-image2" src="" alt="Your signature will go here!" />
+                            <img id="sig-image2" src="{{clickedUser.signature2}}" alt="Your signature will go here!" />
                         </section>
 
                     </div>
@@ -471,5 +497,41 @@
 
         </div>
 
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+    <div class="modal-dialog" role="document">
+
+        <div class="modal-content">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">X</button>
+            <div class="modal-body sign">
+
+                <canvas id="sig-canvas"> </canvas>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="sig-clearBtn">Reset</button>
+                <button type="button" class="btn btn-primary" id="sig-submitBtn">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+
+    <div class="modal-dialog" role="document">
+
+        <div class="modal-content">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">X</button>
+            <div class="modal-body sign">
+
+                <canvas id="sig-canvas2"> </canvas>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="sig-clearBtn2">Reset</button>
+                <button type="button" class="btn btn-primary" id="sig-submitBtn2">Save</button>
+            </div>
+        </div>
     </div>
 </div>
