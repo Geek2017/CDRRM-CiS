@@ -65,7 +65,7 @@
                         <th colspan="3">Controls</th>
                     </tr>
                 </thead>
-                <tbody ng-repeat="cf in cfs  | startFrom:currentPage*pageSize | limitTo:pageSize |filter:findcf">
+                <tbody ng-repeat="cf in cfs  | filter: findcf">
 
                     <!-- <th colspan="6" class=""></th>
                     <th colspan="4">Action</th> -->
@@ -144,17 +144,6 @@
 
     </div>
 
-    <!-- <span id="here"></span> -->
-    <div class="btn-group btn-group-xs pull-right">
-        <button class="btn btn-primary" ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
-            Back
-        </button>
-        <button class="btn btn-primary">{{currentPage+1}} of {{numberOfPages()}}</button>
-        <button class="btn btn-primary" ng-disabled="currentPage >= data.length/pageSize - 1"
-            ng-click="currentPage=currentPage+1">
-            Next
-        </button>
-    </div>
     <!-- <div class="btn-group btn-group-xs pull-right">
         <button class="btn btn-primary" ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
        Back
@@ -543,14 +532,14 @@
                 </div>
 
                 <div class="btn-group btn-group-xs pull-right">
-        <button class="btn btn-primary" ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
+                    <button class="btn btn-primary" ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
        Back
       </button>
-        <button class="btn btn-primary">{{currentPage+1}} of {{numberOfPages()}}</button>
-        <button class="btn btn-primary" ng-disabled="currentPage >= data.length/pageSize - 1" ng-click="currentPage=currentPage+1">
+                    <button class="btn btn-primary">{{currentPage+1}} of {{numberOfPages()}}</button>
+                    <button class="btn btn-primary" ng-disabled="currentPage >= data.length/pageSize - 1" ng-click="currentPage=currentPage+1">
         Next
       </button>
-    </div>
+                </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" ng-click="close()">Close</button>
                     <!-- <button type="button" class="btn btn-danger" ng-click="deleteUser()">Yes</button> -->
