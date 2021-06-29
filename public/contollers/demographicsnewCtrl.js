@@ -194,7 +194,7 @@ angular.module('newApp').controller('demographicsnewCtrl', function ($scope) {
             spaceOD: $('#spaceOD').val(),
             sam: $('#sam').val(),
             mam: $("#mam").val(),
-            consulations: $("#consulations").val(),
+            // consulations: $("#consulations").val(),
             prenatal: $("#prenatal").val(),
             referrals: $("#referrals").val(),
             measles: $("#measles").val(),
